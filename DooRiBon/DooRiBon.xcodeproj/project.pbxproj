@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
+		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
+		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
+		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
+		BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D2268B4B3900C4F233 /* LaunchScreen.storyboard */; };
+		BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2E4268B52AD00C4F233 /* MainStoryboard.storyboard */; };
+		BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2E6268B52BD00C4F233 /* MainViewController.swift */; };
+		BD75C2E9268B575E00C4F233 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2E8268B575E00C4F233 /* Device.swift */; };
+		BD75C2EC268B57E700C4F233 /* CellEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2EB268B57E700C4F233 /* CellEmpty.swift */; };
+		BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2EE268B580900C4F233 /* ServiceEmpty.swift */; };
+		BD75C2F2268B582A00C4F233 /* ModelEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F1268B582A00C4F233 /* ModelEmpty.swift */; };
+		BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F5268B58AD00C4F233 /* ViewEmpty.swift */; };
+		BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F7268B58B500C4F233 /* ProtocolEmpty.swift */; };
+		BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F9268B58E000C4F233 /* APIConstants.swift */; };
+		BD75C2FC268B5A6100C4F233 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2FB268B5A6100C4F233 /* APIKey.swift */; };
+		BD75C2FE268B5B7B00C4F233 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2FD268B5B7B00C4F233 /* UIColor+Extension.swift */; };
+		BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */; };
+		BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C301268B5BDF00C4F233 /* FontEmpty.swift */; };
+		BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C303268B5C7300C4F233 /* UIView+Extension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
+		4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRiBon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.release.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.release.xcconfig"; sourceTree = "<group>"; };
+		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BD75C2D0268B4B3900C4F233 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD75C2D3268B4B3900C4F233 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD75C2D5268B4B3900C4F233 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD75C2E4268B52AD00C4F233 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		BD75C2E6268B52BD00C4F233 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BD75C2E8268B575E00C4F233 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		BD75C2EB268B57E700C4F233 /* CellEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellEmpty.swift; sourceTree = "<group>"; };
+		BD75C2EE268B580900C4F233 /* ServiceEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEmpty.swift; sourceTree = "<group>"; };
+		BD75C2F1268B582A00C4F233 /* ModelEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEmpty.swift; sourceTree = "<group>"; };
+		BD75C2F5268B58AD00C4F233 /* ViewEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEmpty.swift; sourceTree = "<group>"; };
+		BD75C2F7268B58B500C4F233 /* ProtocolEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolEmpty.swift; sourceTree = "<group>"; };
+		BD75C2F9268B58E000C4F233 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		BD75C2FB268B5A6100C4F233 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		BD75C2FD268B5B7B00C4F233 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		BD75C301268B5BDF00C4F233 /* FontEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEmpty.swift; sourceTree = "<group>"; };
+		BD75C303268B5C7300C4F233 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD75C2C1268B4B3800C4F233 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15D308F1FE297543BA7FF80A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD75C2BB268B4B3700C4F233 = {
+			isa = PBXGroup;
+			children = (
+				BD75C2C6268B4B3800C4F233 /* DooRiBon */,
+				BD75C2C5268B4B3800C4F233 /* Products */,
+				DD665D5B38E29E0B2DEF1B9E /* Pods */,
+				15D308F1FE297543BA7FF80A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BD75C2C5268B4B3800C4F233 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2C4268B4B3800C4F233 /* DooRiBon.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD75C2C6268B4B3800C4F233 /* DooRiBon */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2E2268B518600C4F233 /* Application */,
+				BD75C2DB268B4DEE00C4F233 /* Resources */,
+				BD75C2DC268B4DFD00C4F233 /* Sources */,
+			);
+			path = DooRiBon;
+			sourceTree = "<group>";
+		};
+		BD75C2DB268B4DEE00C4F233 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2D0268B4B3900C4F233 /* Assets.xcassets */,
+				BD75C2DD268B4E4800C4F233 /* Constants */,
+				BD75C2DE268B4E5200C4F233 /* Secret */,
+				BD75C2E1268B510D00C4F233 /* Font */,
+				BD75C2E0268B501400C4F233 /* Extensions */,
+				BD75C2DF268B4E7200C4F233 /* CommonClass */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BD75C2DC268B4DFD00C4F233 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2E3268B522000C4F233 /* Main */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BD75C2DD268B4E4800C4F233 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2F9268B58E000C4F233 /* APIConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		BD75C2DE268B4E5200C4F233 /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2FB268B5A6100C4F233 /* APIKey.swift */,
+			);
+			path = Secret;
+			sourceTree = "<group>";
+		};
+		BD75C2DF268B4E7200C4F233 /* CommonClass */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2E8268B575E00C4F233 /* Device.swift */,
+			);
+			path = CommonClass;
+			sourceTree = "<group>";
+		};
+		BD75C2E0268B501400C4F233 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2FD268B5B7B00C4F233 /* UIColor+Extension.swift */,
+				BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */,
+				BD75C303268B5C7300C4F233 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BD75C2E1268B510D00C4F233 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C301268B5BDF00C4F233 /* FontEmpty.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		BD75C2E2268B518600C4F233 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */,
+				BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */,
+				BD75C2D5268B4B3900C4F233 /* Info.plist */,
+				BD75C2D2268B4B3900C4F233 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BD75C2E3268B522000C4F233 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2E4268B52AD00C4F233 /* MainStoryboard.storyboard */,
+				BD75C2E6268B52BD00C4F233 /* MainViewController.swift */,
+				BD75C2F0268B581100C4F233 /* Models */,
+				BD75C2ED268B57F400C4F233 /* Services */,
+				BD75C2EA268B578700C4F233 /* Cells */,
+				BD75C2F3268B588A00C4F233 /* Views */,
+				BD75C2F4268B589B00C4F233 /* Protocols */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BD75C2EA268B578700C4F233 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2EB268B57E700C4F233 /* CellEmpty.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BD75C2ED268B57F400C4F233 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2EE268B580900C4F233 /* ServiceEmpty.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BD75C2F0268B581100C4F233 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2F1268B582A00C4F233 /* ModelEmpty.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BD75C2F3268B588A00C4F233 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2F5268B58AD00C4F233 /* ViewEmpty.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BD75C2F4268B589B00C4F233 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2F7268B58B500C4F233 /* ProtocolEmpty.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DD665D5B38E29E0B2DEF1B9E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */,
+				865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD75C2C3268B4B3800C4F233 /* DooRiBon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD75C2D8268B4B3900C4F233 /* Build configuration list for PBXNativeTarget "DooRiBon" */;
+			buildPhases = (
+				48367F795EBC3A93BC6C2D09 /* [CP] Check Pods Manifest.lock */,
+				BD75C2C0268B4B3800C4F233 /* Sources */,
+				BD75C2C1268B4B3800C4F233 /* Frameworks */,
+				BD75C2C2268B4B3800C4F233 /* Resources */,
+				CBD8F135C30B85A02DE4519B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DooRiBon;
+			productName = DooRiBon;
+			productReference = BD75C2C4268B4B3800C4F233 /* DooRiBon.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD75C2BC268B4B3700C4F233 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					BD75C2C3268B4B3800C4F233 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = BD75C2BF268B4B3700C4F233 /* Build configuration list for PBXProject "DooRiBon" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD75C2BB268B4B3700C4F233;
+			productRefGroup = BD75C2C5268B4B3800C4F233 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD75C2C3268B4B3800C4F233 /* DooRiBon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD75C2C2268B4B3800C4F233 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */,
+				BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */,
+				BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48367F795EBC3A93BC6C2D09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DooRiBon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBD8F135C30B85A02DE4519B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DooRiBon/Pods-DooRiBon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DooRiBon/Pods-DooRiBon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DooRiBon/Pods-DooRiBon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD75C2C0268B4B3800C4F233 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */,
+				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
+				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
+				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
+				BD75C2FE268B5B7B00C4F233 /* UIColor+Extension.swift in Sources */,
+				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
+				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
+				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
+				BD75C2FC268B5A6100C4F233 /* APIKey.swift in Sources */,
+				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
+				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
+				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
+				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
+				BD75C2F2268B582A00C4F233 /* ModelEmpty.swift in Sources */,
+				BD75C2EC268B57E700C4F233 /* CellEmpty.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BD75C2D2268B4B3900C4F233 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD75C2D3268B4B3900C4F233 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD75C2D6268B4B3900C4F233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD75C2D7268B4B3900C4F233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD75C2D9268B4B3900C4F233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W895YM7ZMH;
+				INFOPLIST_FILE = DooRiBon/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooribon.DooRiBon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BD75C2DA268B4B3900C4F233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W895YM7ZMH;
+				INFOPLIST_FILE = DooRiBon/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooribon.DooRiBon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD75C2BF268B4B3700C4F233 /* Build configuration list for PBXProject "DooRiBon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD75C2D6268B4B3900C4F233 /* Debug */,
+				BD75C2D7268B4B3900C4F233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD75C2D8268B4B3900C4F233 /* Build configuration list for PBXNativeTarget "DooRiBon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD75C2D9268B4B3900C4F233 /* Debug */,
+				BD75C2DA268B4B3900C4F233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD75C2BC268B4B3700C4F233 /* Project object */;
+}
