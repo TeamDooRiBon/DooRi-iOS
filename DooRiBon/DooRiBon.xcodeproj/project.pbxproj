@@ -26,10 +26,11 @@
 		BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F5268B58AD00C4F233 /* ViewEmpty.swift */; };
 		BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F7268B58B500C4F233 /* ProtocolEmpty.swift */; };
 		BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F9268B58E000C4F233 /* APIConstants.swift */; };
-		BD75C2FE268B5B7B00C4F233 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2FD268B5B7B00C4F233 /* UIColor+Extension.swift */; };
 		BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */; };
 		BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C301268B5BDF00C4F233 /* FontEmpty.swift */; };
 		BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C303268B5C7300C4F233 /* UIView+Extension.swift */; };
+		BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF1C119268E287900C82CF6 /* Colors.xcassets */; };
+		BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,10 +57,11 @@
 		BD75C2F5268B58AD00C4F233 /* ViewEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEmpty.swift; sourceTree = "<group>"; };
 		BD75C2F7268B58B500C4F233 /* ProtocolEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolEmpty.swift; sourceTree = "<group>"; };
 		BD75C2F9268B58E000C4F233 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
-		BD75C2FD268B5B7B00C4F233 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		BD75C301268B5BDF00C4F233 /* FontEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEmpty.swift; sourceTree = "<group>"; };
 		BD75C303268B5C7300C4F233 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BDF1C119268E287900C82CF6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				BD75C2D0268B4B3900C4F233 /* Assets.xcassets */,
+				BDF1C119268E287900C82CF6 /* Colors.xcassets */,
 				BD75C2DD268B4E4800C4F233 /* Constants */,
 				BD75C2E1268B510D00C4F233 /* Font */,
 				BD75C2E0268B501400C4F233 /* Extensions */,
@@ -134,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				BD75C2F9268B58E000C4F233 /* APIConstants.swift */,
+				BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -149,7 +153,6 @@
 		BD75C2E0268B501400C4F233 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BD75C2FD268B5B7B00C4F233 /* UIColor+Extension.swift */,
 				BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */,
 				BD75C303268B5C7300C4F233 /* UIView+Extension.swift */,
 			);
@@ -302,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
 				BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
 				BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
 				BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */,
@@ -366,10 +370,10 @@
 				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
-				BD75C2FE268B5B7B00C4F233 /* UIColor+Extension.swift in Sources */,
 				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
+				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
