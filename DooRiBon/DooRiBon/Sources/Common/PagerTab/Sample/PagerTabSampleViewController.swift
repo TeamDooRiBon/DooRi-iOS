@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class PagerTabSampleViewController: UIViewController {
     @IBOutlet private weak var pagerTab: PagerTab!
@@ -35,7 +36,7 @@ class PagerTabSampleComponent1ViewController: UIViewController, PageComponentPro
     }
 }
 
-class PagerTabSampleComponent2ViewController: UIViewController, PageComponentProtocol {
+class PagerTabSampleComponent2ViewController: UITableViewController, PageComponentProtocol {
     var pageTitle: String {
         "component2"
     }
@@ -43,6 +44,26 @@ class PagerTabSampleComponent2ViewController: UIViewController, PageComponentPro
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemIndigo
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        30
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let label = UILabel()
+        cell.addSubview(label)
+        label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        label.text = "IndexPath : \(indexPath)"
+        cell.backgroundColor = .systemTeal
+        return cell
     }
 }
 

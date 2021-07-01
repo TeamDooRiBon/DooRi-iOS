@@ -72,6 +72,9 @@ class PagerTab: UIView {
         target.addChild(pageViewController)
         containerView.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: target)
+        pageViewController.view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
 
         pageContents = viewControllers.map {
             let button = UIButton()
