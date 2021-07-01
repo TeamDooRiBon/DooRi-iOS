@@ -25,16 +25,15 @@
 import UIKit
 
 extension UIFont {
-    public enum NotoSansType: String {
+    public enum SpoqaHanSansNeoType: String {
         case bold = "Bold"
+        case light = "Light"
         case medium = "Medium"
         case regular = "Regular"
         case thin = "Thin"
-        case light = "Light"
-        case demilight = "DemiLight"
     }
 
-    static func NotoSans(_ type: NotoSansType, size: CGFloat) -> UIFont {
-        return UIFont(name: "NotoSansCJKkr-\(type.rawValue)", size: size)!
+    static func SpoqaHanSansNeo(_ type: SpoqaHanSansNeoType, size: CGFloat) -> UIFont {
+        return UIFont(name: "SpoqaHanSansNeo-\(type.rawValue)", size: size)!
     }
 }
