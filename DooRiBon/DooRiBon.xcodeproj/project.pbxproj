@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BD3B9268E193E00702EC5 /* PagerTab.swift */; };
+		0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BD3BB268E1C6C00702EC5 /* PagerTabSampleViewController.swift */; };
+		0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */; };
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */; };
 		BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */; };
@@ -34,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1BD3B9268E193E00702EC5 /* PagerTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTab.swift; sourceTree = "<group>"; };
+		0A1BD3BB268E1C6C00702EC5 /* PagerTabSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTabSampleViewController.swift; sourceTree = "<group>"; };
+		0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PagerTabSampleViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRiBon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.release.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +82,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1BD3B8268E192400702EC5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0A1BD3BD268E1C7000702EC5 /* PagerTab */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0A1BD3BD268E1C7000702EC5 /* PagerTab */ = {
+			isa = PBXGroup;
+			children = (
+				0A1BD3B9268E193E00702EC5 /* PagerTab.swift */,
+				0A1BD3BE268E1E2900702EC5 /* Sample */,
+			);
+			path = PagerTab;
+			sourceTree = "<group>";
+		};
+		0A1BD3BE268E1E2900702EC5 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				0A1BD3BB268E1C6C00702EC5 /* PagerTabSampleViewController.swift */,
+				0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
 		15D308F1FE297543BA7FF80A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				BD75C2E3268B522000C4F233 /* Main */,
+				0A1BD3B8268E192400702EC5 /* Common */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -311,6 +344,7 @@
 				BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */,
 				BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */,
 				BD39D500268DE80D004714B6 /* SpoqaHanSansNeo-Light.ttf in Resources */,
+				0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */,
 				BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */,
 				BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */,
 				BD39D4FF268DE80D004714B6 /* SpoqaHanSansNeo-Bold.ttf in Resources */,
@@ -370,6 +404,7 @@
 				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
+				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
@@ -377,6 +412,7 @@
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
+				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
 				BD75C2F2268B582A00C4F233 /* ModelEmpty.swift in Sources */,
 				BD75C2EC268B57E700C4F233 /* CellEmpty.swift in Sources */,
