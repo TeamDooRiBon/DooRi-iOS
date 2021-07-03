@@ -19,8 +19,8 @@ class PagerTabSampleViewController: UIViewController {
             PagerTabSampleComponent3ViewController()
         ]
         var style = PagerTab.Style.default
-        style.titleActiveColor = .mainOrange
-        style.barColor = .mainOrange
+        style.titleActiveColor = Colors.pointOrange.color
+        style.barColor = Colors.pointOrange.color
         pagerTab.setup(self, viewControllers: viewControllers, style: style)
     }
 }
