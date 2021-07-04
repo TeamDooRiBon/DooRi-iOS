@@ -70,11 +70,13 @@ extension JoinTripViewController {
     }
     
     private func configureTextField() {
-        codeTextField.forEach {
-            /// 커서 안 깜빡이게 하기 (클리어)
-            $0.tintColor = .clear
-            $0.delegate = self
+        
+        for (index, textField) in codeTextField.enumerated() {
+            textField.tintColor = .clear
+            textField.delegate = self
+            textField.tag = index
         }
+
     }
     
     // MARK: - Private Functions
