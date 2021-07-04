@@ -95,4 +95,18 @@ extension JoinTripViewController {
 
 extension JoinTripViewController: UITextFieldDelegate {
     
+    // MARK: - 숫자 1개만 입력 가능하도록 제한
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        /// 숫자만 입력 가능하도록 - 사실 이 코드는 없어도 될 거라고 생각은 하지만 최대한 안전하게
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        
+        /// textField 델리게이트에서 현재 input창에 입력된 값을 구하고 싶은 경우 - 글자 수 구하는 데 사용
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+        
+        return allowedCharacters.isSuperset(of: characterSet) && newString.length <= 1
+    }
 }

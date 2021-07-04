@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -55,10 +54,10 @@
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white9"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="cMI-i4-xKt" secondAttribute="trailing" constant="2" id="2rL-Xa-DS3"/>
                                             <constraint firstAttribute="bottom" secondItem="cMI-i4-xKt" secondAttribute="bottom" constant="10" id="HpD-PT-WYg"/>
@@ -81,10 +80,10 @@
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white9"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Phm-cG-9hR" secondAttribute="trailing" constant="2" id="5au-OR-fHf"/>
                                             <constraint firstItem="Phm-cG-9hR" firstAttribute="leading" secondItem="pjj-oI-25H" secondAttribute="leading" constant="2" id="EW1-th-Dod"/>
@@ -107,10 +106,10 @@
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white9"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="37" id="UQm-c3-n4A"/>
                                             <constraint firstAttribute="trailing" secondItem="moY-PX-6uO" secondAttribute="trailing" constant="2" id="Vm9-eA-FF6"/>
@@ -133,10 +132,10 @@
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white9"/>
                                         <constraints>
                                             <constraint firstItem="W5w-R3-dTZ" firstAttribute="top" secondItem="yan-U2-E5M" secondAttribute="top" constant="10" id="LfM-lN-CrW"/>
                                             <constraint firstItem="W5w-R3-dTZ" firstAttribute="leading" secondItem="yan-U2-E5M" secondAttribute="leading" constant="2" id="QDJ-to-foC"/>
@@ -159,10 +158,10 @@
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white9"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="29U-rw-XTd" secondAttribute="trailing" constant="2" id="Ehg-sn-Txi"/>
                                             <constraint firstItem="29U-rw-XTd" firstAttribute="top" secondItem="Lr5-tj-863" secondAttribute="top" constant="10" id="M0g-LQ-nfu"/>
@@ -185,10 +184,10 @@
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white9"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="37" id="Mnh-yQ-VSX"/>
                                             <constraint firstItem="Erz-CZ-2fE" firstAttribute="top" secondItem="Hzf-3P-8D2" secondAttribute="top" constant="10" id="OZ1-so-Lt3"/>
@@ -273,8 +272,8 @@
         <namedColor name="white8">
             <color red="0.96899998188018799" green="0.97299998998641968" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="white9">
+            <color red="0.99199998378753662" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
