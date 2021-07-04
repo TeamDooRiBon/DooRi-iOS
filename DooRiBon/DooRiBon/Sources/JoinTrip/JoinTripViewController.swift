@@ -12,6 +12,11 @@ import SnapKit
 class JoinTripViewController: UIViewController {
     // MARK: - Properties
     
+    private var currentIndex: Int = 0 {
+        didSet {
+            activateCodeInputArea(index: currentIndex)
+        }
+    }
     
     // MARK: - IBOutlets
     
@@ -28,6 +33,13 @@ class JoinTripViewController: UIViewController {
         configureTextField()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        /// Activate Area
+        activateCodeInputArea(index: currentIndex)
+    }
+    
     
     // MARK: - IBActions
     @IBAction func joinTripButtonClicked(_ sender: Any) {
@@ -38,6 +50,8 @@ class JoinTripViewController: UIViewController {
 // MARK: - Set up
 
 extension JoinTripViewController {
+    
+    // MARK: - Configure
     
     private func configureUI() {
         /// Navigation Controller
@@ -52,6 +66,7 @@ extension JoinTripViewController {
                                          blur: 10,
                                          spread: 0)
         }
+        
     }
     
     private func configureTextField() {
@@ -62,6 +77,18 @@ extension JoinTripViewController {
         }
     }
     
+    // MARK: - Private Functions
+    
+    private func activateCodeInputArea(index: Int) {
+        codeStackView.arrangedSubviews[index].backgroundColor = Colors.backgroundBlue.color
+        codeStackView.arrangedSubviews[index].borderWidth = 1
+        codeStackView.arrangedSubviews[index].borderColor = Colors.subBlue1.color
+    }
+    
+    private func deactivateCodeInputArea(index: Int) {
+        codeStackView.arrangedSubviews[index].backgroundColor = Colors.white9.color
+        codeStackView.arrangedSubviews[index].borderColor = .clear
+    }
 }
 
 // MARK: - TextField Delegate
