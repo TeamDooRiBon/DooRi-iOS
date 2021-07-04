@@ -13,7 +13,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var mainPhoto: UIImageView!
     @IBOutlet weak var checkImage: UIImageView!
-    
+    @IBOutlet weak var shadeView: UIView!
+    var selectCheck = false
     
     //MARK:- override Function
     
@@ -21,21 +22,32 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         checkImage.isHidden = true
+        shadeView.alpha = 0
     }
     
     //MARK:- override var
     
     override var isSelected: Bool{
         didSet {
-            if isSelected {
+            if isSelected && !selectCheck {
                 checkImage.isHidden = false
+                shadeView.alpha = 0.7
+                selectCheck = true
+            } else if isSelected && selectCheck {
+                checkImage.isHidden = true
+                shadeView.alpha = 0
+                selectCheck = false
             } else {
                 checkImage.isHidden = true
+                shadeView.alpha = 0
+                selectCheck = false
             }
         }
     }
     
-    func setDate(imageName: String) {
+    //MARK:- Function
+    
+    func imageSet(imageName: String) {
         if let image = UIImage(named: imageName) {
             mainPhoto.image = image
         }

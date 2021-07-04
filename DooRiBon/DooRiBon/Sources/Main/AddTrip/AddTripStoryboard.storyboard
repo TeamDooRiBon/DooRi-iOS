@@ -4,11 +4,23 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Bold.ttf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="SpoqaHanSansNeo-Medium.ttf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+        <array key="SpoqaHanSansNeo-Regular.ttf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Add Trip View Controller-->
         <scene sceneID="sRI-Bw-1jI">
@@ -24,94 +36,125 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBc-aY-KFV">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="958"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS0-u8-Ayq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번들님의 새로운 여행 같이 시작해요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS0-u8-Ayq">
                                                 <rect key="frame" x="24" y="42" width="201" height="67"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="67" id="LDf-vw-XUO"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrb-fE-0PI">
-                                                <rect key="frame" x="25" y="134" width="41.5" height="26"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 이름을 지어주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrb-fE-0PI">
+                                                <rect key="frame" x="25" y="134" width="154.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="O45-7a-v11"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P24-vx-leK">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어디로 여행가세요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P24-vx-leK">
                                                 <rect key="frame" x="24" y="233" width="201" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="ql5-KR-3jk"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssb-Kb-yLb">
-                                                <rect key="frame" x="25" y="331" width="41.5" height="26"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 일정을 등록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssb-Kb-yLb">
+                                                <rect key="frame" x="25" y="331" width="169.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="ayW-zy-b9C"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq2-aQ-h2U">
-                                                <rect key="frame" x="25" y="364" width="31" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq2-aQ-h2U">
+                                                <rect key="frame" x="25" y="364" width="47" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="n4s-gi-UVO"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                                                <color key="textColor" name="gray5"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PZc-ET-U2Y">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. 물넘어 제주 속 두리번" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PZc-ET-U2Y">
                                                 <rect key="frame" x="24" y="168" width="327" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="IAZ-Im-cXE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHO-10-r6Q">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. 제주도 서귀포시" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHO-10-r6Q">
                                                 <rect key="frame" x="24" y="267" width="327" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="u06-Sc-ZVQ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5K-m9-M3C">
-                                                <rect key="frame" x="304" y="332" width="46" height="24"/>
+                                                <rect key="frame" x="239" y="332" width="111" height="24"/>
+                                                <color key="backgroundColor" name="pointBlue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="zfz-X9-Hxa"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                                <state key="normal" title="   + 날짜 추가하기   ">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcv-Rh-4Cl">
-                                                <rect key="frame" x="190" y="364" width="31" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="끝나는 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcv-Rh-4Cl">
+                                                <rect key="frame" x="190" y="364" width="58" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="hvg-FG-gs7"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                                                <color key="textColor" name="gray5"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-hi-ITK">
                                                 <rect key="frame" x="24" y="387" width="160" height="36"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWm-el-DvW">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWm-el-DvW">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                                <color key="backgroundColor" name="gray7"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="0bz-wa-RiT"/>
                                                     <constraint firstAttribute="bottom" secondItem="HWm-el-DvW" secondAttribute="bottom" id="5R2-l0-DHR"/>
@@ -120,18 +163,29 @@
                                                     <constraint firstItem="HWm-el-DvW" firstAttribute="top" secondItem="dXO-hi-ITK" secondAttribute="top" id="eow-B0-zYD"/>
                                                     <constraint firstAttribute="height" constant="36" id="mbb-Rp-lyG"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zo-4U-PtA">
                                                 <rect key="frame" x="190" y="387" width="160" height="36"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X72-D0-O1m">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X72-D0-O1m">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                                <color key="backgroundColor" name="gray7"/>
                                                 <constraints>
                                                     <constraint firstItem="X72-D0-O1m" firstAttribute="top" secondItem="7zo-4U-PtA" secondAttribute="top" id="0Kb-ko-5RW"/>
                                                     <constraint firstAttribute="width" constant="160" id="2Fn-Wq-Utx"/>
@@ -140,28 +194,39 @@
                                                     <constraint firstItem="X72-D0-O1m" firstAttribute="leading" secondItem="7zo-4U-PtA" secondAttribute="leading" id="R62-w5-1Sl"/>
                                                     <constraint firstAttribute="height" constant="36" id="kHE-mv-a50"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="gray6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPB-xT-s6y">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대표 사진을 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPB-xT-s6y">
                                                 <rect key="frame" x="25" y="447" width="200" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="s1z-LZ-4gG"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XQ-I4-TBy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행의 대표사진으로 활용될 사진을 두리번이 준비했어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XQ-I4-TBy">
                                                 <rect key="frame" x="25" y="476" width="325" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="RfS-eY-sbe"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                                                <color key="textColor" name="gray5"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zdk-FE-Rfx">
                                                 <rect key="frame" x="25" y="516" width="325" height="328"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="white8"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="328" id="7iG-tC-LGs"/>
                                                     <constraint firstAttribute="height" constant="328" id="zS2-jz-cgz"/>
@@ -196,7 +261,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="white8"/>
                                         <constraints>
                                             <constraint firstItem="wcv-Rh-4Cl" firstAttribute="leading" secondItem="7zo-4U-PtA" secondAttribute="leading" id="2kY-iS-JXe"/>
                                             <constraint firstAttribute="trailing" secondItem="wcv-Rh-4Cl" secondAttribute="trailing" constant="124" id="3sy-as-Pqs"/>
@@ -289,13 +354,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7O-gD-6PE">
                                 <rect key="frame" x="0.0" y="951" width="375" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu3-50-laf">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu3-50-laf">
                                         <rect key="frame" x="18" y="13" width="339" height="52"/>
-                                        <color key="backgroundColor" red="0.66274509800000003" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="gray7"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="XGc-Dg-Rfd"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
+                                        <state key="normal" title="새로운 여행 시작하기">
+                                            <color key="titleColor" name="black3"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="startNewTripButtonClicked:" destination="YzU-2l-2DC" eventType="touchUpInside" id="dgi-lB-UB7"/>
                                         </connections>
@@ -336,24 +409,13 @@
                     <navigationItem key="navigationItem" id="jg6-Uw-yA0"/>
                     <size key="freeformSize" width="375" height="1031"/>
                     <connections>
-                        <outlet property="addDateButton" destination="t5K-m9-M3C" id="v7s-bL-V0h"/>
                         <outlet property="endDateLabel" destination="X72-D0-O1m" id="I60-f5-lDM"/>
-                        <outlet property="endDateView" destination="7zo-4U-PtA" id="4By-1o-nMl"/>
-                        <outlet property="mainView" destination="gBc-aY-KFV" id="Tss-gU-V3r"/>
                         <outlet property="photoCollectionView" destination="Zdk-FE-Rfx" id="4aO-tw-lJa"/>
-                        <outlet property="photoSelectDetailLabel" destination="1XQ-I4-TBy" id="s88-BA-ekP"/>
-                        <outlet property="photoSelectLabel" destination="GPB-xT-s6y" id="ctD-bx-2LS"/>
                         <outlet property="startDateLabel" destination="HWm-el-DvW" id="t6l-UI-H9r"/>
-                        <outlet property="startDateView" destination="dXO-hi-ITK" id="Ukz-re-Lk1"/>
                         <outlet property="startNewTripButton" destination="bu3-50-laf" id="lDK-Sf-O65"/>
                         <outlet property="topLabel" destination="hS0-u8-Ayq" id="fKW-gv-tPB"/>
-                        <outlet property="tripEndDateLabel" destination="wcv-Rh-4Cl" id="d3k-ha-Ubi"/>
-                        <outlet property="tripLocationLabel" destination="P24-vx-leK" id="uaa-3l-bJJ"/>
                         <outlet property="tripLocationTextField" destination="aHO-10-r6Q" id="vfs-VU-NfC"/>
-                        <outlet property="tripNameLabel" destination="xrb-fE-0PI" id="2ce-y5-uTr"/>
                         <outlet property="tripNameTextField" destination="PZc-ET-U2Y" id="Tm2-rC-xPq"/>
-                        <outlet property="tripPlanLabel" destination="Ssb-Kb-yLb" id="K9B-9G-qnj"/>
-                        <outlet property="tripStartDateLabel" destination="Yq2-aQ-h2U" id="mj8-EC-eTV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJM-Fp-6bL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -381,11 +443,26 @@
     </scenes>
     <resources>
         <image name="backIcon" width="24" height="24"/>
+        <namedColor name="black3">
+            <color red="0.27799999713897705" green="0.29800000786781311" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray5">
+            <color red="0.62699997425079346" green="0.64300000667572021" blue="0.6589999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray6">
+            <color red="0.79199999570846558" green="0.80400002002716064" blue="0.81999999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray7">
+            <color red="0.91399997472763062" green="0.92199999094009399" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pointBlue">
+            <color red="0.41999998688697815" green="0.56099998950958252" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white8">
+            <color red="0.96899998188018799" green="0.97299998998641968" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

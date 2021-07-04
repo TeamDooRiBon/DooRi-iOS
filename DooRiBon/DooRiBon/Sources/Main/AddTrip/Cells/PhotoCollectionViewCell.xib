@@ -19,7 +19,24 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8MB-1K-cRq">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ui1-eH-aCQ">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCheck" translatesAutoresizingMaskIntoConstraints="NO" id="IQq-Ag-PPH">
                         <rect key="frame" x="20" y="20" width="10" height="10"/>
                     </imageView>
@@ -30,15 +47,20 @@
                 <constraint firstItem="IQq-Ag-PPH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="1ul-hP-0En"/>
                 <constraint firstItem="IQq-Ag-PPH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="5Cq-yr-now"/>
                 <constraint firstItem="8MB-1K-cRq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BcH-k1-QPY"/>
+                <constraint firstAttribute="bottom" secondItem="ui1-eH-aCQ" secondAttribute="bottom" id="E0n-CK-53Y"/>
                 <constraint firstAttribute="trailing" secondItem="IQq-Ag-PPH" secondAttribute="trailing" constant="20" id="Tfn-jr-mAT"/>
                 <constraint firstItem="8MB-1K-cRq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Xd9-FI-bCw"/>
+                <constraint firstItem="ui1-eH-aCQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eQQ-a0-WzF"/>
+                <constraint firstItem="ui1-eH-aCQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fi1-3F-QTR"/>
                 <constraint firstAttribute="bottom" secondItem="IQq-Ag-PPH" secondAttribute="bottom" constant="20" id="g5c-Lb-bUG"/>
                 <constraint firstAttribute="bottom" secondItem="8MB-1K-cRq" secondAttribute="bottom" id="mSp-TM-BEm"/>
                 <constraint firstAttribute="trailing" secondItem="8MB-1K-cRq" secondAttribute="trailing" id="mbI-TE-q57"/>
+                <constraint firstAttribute="trailing" secondItem="ui1-eH-aCQ" secondAttribute="trailing" id="zrK-xG-W5W"/>
             </constraints>
             <connections>
                 <outlet property="checkImage" destination="IQq-Ag-PPH" id="PI5-CG-c58"/>
                 <outlet property="mainPhoto" destination="8MB-1K-cRq" id="PV5-CY-0Fa"/>
+                <outlet property="shadeView" destination="ui1-eH-aCQ" id="9th-sE-rbM"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="94.419642857142847"/>
         </collectionViewCell>

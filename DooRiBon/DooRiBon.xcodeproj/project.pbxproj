@@ -15,7 +15,7 @@
 		40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */; };
 		40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */; };
 		40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */; };
-		40B5A090268EE2E500A89875 /* AddTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5A08F268EE2E500A89875 /* AddTrip.storyboard */; };
+		40B5A090268EE2E500A89875 /* AddTripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */; };
 		40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5A091268EE35100A89875 /* AddTripViewController.swift */; };
 		BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */; };
 		BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */; };
@@ -51,7 +51,7 @@
 		40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewModel.swift; sourceTree = "<group>"; };
-		40B5A08F268EE2E500A89875 /* AddTrip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTrip.storyboard; sourceTree = "<group>"; };
+		40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripStoryboard.storyboard; sourceTree = "<group>"; };
 		40B5A091268EE35100A89875 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRiBon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.release.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			children = (
 				40AE782C268F81B90058806B /* Models */,
 				40AE7825268F7F680058806B /* Cells */,
-				40B5A08F268EE2E500A89875 /* AddTrip.storyboard */,
+				40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */,
 				40B5A091268EE35100A89875 /* AddTripViewController.swift */,
 			);
 			path = AddTrip;
@@ -382,7 +382,7 @@
 			files = (
 				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
 				BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
-				40B5A090268EE2E500A89875 /* AddTrip.storyboard in Resources */,
+				40B5A090268EE2E500A89875 /* AddTripStoryboard.storyboard in Resources */,
 				BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
 				BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */,
 				BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */,
