@@ -12,6 +12,11 @@
 		0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */; };
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39865B35268F7DF700961BF4 /* CALayer+Extension.swift */; };
+		40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */; };
+		40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */; };
+		40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */; };
+		40B5A090268EE2E500A89875 /* AddTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5A08F268EE2E500A89875 /* AddTrip.storyboard */; };
+		40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5A091268EE35100A89875 /* AddTripViewController.swift */; };
 		BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */; };
 		BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */; };
 		BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F9268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf */; };
@@ -43,6 +48,11 @@
 		0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PagerTabSampleViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		39865B35268F7DF700961BF4 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewModel.swift; sourceTree = "<group>"; };
+		40B5A08F268EE2E500A89875 /* AddTrip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTrip.storyboard; sourceTree = "<group>"; };
+		40B5A091268EE35100A89875 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRiBon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.release.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.release.xcconfig"; sourceTree = "<group>"; };
 		BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
@@ -116,6 +126,34 @@
 				4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40AE7825268F7F680058806B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */,
+				40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		40AE782C268F81B90058806B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		40B5A08C268EE1ED00A89875 /* AddTrip */ = {
+			isa = PBXGroup;
+			children = (
+				40AE782C268F81B90058806B /* Models */,
+				40AE7825268F7F680058806B /* Cells */,
+				40B5A08F268EE2E500A89875 /* AddTrip.storyboard */,
+				40B5A091268EE35100A89875 /* AddTripViewController.swift */,
+			);
+			path = AddTrip;
 			sourceTree = "<group>";
 		};
 		BD75C2BB268B4B3700C4F233 = {
@@ -222,6 +260,7 @@
 		BD75C2E3268B522000C4F233 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				40B5A08C268EE1ED00A89875 /* AddTrip */,
 				BD75C2E4268B52AD00C4F233 /* MainStoryboard.storyboard */,
 				BD75C2E6268B52BD00C4F233 /* MainViewController.swift */,
 				BD75C2F0268B581100C4F233 /* Models */,
@@ -343,12 +382,14 @@
 			files = (
 				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
 				BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
+				40B5A090268EE2E500A89875 /* AddTrip.storyboard in Resources */,
 				BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
 				BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */,
 				BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */,
 				BD39D500268DE80D004714B6 /* SpoqaHanSansNeo-Light.ttf in Resources */,
 				0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */,
 				BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */,
+				40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */,
 				BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */,
 				BD39D4FF268DE80D004714B6 /* SpoqaHanSansNeo-Bold.ttf in Resources */,
 			);
@@ -403,16 +444,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */,
 				BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */,
 				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
+				40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,
+				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
