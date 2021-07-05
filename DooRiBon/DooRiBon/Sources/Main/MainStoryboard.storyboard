@@ -228,6 +228,9 @@
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="StartTripButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Zc3-tL-dlR"/>
+                                                        </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OhN-5e-I1y">
                                                         <rect key="frame" x="18" y="64" width="340" height="140"/>

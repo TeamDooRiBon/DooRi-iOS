@@ -45,6 +45,20 @@ class MainViewController: UIViewController {
         styleTripView.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: 4, blur: 6, spread: 0)
     }
     
+    @IBAction func StartTripButtonClicked(_ sender: Any) {
+        let vc = StartTripViewController(nibName: "StartTripViewController", bundle: nil)
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true) {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+            vc.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+        }
+    }
+    
+    @objc func dismissAlertController(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func setComeTripList()
     {
         comeTripList.append(contentsOf: [
