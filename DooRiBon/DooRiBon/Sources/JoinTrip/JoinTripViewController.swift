@@ -30,7 +30,7 @@ class JoinTripViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var codeStackView: UIStackView!
-    @IBOutlet var codeTextField: [UITextField]!
+    @IBOutlet var codeTextField: [CodeTextField]!
     @IBOutlet weak var joinButton: UIButton!
     
     
@@ -91,8 +91,14 @@ extension JoinTripViewController {
             textField.delegate = self
             textField.tag = index
         }
-
-    }
+            
+            textField.backspaceCalled = {
+                if index != 0  && textField.text == "" {
+                    self.currentIndex = index - 1
+                    self.codeTextField[self.currentIndex].text = ""
+                }
+            }
+        }
     
     // MARK: - Private Functions
     
