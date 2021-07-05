@@ -14,7 +14,16 @@ class JoinTripViewController: UIViewController {
     
     private var currentIndex: Int = 0 {
         didSet {
-            activateCodeInputArea(index: currentIndex)
+            if currentIndex == -1 {
+                activateCodeInputArea(index: 0)
+            }
+            codeTextField.forEach {
+                if $0.tag == currentIndex {
+                    activateCodeInputArea(index: $0.tag)
+                } else {
+                    deactivateCodeInputArea(index: $0.tag)
+                }
+            }
         }
     }
     
@@ -85,14 +94,24 @@ extension JoinTripViewController {
         codeStackView.arrangedSubviews[index].backgroundColor = Colors.backgroundBlue.color
         codeStackView.arrangedSubviews[index].borderWidth = 1
         codeStackView.arrangedSubviews[index].borderColor = Colors.subBlue1.color
+        
+        codeTextField[index].becomeFirstResponder()
     }
     
     private func deactivateCodeInputArea(index: Int) {
         codeStackView.arrangedSubviews[index].backgroundColor = Colors.white9.color
         codeStackView.arrangedSubviews[index].borderColor = .clear
+
+        codeTextField[index].resignFirstResponder()
     }
 }
 
+    private func deactivateTotalArea() {
+        codeStackView.arrangedSubviews.forEach {
+            $0.layer.borderColor = UIColor.clear.cgColor
+        }
+        activateCodeInputArea(index: currentIndex)
+    }
 // MARK: - TextField Delegate
 
 extension JoinTripViewController: UITextFieldDelegate {
