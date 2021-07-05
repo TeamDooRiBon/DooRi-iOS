@@ -12,6 +12,8 @@
 		0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */; };
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39865B35268F7DF700961BF4 /* CALayer+Extension.swift */; };
+		4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */; };
+		4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */; };
 		40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */; };
 		40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */; };
 		40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */; };
@@ -51,6 +53,8 @@
 		0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PagerTabSampleViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		39865B35268F7DF700961BF4 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripPlanStoryboard.storyboard; sourceTree = "<group>"; };
+		4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanViewController.swift; sourceTree = "<group>"; };
 		40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+
 		BD55F43D26919BF8004E7114 /* JoinTrip */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +147,14 @@
 				BD4EF4902691CB8300A6362D /* CodeTextField.swift */,
 			);
 			path = JoinTrip;
+
+		4091C6372692264F009EDB60 /* AddTripPlan */ = {
+			isa = PBXGroup;
+			children = (
+				4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */,
+				4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */,
+			);
+			path = AddTripPlan;
 			sourceTree = "<group>";
 		};
 		40AE7825268F7F680058806B /* Cells */ = {
@@ -217,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				BD55F43D26919BF8004E7114 /* JoinTrip */,
+				4091C6372692264F009EDB60 /* AddTripPlan */,
 				BD75C2E3268B522000C4F233 /* Main */,
 				0A1BD3B8268E192400702EC5 /* Common */,
 			);
@@ -410,6 +424,7 @@
 				40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */,
 				BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */,
 				BD39D4FF268DE80D004714B6 /* SpoqaHanSansNeo-Bold.ttf in Resources */,
+				4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +492,7 @@
 				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
+				4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */,
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
@@ -681,4 +697,5 @@
 /* End XCConfigurationList section */
 	};
 	rootObject = BD75C2BC268B4B3700C4F233 /* Project object */;
+	}
 }
