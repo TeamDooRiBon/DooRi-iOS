@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "filename" : "btnNotadd.png",
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "btnNotadd.png"
     },
     {
-      "filename" : "btnNotadd@2x.png",
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "btnNotadd@2x.png"
     },
     {
       "filename" : "btnNotadd@3x.png",
@@ -17,7 +17,7 @@
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }
