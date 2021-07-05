@@ -31,6 +31,7 @@ class JoinTripViewController: UIViewController {
     
     @IBOutlet weak var codeStackView: UIStackView!
     @IBOutlet var codeTextField: [UITextField]!
+    @IBOutlet weak var joinButton: UIButton!
     
     
     // MARK: - Life cycle
@@ -109,7 +110,13 @@ extension JoinTripViewController {
 
         codeTextField[index].resignFirstResponder()
     }
-}
+    private func activateTotalArea() {
+        codeStackView.arrangedSubviews.forEach {
+            $0.backgroundColor = Colors.white9.color
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = Colors.subBlue1.color.cgColor
+        }
+    }
 
     private func deactivateTotalArea() {
         codeStackView.arrangedSubviews.forEach {
