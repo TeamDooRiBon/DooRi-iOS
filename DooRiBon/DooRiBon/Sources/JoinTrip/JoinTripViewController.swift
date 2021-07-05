@@ -40,6 +40,7 @@ class JoinTripViewController: UIViewController {
         
         configureUI()
         configureTextField()
+        registerNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +50,10 @@ class JoinTripViewController: UIViewController {
         activateCodeInputArea(index: currentIndex)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        // 옵저버 해제
+        unregisterNotifications()
+    }
     
     // MARK: - IBActions
     @IBAction func joinTripButtonClicked(_ sender: Any) {
@@ -111,6 +116,36 @@ extension JoinTripViewController {
             $0.layer.borderColor = UIColor.clear.cgColor
         }
         activateCodeInputArea(index: currentIndex)
+    }
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(checkTextField), name: UITextField.textDidChangeNotification, object: nil)
+    }
+    private func unregisterNotifications() {
+        // self에 등록된 옵저버 전체 해제
+        NotificationCenter.default.removeObserver(self)
+    }
+    @objc
+    func checkTextField() {
+        if !codeTextField[currentIndex].text!.isEmpty && currentIndex < 5 {
+            currentIndex += 1
+        }
+        
+        var originArray: [UITextField] = []
+        codeTextField.forEach {
+            originArray.append($0)
+        }
+        let filteredArray = originArray.filter { $0.text == "" }
+        if !filteredArray.isEmpty {
+            joinButton.backgroundColor = Colors.gray7.color
+            joinButton.setTitleColor(Colors.gray4.color, for: .normal)
+            joinButton.setTitle("모두 입력해주세요", for: .normal)
+            deactivateTotalArea()
+        } else {
+            joinButton.backgroundColor = Colors.pointOrange.color
+            joinButton.setTitleColor(.white, for: .normal)
+            joinButton.setTitle("입력 완료", for: .normal)
+            activateTotalArea()
+        }
     }
 // MARK: - TextField Delegate
 
