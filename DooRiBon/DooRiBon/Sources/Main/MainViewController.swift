@@ -8,22 +8,29 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    // MARK: - 아울렛
+    
+    // 컬렉션, 테이블뷰
     @IBOutlet weak var comeTripCollectionView: UICollectionView!
     @IBOutlet weak var lastTripTableView: UITableView!
     
+    // 라벨
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var nowTripDateLabel: UILabel!
     @IBOutlet weak var nowTripTitleLabel: UILabel!
-    
     @IBOutlet weak var comeTripMenuLabel: UILabel!
     @IBOutlet weak var lastTripMenuLabel: UILabel!
     @IBOutlet weak var styleTripMenuLabel: UILabel!
+    
+    // 뷰
     @IBOutlet weak var styleTripView: UIView!
     
-    
+    // MARK: - 배열
     var comeTripList : [ComeTripListDataModel] = []
     var lastTripList : [LastTripListDataModel] = []
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +38,7 @@ class MainViewController: UIViewController {
         setComeTripList()
         setLastTripList()
         
+        // 컬렉션뷰 부분
         comeTripCollectionView.delegate = self
         comeTripCollectionView.dataSource = self
         
@@ -38,13 +46,18 @@ class MainViewController: UIViewController {
         layout.scrollDirection = .horizontal
         comeTripCollectionView.collectionViewLayout = layout
         
+        // 테이블 뷰 부분
         lastTripTableView.delegate = self
         lastTripTableView.dataSource = self
         
+        // 쉐도우
         comeTripCollectionView.layer.applyShadow(color: .black, alpha: 0.06, x: 3, y: 3, blur: 10, spread: 0)
         styleTripView.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: 4, blur: 6, spread: 0)
     }
     
+    // MARK: - 액션
+    
+    // 새로운 여행 시작하기 : 팝업 StartTrip 뷰컨으로 이동 -> 팝업과 뒷 화면을 연결해야함
     @IBAction func StartTripButtonClicked(_ sender: Any) {
         let vc = StartTripViewController(nibName: "StartTripViewController", bundle: nil)
         vc.modalPresentationStyle = .overCurrentContext
@@ -55,10 +68,14 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - 함수
+    
+    // StartTrip 팝업을 dismiss하는 함수
     @objc func dismissAlertController(){
         self.dismiss(animated: true, completion: nil)
     }
     
+    // 두근두근, 다가오는 여행 부분 데이터
     func setComeTripList()
     {
         comeTripList.append(contentsOf: [
@@ -71,6 +88,7 @@ class MainViewController: UIViewController {
         ])
     }
     
+    // 추억 속 지난 여행 부분 데이터
     func setLastTripList()
     {
         lastTripList.append(contentsOf: [
@@ -78,9 +96,9 @@ class MainViewController: UIViewController {
         LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
         LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),])
     }
-    
 }
 
+// MARK: - 익스텐션_컬렉션뷰
 extension MainViewController: UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -132,6 +150,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
     }
 }
 
+// MARK: - 익스텐션_테이블뷰
+
 extension MainViewController: UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -155,7 +175,4 @@ extension MainViewController: UITableViewDataSource
         
         return tripCell
     }
-}
-
-extension MainViewController {
 }
