@@ -47,7 +47,7 @@ class JoinTripViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        /// Activate Area
+        // 처음 시작시 첫째칸 활성화
         activateCodeInputArea(index: currentIndex)
     }
     
@@ -57,6 +57,7 @@ class JoinTripViewController: UIViewController {
     }
     
     // MARK: - IBActions
+    
     @IBAction func joinTripButtonClicked(_ sender: Any) {
         
     }
@@ -68,11 +69,12 @@ extension JoinTripViewController {
     
     // MARK: - Configure
     
+    /// UI 셋업
     private func configureUI() {
-        /// Navigation Controller
+        /// 네비게이션 바 숨김
         navigationController?.navigationBar.isHidden = true
         
-        /// Shadow
+        /// 코드칸 쉐도우 셋업
         for codeUIView in codeStackView.arrangedSubviews {
             codeUIView.layer.applyShadow(color: .black,
                                          alpha: 0.07,
@@ -81,17 +83,18 @@ extension JoinTripViewController {
                                          blur: 10,
                                          spread: 0)
         }
-        
     }
     
+    /// 텍스트필드 셋업
     private func configureTextField() {
-        
         for (index, textField) in codeTextField.enumerated() {
             textField.tintColor = .clear
             textField.delegate = self
             textField.tag = index
-        }
             
+            /// 코드칸 BackButton 버튼누를때마다 액션 - 클로저로 처리
+            /// - 빈칸에서 BackButton 클릭시 : 이전칸 내용 삭제 및 이전칸 포커스
+            /// - 마지막칸 채워져있는 상태에서 클릭시 : 내용만 삭제 및 포커스 유지
             textField.backspaceCalled = {
                 if index != 0  && textField.text == "" {
                     self.currentIndex = index - 1
@@ -99,9 +102,13 @@ extension JoinTripViewController {
                 }
             }
         }
+    }
     
     // MARK: - Private Functions
     
+    /// 코드칸 활성화 함수
+    /// - 1. 파란색으로 포커스
+    /// - 2. 키보드 지정
     private func activateCodeInputArea(index: Int) {
         codeStackView.arrangedSubviews[index].backgroundColor = Colors.backgroundBlue.color
         codeStackView.arrangedSubviews[index].borderWidth = 1
@@ -110,12 +117,18 @@ extension JoinTripViewController {
         codeTextField[index].becomeFirstResponder()
     }
     
+    /// 코드칸 비활성화 함수
+    /// - 1. 색상 클리어
+    /// - 2. 키보드 지정
     private func deactivateCodeInputArea(index: Int) {
         codeStackView.arrangedSubviews[index].backgroundColor = Colors.white9.color
         codeStackView.arrangedSubviews[index].borderColor = .clear
 
         codeTextField[index].resignFirstResponder()
     }
+    
+    /// 전체칸 활성화 함수
+    /// - 칸 전부 채워졌을때 설정
     private func activateTotalArea() {
         codeStackView.arrangedSubviews.forEach {
             $0.backgroundColor = Colors.white9.color
@@ -123,20 +136,28 @@ extension JoinTripViewController {
             $0.layer.borderColor = Colors.subBlue1.color.cgColor
         }
     }
-
+    
+    /// 전체칸 비활성화 함수
+    /// - 전부채워진상태에서 지웠을 때 실행
     private func deactivateTotalArea() {
         codeStackView.arrangedSubviews.forEach {
             $0.layer.borderColor = UIColor.clear.cgColor
         }
         activateCodeInputArea(index: currentIndex)
     }
+    
+    /// 노티피케이션 등록
     private func registerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(checkTextField), name: UITextField.textDidChangeNotification, object: nil)
     }
+    
+    /// 노티피케이션 해제
     private func unregisterNotifications() {
         // self에 등록된 옵저버 전체 해제
         NotificationCenter.default.removeObserver(self)
     }
+    
+    /// 버튼 활성화/비활성화 체크해주기위해 텍스트필드 노티피케이션 등록
     @objc
     func checkTextField() {
         if !codeTextField[currentIndex].text!.isEmpty && currentIndex < 5 {
@@ -160,14 +181,14 @@ extension JoinTripViewController {
             activateTotalArea()
         }
     }
+}
+
 // MARK: - TextField Delegate
 
 extension JoinTripViewController: UITextFieldDelegate {
-    
     // MARK: - 숫자 1개만 입력 가능하도록 제한
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         /// 숫자만 입력 가능하도록 - 사실 이 코드는 없어도 될 거라고 생각은 하지만 최대한 안전하게
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
