@@ -147,7 +147,8 @@
 				BD4EF4902691CB8300A6362D /* CodeTextField.swift */,
 			);
 			path = JoinTrip;
-
+			sourceTree = "<group>";
+		};
 		4091C6372692264F009EDB60 /* AddTripPlan */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,5 +698,4 @@
 /* End XCConfigurationList section */
 	};
 	rootObject = BD75C2BC268B4B3700C4F233 /* Project object */;
-	}
-}
+  }
