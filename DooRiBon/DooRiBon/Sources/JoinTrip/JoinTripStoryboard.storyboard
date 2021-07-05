@@ -50,7 +50,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyU-Ae-vj7">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="48"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMI-i4-xKt">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMI-i4-xKt" customClass="CodeTextField" customModule="DooRiBon" customModuleProvider="target">
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
@@ -73,10 +73,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjj-oI-25H">
+                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjj-oI-25H">
                                         <rect key="frame" x="42" y="0.0" width="37" height="48"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-cG-9hR">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-cG-9hR" customClass="CodeTextField" customModule="DooRiBon" customModuleProvider="target">
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
@@ -99,10 +99,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx3-iK-wej">
+                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx3-iK-wej">
                                         <rect key="frame" x="84" y="0.0" width="37" height="48"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moY-PX-6uO">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moY-PX-6uO" customClass="CodeTextField" customModule="DooRiBon" customModuleProvider="target">
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
@@ -125,10 +125,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yan-U2-E5M">
+                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yan-U2-E5M">
                                         <rect key="frame" x="126" y="0.0" width="37" height="48"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W5w-R3-dTZ">
+                                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W5w-R3-dTZ" customClass="CodeTextField" customModule="DooRiBon" customModuleProvider="target">
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
@@ -151,10 +151,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lr5-tj-863">
+                                    <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lr5-tj-863">
                                         <rect key="frame" x="168" y="0.0" width="37" height="48"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="29U-rw-XTd">
+                                            <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="29U-rw-XTd" customClass="CodeTextField" customModule="DooRiBon" customModuleProvider="target">
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
@@ -177,10 +177,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzf-3P-8D2">
+                                    <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzf-3P-8D2">
                                         <rect key="frame" x="210" y="0.0" width="37" height="48"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Erz-CZ-2fE">
+                                            <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Erz-CZ-2fE" customClass="CodeTextField" customModule="DooRiBon" customModuleProvider="target">
                                                 <rect key="frame" x="2" y="10" width="33" height="28"/>
                                                 <color key="textColor" name="pointBlue"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="24"/>
@@ -245,6 +245,7 @@
                     </view>
                     <connections>
                         <outlet property="codeStackView" destination="XQE-Ee-txg" id="Szk-UO-fCU"/>
+                        <outlet property="joinButton" destination="EU9-kB-KSN" id="TAp-8c-XQ8"/>
                         <outletCollection property="codeTextField" destination="cMI-i4-xKt" collectionClass="NSMutableArray" id="c5Y-lr-J3T"/>
                         <outletCollection property="codeTextField" destination="Phm-cG-9hR" collectionClass="NSMutableArray" id="VNJ-xn-h4M"/>
                         <outletCollection property="codeTextField" destination="moY-PX-6uO" collectionClass="NSMutableArray" id="JGq-ph-s1v"/>
