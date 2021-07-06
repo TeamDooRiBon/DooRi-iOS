@@ -44,21 +44,10 @@ class MainViewController: UIViewController {
         setLastTripList()
         scrollViewDidEndDecelerating(comeTripCollectionView)
         
-        // 컬렉션뷰 부분
-        comeTripCollectionView.delegate = self
-        comeTripCollectionView.dataSource = self
+        collectionViewSet()
+        tableViewSet()
+        shadowSet()
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        comeTripCollectionView.collectionViewLayout = layout
-        
-        // 테이블 뷰 부분
-        lastTripTableView.delegate = self
-        lastTripTableView.dataSource = self
-        
-        // 쉐도우
-        comeTripCollectionView.layer.applyShadow(color: .black, alpha: 0.06, x: 3, y: 3, blur: 10, spread: 0)
-        styleTripView.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: 4, blur: 6, spread: 0)
     }
     
     // MARK: - 액션
@@ -118,6 +107,31 @@ class MainViewController: UIViewController {
         LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
         LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
         LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),])
+    }
+    
+    // 컬렉션 뷰 부분
+    func collectionViewSet()
+    {
+        comeTripCollectionView.delegate = self
+        comeTripCollectionView.dataSource = self
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        comeTripCollectionView.collectionViewLayout = layout
+    }
+    
+    // 테이블 뷰 부분
+    func tableViewSet()
+    {
+        lastTripTableView.delegate = self
+        lastTripTableView.dataSource = self
+    }
+    
+    // 쉐도우
+    func shadowSet()
+    {
+        comeTripCollectionView.layer.applyShadow(color: .black, alpha: 0.06, x: 3, y: 3, blur: 10, spread: 0)
+        styleTripView.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: 4, blur: 6, spread: 0)
     }
     
 }
