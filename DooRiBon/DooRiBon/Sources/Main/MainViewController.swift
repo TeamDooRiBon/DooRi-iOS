@@ -24,11 +24,16 @@ class MainViewController: UIViewController {
     @IBOutlet weak var styleTripMenuLabel: UILabel!
     
     // 뷰
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var indicatorBar: UIView!
     @IBOutlet weak var styleTripView: UIView!
     
     // MARK: - 배열
     var comeTripList : [ComeTripListDataModel] = []
     var lastTripList : [LastTripListDataModel] = []
+    
+    var currentIndex : Int = 0
+    var textCount: Int = 0
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -37,6 +42,7 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         setComeTripList()
         setLastTripList()
+        scrollViewDidEndDecelerating(comeTripCollectionView)
         
         // 컬렉션뷰 부분
         comeTripCollectionView.delegate = self
@@ -68,12 +74,29 @@ class MainViewController: UIViewController {
         }
     }
     
-    // MARK: - 함수
     
+    // MARK: - 스크롤 인디케이터
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        for cell in comeTripCollectionView.visibleCells {
+            if let row = comeTripCollectionView.indexPath(for: cell)?.item {
+                let totalWidth = backgroundView.frame.width
+                print(totalWidth)
+                print(totalWidth * (CGFloat(row)/3))
+                UIView.animate(withDuration: 0.05, delay: 0, options: .curveEaseIn) {
+                    //self.view.layoutIfNeeded()
+                    self.indicatorBar.frame.origin.x = totalWidth * (CGFloat(row)/3)
+                }
+            }
+        }
+    }
+    
+    
+    // MARK: - 함수
     // StartTrip 팝업을 dismiss하는 함수
     @objc func dismissAlertController(){
         self.dismiss(animated: true, completion: nil)
     }
+    
     
     // 두근두근, 다가오는 여행 부분 데이터
     func setComeTripList()
@@ -96,6 +119,7 @@ class MainViewController: UIViewController {
         LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
         LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),])
     }
+    
 }
 
 // MARK: - 익스텐션_컬렉션뷰
@@ -119,7 +143,7 @@ extension MainViewController: UICollectionViewDataSource
 
 extension MainViewController: UICollectionViewDelegate
 {
-    
+   
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout
@@ -176,3 +200,4 @@ extension MainViewController: UITableViewDataSource
         return tripCell
     }
 }
+
