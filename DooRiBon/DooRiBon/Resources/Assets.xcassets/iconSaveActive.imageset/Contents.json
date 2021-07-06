@@ -6,8 +6,8 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "filename" : "iconSaveActive@2x.png",
+      "idiom" : "universal",
       "scale" : "2x"
     },
     {
@@ -17,7 +17,10 @@
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }
