@@ -8,9 +8,10 @@
   
 * <b> 프로젝트 기간: 2021.06.26 ~ 2021.07.17 </b>
 
-<img width="50%" src="https://user-images.githubusercontent.com/69389288/124233030-60ec5d80-db4d-11eb-86f9-b5b590b23090.png"/>
+<img width="30%" src="https://user-images.githubusercontent.com/69389288/124233030-60ec5d80-db4d-11eb-86f9-b5b590b23090.png"/>
 <br />
 <br><br>
+
 > **<여행>은 특별합니다.**
 
 여행으로 우리는 익숙한 공간에서 벗어나 완전히 새로운 세상을 경험할 수 있습니다. 
@@ -19,6 +20,7 @@
 과거의 여행 기억을 꺼내보며 현재를 이겨낼 힘을 얻게 된다는 점에서 이제 여행은 단순한 취미 그 이상인 것 같습니다. 
 
 <br />
+
 > **<여행>은 어렵습니다.**
 
 새로운 세상을 알아가는 것에 대한 대가는 생각보다 작지 않습니다. 함께 여행을 할 사람들과 목적지를 정한 후 설렘으로 가득 찬 채로 하고싶은 것들을 이야기할 때, 어쩌면 그 때가 가장 마음 편하게 여행을 즐길 수 있는 순간인지도 모릅니다. 
@@ -29,7 +31,6 @@ DOORIBON은 이러한 궁금증에서 시작하였습니다. 그리고 결론을
 
 <br />
 
-
 ### 🧑🏻‍💻참여 인원 👩🏻‍💻
 |    이름  |    기수   | 역할|  레포   |
 | ----    | ---- | ---- | --- |
@@ -39,20 +40,22 @@ DOORIBON은 이러한 궁금증에서 시작하였습니다. 그리고 결론을
 | 이혜진 |   비활/OB/iOS   |  | [레포 이동하기](https://github.com/hyejinL/DooRi-iOS)  |
 
 <br />
+
 ### 🛠 Development Environment
 
 - iOS 13.0+
 
 - Xcode 12.5
-<br><br>
+
+<br />
 
 ### 🖍 Library
 
 | 라이브러리(Library) | 목적(Purpose) | 버전(Version) |
 |:---|:----------|----|
-| Alamofire | 서버 통신 | |
+| Alamofire | 서버 통신 | 5.4 |
 | FSCalendar | 캘린더 구현 | |
 | KingFisher | 이미지 불러오기 |  |
-| SnapKit | autolayout 표현 |  |
+| SnapKit | autolayout 표현 | 5.0.0 |
 
 <br><br>

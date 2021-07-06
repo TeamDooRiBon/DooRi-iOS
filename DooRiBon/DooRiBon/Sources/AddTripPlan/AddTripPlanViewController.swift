@@ -13,16 +13,17 @@ class AddTripPlanViewController: UIViewController {
     //MARK:- IBOutlet
     
     /// Label
+    @IBOutlet weak var addTimeLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    
     /// Button
     @IBOutlet weak var startTimeButton: UIButton!
     @IBOutlet weak var endTimeButton: UIButton!
     @IBOutlet weak var notCheckButton: UIButton!
+    @IBOutlet weak var addNewPlanButton: UIButton!
     
     /// TextField
     @IBOutlet weak var planTitleTextField: UITextField!
@@ -30,12 +31,20 @@ class AddTripPlanViewController: UIViewController {
     @IBOutlet weak var planMemoTextField: UITextField!
     
     /// View
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var dateView: UIView!
     @IBOutlet weak var alphaView: UIView!
     
+    /// DatePicker
+    @IBOutlet weak var datePickerBackgroundView: UIView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     //MARK:- Variable
     
-    var selectCheck = false
+    var notAddCheck = false
+    var startEndCheck = 1
+    var timeSelectCheck = false
+    let dateformatter = DateFormatter()
     
     //MARK:- Life Cycle
     
@@ -43,66 +52,15 @@ class AddTripPlanViewController: UIViewController {
         super.viewDidLoad()
         timeButtonSet()
         textFieldSet()
-//        testView.insertSubview(testView2, belowSubview: testView)
-        // Do any additional setup after loading the view.
+        notificationSet()
+        datePickerBackgroundView.isHidden = true
+        dateformatSet()
+        alphaViewSet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        
-    }
-    
-    //MARK:- IBAction
-    
-    @IBAction func notAddButtonClicked(_ sender: Any) {
-        if !selectCheck {
-            selectCheck = true
-            notCheckButton.setImage(UIImage(named: "btnNotAddClicked"), for: .normal)
-            planLocationTextField.isEnabled = false
-            planLocationTextField.backgroundColor = Colors.gray7.color
-            planLocationTextField.placeholder = ""
-            planLocationTextField.text = ""
-        } else {
-            selectCheck = false
-            notCheckButton.setImage(UIImage(named: "btnNotAdd"), for: .normal)
-            planLocationTextField.isEnabled = true
-            planLocationTextField.backgroundColor = Colors.white9.color
-            planLocationTextField.placeholder = "Ex. 인천공항 이동하기"
-        }
-        
-    }
-    @IBAction func startTimeButtonClicked(_ sender: Any) {
-        alphaView.alpha = 0.7
-        alphaView.insertSubview(dateView, belowSubview: alphaView)
-        let origImage = UIImage(named: "timeStartBoxline")
-        let startTintedImage = origImage?.withRenderingMode(.alwaysTemplate)
-        startTimeButton.setImage(startTintedImage, for: .normal)
-        startTimeButton.tintColor = Colors.pointBlue.color
-        startDateLabel.textColor = Colors.pointBlue.color
-        startTimeLabel.textColor = Colors.black1.color
-        
-        dateView.snp.makeConstraints{ make in
-            make.top.equalToSuperview().offset(290)
-            make.leading.equalToSuperview().offset(26)
-        }
-    }
-    
-    @IBAction func endTimeButtonClicked(_ sender: Any) {
-        alphaView.alpha = 0.7
-        alphaView.insertSubview(dateView, belowSubview: alphaView)
-        let origImage = UIImage(named: "timeEndBoxline")
-        
-        let endTintedImage = origImage?.withRenderingMode(.alwaysTemplate)
-        endTimeButton.setImage(endTintedImage, for: .normal)
-        endTimeButton.tintColor = Colors.pointBlue.color
-        endDateLabel.textColor = Colors.pointBlue.color
-        endTimeLabel.textColor = Colors.black1.color
-        
-        dateView.snp.makeConstraints{ make in
-            make.top.equalToSuperview().offset(290)
-            make.leading.equalToSuperview().offset(26)
-        }
     }
     
     //MARK:- Function
@@ -125,8 +83,164 @@ class AddTripPlanViewController: UIViewController {
         endTimeButton.setImage(endTintedImage, for: .normal)
         endTimeButton.tintColor = Colors.gray6.color
     }
+    
+    func notificationSet() {
+        NotificationCenter.default.addObserver(self, selector: #selector(checking), name: UITextField.textDidChangeNotification, object: nil)
+        datePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
+    }
+    
+    func dateformatSet() {
+        dateformatter.dateStyle = .none
+        dateformatter.timeStyle = .short
+        dateformatter.locale = Locale(identifier: "ko")
+    }
+    
+    func alphaViewSet() {
+        let alphaTap = UITapGestureRecognizer(target: self, action: #selector(alphaViewTapped(_:)))
+        alphaView.addGestureRecognizer(alphaTap)
+        alphaView.isUserInteractionEnabled = true
+    }
+    
+    func hideAlphaView() {
+        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseIn, animations: {
+            self.alphaView.alpha = 0.0
+            self.view.layoutIfNeeded()
+        }) { _ in
+            if self.presentingViewController != nil {
+                self.dismiss(animated: false, completion: nil)
+            }
+        }
+        datePickerBackgroundView.isHidden = true
+    }
+    
+    func makeDateView() {
+        mainView.addSubview(dateView)
+        dateView.snp.makeConstraints{ make in
+            make.top.equalTo(addTimeLabel.snp.bottom).offset(11)
+            make.leading.equalToSuperview().offset(25)
+        }
+        startTimeButton.tintColor = Colors.gray6.color
+        startDateLabel.textColor = Colors.pointBlue.color
+        startTimeLabel.textColor = Colors.black1.color
+        endDateLabel.textColor = Colors.pointBlue.color
+        endTimeLabel.textColor = Colors.black1.color
+        endTimeButton.tintColor = Colors.gray6.color
+    }
+    
+    func makeBottomDatePicker() {
+        datePickerBackgroundView.snp.makeConstraints{ make in
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().offset(30)
+            make.height.equalTo(282)
+        }
+        
+        datePicker.snp.makeConstraints{ make in
+            make.left.equalTo(datePickerBackgroundView).offset(20)
+            make.right.equalTo(datePickerBackgroundView).offset(-20)
+            make.top.equalTo(datePickerBackgroundView.snp.top).offset(30)
+            make.bottom.equalTo(datePickerBackgroundView).offset(-25)
+        }
+    }
+    
+    @objc func checking() {
+        if !notAddCheck {
+            if planTitleTextField.text != "" && planLocationTextField.text != "" && timeSelectCheck {
+                addNewPlanButton.backgroundColor = Colors.pointOrange.color
+                addNewPlanButton.setTitleColor(Colors.white8.color, for: .normal)
+            } else {
+                addNewPlanButton.backgroundColor = Colors.gray7.color
+                addNewPlanButton.setTitleColor(Colors.gray4.color, for: .normal)
+            }
+        } else {
+            if planTitleTextField.text != "" && timeSelectCheck {
+                addNewPlanButton.backgroundColor = Colors.pointOrange.color
+                addNewPlanButton.setTitleColor(Colors.white8.color, for: .normal)
+            } else {
+                addNewPlanButton.backgroundColor = Colors.gray7.color
+                addNewPlanButton.setTitleColor(Colors.gray4.color, for: .normal)
+            }
+        }
+    }
+    
+    @objc func changed(){
+        let date = dateformatter.string(from: datePicker.date)
+        if startEndCheck == 1 {
+            startTimeLabel.text = date
+        } else {
+            endTimeLabel.text = date
+        }
+        checking()
+    }
+    
+    @objc private func alphaViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
+        hideAlphaView()
+        makeDateView()
+    }
+    
+    //MARK:- IBAction
+    
+    @IBAction func notAddButtonClicked(_ sender: Any) {
+        if !notAddCheck {
+            notAddCheck = true
+            notCheckButton.setImage(UIImage(named: "btnNotAddClicked"), for: .normal)
+            planLocationTextField.isEnabled = false
+            planLocationTextField.backgroundColor = Colors.gray7.color
+            planLocationTextField.placeholder = ""
+            planLocationTextField.text = ""
+        } else {
+            notAddCheck = false
+            notCheckButton.setImage(UIImage(named: "btnNotAdd"), for: .normal)
+            planLocationTextField.isEnabled = true
+            planLocationTextField.backgroundColor = Colors.white9.color
+            planLocationTextField.placeholder = "Ex. 인천공항 이동하기"
+        }
+    }
+    
+    @IBAction func startTimeButtonClicked(_ sender: Any) {
+        datePickerBackgroundView.isHidden = false
+        timeSelectCheck = true
+        startEndCheck = 1
+        alphaView.alpha = 0.7
+        alphaView.insertSubview(dateView, belowSubview: alphaView)
+        startTimeButton.tintColor = Colors.pointBlue.color
+        startDateLabel.textColor = Colors.pointBlue.color
+        startTimeLabel.textColor = Colors.black1.color
+        
+        dateView.snp.makeConstraints{ make in
+            make.top.equalToSuperview().offset(290)
+            make.leading.equalToSuperview().offset(25)
+        }
+        endTimeButton.tintColor = Colors.gray6.color
+        endDateLabel.textColor = Colors.gray5.color
+        endTimeLabel.textColor = Colors.gray5.color
+        makeBottomDatePicker()
+        checking()
+    }
+    
+    @IBAction func endTimeButtonClicked(_ sender: Any) {
+        datePickerBackgroundView.isHidden = false
+        timeSelectCheck = true
+        startEndCheck = 2
+        alphaView.alpha = 0.7
+        alphaView.insertSubview(dateView, belowSubview: alphaView)
+        endTimeButton.tintColor = Colors.pointBlue.color
+        endDateLabel.textColor = Colors.pointBlue.color
+        endTimeLabel.textColor = Colors.black1.color
+        
+        dateView.snp.makeConstraints{ make in
+            make.top.equalToSuperview().offset(290)
+            make.leading.equalToSuperview().offset(25)
+        }
+        startTimeButton.tintColor = Colors.gray6.color
+        startDateLabel.textColor = Colors.gray5.color
+        startTimeLabel.textColor = Colors.gray5.color
+        makeBottomDatePicker()
+        checking()
+    }
 
 }
+
+//MARK:- Extension
 
 extension AddTripPlanViewController: UITextFieldDelegate {
     

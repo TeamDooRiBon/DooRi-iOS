@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -160,7 +161,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
                                         <state key="normal" title="새로운 일정 추가">
-                                            <color key="titleColor" name="black3"/>
+                                            <color key="titleColor" name="gray4"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -185,7 +186,7 @@
                                         <rect key="frame" x="25" y="161" width="327" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVj-vu-ctW">
-                                                <rect key="frame" x="158.5" y="0.0" width="167.5" height="69"/>
+                                                <rect key="frame" x="159.5" y="0.0" width="167.5" height="69"/>
                                                 <state key="normal" image="timeEndBoxline"/>
                                                 <connections>
                                                     <action selector="endTimeButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gvs-Hr-Jll"/>
@@ -238,7 +239,7 @@
                                             <constraint firstItem="89c-iO-lHr" firstAttribute="top" secondItem="XZO-BH-bwk" secondAttribute="top" constant="33" id="Wet-px-Yap"/>
                                             <constraint firstAttribute="height" constant="70" id="bCI-xQ-KaP"/>
                                             <constraint firstItem="2Pp-hL-lLm" firstAttribute="top" secondItem="XZO-BH-bwk" secondAttribute="top" constant="33" id="cIi-5a-7Lu"/>
-                                            <constraint firstItem="DVj-vu-ctW" firstAttribute="leading" secondItem="jgd-dE-oZn" secondAttribute="trailing" constant="-15" id="dlN-4w-XyV"/>
+                                            <constraint firstItem="DVj-vu-ctW" firstAttribute="leading" secondItem="jgd-dE-oZn" secondAttribute="trailing" constant="-14" id="dlN-4w-XyV"/>
                                             <constraint firstItem="XZK-SN-Ehs" firstAttribute="top" secondItem="XZO-BH-bwk" secondAttribute="top" constant="10" id="elE-UQ-Sgd"/>
                                             <constraint firstItem="jgd-dE-oZn" firstAttribute="leading" secondItem="XZO-BH-bwk" secondAttribute="leading" id="gp7-6r-NrD"/>
                                             <constraint firstItem="jgd-dE-oZn" firstAttribute="top" secondItem="XZO-BH-bwk" secondAttribute="top" id="gtv-dt-IU0"/>
@@ -311,6 +312,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="black1"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ayc-tl-Urn">
+                                <rect key="frame" x="87" y="700" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="hcO-dS-9yJ">
+                                        <rect key="frame" x="-87" y="-17" width="414" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <locale key="locale" localeIdentifier="ko_KR"/>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="subBlue1"/>
@@ -336,11 +354,16 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addNewPlanButton" destination="X5V-if-g4w" id="d6W-NN-Lit"/>
+                        <outlet property="addTimeLabel" destination="j55-4w-mdq" id="APA-DW-xOW"/>
                         <outlet property="alphaView" destination="tof-Gv-JM5" id="XyM-MR-YOc"/>
+                        <outlet property="datePicker" destination="hcO-dS-9yJ" id="G7b-tC-hSL"/>
+                        <outlet property="datePickerBackgroundView" destination="Ayc-tl-Urn" id="ulD-xj-R6t"/>
                         <outlet property="dateView" destination="XZO-BH-bwk" id="WUv-b5-Ra6"/>
                         <outlet property="endDateLabel" destination="etk-26-5AH" id="D8e-S3-NRs"/>
                         <outlet property="endTimeButton" destination="DVj-vu-ctW" id="AWI-sq-2Jd"/>
                         <outlet property="endTimeLabel" destination="89c-iO-lHr" id="upV-Lt-D3i"/>
+                        <outlet property="mainView" destination="EcT-K7-6LJ" id="iOk-KU-jno"/>
                         <outlet property="notCheckButton" destination="2mG-qv-llh" id="OMT-IK-k9F"/>
                         <outlet property="planLocationTextField" destination="lsL-JD-fJF" id="j3I-qF-fxV"/>
                         <outlet property="planMemoTextField" destination="mP4-sH-gwH" id="c8J-69-IAn"/>
@@ -370,6 +393,9 @@
         <namedColor name="black3">
             <color red="0.27799999713897705" green="0.29800000786781311" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="gray4">
+            <color red="0.36899998784065247" green="0.39599999785423279" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="gray5">
             <color red="0.62699997425079346" green="0.64300000667572021" blue="0.6589999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -391,5 +417,8 @@
         <namedColor name="white9">
             <color red="0.99199998378753662" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
