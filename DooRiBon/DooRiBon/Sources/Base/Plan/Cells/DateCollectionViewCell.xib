@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DateCollectionViewCell" id="gTV-IL-0wX" customClass="DateCollectionViewCell" customModule="DooRiBon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="24" height="53"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="24" height="53"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdL-tT-RQD">
+                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Vbi-Lq-QDV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kn9-rt-LmW">
+                        <rect key="frame" x="0.0" y="29" width="24" height="24"/>
+                        <color key="backgroundColor" name="pointBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="wwE-JN-mq6"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8J-JR-mKQ">
+                        <rect key="frame" x="0.0" y="29" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="F9O-Lh-T6X"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="n8J-JR-mKQ" secondAttribute="bottom" id="10w-lJ-c8T"/>
+                <constraint firstItem="MdL-tT-RQD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="AXP-1T-baL"/>
+                <constraint firstAttribute="bottom" secondItem="kn9-rt-LmW" secondAttribute="bottom" id="C5W-LR-Qi4"/>
+                <constraint firstItem="n8J-JR-mKQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="E2c-Sf-9Qi"/>
+                <constraint firstItem="kn9-rt-LmW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Jjm-8k-OOd"/>
+                <constraint firstAttribute="trailing" secondItem="kn9-rt-LmW" secondAttribute="trailing" id="TB6-Tp-joM"/>
+                <constraint firstAttribute="trailing" secondItem="MdL-tT-RQD" secondAttribute="trailing" id="roJ-Pb-9SI"/>
+                <constraint firstAttribute="trailing" secondItem="n8J-JR-mKQ" secondAttribute="trailing" id="sTj-Ys-z2t"/>
+                <constraint firstAttribute="bottom" secondItem="n8J-JR-mKQ" secondAttribute="bottom" id="xjo-dB-fOg"/>
+                <constraint firstItem="MdL-tT-RQD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zOz-kg-xTX"/>
+            </constraints>
+            <size key="customSize" width="85" height="114"/>
+            <connections>
+                <outlet property="dateLabel" destination="n8J-JR-mKQ" id="xkK-Ic-a45"/>
+                <outlet property="dayNumberLabel" destination="MdL-tT-RQD" id="DtP-pb-P0o"/>
+                <outlet property="focusView" destination="kn9-rt-LmW" id="rD9-eg-qjv"/>
+            </connections>
+            <point key="canvasLocation" x="-102.89855072463769" y="-71.316964285714278"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="pointBlue">
+            <color red="0.41999998688697815" green="0.56099998950958252" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

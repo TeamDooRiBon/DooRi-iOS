@@ -35,6 +35,8 @@
 		BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4EF4902691CB8300A6362D /* CodeTextField.swift */; };
 		BD55F43F26919C17004E7114 /* JoinTripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD55F43E26919C17004E7114 /* JoinTripStoryboard.storyboard */; };
 		BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD55F44026919C2B004E7114 /* JoinTripViewController.swift */; };
+		BD5CBC432694961C00935E79 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5CBC412694961C00935E79 /* DateCollectionViewCell.swift */; };
+		BD5CBC442694961C00935E79 /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */; };
 		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
 		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
 		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
@@ -86,6 +88,8 @@
 		BD4EF4902691CB8300A6362D /* CodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextField.swift; sourceTree = "<group>"; };
 		BD55F43E26919C17004E7114 /* JoinTripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinTripStoryboard.storyboard; sourceTree = "<group>"; };
 		BD55F44026919C2B004E7114 /* JoinTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTripViewController.swift; sourceTree = "<group>"; };
+		BD5CBC412694961C00935E79 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
 		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 			children = (
 				BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */,
 				BD0AD61F269365050033DAD8 /* PlanViewController.swift */,
+				BD5CBC40269495DA00935E79 /* Cells */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -239,6 +244,15 @@
 				BD4EF4902691CB8300A6362D /* CodeTextField.swift */,
 			);
 			path = JoinTrip;
+			sourceTree = "<group>";
+		};
+		BD5CBC40269495DA00935E79 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */,
+				BD5CBC412694961C00935E79 /* DateCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		BD75C2BB268B4B3700C4F233 = {
@@ -481,6 +495,7 @@
 				BD39D500268DE80D004714B6 /* SpoqaHanSansNeo-Light.ttf in Resources */,
 				0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */,
 				BD0AD61A269363E30033DAD8 /* BoardStoryboard.storyboard in Resources */,
+				BD5CBC442694961C00935E79 /* DateCollectionViewCell.xib in Resources */,
 				BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */,
 				40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */,
 				BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */,
@@ -557,6 +572,7 @@
 				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
+				BD5CBC432694961C00935E79 /* DateCollectionViewCell.swift in Sources */,
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
