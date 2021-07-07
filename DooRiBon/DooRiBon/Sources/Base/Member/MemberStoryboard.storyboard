@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -10,23 +10,58 @@
     </dependencies>
     <scenes>
         <!--멤버-->
-        <scene sceneID="s0d-6b-0kx">
+        <scene sceneID="8fB-6y-Yfq">
             <objects>
-                <viewController storyboardIdentifier="MemberViewController" id="Y6W-OH-hqX" customClass="MemberViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController storyboardIdentifier="MemberViewController" id="yNh-y9-x4p" customClass="MemberViewController" customModule="PagerTab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lal-YW-PVx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppL-7M-lBW">
+                                <rect key="frame" x="0.0" y="44" width="375" height="37"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Olz-Z5-Ivh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPl-b9-03C" customClass="PagerTab" customModule="PagerTab" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="190" width="375" height="539"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-Px-0Nt">
+                                <rect key="frame" x="0.0" y="81" width="375" height="109"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="eix-6w-QIU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pKD-2S-Oes"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2NQ-Px-0Nt" firstAttribute="leading" secondItem="pKD-2S-Oes" secondAttribute="leading" id="0WX-7U-Grx"/>
+                            <constraint firstItem="pKD-2S-Oes" firstAttribute="bottom" secondItem="lPl-b9-03C" secondAttribute="bottom" id="4Ch-ic-aaj"/>
+                            <constraint firstItem="pKD-2S-Oes" firstAttribute="trailing" secondItem="2NQ-Px-0Nt" secondAttribute="trailing" id="AJd-TB-k0C"/>
+                            <constraint firstItem="lPl-b9-03C" firstAttribute="leading" secondItem="pKD-2S-Oes" secondAttribute="leading" id="Afh-nG-9nm"/>
+                            <constraint firstItem="pKD-2S-Oes" firstAttribute="trailing" secondItem="ppL-7M-lBW" secondAttribute="trailing" id="BFd-YU-eHz"/>
+                            <constraint firstItem="pKD-2S-Oes" firstAttribute="trailing" secondItem="lPl-b9-03C" secondAttribute="trailing" id="Eg1-lT-O6c"/>
+                            <constraint firstItem="ppL-7M-lBW" firstAttribute="top" secondItem="pKD-2S-Oes" secondAttribute="top" id="JNK-gF-wyb"/>
+                            <constraint firstItem="2NQ-Px-0Nt" firstAttribute="top" secondItem="ppL-7M-lBW" secondAttribute="bottom" id="cBA-IP-kIx"/>
+                            <constraint firstItem="ppL-7M-lBW" firstAttribute="leading" secondItem="pKD-2S-Oes" secondAttribute="leading" id="eOO-gJ-bbZ"/>
+                            <constraint firstItem="lPl-b9-03C" firstAttribute="top" secondItem="2NQ-Px-0Nt" secondAttribute="bottom" id="qeI-ml-fFP"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="멤버" image="iconPeopleInactiveIos" selectedImage="iconPeopleActiveIos" id="9SQ-1c-JHc">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="pagerTab" destination="lPl-b9-03C" id="ARO-xb-M0J"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-rt-0DT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="139"/>
+            <point key="canvasLocation" x="652" y="138.91625615763547"/>
         </scene>
     </scenes>
     <resources>
