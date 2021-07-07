@@ -125,6 +125,9 @@ class MainViewController: UIViewController {
     {
         lastTripTableView.delegate = self
         lastTripTableView.dataSource = self
+        // automaticDimension
+        lastTripTableView.estimatedRowHeight = 133
+        lastTripTableView.rowHeight = UITableView.automaticDimension
     }
     
     // 쉐도우
@@ -192,10 +195,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 
 extension MainViewController: UITableViewDelegate
 {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // return UITableView.automaticDimension
-        return 120
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        // return UITableView.automaticDimension
+//        return 133
+//    }
 }
 
 extension MainViewController: UITableViewDataSource

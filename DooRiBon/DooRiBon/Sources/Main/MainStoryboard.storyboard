@@ -635,8 +635,10 @@
                                                                         <constraint firstItem="CKh-cL-uhu" firstAttribute="leading" secondItem="B62-xs-NbG" secondAttribute="leading" constant="29" id="Wuh-c0-icM"/>
                                                                         <constraint firstItem="Dmz-9h-RWa" firstAttribute="top" secondItem="B62-xs-NbG" secondAttribute="top" constant="31" id="iYs-QP-myA"/>
                                                                         <constraint firstAttribute="trailing" secondItem="Dmz-9h-RWa" secondAttribute="trailing" constant="3" id="omI-5j-Yt5"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="37w-6D-o7i" secondAttribute="bottom" constant="18" id="wO8-T5-3Ec"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
+                                                                <inset key="separatorInset" minX="18" minY="0.0" maxX="17" maxY="0.0"/>
                                                                 <connections>
                                                                     <outlet property="tripImageView" destination="CKh-cL-uhu" id="QNN-HV-aK7"/>
                                                                     <outlet property="tripTitleLabel" destination="Dmz-9h-RWa" id="DZv-NS-O10"/>
