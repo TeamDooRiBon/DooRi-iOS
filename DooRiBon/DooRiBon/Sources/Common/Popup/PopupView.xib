@@ -122,7 +122,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="nms-U9-pL3" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="D0f-Rm-m7U"/>
                 <constraint firstAttribute="trailing" secondItem="nms-U9-pL3" secondAttribute="trailing" constant="27" id="Otr-9p-xxI"/>
