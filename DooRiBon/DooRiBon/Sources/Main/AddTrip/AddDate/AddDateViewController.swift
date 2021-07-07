@@ -120,7 +120,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
         /// nothing selected:
         if firstDate == nil {
             firstDate = date
-            datesRange = [firstDate!]
+            datesRange = [date]
             let startYear = Calendar.current.dateComponents([.year], from: date)
             let startMonth = Calendar.current.dateComponents([.month], from: date)
             let startDay = Calendar.current.dateComponents([.day], from: date)
@@ -137,11 +137,11 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
         }
 
         /// only first date is selected:
-        if firstDate != nil && lastDate == nil {
-            if date <= firstDate! {
-                calendar.deselect(firstDate!)
+        if var firstDate = firstDate, lastDate == nil {
+            if date <= firstDate {
+                calendar.deselect(firstDate)
                 firstDate = date
-                datesRange = [firstDate!]
+                datesRange = [firstDate]
 
                 let startYear = Calendar.current.dateComponents([.year], from: date)
                 let startMonth = Calendar.current.dateComponents([.month], from: date)
@@ -155,7 +155,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
                 return
             }
 
-            let range = datesRange(from: firstDate!, to: date)
+            let range = datesRange(from: firstDate, to: date)
             lastDate = range.last
             for d in range {
                 calendar.select(d)
@@ -215,8 +215,10 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
         var tempDate = from
         var array = [tempDate]
         while tempDate < to {
-            tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate)!
-            array.append(tempDate)
+            if let date = Calendar.current.date(byAdding: .day, value: 1, to: tempDate) {
+                tempDate = date
+                array.append(tempDate)
+            }
         }
         return array
     }
@@ -231,7 +233,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
     
     private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
         
-        let diyCell = (cell as! CalendarCell)
+        guard let diyCell = cell as? CalendarCell else { return }
         if position == .current {
             var selectionType = SelectionType.none
             if calendar.selectedDates.contains(date) {
