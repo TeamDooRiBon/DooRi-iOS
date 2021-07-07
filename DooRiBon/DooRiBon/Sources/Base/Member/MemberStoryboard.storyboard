@@ -12,7 +12,7 @@
         <!--멤버-->
         <scene sceneID="8fB-6y-Yfq">
             <objects>
-                <viewController storyboardIdentifier="MemberViewController" id="yNh-y9-x4p" customClass="MemberViewController" customModule="PagerTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberViewController" id="yNh-y9-x4p" customClass="MemberViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lal-YW-PVx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="37" id="Olz-Z5-Ivh"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPl-b9-03C" customClass="PagerTab" customModule="PagerTab" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPl-b9-03C" customClass="PagerTab" customModule="DooRiBon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="190" width="375" height="539"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
