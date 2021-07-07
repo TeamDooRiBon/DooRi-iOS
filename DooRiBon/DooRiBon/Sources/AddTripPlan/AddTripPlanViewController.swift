@@ -194,6 +194,7 @@ class AddTripPlanViewController: UIViewController {
             planLocationTextField.backgroundColor = Colors.white9.color
             planLocationTextField.placeholder = "Ex. 인천공항 이동하기"
         }
+        checking()
     }
     
     @IBAction func startTimeButtonClicked(_ sender: Any) {
