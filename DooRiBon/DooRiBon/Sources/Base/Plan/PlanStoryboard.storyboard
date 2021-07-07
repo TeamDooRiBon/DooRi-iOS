@@ -186,6 +186,11 @@
                                     <constraint firstItem="dyw-FO-wDa" firstAttribute="bottom" secondItem="6Ub-0n-Rfa" secondAttribute="bottom" id="nuE-Im-Qfy"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w1L-EH-7IJ">
+                                <rect key="frame" x="0.0" y="261" width="375" height="357"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9K-oA-KgM">
                                 <rect key="frame" x="0.0" y="190" width="375" height="71"/>
                                 <subviews>
@@ -266,10 +271,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="w1L-EH-7IJ" secondAttribute="trailing" id="3ia-kS-pST"/>
                             <constraint firstItem="lF5-i6-YmL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7Ml-w0-YLV"/>
                             <constraint firstItem="B9K-oA-KgM" firstAttribute="top" secondItem="lF5-i6-YmL" secondAttribute="bottom" id="Epu-O6-Tzm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lF5-i6-YmL" secondAttribute="trailing" id="SCi-Ph-XKD"/>
+                            <constraint firstItem="w1L-EH-7IJ" firstAttribute="top" secondItem="B9K-oA-KgM" secondAttribute="bottom" id="XUl-lk-sVz"/>
                             <constraint firstItem="lF5-i6-YmL" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="b8d-ET-K44"/>
+                            <constraint firstItem="w1L-EH-7IJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="iDE-Ah-0UR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="w1L-EH-7IJ" secondAttribute="bottom" id="jSq-dL-T8q"/>
                             <constraint firstItem="B9K-oA-KgM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sdE-UB-koV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="B9K-oA-KgM" secondAttribute="trailing" id="xU3-EY-P6L"/>
                         </constraints>
@@ -279,6 +288,7 @@
                     <connections>
                         <outlet property="calendarAreaView" destination="B9K-oA-KgM" id="Z9p-gl-zHU"/>
                         <outlet property="calendarView" destination="OeZ-ms-OfT" id="ozh-U4-ueT"/>
+                        <outlet property="contentsTableView" destination="w1L-EH-7IJ" id="W0V-9q-6oz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
