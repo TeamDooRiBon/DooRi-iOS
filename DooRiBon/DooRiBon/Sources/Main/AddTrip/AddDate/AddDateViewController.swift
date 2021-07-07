@@ -137,11 +137,11 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
         }
 
         /// only first date is selected:
-        if var firstDate = firstDate, lastDate == nil {
-            if date <= firstDate {
-                calendar.deselect(firstDate)
+        if let first = firstDate, lastDate == nil {
+            if date <= first {
+                calendar.deselect(first)
                 firstDate = date
-                datesRange = [firstDate]
+                datesRange = [first]
 
                 let startYear = Calendar.current.dateComponents([.year], from: date)
                 let startMonth = Calendar.current.dateComponents([.month], from: date)
@@ -155,7 +155,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
                 return
             }
 
-            let range = datesRange(from: firstDate, to: date)
+            let range = datesRange(from: first, to: date)
             lastDate = range.last
             for d in range {
                 calendar.select(d)
