@@ -42,7 +42,7 @@ class CalendarCell: FSCalendarCell {
         self.selectionLayer?.isHidden = true
 
         let connectionLayer = CAShapeLayer()
-        connectionLayer.fillColor = UIColor(red: 107 / 255, green: 143 / 255, blue: 249 / 255, alpha: 0.5).cgColor
+        connectionLayer.fillColor = UIColor(red: 107 / 255, green: 143 / 255, blue: 249 / 255, alpha: 0.4).cgColor
         connectionLayer.opacity = 0
         self.contentView.layer.insertSublayer(connectionLayer, below: self.titleLabel.layer)
         self.connectionLayer = connectionLayer
@@ -71,6 +71,7 @@ class CalendarCell: FSCalendarCell {
             self.connectionLayer?.isHidden = false
             self.connectionLayer?.opacity = 1
             self.connectionLayer?.path = UIBezierPath(rect: connectionRect).cgPath
+            self.titleLabel.textColor = Colors.pointBlue.color
         }
         else if selectionType == .leftBorder {
             self.connectionLayer?.isHidden = false

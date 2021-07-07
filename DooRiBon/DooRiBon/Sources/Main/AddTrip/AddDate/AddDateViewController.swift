@@ -15,6 +15,7 @@ class AddDateViewController: UIViewController {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var bottomBoxView: UIView!
     
     //MARK:- Variable
     
@@ -33,6 +34,7 @@ class AddDateViewController: UIViewController {
         
         labelSet()
         calendarSet()
+        bottomShadowSet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +86,10 @@ class AddDateViewController: UIViewController {
     
     func labelSet() {
         mainLabel.text = "번들님 여행 날짜는\n언제인가요?"
+    }
+    
+    func bottomShadowSet() {
+        bottomBoxView.layer.applyShadow(color: .black, alpha: 0.04, x: 0, y: -3, blur: 10, spread: 0)
     }
 
 }
