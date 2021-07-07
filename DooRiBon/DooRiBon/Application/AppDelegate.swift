@@ -34,3 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    static var currentKeyWindow: UIWindow? {
+        UIApplication.shared.windows.first { $0.isKeyWindow }
+    }
+}
