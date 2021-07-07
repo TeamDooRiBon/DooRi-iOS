@@ -53,7 +53,7 @@ class AddTripPlanViewController: UIViewController {
         timeButtonSet()
         textFieldSet()
         notificationSet()
-        datePickerBackgroundView.isHidden = true
+        datePickerBackgroundViewSet()
         dateformatSet()
         alphaViewSet()
     }
@@ -89,6 +89,11 @@ class AddTripPlanViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
     }
     
+    func datePickerBackgroundViewSet() {
+        datePickerBackgroundView.isHidden = true
+        datePickerBackgroundView.alpha = 0
+    }
+    
     func dateformatSet() {
         dateformatter.dateStyle = .none
         dateformatter.timeStyle = .short
@@ -102,15 +107,12 @@ class AddTripPlanViewController: UIViewController {
     }
     
     func hideAlphaView() {
-        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseIn, animations: {
-            self.alphaView.alpha = 0.0
-            self.view.layoutIfNeeded()
-        }) { _ in
-            if self.presentingViewController != nil {
-                self.dismiss(animated: false, completion: nil)
-            }
-        }
-        datePickerBackgroundView.isHidden = true
+        UIView.animate(withDuration: 0.5, animations: { [self] in
+            alphaView.alpha = 0
+            datePickerBackgroundView.isHidden = true
+            view.layoutIfNeeded()
+        })
+        datePickerBackgroundView.alpha = 0
     }
     
     func makeDateView() {
@@ -199,46 +201,53 @@ class AddTripPlanViewController: UIViewController {
     
     @IBAction func startTimeButtonClicked(_ sender: Any) {
         datePickerBackgroundView.isHidden = false
-        timeSelectCheck = true
-        startEndCheck = 1
-        alphaView.alpha = 0.7
         alphaView.insertSubview(dateView, belowSubview: alphaView)
-        startTimeButton.tintColor = Colors.pointBlue.color
-        startDateLabel.textColor = Colors.pointBlue.color
-        startTimeLabel.textColor = Colors.black1.color
-        
-        dateView.snp.makeConstraints{ make in
-            make.top.equalToSuperview().offset(290)
-            make.leading.equalToSuperview().offset(25)
-        }
-        endTimeButton.tintColor = Colors.gray6.color
-        endDateLabel.textColor = Colors.gray5.color
-        endTimeLabel.textColor = Colors.gray5.color
-        makeBottomDatePicker()
+        UIView.animate(withDuration: 0.5, animations: { [self] in
+            datePickerBackgroundView.alpha = 1
+            alphaView.alpha = 0.7
+            timeSelectCheck = true
+            startEndCheck = 1
+            
+            startTimeButton.tintColor = Colors.pointBlue.color
+            startDateLabel.textColor = Colors.pointBlue.color
+            startTimeLabel.textColor = Colors.black1.color
+            
+            dateView.snp.makeConstraints{ make in
+                make.top.equalToSuperview().offset(290)
+                make.leading.equalToSuperview().offset(25)
+            }
+            endTimeButton.tintColor = Colors.gray6.color
+            endDateLabel.textColor = Colors.gray5.color
+            endTimeLabel.textColor = Colors.gray5.color
+            makeBottomDatePicker()
+        })
         checking()
     }
     
     @IBAction func endTimeButtonClicked(_ sender: Any) {
         datePickerBackgroundView.isHidden = false
-        timeSelectCheck = true
-        startEndCheck = 2
-        alphaView.alpha = 0.7
         alphaView.insertSubview(dateView, belowSubview: alphaView)
-        endTimeButton.tintColor = Colors.pointBlue.color
-        endDateLabel.textColor = Colors.pointBlue.color
-        endTimeLabel.textColor = Colors.black1.color
-        
-        dateView.snp.makeConstraints{ make in
-            make.top.equalToSuperview().offset(290)
-            make.leading.equalToSuperview().offset(25)
-        }
-        startTimeButton.tintColor = Colors.gray6.color
-        startDateLabel.textColor = Colors.gray5.color
-        startTimeLabel.textColor = Colors.gray5.color
-        makeBottomDatePicker()
+        UIView.animate(withDuration: 0.5, animations: { [self] in
+            datePickerBackgroundView.alpha = 1
+            alphaView.alpha = 0.7
+            timeSelectCheck = true
+            startEndCheck = 2
+            
+            endTimeButton.tintColor = Colors.pointBlue.color
+            endDateLabel.textColor = Colors.pointBlue.color
+            endTimeLabel.textColor = Colors.black1.color
+            
+            dateView.snp.makeConstraints{ make in
+                make.top.equalToSuperview().offset(290)
+                make.leading.equalToSuperview().offset(25)
+            }
+            startTimeButton.tintColor = Colors.gray6.color
+            startDateLabel.textColor = Colors.gray5.color
+            startTimeLabel.textColor = Colors.gray5.color
+            makeBottomDatePicker()
+        })
         checking()
     }
-
 }
 
 //MARK:- Extension
