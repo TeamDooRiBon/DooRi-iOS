@@ -213,6 +213,8 @@
 				4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */,
 			);
 			path = AddTripPlan;
+			sourceTree = "<group>";
+		};
 		408D1ADD26957D5100BBC454 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +231,8 @@
 				4095558D2695719A00130ACB /* AddDateViewController.swift */,
 			);
 			path = AddDate;
+			sourceTree = "<group>";
+		};
 		39D4B56C2695FAD500AAA5DB /* We */ = {
 			isa = PBXGroup;
 			children = (
