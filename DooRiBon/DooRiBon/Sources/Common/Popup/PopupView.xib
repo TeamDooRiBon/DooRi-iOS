@@ -34,7 +34,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="318" height="47"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNu-OF-DVX">
-                                            <rect key="frame" x="0.0" y="0.0" width="298" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="20.5"/>
                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="jIr-Bu-qFG" firstAttribute="width" secondItem="a5t-Lu-EbI" secondAttribute="width" id="Ot7-vt-agx"/>
-                                        <constraint firstItem="bNu-OF-DVX" firstAttribute="width" secondItem="a5t-Lu-EbI" secondAttribute="width" constant="-20" id="fge-mb-R7L"/>
+                                        <constraint firstItem="bNu-OF-DVX" firstAttribute="width" secondItem="a5t-Lu-EbI" secondAttribute="width" id="fge-mb-R7L"/>
                                     </constraints>
                                 </stackView>
                             </subviews>
