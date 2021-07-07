@@ -24,9 +24,13 @@ class PlanViewController: UIViewController {
             calendarView.reloadData()
         }
     }
-    
-    private var isSelectedArray: [Bool] = []  // 셀 선택 유무 담을 Bool 배열
-    private var selectedDate: Int?         // 오늘 날짜를 디폴트 값으로 시작
+    private var planDummyData: [PlanDataModel] = [] {
+        didSet {
+            contentsTableView.reloadData()
+        }
+    }
+    private var selectedDate: Int?            // 오늘 날짜를 디폴트 값으로 시작
+    private var dataStatus: Bool = false
     
     // MARK: - IBOutlets
 
@@ -98,13 +102,52 @@ extension PlanViewController {
         contentsTableView.backgroundColor = .clear
         contentsTableView.rowHeight = UITableView.automaticDimension
     }
+    
     /// Dummy Setup
     private func setupData() {
         dummyData.append(contentsOf: [
             6, 7, 8, 9, 10, 11,
             12, 13, 14, 15, 16, 17
         ])
-
+        planDummyData.append(contentsOf: [
+//            PlanDataModel(planTime: "10:00 AM",
+//                          planTitle: "김포공항 앞에서 모이기",
+//                          planDescription: "2304 버스 정류장 찾아보기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기"),
+//            PlanDataModel(planTime: "12:00 AM",
+//                          planTitle: "인천공항으로 출발",
+//                          planDescription: "여권 꼭 챙기기")
+        ])
+        dataStatus = planDummyData.count == 0 ? false : true
         selectedDate = getTodayInfo()
     }
     
@@ -115,17 +158,6 @@ extension PlanViewController {
         dateFormatter.dateFormat = "MM" // 2020-08-13 16:30
         let str = dateFormatter.string(from: nowDate) // 현재 시간의 Date를 format에 맞춰 string으로 반환
         return Int(str) ?? -1
-    }
-    
-    /// 셀 선택 상태 변경해주는 토글 함수
-    private func toggleSelection(index: Int) {
-        for i in 0..<isSelectedArray.count {
-            if i == index {
-                isSelectedArray[i] = true
-            } else {
-                isSelectedArray[i] = false
-            }
-        }
     }
 }
 
