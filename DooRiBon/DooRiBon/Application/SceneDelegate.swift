@@ -24,9 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 윈도우 위에 쌓이는 것 중에서 윈도우와 가장 근접한 부분을 rootViewController 라고 함
         window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+
         // 생성한 윈도우를 핵심 윈도우로 보여줌 (윈도우는 여러 개 생성 가능)
         window?.makeKeyAndVisible()
-        
+
     }
 
 }
