@@ -26,7 +26,7 @@ class PlanViewController: UIViewController {
     }
     
     private var isSelectedArray: [Bool] = []  // 셀 선택 유무 담을 Bool 배열
-    private var todayDate: Int = 0            // 오늘 날짜 담을 변수 - 자료형 변경 가능
+    private var selectedDate: Int?         // 오늘 날짜를 디폴트 값으로 시작
     
     // MARK: - IBOutlets
 
@@ -40,8 +40,7 @@ class PlanViewController: UIViewController {
 
         configureUI()
         setupCollectionView()
-        setupDummyData()
-        getTodayInfo()
+        setupData()
     }
     
     // MARK: - IBActions
@@ -77,32 +76,33 @@ extension PlanViewController {
                                            blur: 10,
                                            spread: 0)
     }
+    
     /// CollectionView Setup
     private func setupCollectionView() {
         calendarView.delegate = self
         calendarView.dataSource = self
         calendarView.register(UINib(nibName: "DateCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: DateCollectionViewCell.cellId)
-        calendarView.allowsMultipleSelection = false
     }
+    
     /// Dummy Setup
-    private func setupDummyData() {
+    private func setupData() {
         dummyData.append(contentsOf: [
             6, 7, 8, 9, 10, 11,
             12, 13, 14, 15, 16, 17
         ])
-        
-        for _ in 0..<dummyData.count {
-            isSelectedArray.append(false)
-        }
+
+        selectedDate = getTodayInfo()
     }
+    
     /// Get Today - 오늘 날짜 얻어오는 함수
-    private func getTodayInfo() {
+    private func getTodayInfo() -> Int {
         let nowDate = Date() // 현재의 Date (ex: 2020-08-13 09:14:48 +0000)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM" // 2020-08-13 16:30
         let str = dateFormatter.string(from: nowDate) // 현재 시간의 Date를 format에 맞춰 string으로 반환
-        todayDate = Int(str) ?? -1
+        return Int(str) ?? -1
     }
+    
     /// 셀 선택 상태 변경해주는 토글 함수
     private func toggleSelection(index: Int) {
         for i in 0..<isSelectedArray.count {
@@ -117,7 +117,9 @@ extension PlanViewController {
 
 // MARK: - Collection View Data Delegate
 extension PlanViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedDate = dummyData[indexPath.row]
+    }
 }
 
 // MARK: - Collection View Data Source
@@ -134,10 +136,10 @@ extension PlanViewController: UICollectionViewDataSource {
         cell.dayNumberLabel.text = "D\(indexPath.row + 1)"
         cell.dateLabel.text = String(describing: dummyData[indexPath.row])
         
-        /// 오늘 날짜인 경우 셀이 선택된 상태로 시작
-        if dummyData[indexPath.row] == todayDate {
-            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+        /// 선택된 날짜일때만 isSelected 변경
+        if dummyData[indexPath.row] == selectedDate {
             cell.isSelected = true
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         } else {
             cell.isSelected = false
         }
