@@ -12,6 +12,9 @@
 		0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */; };
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39865B35268F7DF700961BF4 /* CALayer+Extension.swift */; };
+		408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D1ADE26957D8F00BBC454 /* CalendarCell.swift */; };
+		4095558C2695718D00130ACB /* AddDateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */; };
+		4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095558D2695719A00130ACB /* AddDateViewController.swift */; };
 		40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */; };
 		40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */; };
 		40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */; };
@@ -61,6 +64,9 @@
 		0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PagerTabSampleViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		39865B35268F7DF700961BF4 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		408D1ADE26957D8F00BBC454 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDateStoryboard.storyboard; sourceTree = "<group>"; };
+		4095558D2695719A00130ACB /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
 		40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +160,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		408D1ADD26957D5100BBC454 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				408D1ADE26957D8F00BBC454 /* CalendarCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4095558A2695715200130ACB /* AddDate */ = {
+			isa = PBXGroup;
+			children = (
+				408D1ADD26957D5100BBC454 /* Cell */,
+				4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */,
+				4095558D2695719A00130ACB /* AddDateViewController.swift */,
+			);
+			path = AddDate;
+			sourceTree = "<group>";
+		};
 		40AE7825268F7F680058806B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +198,7 @@
 		40B5A08C268EE1ED00A89875 /* AddTrip */ = {
 			isa = PBXGroup;
 			children = (
+				4095558A2695715200130ACB /* AddDate */,
 				40AE782C268F81B90058806B /* Models */,
 				40AE7825268F7F680058806B /* Cells */,
 				40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */,
@@ -476,6 +501,7 @@
 				40B5A090268EE2E500A89875 /* AddTripStoryboard.storyboard in Resources */,
 				BD0AD61C269363ED0033DAD8 /* StoreStoryboard.storyboard in Resources */,
 				BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
+				4095558C2695718D00130ACB /* AddDateStoryboard.storyboard in Resources */,
 				BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */,
 				BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */,
 				BD39D500268DE80D004714B6 /* SpoqaHanSansNeo-Light.ttf in Resources */,
@@ -543,8 +569,10 @@
 				BD0AD62626936A8A0033DAD8 /* TripViewController.swift in Sources */,
 				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
 				BD0AD6222693653D0033DAD8 /* BoardViewController.swift in Sources */,
+				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */,
+				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
 				40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */,

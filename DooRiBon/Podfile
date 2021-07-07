@@ -8,4 +8,6 @@ target 'DooRiBon' do
   # Pods for DooRiBon
   pod 'Alamofire', '~> 5.4'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'FSCalendar', :git => 'https://github.com/hyejinL/FSCalendar.git', :branch => 'dooribun'
+   # Pods for FSCalendarPractice
 end
