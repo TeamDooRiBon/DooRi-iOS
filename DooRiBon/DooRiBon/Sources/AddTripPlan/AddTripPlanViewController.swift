@@ -55,7 +55,7 @@ class AddTripPlanViewController: UIViewController {
         notificationSet()
         datePickerBackgroundViewSet()
         dateformatSet()
-        alphaViewSet()
+        setAlphaView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +85,6 @@ class AddTripPlanViewController: UIViewController {
     }
     
     func notificationSet() {
-        NotificationCenter.default.addObserver(self, selector: #selector(checking), name: UITextField.textDidChangeNotification, object: nil)
         datePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
     }
     
@@ -100,7 +99,7 @@ class AddTripPlanViewController: UIViewController {
         dateformatter.locale = Locale(identifier: "ko")
     }
     
-    func alphaViewSet() {
+    func setAlphaView() {
         let alphaTap = UITapGestureRecognizer(target: self, action: #selector(alphaViewTapped(_:)))
         alphaView.addGestureRecognizer(alphaTap)
         alphaView.isUserInteractionEnabled = true
@@ -260,5 +259,9 @@ extension AddTripPlanViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.borderColor = Colors.gray6.color
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        checking()
     }
 }
