@@ -15,6 +15,8 @@
 		0A88A0142694A61800A4EBD0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */; };
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39865B35268F7DF700961BF4 /* CALayer+Extension.swift */; };
+		4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */; };
+		4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */; };
 		408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D1ADE26957D8F00BBC454 /* CalendarCell.swift */; };
 		4095558C2695718D00130ACB /* AddDateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */; };
 		4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095558D2695719A00130ACB /* AddDateViewController.swift */; };
@@ -78,6 +80,8 @@
 		0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		39865B35268F7DF700961BF4 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripPlanStoryboard.storyboard; sourceTree = "<group>"; };
+		4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanViewController.swift; sourceTree = "<group>"; };
 		408D1ADE26957D8F00BBC454 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDateStoryboard.storyboard; sourceTree = "<group>"; };
 		4095558D2695719A00130ACB /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD55F43D26919BF8004E7114 /* JoinTrip */ = {
+			isa = PBXGroup;
+			children = (
+				BD55F43E26919C17004E7114 /* JoinTripStoryboard.storyboard */,
+				BD55F44026919C2B004E7114 /* JoinTripViewController.swift */,
+				BD4EF4902691CB8300A6362D /* CodeTextField.swift */,
+			);
+			path = JoinTrip;
+			sourceTree = "<group>";
+		};
+		4091C6372692264F009EDB60 /* AddTripPlan */ = {
+			isa = PBXGroup;
+			children = (
+				4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */,
+				4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */,
+			);
+			path = AddTripPlan;
 		408D1ADD26957D5100BBC454 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +411,7 @@
 			children = (
 				BD0AD610269362DB0033DAD8 /* Base */,
 				BD55F43D26919BF8004E7114 /* JoinTrip */,
+				4091C6372692264F009EDB60 /* AddTripPlan */,
 				BD75C2E3268B522000C4F233 /* Main */,
 				0A1BD3B8268E192400702EC5 /* Common */,
 			);
@@ -594,6 +616,7 @@
 				40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */,
 				BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */,
 				BD39D4FF268DE80D004714B6 /* SpoqaHanSansNeo-Bold.ttf in Resources */,
+				4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +693,7 @@
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				39D4B5792695FB8C00AAA5DB /* WeViewController.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
+				4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */,
 				BD5CBC432694961C00935E79 /* DateCollectionViewCell.swift in Sources */,
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				39D4B5962696044C00AAA5DB /* StyleQuestionTableViewCell.swift in Sources */,
