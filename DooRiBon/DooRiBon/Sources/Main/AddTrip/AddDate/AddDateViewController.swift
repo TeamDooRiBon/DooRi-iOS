@@ -23,18 +23,20 @@ class AddDateViewController: UIViewController {
     private var lastDate: Date?
     private var datesRange: [Date]?
     fileprivate let gregorian = Calendar(identifier: .gregorian)
+    var delegate: dateLabelProtocol?
     
     var startString = ""
     var endString = ""
+    var startDateLabelData = ""
+    var endDateLabelData = ""
     
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelSet()
+        configureUI()
         calendarSet()
-        bottomShadowSet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +55,25 @@ class AddDateViewController: UIViewController {
         calendar.layer.mask = rectShape
     }
     
+    //MARK:- IBAction
+    
+    @IBAction func backButtonClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func selectButtonClicked(_ sender: Any) {
+        self.delegate?.protocolData(start: startDateLabelData, end: endDateLabelData)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     //MARK:- Function
+    
+    func configureUI() {
+        mainLabel.text = "번들님 여행 날짜는\n언제인가요?"
+        selectButton.isEnabled = false
+        bottomBoxView.layer.applyShadow(color: .black, alpha: 0.04, x: 0, y: -3, blur: 10, spread: 0)
+    }
     
     func calendarSet() {
         calendar.delegate = self
@@ -84,14 +104,31 @@ class AddDateViewController: UIViewController {
         calendar.register(CalendarCell.self, forCellReuseIdentifier: "cell")
     }
     
-    func labelSet() {
-        mainLabel.text = "번들님 여행 날짜는\n언제인가요?"
+    func getWeekday(week: Int) -> String{
+        if week == 1 {
+            return "일요일"
+        } else if week == 2 {
+            return "월요일"
+        } else if week == 3 {
+            return "화요일"
+        } else if week == 4 {
+            return "수요일"
+        } else if week == 5 {
+            return "목요일"
+        } else if week == 6 {
+            return "금요일"
+        } else if week == 7 {
+            return "일요일"
+        } else {
+            return "Error"
+        }
     }
-    
-    func bottomShadowSet() {
-        bottomBoxView.layer.applyShadow(color: .black, alpha: 0.04, x: 0, y: -3, blur: 10, spread: 0)
-    }
+}
 
+//MARK:- Protocol
+
+protocol dateLabelProtocol {
+    func protocolData(start: String, end: String)
 }
 
 //MARK:- Extension
@@ -124,10 +161,13 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
             let startYear = Calendar.current.dateComponents([.year], from: date)
             let startMonth = Calendar.current.dateComponents([.month], from: date)
             let startDay = Calendar.current.dateComponents([.day], from: date)
-            guard let year = startYear.year, let month = startMonth.month, let day = startDay.day else {
+            let startWeek = Calendar.current.dateComponents([.weekday], from: date)
+            guard let year = startYear.year, let month = startMonth.month, let day = startDay.day, let week = startWeek.weekday else {
                 return
             }
             startString = String(format: "%d. %02d. %02d", year, month, day)
+            let weekDay = getWeekday(week: week)
+            startDateLabelData = "\(startString) \(weekDay)"
             self.selectButton.setTitle(startString, for: .normal)
             self.selectButton.setTitleColor(Colors.gray4.color, for: .normal)
             self.selectButton.backgroundColor = Colors.gray7.color
@@ -164,17 +204,20 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
             let endYear = Calendar.current.dateComponents([.year], from: date)
             let endMonth = Calendar.current.dateComponents([.month], from: date)
             let endDay = Calendar.current.dateComponents([.day], from: date)
-            guard let year = endYear.year, let month = endMonth.month, let day = endDay.day else {
+            let endWeek = Calendar.current.dateComponents([.weekday], from: date)
+            guard let year = endYear.year, let month = endMonth.month, let day = endDay.day , let week = endWeek.weekday else {
                 return
             }
             endString = String(format: "%d. %02d. %02d", year, month, day)
+            let weekDay = getWeekday(week: week)
+            endDateLabelData = "\(endString) \(weekDay)"
             self.selectButton.setTitle("\(startString) - \(endString) 등록하기", for: .normal)
             self.selectButton.setTitleColor(Colors.pointOrange.color, for: .normal)
             self.selectButton.backgroundColor = Colors.white9.color
             self.selectButton.borderWidth = 1
             self.selectButton.borderColor = Colors.pointOrange.color
             self.configureVisibleCells()
-            
+            self.selectButton.isEnabled = true
             return
         }
 
@@ -191,6 +234,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
             self.selectButton.setTitleColor(Colors.gray4.color, for: .normal)
             self.selectButton.backgroundColor = Colors.gray7.color
             self.selectButton.borderWidth = 0
+            self.selectButton.isEnabled = false
         }
     }
 
@@ -208,6 +252,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
         self.selectButton.setTitleColor(Colors.gray4.color, for: .normal)
         self.selectButton.backgroundColor = Colors.gray7.color
         self.selectButton.borderWidth = 0
+        self.selectButton.isEnabled = false
     }
 
     func datesRange(from: Date, to: Date) -> [Date] {

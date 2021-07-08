@@ -46,7 +46,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 이름을 지어주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrb-fE-0PI">
-                                                <rect key="frame" x="25" y="134" width="147.5" height="26"/>
+                                                <rect key="frame" x="25" y="134" width="154.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="O45-7a-v11"/>
                                                 </constraints>
@@ -64,7 +64,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 일정을 등록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssb-Kb-yLb">
-                                                <rect key="frame" x="25" y="331" width="161.5" height="26"/>
+                                                <rect key="frame" x="25" y="331" width="169.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="ayW-zy-b9C"/>
                                                 </constraints>
@@ -73,7 +73,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq2-aQ-h2U">
-                                                <rect key="frame" x="25" y="364" width="45" height="18"/>
+                                                <rect key="frame" x="25" y="364" width="47" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="n4s-gi-UVO"/>
                                                 </constraints>
@@ -120,7 +120,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5K-m9-M3C">
-                                                <rect key="frame" x="237" y="332" width="113" height="24"/>
+                                                <rect key="frame" x="239" y="332" width="111" height="24"/>
                                                 <color key="backgroundColor" name="pointBlue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="zfz-X9-Hxa"/>
@@ -134,9 +134,12 @@
                                                         <real key="value" value="12"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addDateButtonClicked:" destination="YzU-2l-2DC" eventType="touchUpInside" id="TJb-gU-5Fk"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="끝나는 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcv-Rh-4Cl">
-                                                <rect key="frame" x="190" y="364" width="55.5" height="18"/>
+                                                <rect key="frame" x="190" y="364" width="58" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="hvg-FG-gs7"/>
                                                 </constraints>
@@ -149,8 +152,8 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWm-el-DvW">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                                        <color key="textColor" name="pointBlue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -180,8 +183,8 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X72-D0-O1m">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                                        <color key="textColor" name="pointBlue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -410,8 +413,10 @@
                     <size key="freeformSize" width="375" height="1031"/>
                     <connections>
                         <outlet property="endDateLabel" destination="X72-D0-O1m" id="I60-f5-lDM"/>
+                        <outlet property="endDateView" destination="7zo-4U-PtA" id="AJS-dV-zN5"/>
                         <outlet property="photoCollectionView" destination="Zdk-FE-Rfx" id="4aO-tw-lJa"/>
                         <outlet property="startDateLabel" destination="HWm-el-DvW" id="t6l-UI-H9r"/>
+                        <outlet property="startDateView" destination="dXO-hi-ITK" id="rwH-dK-ZYv"/>
                         <outlet property="startNewTripButton" destination="bu3-50-laf" id="lDK-Sf-O65"/>
                         <outlet property="topLabel" destination="hS0-u8-Ayq" id="fKW-gv-tPB"/>
                         <outlet property="tripLocationTextField" destination="aHO-10-r6Q" id="vfs-VU-NfC"/>

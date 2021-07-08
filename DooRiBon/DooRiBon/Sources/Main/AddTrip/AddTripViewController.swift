@@ -24,6 +24,10 @@ class AddTripViewController: UIViewController {
     /// Button
     @IBOutlet weak var startNewTripButton: UIButton!
     
+    /// View
+    @IBOutlet weak var startDateView: UIView!
+    @IBOutlet weak var endDateView: UIView!
+    
     //MARK:- Variable
     
     var photoList: [PhotoCollectionViewModel] = []
@@ -31,6 +35,7 @@ class AddTripViewController: UIViewController {
     var selectCheck = false
     
     //MARK:- Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         photoListSet()
@@ -41,6 +46,17 @@ class AddTripViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    //MARK:- IBAction
+    
+    @IBAction func addDateButtonClicked(_ sender: Any) {
+        let addDateStoryboard = UIStoryboard(name: "AddDateStoryboard", bundle: nil)
+        guard let nextVC = addDateStoryboard.instantiateViewController(identifier: "AddDateViewController") as? AddDateViewController else { return }
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.delegate = self
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     
     //MARK:- Function
     
@@ -63,7 +79,7 @@ class AddTripViewController: UIViewController {
     }
     
     @objc func checking() {
-        if tripNameTextField.text != "" && tripLocationTextField.text != "" && photoIsSelected == true {
+        if tripNameTextField.text != "" && tripLocationTextField.text != "" && photoIsSelected == true && startDateLabel.text != "" {
             startNewTripButton.backgroundColor = Colors.pointOrange.color
             startNewTripButton.isEnabled = true
             startNewTripButton.setTitleColor(.white, for: .normal)
@@ -76,6 +92,16 @@ class AddTripViewController: UIViewController {
 }
 
 //MARK:- Extension
+
+extension AddTripViewController: dateLabelProtocol {
+    func protocolData(start: String, end: String) {
+        startDateLabel.text = start
+        endDateLabel.text = end
+        startDateView.backgroundColor = Colors.white9.color
+        endDateView.backgroundColor = Colors.white9.color
+        checking()
+    }
+}
 
 extension AddTripViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
