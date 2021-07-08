@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Bold.ttf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="SpoqaHanSansNeo-Medium.ttf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Add Date View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddDateViewController" id="Y6W-OH-hqX" customClass="AddDateViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzO-W8-p02">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkH-Ds-fAM">
+                                        <rect key="frame" x="12" y="46" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="NhT-0C-V6X"/>
+                                            <constraint firstAttribute="width" constant="24" id="Qjk-44-DR8"/>
+                                        </constraints>
+                                        <state key="normal" image="backIcon"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번들님 여행 날짜는 언제인가요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRB-6l-4lC">
+                                        <rect key="frame" x="19" y="80" width="303" height="29"/>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="23"/>
+                                        <color key="textColor" name="white9"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="subBlue1"/>
+                                <constraints>
+                                    <constraint firstItem="lkH-Ds-fAM" firstAttribute="top" secondItem="mzO-W8-p02" secondAttribute="top" constant="46" id="E9L-pF-evI"/>
+                                    <constraint firstItem="iRB-6l-4lC" firstAttribute="top" secondItem="lkH-Ds-fAM" secondAttribute="bottom" constant="10" id="Jem-ya-P15"/>
+                                    <constraint firstItem="lkH-Ds-fAM" firstAttribute="leading" secondItem="mzO-W8-p02" secondAttribute="leading" constant="12" id="d7h-of-gx4"/>
+                                    <constraint firstItem="iRB-6l-4lC" firstAttribute="leading" secondItem="mzO-W8-p02" secondAttribute="leading" constant="19" id="g34-pl-Efa"/>
+                                    <constraint firstAttribute="height" constant="220" id="y1Y-nk-RXJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMS-1q-aXf" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="150" width="375" height="412"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="pagingEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="weekdayHeight">
+                                        <real key="value" value="69"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
+                                        <real key="value" value="46"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" name="gray5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdi-Ey-mGQ">
+                                <rect key="frame" x="0.0" y="562" width="375" height="105"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-mL-ARY">
+                                        <rect key="frame" x="18" y="18" width="339" height="47"/>
+                                        <color key="backgroundColor" name="gray7"/>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
+                                        <state key="normal" title="시작과 끝나는 날짜를 눌러주세요">
+                                            <color key="titleColor" name="gray4"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="white9"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="WJB-bd-lsY"/>
+                                    <constraint firstItem="kgO-mL-ARY" firstAttribute="top" secondItem="pdi-Ey-mGQ" secondAttribute="top" constant="18" id="X9P-at-sEt"/>
+                                    <constraint firstAttribute="bottom" secondItem="kgO-mL-ARY" secondAttribute="bottom" constant="40" id="cjd-9i-g6P"/>
+                                    <constraint firstAttribute="trailing" secondItem="kgO-mL-ARY" secondAttribute="trailing" constant="18" id="ifc-zl-Xkm"/>
+                                    <constraint firstItem="kgO-mL-ARY" firstAttribute="leading" secondItem="pdi-Ey-mGQ" secondAttribute="leading" constant="18" id="xhM-yf-P75"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IcT-34-zXA">
+                                <rect key="frame" x="0.0" y="561" width="375" height="1"/>
+                                <color key="backgroundColor" name="gray7"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="0BV-yI-a2Y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sMS-1q-aXf" secondAttribute="trailing" id="1Fz-cZ-sdO"/>
+                            <constraint firstItem="pdi-Ey-mGQ" firstAttribute="top" secondItem="IcT-34-zXA" secondAttribute="bottom" id="ADX-Ig-Iv0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IcT-34-zXA" secondAttribute="trailing" id="Bmv-Cg-Bp2"/>
+                            <constraint firstItem="sMS-1q-aXf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="D2h-jQ-nNr"/>
+                            <constraint firstItem="mzO-W8-p02" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="E3b-FJ-T3n"/>
+                            <constraint firstAttribute="bottom" secondItem="pdi-Ey-mGQ" secondAttribute="bottom" id="TxN-W6-6x0"/>
+                            <constraint firstItem="pdi-Ey-mGQ" firstAttribute="top" secondItem="sMS-1q-aXf" secondAttribute="bottom" id="V5B-p4-Tvk"/>
+                            <constraint firstItem="IcT-34-zXA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="VM3-fh-Dwh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pdi-Ey-mGQ" secondAttribute="trailing" id="YVH-VZ-J8p"/>
+                            <constraint firstItem="pdi-Ey-mGQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Z7u-zo-hYE"/>
+                            <constraint firstItem="sMS-1q-aXf" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="150" id="en7-0d-3ov"/>
+                            <constraint firstItem="mzO-W8-p02" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jPD-iQ-Gzn"/>
+                            <constraint firstItem="mzO-W8-p02" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="sDi-H1-GLZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomBoxView" destination="pdi-Ey-mGQ" id="3mo-8o-do7"/>
+                        <outlet property="calendar" destination="sMS-1q-aXf" id="dMm-ma-are"/>
+                        <outlet property="mainLabel" destination="iRB-6l-4lC" id="RaK-Qn-PTk"/>
+                        <outlet property="selectButton" destination="kgO-mL-ARY" id="Oet-e9-7PJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="83.035714285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backIcon" width="24" height="24"/>
+        <namedColor name="gray4">
+            <color red="0.36899998784065247" green="0.39599999785423279" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray5">
+            <color red="0.62699997425079346" green="0.64300000667572021" blue="0.6589999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray7">
+            <color red="0.91399997472763062" green="0.92199999094009399" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="subBlue1">
+            <color red="0.60399997234344482" green="0.70599997043609619" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white9">
+            <color red="0.99199998378753662" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
