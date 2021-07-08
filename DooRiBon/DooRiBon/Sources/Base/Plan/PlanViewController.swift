@@ -246,7 +246,7 @@ extension PlanViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PlanDataTableViewCell.cellId, for: indexPath) as? PlanDataTableViewCell else {
                 return UITableViewCell()
             }
-            if indexPath.row == 1 {
+            if indexPath.row == 0 {
                 if planDummyData.count == 1 {
                     cell.bottomLineView.isHidden = true
                 }
