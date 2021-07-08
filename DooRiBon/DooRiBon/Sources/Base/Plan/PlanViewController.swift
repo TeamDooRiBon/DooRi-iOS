@@ -58,7 +58,13 @@ class PlanViewController: UIViewController {
     }
     
     @IBAction private func codeCopyButtonClicked(_ sender: UIButton) {
-        print("참여코드 복사 완료")
+//        print("참여코드 복사 완료")
+        ToastView.loadFromXib()
+            .setMessage("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+            .setFont(.regular, 12)
+            .setTextColor(Colors.white9.color)
+            .setBackgroundColor(.black.withAlphaComponent(0.7))
+            .present()
     }
 }
 
