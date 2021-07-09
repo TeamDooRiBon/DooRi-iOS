@@ -216,18 +216,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		4091C6372692264F009EDB60 /* AddTripPlan */ = {
-			isa = PBXGroup;
-			children = (
-				4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */,
-				4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */,
-			);
-			path = AddTripPlan;
-			sourceTree = "<group>";
-		};
-		4095558A2695715200130ACB /* AddDate */ = {
-			isa = PBXGroup;
-			children = (
 		39EAC4AF2692E00000114734 /* StartTrip */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +534,8 @@
 				BDCC367B2695DA66009AE274 /* PlanDataModel.swift */,
 			);
 			path = Models;
+      sourceTree = "<group>";
+    };
 		BD7B4C7A2697250000DCCA03 /* View */ = {
 			isa = PBXGroup;
 			children = (
