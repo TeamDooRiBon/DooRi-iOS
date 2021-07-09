@@ -60,6 +60,7 @@ class MainViewController: UIViewController {
         let naviVC = UINavigationController(rootViewController: nextVC)
         naviVC.modalPresentationStyle = .overCurrentContext
         naviVC.modalTransitionStyle = .crossDissolve
+        naviVC.navigationBar.isHidden = true
         self.present(naviVC, animated: true) {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
             naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
@@ -72,10 +73,7 @@ class MainViewController: UIViewController {
         for cell in comeTripCollectionView.visibleCells {
             if let row = comeTripCollectionView.indexPath(for: cell)?.item {
                 let totalWidth = backgroundView.frame.width
-                print(totalWidth)
-                print(totalWidth * (CGFloat(row)/3))
                 UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
-                    //self.view.layoutIfNeeded()
                     self.indicatorBar.frame.origin.x = totalWidth * (CGFloat(row)/3)
                 }
             }

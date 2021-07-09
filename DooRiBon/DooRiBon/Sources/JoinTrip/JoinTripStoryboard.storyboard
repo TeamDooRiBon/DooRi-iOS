@@ -32,6 +32,9 @@
                                     <constraint firstAttribute="height" constant="24" id="pPx-bB-K0C"/>
                                 </constraints>
                                 <state key="normal" image="backIcon"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bg5-Pk-u4U"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2a-8B-cOZ">
                                 <rect key="frame" x="18" y="89" width="317" height="63"/>
