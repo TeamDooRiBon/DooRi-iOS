@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -14,15 +14,32 @@
             <objects>
                 <viewController storyboardIdentifier="BoardViewController" id="Y6W-OH-hqX" customClass="BoardViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyK-uK-iJ4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="Xjn-Gf-Ro6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gyK-uK-iJ4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3cU-Ea-Wtd"/>
+                            <constraint firstItem="gyK-uK-iJ4" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Wg6-Zh-66L"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gyK-uK-iJ4" secondAttribute="trailing" id="tQL-Lw-Jkz"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="보드" image="iconBoardInactiveIos" selectedImage="iconBoardActiveIos" id="qOq-cj-B3K">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="topContainerView" destination="gyK-uK-iJ4" id="SoY-Kf-oTw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -30,8 +47,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconBoardActiveIos" width="30.5" height="30"/>
-        <image name="iconBoardInactiveIos" width="30" height="30"/>
+        <image name="iconBoardActiveIos" width="30.333333969116211" height="30"/>
+        <image name="iconBoardInactiveIos" width="30.333333969116211" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
