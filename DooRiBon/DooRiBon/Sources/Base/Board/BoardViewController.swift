@@ -11,7 +11,7 @@ class BoardViewController: UIViewController {
     
     @IBOutlet var iconImageView: [UIImageView]!
     @IBOutlet var iconTitleLabel: [UILabel]!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     
     let topView = TripTopView()
     let iconName = ["Goal", "Aim", "Role", "Check"]
@@ -21,6 +21,7 @@ class BoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupTableView()
     }
     
 }
@@ -107,6 +108,11 @@ extension BoardViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.register(UINib(nibName: "BoardHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: BoardHeaderTableViewCell.cellId)
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
     }
 }
 
@@ -120,10 +126,11 @@ extension BoardViewController: UITableViewDelegate {
 
 extension BoardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardHeaderTableViewCell.cellId, for: indexPath) as? BoardHeaderTableViewCell else { return UITableViewCell() }
+        return cell
     }
 }
