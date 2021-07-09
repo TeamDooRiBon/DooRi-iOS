@@ -121,35 +121,7 @@ extension PlanViewController {
             PlanDataModel(planTime: "12:00 AM",
                           planTitle: "인천공항으로 출발",
                           planDescription: "여권 꼭 챙기기")
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기")
         ])
-        dataStatus = planDummyData.count == 0 ? false : true
         selectedDate = getTodayInfo()
     }
     
@@ -249,9 +221,7 @@ extension PlanViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             if indexPath.row == 0 {
-                if planDummyData.count == 1 {
-                    cell.bottomLineView.isHidden = true
-                }
+                cell.bottomLineView.isHidden = planDummyData.count == 1
                 cell.topLineView.isHidden = true
             } else if indexPath.row == planDummyData.count - 1 {
                 cell.bottomLineView.isHidden = true
