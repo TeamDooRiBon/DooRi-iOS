@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="height" constant="40" id="zzd-CK-wau"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9b9-AS-Jj4">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9b9-AS-Jj4">
                                 <rect key="frame" x="0.0" y="84" width="375" height="1821"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYu-94-62j">
@@ -818,6 +818,7 @@
                         <outlet property="mainTitleLabel" destination="qO8-47-OZQ" id="hCw-48-5GJ"/>
                         <outlet property="nowTripDateLabel" destination="O1A-tm-fec" id="xXL-yX-LGu"/>
                         <outlet property="nowTripTitleLabel" destination="tZI-OE-Apb" id="5fK-hn-bGR"/>
+                        <outlet property="scrollView" destination="9b9-AS-Jj4" id="enT-KI-1h8"/>
                         <outlet property="styleTripMenuLabel" destination="DnP-lS-p1V" id="1hy-o7-qYA"/>
                         <outlet property="styleTripView" destination="C35-t1-y67" id="59z-XA-34S"/>
                     </connections>

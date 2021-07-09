@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var indicatorBar: UIView!
     @IBOutlet weak var styleTripView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - 배열
     var comeTripList : [ComeTripListDataModel] = []
@@ -35,11 +36,12 @@ class MainViewController: UIViewController {
     var currentIndex : Int = 0
     var textCount: Int = 0
     
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.isHidden = true
+        setUI()
         setComeTripList()
         setLastTripList()
         scrollViewDidEndDecelerating(comeTripCollectionView)
@@ -71,7 +73,7 @@ class MainViewController: UIViewController {
                 let totalWidth = backgroundView.frame.width
                 print(totalWidth)
                 print(totalWidth * (CGFloat(row)/3))
-                UIView.animate(withDuration: 0.05, delay: 0, options: .curveEaseIn) {
+                UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
                     //self.view.layoutIfNeeded()
                     self.indicatorBar.frame.origin.x = totalWidth * (CGFloat(row)/3)
                 }
@@ -137,6 +139,9 @@ class MainViewController: UIViewController {
         styleTripView.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: 4, blur: 6, spread: 0)
     }
     
+    func setUI() {
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
 // MARK: - 익스텐션_컬렉션뷰
@@ -195,10 +200,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 
 extension MainViewController: UITableViewDelegate
 {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        // return UITableView.automaticDimension
-//        return 133
-//    }
+
 }
 
 extension MainViewController: UITableViewDataSource
