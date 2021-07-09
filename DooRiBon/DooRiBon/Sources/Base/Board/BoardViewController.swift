@@ -11,6 +11,7 @@ class BoardViewController: UIViewController {
     
     @IBOutlet var iconImageView: [UIImageView]!
     @IBOutlet var iconTitleLabel: [UILabel]!
+    @IBOutlet weak var tableView: UITableView!
     
     let topView = TripTopView()
     let iconName = ["Goal", "Aim", "Role", "Check"]
@@ -99,5 +100,30 @@ extension BoardViewController {
         default:
             return
         }
+    }
+    
+    // MARK: - TableView Setup
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+}
+
+// MARK: - TableView Delegate
+
+extension BoardViewController: UITableViewDelegate {
+    
+}
+
+// MARK: - TableView DataSource
+
+extension BoardViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }

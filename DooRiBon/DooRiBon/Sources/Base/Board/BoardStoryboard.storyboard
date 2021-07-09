@@ -198,17 +198,26 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="Vc2-ur-S1c"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YCS-k1-Rpy">
+                                <rect key="frame" x="0.0" y="275" width="375" height="454"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YCS-k1-Rpy" secondAttribute="trailing" id="1Ni-ph-bSB"/>
+                            <constraint firstItem="YCS-k1-Rpy" firstAttribute="top" secondItem="var-b0-fT7" secondAttribute="bottom" id="1yx-Ch-47K"/>
                             <constraint firstItem="gyK-uK-iJ4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3cU-Ea-Wtd"/>
                             <constraint firstItem="6bN-C3-F15" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="8QT-sk-pKZ"/>
                             <constraint firstItem="var-b0-fT7" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Gv8-Xn-gvh"/>
                             <constraint firstItem="6bN-C3-F15" firstAttribute="top" secondItem="gyK-uK-iJ4" secondAttribute="bottom" id="III-zA-GSW"/>
                             <constraint firstItem="gyK-uK-iJ4" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Wg6-Zh-66L"/>
+                            <constraint firstItem="YCS-k1-Rpy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bRz-6K-3Ke"/>
                             <constraint firstAttribute="trailing" secondItem="var-b0-fT7" secondAttribute="trailing" id="mw5-T3-oKC"/>
                             <constraint firstItem="6bN-C3-F15" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="nFW-rm-3gd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YCS-k1-Rpy" secondAttribute="bottom" id="nmb-oG-YFB"/>
                             <constraint firstItem="var-b0-fT7" firstAttribute="top" secondItem="6bN-C3-F15" secondAttribute="bottom" id="pER-xs-mZ0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gyK-uK-iJ4" secondAttribute="trailing" id="tQL-Lw-Jkz"/>
                         </constraints>
@@ -218,6 +227,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="tableView" destination="YCS-k1-Rpy" id="XdP-c9-1GN"/>
                         <outlet property="topContainerView" destination="gyK-uK-iJ4" id="SoY-Kf-oTw"/>
                         <outletCollection property="iconImageView" destination="5oc-D0-hsE" collectionClass="NSMutableArray" id="CmF-zv-47g"/>
                         <outletCollection property="iconImageView" destination="xpx-0U-fxz" collectionClass="NSMutableArray" id="uu6-18-dqX"/>
