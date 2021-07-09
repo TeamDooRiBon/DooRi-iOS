@@ -59,8 +59,8 @@
                                     <constraint firstAttribute="height" constant="40" id="zzd-CK-wau"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9b9-AS-Jj4">
-                                <rect key="frame" x="0.0" y="84" width="375" height="1821"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="9b9-AS-Jj4">
+                                <rect key="frame" x="0.0" y="84" width="375" height="1855"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYu-94-62j">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1855"/>
@@ -802,7 +802,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="R6p-in-uld" secondAttribute="trailing" id="Jxa-ZY-Llj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9b9-AS-Jj4" secondAttribute="trailing" id="VJB-I3-yoP"/>
                             <constraint firstItem="9b9-AS-Jj4" firstAttribute="top" secondItem="R6p-in-uld" secondAttribute="bottom" id="Vaw-7y-jjp"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9b9-AS-Jj4" secondAttribute="bottom" id="XDG-6n-g1e"/>
+                            <constraint firstAttribute="bottom" secondItem="9b9-AS-Jj4" secondAttribute="bottom" id="XDG-6n-g1e"/>
                             <constraint firstItem="R6p-in-uld" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="e4g-cu-4ps"/>
                             <constraint firstItem="JYu-94-62j" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="tLE-2n-h1e"/>
                         </constraints>

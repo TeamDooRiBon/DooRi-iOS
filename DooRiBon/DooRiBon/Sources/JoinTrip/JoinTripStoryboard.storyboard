@@ -234,7 +234,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="white8"/>
                         <constraints>
-                            <constraint firstItem="aoC-FT-XwD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="46" id="0U4-Uy-80v"/>
+                            <constraint firstItem="aoC-FT-XwD" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="46" id="0U4-Uy-80v"/>
                             <constraint firstItem="c2a-8B-cOZ" firstAttribute="top" secondItem="aoC-FT-XwD" secondAttribute="bottom" constant="19" id="22M-vV-lFC"/>
                             <constraint firstItem="EU9-kB-KSN" firstAttribute="top" secondItem="XQE-Ee-txg" secondAttribute="bottom" constant="42" id="83f-ey-dNu"/>
                             <constraint firstItem="c2a-8B-cOZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="9xc-Ui-vfF"/>
