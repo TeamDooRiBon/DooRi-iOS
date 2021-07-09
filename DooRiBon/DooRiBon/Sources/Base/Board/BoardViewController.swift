@@ -68,6 +68,6 @@ extension BoardViewController {
     }
     
     @objc func codeButtonClicked(_ sender: UIButton) {
-        print("code button clicked")
+        ToastView.loadFromXib().show(message: "참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
     }
 }
