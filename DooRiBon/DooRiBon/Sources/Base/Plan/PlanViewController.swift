@@ -30,7 +30,9 @@ class PlanViewController: UIViewController {
         }
     }
     private var selectedDate: Int?            // 오늘 날짜를 디폴트 값으로 시작
-    private var dataStatus: Bool = false
+    private var dataStatus: Bool {
+        !planDummyData.isEmpty
+    }
     
     // MARK: - IBOutlets
 
