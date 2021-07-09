@@ -112,15 +112,15 @@ extension PlanViewController {
             12, 13, 14, 15, 16, 17
         ])
         planDummyData.append(contentsOf: [
-//            PlanDataModel(planTime: "10:00 AM",
-//                          planTitle: "김포공항 앞에서 모이기",
-//                          planDescription: "2304 버스 정류장 찾아보기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
-//            PlanDataModel(planTime: "12:00 AM",
-//                          planTitle: "인천공항으로 출발",
-//                          planDescription: "여권 꼭 챙기기"),
+            PlanDataModel(planTime: "10:00 AM",
+                          planTitle: "김포공항 앞에서 모이기",
+                          planDescription: "2304 버스 정류장 찾아보기"),
+            PlanDataModel(planTime: "12:00 AM",
+                          planTitle: "인천공항으로 출발",
+                          planDescription: "여권 꼭 챙기기"),
+            PlanDataModel(planTime: "12:00 AM",
+                          planTitle: "인천공항으로 출발",
+                          planDescription: "여권 꼭 챙기기")
 //            PlanDataModel(planTime: "12:00 AM",
 //                          planTitle: "인천공항으로 출발",
 //                          planDescription: "여권 꼭 챙기기"),
