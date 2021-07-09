@@ -22,37 +22,26 @@ class ToastView: UIView {
     
     private func initSetup() {
         containerView.layer.cornerRadius = containerView.frame.height / 2
+        toastMessageLabel.textColor = Colors.white9.color
+        toastMessageLabel.font = UIFont.SpoqaHanSansNeo(.regular, size: 12)
+        containerView.backgroundColor = .black.withAlphaComponent(0.7)
     }
     
     // MARK: - Set Functions
+    
+    func show(message: String) {
+        toastMessageLabel.text = message
+        present()
+    }
+    
     /// 화면에 띄우는 메서드
-    func present() {
+    private func present() {
         DispatchQueue.main.async {
             self.frame = UIScreen.main.bounds
             AppDelegate.currentKeyWindow?.addSubview(self)
             UIApplication.topViewController()?.view.endEditing(false)
             self.moveIn()
         }
-    }
-    /// 메시지 내용 설정하는 메서드
-    func setMessage(_ text: String) -> Self {
-        toastMessageLabel.text = text
-        return self
-    }
-    /// 메시지 색상 설정하는 메서드
-    func setTextColor(_ color: UIColor) -> Self {
-        toastMessageLabel.textColor = color
-        return self
-    }
-    /// 백그라운드 색상 설정하는 메서드
-    func setBackgroundColor(_ color: UIColor) -> Self {
-        containerView.backgroundColor = color
-        return self
-    }
-    /// 폰트 설정하는 메서드
-    func setFont(_ weight: UIFont.SpoqaHanSansNeoType, _ size: CGFloat) -> Self {
-        toastMessageLabel.font = UIFont.SpoqaHanSansNeo(weight, size: size)
-        return self
     }
     
     // MARK: - Animations
