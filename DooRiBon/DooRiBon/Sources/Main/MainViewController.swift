@@ -56,12 +56,13 @@ class MainViewController: UIViewController {
     
     // 새로운 여행 시작하기 : 팝업 StartTrip 뷰컨으로 이동 -> 팝업과 뒷 화면을 연결해야함
     @IBAction func StartTripButtonClicked(_ sender: Any) {
-        let vc = StartTripViewController(nibName: "StartTripViewController", bundle: nil)
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        self.present(vc, animated: true) {
+        let nextVC = StartTripViewController(nibName: "StartTripViewController", bundle: nil)
+        let naviVC = UINavigationController(rootViewController: nextVC)
+        naviVC.modalPresentationStyle = .overCurrentContext
+        naviVC.modalTransitionStyle = .crossDissolve
+        self.present(naviVC, animated: true) {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
-            vc.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+            naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
         }
     }
     
