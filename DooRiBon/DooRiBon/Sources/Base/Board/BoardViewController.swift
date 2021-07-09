@@ -9,7 +9,11 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    @IBOutlet var iconImageView: [UIImageView]!
+    @IBOutlet var iconTitleLabel: [UILabel]!
+    
     let topView = TripTopView()
+    let iconName = ["Goal", "Aim", "Role", "Check"]
 
     @IBOutlet weak var topContainerView: UIView!
     
@@ -69,5 +73,31 @@ extension BoardViewController {
     
     @objc func codeButtonClicked(_ sender: UIButton) {
         ToastView.loadFromXib().show(message: "참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+    }
+    
+    @IBAction private func iconClicked(_ sender: UIButton) {
+        /// 이미지 선택/비선택 처리
+        let _ = iconImageView.enumerated().map {
+            let iconCategory = self.iconName[$0.0]
+            let iconName = "iconBoard\(iconCategory)"
+            $0.element.image = $0.0 == sender.tag ? UIImage(named: "\(iconName)Active") : UIImage(named: "\(iconName)Inactive")
+        }
+        /// 라벨 선택/비선택 처리
+        let _ = iconTitleLabel.enumerated().map {
+            $0.element.textColor = $0.0 == sender.tag ? Colors.pointOrange.color : Colors.gray5.color
+        }
+        /// 각 버튼 클릭했을때 컨텐츠 영역 처리 (ex. 데이터 리로드)
+        switch sender.tag {
+        case 0:
+            print("여행 목표")
+        case 1:
+            print("꼭 알아줘")
+        case 2:
+            print("역할 분담")
+        case 3:
+            print("체크리스트")
+        default:
+            return
+        }
     }
 }
