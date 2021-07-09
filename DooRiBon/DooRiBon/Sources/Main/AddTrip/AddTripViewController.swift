@@ -94,7 +94,7 @@ class AddTripViewController: UIViewController {
 //MARK:- Extension
 
 extension AddTripViewController: dateLabelProtocol {
-    func protocolData(start: String, end: String) {
+    func startEndDateLabelSet(start: String, end: String) {
         startDateLabel.text = start
         endDateLabel.text = end
         startDateView.backgroundColor = Colors.white9.color
