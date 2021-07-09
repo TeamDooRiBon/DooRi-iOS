@@ -22,19 +22,21 @@ class AddDateViewController: UIViewController {
     private var firstDate: Date?
     private var lastDate: Date?
     private var datesRange: [Date]?
-    fileprivate let gregorian = Calendar(identifier: .gregorian)
+    fileprivate var dooriCalendar = Calendar(identifier: .gregorian)
+    var delegate: dateLabelProtocol?
     
     var startString = ""
     var endString = ""
+    var startDateLabelData = ""
+    var endDateLabelData = ""
     
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelSet()
+        configureUI()
         calendarSet()
-        bottomShadowSet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +55,25 @@ class AddDateViewController: UIViewController {
         calendar.layer.mask = rectShape
     }
     
+    //MARK:- IBAction
+    
+    @IBAction func backButtonClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func selectButtonClicked(_ sender: Any) {
+        self.delegate?.startEndDateLabelSet(start: startDateLabelData, end: endDateLabelData)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     //MARK:- Function
+    
+    func configureUI() {
+        mainLabel.text = "번들님 여행 날짜는\n언제인가요?"
+        selectButton.isEnabled = false
+        bottomBoxView.layer.applyShadow(color: .black, alpha: 0.04, x: 0, y: -3, blur: 10, spread: 0)
+    }
     
     func calendarSet() {
         calendar.delegate = self
@@ -82,16 +102,14 @@ class AddDateViewController: UIViewController {
         calendar.appearance.headerTitleSuffixColor = Colors.subBlue2.color
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.register(CalendarCell.self, forCellReuseIdentifier: "cell")
+        dooriCalendar.locale = Locale(identifier: "ko_KR")
     }
-    
-    func labelSet() {
-        mainLabel.text = "번들님 여행 날짜는\n언제인가요?"
-    }
-    
-    func bottomShadowSet() {
-        bottomBoxView.layer.applyShadow(color: .black, alpha: 0.04, x: 0, y: -3, blur: 10, spread: 0)
-    }
+}
 
+//MARK:- Protocol
+
+protocol dateLabelProtocol {
+    func startEndDateLabelSet(start: String, end: String)
 }
 
 //MARK:- Extension
@@ -121,13 +139,11 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
         if firstDate == nil {
             firstDate = date
             datesRange = [date]
-            let startYear = Calendar.current.dateComponents([.year], from: date)
-            let startMonth = Calendar.current.dateComponents([.month], from: date)
-            let startDay = Calendar.current.dateComponents([.day], from: date)
-            guard let year = startYear.year, let month = startMonth.month, let day = startDay.day else {
-                return
-            }
+            let dateComponents = dooriCalendar.dateComponents([.year, .month, .day, .weekday], from: date)
+            guard let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day, let weekIndex = dateComponents.weekday else { return }
+            let dayOfWeek = dooriCalendar.weekdaySymbols[weekIndex-1]
             startString = String(format: "%d. %02d. %02d", year, month, day)
+            startDateLabelData = "\(startString) \(dayOfWeek)"
             self.selectButton.setTitle(startString, for: .normal)
             self.selectButton.setTitleColor(Colors.gray4.color, for: .normal)
             self.selectButton.backgroundColor = Colors.gray7.color
@@ -143,12 +159,8 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
                 firstDate = date
                 datesRange = [first]
 
-                let startYear = Calendar.current.dateComponents([.year], from: date)
-                let startMonth = Calendar.current.dateComponents([.month], from: date)
-                let startDay = Calendar.current.dateComponents([.day], from: date)
-                guard let year = startYear.year, let month = startMonth.month, let day = startDay.day else {
-                    return
-                }
+                let dateComponents = dooriCalendar.dateComponents([.year, .month, .day, .weekday], from: date)
+                guard let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day else { return }
                 startString = String(format: "%d. %02d. %02d", year, month, day)
                 self.selectButton.setTitle("\(startString)", for: .normal)
                 self.configureVisibleCells()
@@ -161,20 +173,18 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
                 calendar.select(d)
             }
             datesRange = range
-            let endYear = Calendar.current.dateComponents([.year], from: date)
-            let endMonth = Calendar.current.dateComponents([.month], from: date)
-            let endDay = Calendar.current.dateComponents([.day], from: date)
-            guard let year = endYear.year, let month = endMonth.month, let day = endDay.day else {
-                return
-            }
+            let dateComponents = dooriCalendar.dateComponents([.year, .month, .day, .weekday], from: date)
+            guard let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day, let weekIndex = dateComponents.weekday else { return }
+            let dayOfWeek = dooriCalendar.weekdaySymbols[weekIndex-1]
             endString = String(format: "%d. %02d. %02d", year, month, day)
+            endDateLabelData = "\(endString) \(dayOfWeek)"
             self.selectButton.setTitle("\(startString) - \(endString) 등록하기", for: .normal)
             self.selectButton.setTitleColor(Colors.pointOrange.color, for: .normal)
             self.selectButton.backgroundColor = Colors.white9.color
             self.selectButton.borderWidth = 1
             self.selectButton.borderColor = Colors.pointOrange.color
             self.configureVisibleCells()
-            
+            self.selectButton.isEnabled = true
             return
         }
 
@@ -191,6 +201,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
             self.selectButton.setTitleColor(Colors.gray4.color, for: .normal)
             self.selectButton.backgroundColor = Colors.gray7.color
             self.selectButton.borderWidth = 0
+            self.selectButton.isEnabled = false
         }
     }
 
@@ -208,6 +219,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
         self.selectButton.setTitleColor(Colors.gray4.color, for: .normal)
         self.selectButton.backgroundColor = Colors.gray7.color
         self.selectButton.borderWidth = 0
+        self.selectButton.isEnabled = false
     }
 
     func datesRange(from: Date, to: Date) -> [Date] {
@@ -237,8 +249,8 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
         if position == .current {
             var selectionType = SelectionType.none
             if calendar.selectedDates.contains(date) {
-                let previousDate = self.gregorian.date(byAdding: .day, value: -1, to: date)!
-                let nextDate = self.gregorian.date(byAdding: .day, value: 1, to: date)!
+                let previousDate = self.dooriCalendar.date(byAdding: .day, value: -1, to: date)!
+                let nextDate = self.dooriCalendar.date(byAdding: .day, value: 1, to: date)!
                 if calendar.selectedDates.contains(date) {
                     if calendar.selectedDates.contains(previousDate) && calendar.selectedDates.contains(nextDate) {
                         selectionType = .middle

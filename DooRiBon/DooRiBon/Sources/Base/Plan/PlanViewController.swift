@@ -66,7 +66,8 @@ class PlanViewController: UIViewController {
     }
     
     @IBAction private func codeCopyButtonClicked(_ sender: UIButton) {
-        print("참여코드 복사 완료")
+        let toastView = ToastView.loadFromXib()
+        toastView.show(message: "참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
     }
 }
 
