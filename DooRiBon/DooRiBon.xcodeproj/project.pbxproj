@@ -74,6 +74,7 @@
 		BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C303268B5C7300C4F233 /* UIView+Extension.swift */; };
 		BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B4C7D2697253C00DCCA03 /* ToastView.swift */; };
 		BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7B4C7F2697254300DCCA03 /* ToastView.xib */; };
+		BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5626826994E2000616CBF /* DummyDataModel.swift */; };
 		BDCC36772695C61C009AE274 /* PlanDataHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */; };
 		BDCC36792695C627009AE274 /* PlanDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */; };
 		BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC367B2695DA66009AE274 /* PlanDataModel.swift */; };
@@ -155,6 +156,7 @@
 		BD75C303268B5C7300C4F233 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BD7B4C7D2697253C00DCCA03 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		BD7B4C7F2697254300DCCA03 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		BDA5626826994E2000616CBF /* DummyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataModel.swift; sourceTree = "<group>"; };
 		BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataHeaderView.swift; sourceTree = "<group>"; };
 		BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDataHeaderView.xib; sourceTree = "<group>"; };
 		BDCC367B2695DA66009AE274 /* PlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataModel.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		BD0AD611269363090033DAD8 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				BDA5626726994E0E00616CBF /* Models */,
 				BD5EEC9126986A4500D09B11 /* Cells */,
 				BD0AD619269363E30033DAD8 /* BoardStoryboard.storyboard */,
 				BD0AD6212693653D0033DAD8 /* BoardViewController.swift */,
@@ -554,6 +557,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BDA5626726994E0E00616CBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BDA5626826994E2000616CBF /* DummyDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BDCC36732695C5E9009AE274 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +742,7 @@
 				BD0AD6222693653D0033DAD8 /* BoardViewController.swift in Sources */,
 				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
+				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
 				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
 				BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,

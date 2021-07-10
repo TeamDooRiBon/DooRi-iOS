@@ -15,6 +15,26 @@ class BoardViewController: UIViewController {
     
     let topView = TripTopView()
     let iconName = ["Goal", "Aim", "Role", "Check"]
+    let dummyData = [
+        DummyDataModel(imageName: "illustDummy1",
+                       message: "여행 목표를 공유하세요!",
+                       description: "이번 여행에서 어떤 것을\n얻고 싶은지 작성해보세요"),
+        DummyDataModel(imageName: "illustDummy2",
+                       message: "꼭 알려야 할 것들을 미리 공유하세요!",
+                       description: "서로 미리 알면 좋을 습관이나\n생활 패턴 등을 함께 이야기해보세요"),
+        DummyDataModel(imageName: "illustDummy3",
+                       message: "여행 멤버들의 역할을 정하세요!",
+                       description: "예약 담당, 돈 관리, 드라이버 등\n각자의 역할을 정해보세요"),
+        DummyDataModel(imageName: "illustDummy4",
+                       message: "여행 전에 미리 체크하세요!",
+                       description: "이번 여행에서 꼭 확인해야\n하는 것들을 미리 공유해요")
+    ]
+    private var selectedData: DummyDataModel! {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
 
     @IBOutlet weak var topContainerView: UIView!
     
@@ -22,6 +42,7 @@ class BoardViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupTableView()
+        setupData()
     }
     
 }
@@ -34,6 +55,10 @@ extension BoardViewController {
         
         setupTop()
         setupButtonAction()
+    }
+    
+    private func setupData() {
+        selectedData = dummyData[0]
     }
     
     // MARK: - Top Area
@@ -91,13 +116,13 @@ extension BoardViewController {
         /// 각 버튼 클릭했을때 컨텐츠 영역 처리 (ex. 데이터 리로드)
         switch sender.tag {
         case 0:
-            print("여행 목표")
+            selectedData = dummyData[0]
         case 1:
-            print("꼭 알아줘")
+            selectedData = dummyData[1]
         case 2:
-            print("역할 분담")
+            selectedData = dummyData[2]
         case 3:
-            print("체크리스트")
+            selectedData = dummyData[3]
         default:
             return
         }
@@ -110,27 +135,39 @@ extension BoardViewController {
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "BoardHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: BoardHeaderTableViewCell.cellId)
+        tableView.register(UINib(nibName: "BoardNoDataTableViewCell", bundle: nil), forCellReuseIdentifier: BoardNoDataTableViewCell.cellId)
         
-        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
     }
 }
 
 // MARK: - TableView Delegate
 
 extension BoardViewController: UITableViewDelegate {
-    
 }
 
 // MARK: - TableView DataSource
 
 extension BoardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardHeaderTableViewCell.cellId, for: indexPath) as? BoardHeaderTableViewCell else { return UITableViewCell() }
-        return cell
+        
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardHeaderTableViewCell.cellId, for: indexPath) as? BoardHeaderTableViewCell else { return UITableViewCell() }
+            return cell
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardNoDataTableViewCell.cellId, for: indexPath) as? BoardNoDataTableViewCell else { return UITableViewCell() }
+            
+            cell.setData(imageName: selectedData.imageName,
+                         message: selectedData.message,
+                         description: selectedData.description)
+            
+            return cell
+        }
     }
 }
