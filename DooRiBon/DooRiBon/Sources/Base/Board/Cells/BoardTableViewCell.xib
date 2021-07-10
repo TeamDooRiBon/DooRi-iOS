@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Medium.ttf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+        <array key="SpoqaHanSansNeo-Regular.ttf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardTableViewCell" rowHeight="81" id="KGk-i7-Jjw" customClass="BoardTableViewCell" customModule="DooRiBon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4B6-LG-dtL">
+                        <rect key="frame" x="18" y="4" width="284" height="73"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="제주도 한라산 등산하기! 아침에 일찍 일어나서 꼭 갈거야 한라산.... " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo5-cM-2cL">
+                                <rect key="frame" x="16" y="14" width="205" height="32.666666666666664"/>
+                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                <color key="textColor" name="black2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민영" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plW-no-bRs">
+                                <rect key="frame" x="236" y="14" width="26" height="12.666666666666664"/>
+                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
+                                <color key="textColor" name="gray5"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="plW-no-bRs" firstAttribute="top" secondItem="Vo5-cM-2cL" secondAttribute="top" id="IVT-ma-7qQ"/>
+                            <constraint firstItem="Vo5-cM-2cL" firstAttribute="leading" secondItem="4B6-LG-dtL" secondAttribute="leading" constant="16" id="KJL-Lr-f9x"/>
+                            <constraint firstItem="Vo5-cM-2cL" firstAttribute="top" secondItem="4B6-LG-dtL" secondAttribute="top" constant="14" id="URT-Eu-yyd"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Vo5-cM-2cL" secondAttribute="bottom" constant="14" id="lzx-It-bGd"/>
+                            <constraint firstAttribute="trailing" secondItem="plW-no-bRs" secondAttribute="trailing" constant="22" id="uzx-f8-z33"/>
+                            <constraint firstItem="plW-no-bRs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vo5-cM-2cL" secondAttribute="trailing" constant="10" id="v3B-dM-NjW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4B6-LG-dtL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="6rG-3O-WLi"/>
+                    <constraint firstAttribute="bottom" secondItem="4B6-LG-dtL" secondAttribute="bottom" constant="4" id="JLW-OE-J53"/>
+                    <constraint firstAttribute="trailing" secondItem="4B6-LG-dtL" secondAttribute="trailing" constant="18" id="XWe-3h-H7R"/>
+                    <constraint firstItem="4B6-LG-dtL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="az1-tA-FFB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="boardBackgroundView" destination="4B6-LG-dtL" id="X14-3C-mE7"/>
+                <outlet property="goalContentsLabel" destination="Vo5-cM-2cL" id="erV-uf-H1p"/>
+                <outlet property="goalUserLabel" destination="plW-no-bRs" id="0YK-eK-e12"/>
+            </connections>
+            <point key="canvasLocation" x="193.59999999999999" y="26.970443349753694"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="black2">
+            <color red="0.18000000715255737" green="0.19599999487400055" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray5">
+            <color red="0.62699997425079346" green="0.64300000667572021" blue="0.6589999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
