@@ -119,7 +119,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drc-h6-FT0">
                             <rect key="frame" x="0.0" y="0.0" width="338" height="102"/>
                             <connections>
-                                <action selector="goButtonClicked:" destination="-1" eventType="touchUpInside" id="WVj-l5-xBh"/>
+                                <action selector="joinButtonClicked:" destination="-1" eventType="touchUpInside" id="iKt-2I-trG"/>
                             </connections>
                         </button>
                     </subviews>

@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
         setUI()
         setComeTripList()
         setLastTripList()
-        scrollViewDidEndDecelerating(comeTripCollectionView)
+//        scrollViewDidEndDecelerating(comeTripCollectionView)
         
         collectionViewSet()
         tableViewSet()
@@ -67,17 +67,8 @@ class MainViewController: UIViewController {
         }
     }
     
-    
-    // MARK: - 스크롤 인디케이터
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        for cell in comeTripCollectionView.visibleCells {
-            if let row = comeTripCollectionView.indexPath(for: cell)?.item {
-                let totalWidth = backgroundView.frame.width
-                UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
-                    self.indicatorBar.frame.origin.x = totalWidth * (CGFloat(row)/3)
-                }
-            }
-        }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/3
     }
     
     
