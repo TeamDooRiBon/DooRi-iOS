@@ -29,7 +29,11 @@ class ToastView: UIView {
     
     // MARK: - Set Functions
     
-    func show(message: String) {
+    static func show(_ message: String) {
+        loadFromXib().show(message: message)
+    }
+    
+    private func show(message: String) {
         toastMessageLabel.text = message
         present()
     }
