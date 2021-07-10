@@ -9,6 +9,7 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    @IBOutlet weak var topContainerView: UIView!
     @IBOutlet var iconImageView: [UIImageView]!
     @IBOutlet var iconTitleLabel: [UILabel]!
     @IBOutlet weak private var tableView: UITableView!
@@ -29,14 +30,14 @@ class BoardViewController: UIViewController {
                        message: "여행 전에 미리 체크하세요!",
                        description: "이번 여행에서 꼭 확인해야\n하는 것들을 미리 공유해요")
     ]
-    private var selectedData: DummyDataModel! {
+    private var selectedData: DummyDataModel? {
         didSet {
             tableView.reloadData()
         }
     }
 
 
-    @IBOutlet weak var topContainerView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,9 +164,9 @@ extension BoardViewController: UITableViewDataSource {
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardNoDataTableViewCell.cellId, for: indexPath) as? BoardNoDataTableViewCell else { return UITableViewCell() }
             
-            cell.setData(imageName: selectedData.imageName,
-                         message: selectedData.message,
-                         description: selectedData.description)
+            cell.setData(imageName: selectedData?.imageName ?? "",
+                         message: selectedData?.message ?? "",
+                         description: selectedData?.description ?? "")
             
             return cell
         }
