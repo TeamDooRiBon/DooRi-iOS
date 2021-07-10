@@ -75,6 +75,8 @@
 		BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B4C7D2697253C00DCCA03 /* ToastView.swift */; };
 		BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7B4C7F2697254300DCCA03 /* ToastView.xib */; };
 		BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5626826994E2000616CBF /* DummyDataModel.swift */; };
+		BDA5626C2699962B00616CBF /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5626A2699962B00616CBF /* BoardTableViewCell.swift */; };
+		BDA5626D2699962B00616CBF /* BoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDA5626B2699962B00616CBF /* BoardTableViewCell.xib */; };
 		BDCC36772695C61C009AE274 /* PlanDataHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */; };
 		BDCC36792695C627009AE274 /* PlanDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */; };
 		BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC367B2695DA66009AE274 /* PlanDataModel.swift */; };
@@ -157,6 +159,8 @@
 		BD7B4C7D2697253C00DCCA03 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		BD7B4C7F2697254300DCCA03 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
 		BDA5626826994E2000616CBF /* DummyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataModel.swift; sourceTree = "<group>"; };
+		BDA5626A2699962B00616CBF /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
+		BDA5626B2699962B00616CBF /* BoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardTableViewCell.xib; sourceTree = "<group>"; };
 		BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataHeaderView.swift; sourceTree = "<group>"; };
 		BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDataHeaderView.xib; sourceTree = "<group>"; };
 		BDCC367B2695DA66009AE274 /* PlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataModel.swift; sourceTree = "<group>"; };
@@ -381,6 +385,8 @@
 				BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */,
 				BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */,
 				BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */,
+				BDA5626A2699962B00616CBF /* BoardTableViewCell.swift */,
+				BDA5626B2699962B00616CBF /* BoardTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -660,6 +666,7 @@
 				BD5EEC9926986AC600D09B11 /* BoardHeaderTableViewCell.xib in Resources */,
 				BDCC36792695C627009AE274 /* PlanDataHeaderView.xib in Resources */,
 				BD0AD618269363D90033DAD8 /* PlanStoryboard.storyboard in Resources */,
+				BDA5626D2699962B00616CBF /* BoardTableViewCell.xib in Resources */,
 				BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
 				40B5A090268EE2E500A89875 /* AddTripStoryboard.storyboard in Resources */,
 				39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */,
@@ -772,6 +779,7 @@
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
 				BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */,
 				BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */,
+				BDA5626C2699962B00616CBF /* BoardTableViewCell.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
 				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
 				392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */,

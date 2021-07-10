@@ -9,7 +9,7 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
-    @IBOutlet weak var topContainerView: UIView!
+    @IBOutlet weak var topContainerView: TripTopView!
     @IBOutlet var iconImageView: [UIImageView]!
     @IBOutlet var iconTitleLabel: [UILabel]!
     @IBOutlet weak private var tableView: UITableView!
@@ -17,16 +17,20 @@ class BoardViewController: UIViewController {
     let topView = TripTopView()
     let iconName = ["Goal", "Aim", "Role", "Check"]
     let dummyData = [
-        DummyDataModel(imageName: "illustDummy1",
+        DummyDataModel(titleName: "우리의 여행 목표",
+                       imageName: "illustDummy1",
                        message: "여행 목표를 공유하세요!",
                        description: "이번 여행에서 어떤 것을\n얻고 싶은지 작성해보세요"),
-        DummyDataModel(imageName: "illustDummy2",
+        DummyDataModel(titleName: "이것만은 꼭 알아줘!",
+                       imageName: "illustDummy2",
                        message: "꼭 알려야 할 것들을 미리 공유하세요!",
                        description: "서로 미리 알면 좋을 습관이나\n생활 패턴 등을 함께 이야기해보세요"),
-        DummyDataModel(imageName: "illustDummy3",
+        DummyDataModel(titleName: "나의 역할은",
+                       imageName: "illustDummy3",
                        message: "여행 멤버들의 역할을 정하세요!",
                        description: "예약 담당, 돈 관리, 드라이버 등\n각자의 역할을 정해보세요"),
-        DummyDataModel(imageName: "illustDummy4",
+        DummyDataModel(titleName: "우리의 체크리스트",
+                       imageName: "illustDummy4",
                        message: "여행 전에 미리 체크하세요!",
                        description: "이번 여행에서 꼭 확인해야\n하는 것들을 미리 공유해요")
     ]
@@ -35,9 +39,6 @@ class BoardViewController: UIViewController {
             tableView.reloadData()
         }
     }
-
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,6 @@ class BoardViewController: UIViewController {
         setupTableView()
         setupData()
     }
-    
 }
 
 extension BoardViewController {
@@ -65,22 +65,22 @@ extension BoardViewController {
     // MARK: - Top Area
 
     private func setupTop() {
-        topContainerView.addSubview(topView)
-        topView.snp.makeConstraints {
-            $0.left.right.equalToSuperview()
-            $0.width.equalToSuperview()
-            $0.height.equalTo(190)
-        }
+//        topContainerView.addSubview(topView)
+//        topContainerView.snp.makeConstraints {
+//            $0.left.right.equalToSuperview()
+//            $0.width.equalToSuperview()
+//            $0.height.equalTo(190)
+//        }
     }
     
     // MARK: - Buttons
     
     private func setupButtonAction() {
-        topView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
-        topView.profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
-        topView.settingButton.addTarget(self, action: #selector(settingButtonClicked), for: .touchUpInside)
-        topView.memberButton.addTarget(self, action: #selector(memberButtonClicked), for: .touchUpInside)
-        topView.codeButton.addTarget(self, action: #selector(codeButtonClicked), for: .touchUpInside)
+        topContainerView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
+        topContainerView.profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
+        topContainerView.settingButton.addTarget(self, action: #selector(settingButtonClicked), for: .touchUpInside)
+        topContainerView.memberButton.addTarget(self, action: #selector(memberButtonClicked), for: .touchUpInside)
+        topContainerView.codeButton.addTarget(self, action: #selector(codeButtonClicked), for: .touchUpInside)
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
@@ -100,7 +100,23 @@ extension BoardViewController {
     }
     
     @objc func codeButtonClicked(_ sender: UIButton) {
-        ToastView.loadFromXib().show(message: "참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+        ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+    }
+    
+    // 예시
+    enum Icon: String {
+        case goal = "Goal"
+        case check
+        case role
+        case aim
+        
+        var activeImage: UIImage? {
+            UIImage(named: "\(rawValue)Active")
+        }
+        
+        var inActiveImage: UIImage? {
+            UIImage(named: "\(rawValue)Inactive")
+        }
     }
     
     @IBAction private func iconClicked(_ sender: UIButton) {
@@ -137,9 +153,11 @@ extension BoardViewController {
         
         tableView.register(UINib(nibName: "BoardHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: BoardHeaderTableViewCell.cellId)
         tableView.register(UINib(nibName: "BoardNoDataTableViewCell", bundle: nil), forCellReuseIdentifier: BoardNoDataTableViewCell.cellId)
+        tableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: BoardTableViewCell.cellId)
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.backgroundColor = .clear
     }
 }
 
@@ -152,7 +170,7 @@ extension BoardViewController: UITableViewDelegate {
 
 extension BoardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -160,15 +178,24 @@ extension BoardViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardHeaderTableViewCell.cellId, for: indexPath) as? BoardHeaderTableViewCell else { return UITableViewCell() }
+            cell.subTitleLabel.text = selectedData?.titleName
             return cell
         default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardNoDataTableViewCell.cellId, for: indexPath) as? BoardNoDataTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.cellId, for: indexPath) as? BoardTableViewCell else { return UITableViewCell() }
             
-            cell.setData(imageName: selectedData?.imageName ?? "",
-                         message: selectedData?.message ?? "",
-                         description: selectedData?.description ?? "")
+//            cell.setData(imageName: selectedData?.imageName ?? "",
+//                         message: selectedData?.message ?? "",
+//                         description: selectedData?.description ?? "")
+            
+            if indexPath.row % 2 == 0 {
+                cell.setData(goalContents: "제주도 한라산 등산하기! 아침에 일찍 일어나서 꼭 갈거야 한라산.... ", userName: "김민영")
+            } else {
+                cell.setData(goalContents: "여행가기", userName: "댕굴")
+            }
+            
             
             return cell
         }
+        
     }
 }
