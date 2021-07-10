@@ -12,6 +12,8 @@ class BoardHeaderTableViewCell: UITableViewCell {
     
     static let cellId = "BoardHeaderTableViewCell"
     
+    @IBOutlet weak var subTitleLabel: UILabel!
+    
     // MARK: - Init
     
     override func awakeFromNib() {
