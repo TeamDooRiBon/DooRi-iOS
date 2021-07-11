@@ -19,9 +19,15 @@
 		392EF95326918476008CA532 /* ComeTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95226918476008CA532 /* ComeTripListDataModel.swift */; };
 		392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9542691848D008CA532 /* LastTripListDataModel.swift */; };
 		39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39865B35268F7DF700961BF4 /* CALayer+Extension.swift */; };
+		399C700A269B27840017069C /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7007269B27840017069C /* QuestionCell.swift */; };
+		399C700B269B27840017069C /* TakeLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7008269B27840017069C /* TakeLookViewController.swift */; };
+		399C700C269B27840017069C /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 399C7009269B27840017069C /* QuestionCell.xib */; };
+		399C7010269B27C80017069C /* styleQuestionListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C700F269B27C80017069C /* styleQuestionListDataModel.swift */; };
+		399C7012269B27E60017069C /* StyleQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7011269B27E60017069C /* StyleQuestionTableViewCell.swift */; };
+		399C7014269B284C0017069C /* TakeLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399C7013269B284C0017069C /* TakeLookStoryboard.storyboard */; };
+		399C7016269B28A40017069C /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7015269B28A40017069C /* MemberViewController.swift */; };
 		39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EAC4B02692E0FA00114734 /* StartTripViewController.swift */; };
 		39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAC4B12692E0FA00114734 /* StartTripViewController.xib */; };
-		4073BC632698697700C5C7B0 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC622698697700C5C7B0 /* MemberViewController.swift */; };
 		4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */; };
 		4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */; };
 		4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6B26986FDA00C5C7B0 /* MemberOurTableViewModel.swift */; };
@@ -59,8 +65,16 @@
 		BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4EF4902691CB8300A6362D /* CodeTextField.swift */; };
 		BD55F43F26919C17004E7114 /* JoinTripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD55F43E26919C17004E7114 /* JoinTripStoryboard.storyboard */; };
 		BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD55F44026919C2B004E7114 /* JoinTripViewController.swift */; };
+		BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5B425C2695ABBE0002A290 /* PlanDataTableViewCell.swift */; };
+		BD5B425F2695ABBE0002A290 /* PlanDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5B425D2695ABBE0002A290 /* PlanDataTableViewCell.xib */; };
 		BD5CBC432694961C00935E79 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5CBC412694961C00935E79 /* DateCollectionViewCell.swift */; };
 		BD5CBC442694961C00935E79 /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */; };
+		BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC8D269848D800D09B11 /* TripTopView.swift */; };
+		BD5EEC90269848D800D09B11 /* TripTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC8E269848D800D09B11 /* TripTopView.xib */; };
+		BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */; };
+		BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */; };
+		BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */; };
+		BD5EEC9926986AC600D09B11 /* BoardHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */; };
 		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
 		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
 		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
@@ -75,6 +89,14 @@
 		BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */; };
 		BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C301268B5BDF00C4F233 /* FontEmpty.swift */; };
 		BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C303268B5C7300C4F233 /* UIView+Extension.swift */; };
+		BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B4C7D2697253C00DCCA03 /* ToastView.swift */; };
+		BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7B4C7F2697254300DCCA03 /* ToastView.xib */; };
+		BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5626826994E2000616CBF /* DummyDataModel.swift */; };
+		BDCC36772695C61C009AE274 /* PlanDataHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */; };
+		BDCC36792695C627009AE274 /* PlanDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */; };
+		BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC367B2695DA66009AE274 /* PlanDataModel.swift */; };
+		BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC367D2695DEAA009AE274 /* NoDataTableViewCell.swift */; };
+		BDCC36802695DEAA009AE274 /* NoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCC367E2695DEAA009AE274 /* NoDataTableViewCell.xib */; };
 		BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF1C119268E287900C82CF6 /* Colors.xcassets */; };
 		BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */; };
 /* End PBXBuildFile section */
@@ -92,9 +114,16 @@
 		392EF95226918476008CA532 /* ComeTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripListDataModel.swift; sourceTree = "<group>"; };
 		392EF9542691848D008CA532 /* LastTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripListDataModel.swift; sourceTree = "<group>"; };
 		39865B35268F7DF700961BF4 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		399C7007269B27840017069C /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		399C7008269B27840017069C /* TakeLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeLookViewController.swift; sourceTree = "<group>"; };
+		399C7009269B27840017069C /* QuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCell.xib; sourceTree = "<group>"; };
+		399C700F269B27C80017069C /* styleQuestionListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styleQuestionListDataModel.swift; sourceTree = "<group>"; };
+		399C7011269B27E60017069C /* StyleQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		399C7013269B284C0017069C /* TakeLookStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TakeLookStoryboard.storyboard; sourceTree = "<group>"; };
+		399C7015269B28A40017069C /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeLookViewController.swift; path = /PagerTab/PagerTab/TakeLookViewController.swift; sourceTree = "<absolute>"; };
 		39EAC4B02692E0FA00114734 /* StartTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripViewController.swift; sourceTree = "<group>"; };
 		39EAC4B12692E0FA00114734 /* StartTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartTripViewController.xib; sourceTree = "<group>"; };
-		4073BC622698697700C5C7B0 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberOurStoryboard.storyboard; sourceTree = "<group>"; };
 		4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurViewController.swift; sourceTree = "<group>"; };
 		4073BC6B26986FDA00C5C7B0 /* MemberOurTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurTableViewModel.swift; sourceTree = "<group>"; };
@@ -134,8 +163,16 @@
 		BD4EF4902691CB8300A6362D /* CodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextField.swift; sourceTree = "<group>"; };
 		BD55F43E26919C17004E7114 /* JoinTripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinTripStoryboard.storyboard; sourceTree = "<group>"; };
 		BD55F44026919C2B004E7114 /* JoinTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTripViewController.swift; sourceTree = "<group>"; };
+		BD5B425C2695ABBE0002A290 /* PlanDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataTableViewCell.swift; sourceTree = "<group>"; };
+		BD5B425D2695ABBE0002A290 /* PlanDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDataTableViewCell.xib; sourceTree = "<group>"; };
 		BD5CBC412694961C00935E79 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
+		BD5EEC8D269848D800D09B11 /* TripTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTopView.swift; sourceTree = "<group>"; };
+		BD5EEC8E269848D800D09B11 /* TripTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTopView.xib; sourceTree = "<group>"; };
+		BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardNoDataTableViewCell.swift; sourceTree = "<group>"; };
+		BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardNoDataTableViewCell.xib; sourceTree = "<group>"; };
+		BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +189,14 @@
 		BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		BD75C301268B5BDF00C4F233 /* FontEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEmpty.swift; sourceTree = "<group>"; };
 		BD75C303268B5C7300C4F233 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BD7B4C7D2697253C00DCCA03 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		BD7B4C7F2697254300DCCA03 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		BDA5626826994E2000616CBF /* DummyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataModel.swift; sourceTree = "<group>"; };
+		BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataHeaderView.swift; sourceTree = "<group>"; };
+		BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDataHeaderView.xib; sourceTree = "<group>"; };
+		BDCC367B2695DA66009AE274 /* PlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataModel.swift; sourceTree = "<group>"; };
+		BDCC367D2695DEAA009AE274 /* NoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataTableViewCell.swift; sourceTree = "<group>"; };
+		BDCC367E2695DEAA009AE274 /* NoDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataTableViewCell.xib; sourceTree = "<group>"; };
 		BDF1C119268E287900C82CF6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +216,7 @@
 		0A1BD3B8268E192400702EC5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BD5EEC8C2698483900D09B11 /* TripTop */,
 				0A88A00E269493C800A4EBD0 /* Popup */,
 				0A1BD3BD268E1C7000702EC5 /* PagerTab */,
 			);
@@ -210,6 +256,43 @@
 				4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		399C6FFE269B25E60017069C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		399C7001269B27220017069C /* TakeLook */ = {
+			isa = PBXGroup;
+			children = (
+				399C700E269B27A70017069C /* Models */,
+				399C700D269B279E0017069C /* Cells */,
+				399C7007269B27840017069C /* QuestionCell.swift */,
+				399C7009269B27840017069C /* QuestionCell.xib */,
+				399C7008269B27840017069C /* TakeLookViewController.swift */,
+				399C7013269B284C0017069C /* TakeLookStoryboard.storyboard */,
+			);
+			path = TakeLook;
+			sourceTree = "<group>";
+		};
+		399C700D269B279E0017069C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				399C7011269B27E60017069C /* StyleQuestionTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		399C700E269B27A70017069C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				399C700F269B27C80017069C /* styleQuestionListDataModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		39EAC4AF2692E00000114734 /* StartTrip */ = {
@@ -334,6 +417,8 @@
 		BD0AD611269363090033DAD8 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				BDA5626726994E0E00616CBF /* Models */,
+				BD5EEC9126986A4500D09B11 /* Cells */,
 				BD0AD619269363E30033DAD8 /* BoardStoryboard.storyboard */,
 				BD0AD6212693653D0033DAD8 /* BoardViewController.swift */,
 			);
@@ -344,8 +429,9 @@
 			isa = PBXGroup;
 			children = (
 				4073BC6826986FAA00C5C7B0 /* MemberOur */,
+				399C7001269B27220017069C /* TakeLook */,
 				BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */,
-				4073BC622698697700C5C7B0 /* MemberViewController.swift */,
+				399C7015269B28A40017069C /* MemberViewController.swift */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -365,6 +451,9 @@
 				BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */,
 				BD0AD61F269365050033DAD8 /* PlanViewController.swift */,
 				BD5CBC40269495DA00935E79 /* Cells */,
+				BDCC36732695C5E9009AE274 /* Views */,
+				BDCC367A2695DA3B009AE274 /* Models */,
+				BD7B4C7A2697250000DCCA03 /* View */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -382,8 +471,32 @@
 		BD5CBC40269495DA00935E79 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */,
 				BD5CBC412694961C00935E79 /* DateCollectionViewCell.swift */,
+				BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */,
+				BD5B425C2695ABBE0002A290 /* PlanDataTableViewCell.swift */,
+				BD5B425D2695ABBE0002A290 /* PlanDataTableViewCell.xib */,
+				BDCC367D2695DEAA009AE274 /* NoDataTableViewCell.swift */,
+				BDCC367E2695DEAA009AE274 /* NoDataTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BD5EEC8C2698483900D09B11 /* TripTop */ = {
+			isa = PBXGroup;
+			children = (
+				BD5EEC8D269848D800D09B11 /* TripTopView.swift */,
+				BD5EEC8E269848D800D09B11 /* TripTopView.xib */,
+			);
+			path = TripTop;
+			sourceTree = "<group>";
+		};
+		BD5EEC9126986A4500D09B11 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */,
+				BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */,
+				BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */,
+				BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -395,6 +508,7 @@
 				BD75C2C5268B4B3800C4F233 /* Products */,
 				DD665D5B38E29E0B2DEF1B9E /* Pods */,
 				15D308F1FE297543BA7FF80A /* Frameworks */,
+				399C6FFE269B25E60017069C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -551,6 +665,40 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		BD7B4C7A2697250000DCCA03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD7B4C7D2697253C00DCCA03 /* ToastView.swift */,
+				BD7B4C7F2697254300DCCA03 /* ToastView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BDA5626726994E0E00616CBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BDA5626826994E2000616CBF /* DummyDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BDCC36732695C5E9009AE274 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */,
+				BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BDCC367A2695DA3B009AE274 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BDCC367B2695DA66009AE274 /* PlanDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DD665D5B38E29E0B2DEF1B9E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,17 +770,24 @@
 				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
 				409E26D22699D90E001C5CED /* MemberHeaderView.xib in Resources */,
 				BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */,
+				BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */,
 				BD55F43F26919C17004E7114 /* JoinTripStoryboard.storyboard in Resources */,
 				BD0AD60E269361D50033DAD8 /* TripStoryboard.storyboard in Resources */,
 				4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */,
+				BD5EEC90269848D800D09B11 /* TripTopView.xib in Resources */,
+				BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */,
+				BD5EEC9926986AC600D09B11 /* BoardHeaderTableViewCell.xib in Resources */,
+				BDCC36792695C627009AE274 /* PlanDataHeaderView.xib in Resources */,
 				BD0AD618269363D90033DAD8 /* PlanStoryboard.storyboard in Resources */,
 				BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
 				40B5A090268EE2E500A89875 /* AddTripStoryboard.storyboard in Resources */,
 				407E640A269A139E007C8081 /* MemberStart.xib in Resources */,
 				39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */,
 				0A88A0122694941F00A4EBD0 /* PopupView.xib in Resources */,
+				BDCC36802695DEAA009AE274 /* NoDataTableViewCell.xib in Resources */,
 				BD0AD61C269363ED0033DAD8 /* StoreStoryboard.storyboard in Resources */,
 				BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
+				399C700C269B27840017069C /* QuestionCell.xib in Resources */,
 				4095558C2695718D00130ACB /* AddDateStoryboard.storyboard in Resources */,
 				BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */,
 				BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */,
@@ -644,6 +799,8 @@
 				BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */,
 				40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */,
 				BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */,
+				399C7014269B284C0017069C /* TakeLookStoryboard.storyboard in Resources */,
+				BD5B425F2695ABBE0002A290 /* PlanDataTableViewCell.xib in Resources */,
 				BD39D4FF268DE80D004714B6 /* SpoqaHanSansNeo-Bold.ttf in Resources */,
 				4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */,
 			);
@@ -698,16 +855,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4073BC632698697700C5C7B0 /* MemberViewController.swift in Sources */,
 				392EF95326918476008CA532 /* ComeTripListDataModel.swift in Sources */,
 				4097AC94269B0F9F00E34CCC /* MemberCodeCopyTableViewCell.swift in Sources */,
 				40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */,
+				BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */,
 				BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */,
 				BD0AD62626936A8A0033DAD8 /* TripViewController.swift in Sources */,
+				BDCC36772695C61C009AE274 /* PlanDataHeaderView.swift in Sources */,
 				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
 				BD0AD6222693653D0033DAD8 /* BoardViewController.swift in Sources */,
 				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
+				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
 				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
 				BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
@@ -717,16 +876,22 @@
 				4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */,
 				4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
+				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
+				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
 				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
+				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
 				392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */,
 				39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */,
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				4073BC6E26986FEC00C5C7B0 /* MemberOurTableViewCell.swift in Sources */,
+				BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */,
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,
 				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
+				399C7010269B27C80017069C /* styleQuestionListDataModel.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
+				399C700A269B27840017069C /* QuestionCell.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
 				409E26D42699D91E001C5CED /* MemberHeaderView.swift in Sources */,
 				4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */,
@@ -734,11 +899,16 @@
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				0A88A010269493E000A4EBD0 /* PopupView.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
+				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
 				BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */,
+				399C7012269B27E60017069C /* StyleQuestionTableViewCell.swift in Sources */,
+				BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
+				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
 				392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */,
 				4097AC92269B0E5700E34CCC /* MemberStartTableViewCell.swift in Sources */,
+				399C700B269B27840017069C /* TakeLookViewController.swift in Sources */,
 				0A88A0142694A61800A4EBD0 /* UIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

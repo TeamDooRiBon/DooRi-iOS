@@ -7,7 +7,8 @@
 
 import UIKit
 
-class MemberOurViewController: UIViewController {
+class MemberOurViewController: UIViewController, PageComponentProtocol {
+    var pageTitle: String = "우리들"
 
     //MARK:- IBOutlet
     

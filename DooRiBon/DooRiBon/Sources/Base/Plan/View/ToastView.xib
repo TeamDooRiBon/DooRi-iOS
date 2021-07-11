@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ToastView" customModule="DooRiBon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNf-im-DDV">
+                    <rect key="frame" x="74.5" y="46" width="265" height="26"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toast Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWl-iO-Svg">
+                            <rect key="frame" x="9" y="2.5" width="247" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="265" id="Eac-8L-AIn"/>
+                        <constraint firstAttribute="height" constant="26" id="JZl-aE-doI"/>
+                        <constraint firstAttribute="trailing" secondItem="lWl-iO-Svg" secondAttribute="trailing" constant="9" id="RlO-Cz-Oq9"/>
+                        <constraint firstItem="lWl-iO-Svg" firstAttribute="leading" secondItem="wNf-im-DDV" secondAttribute="leading" constant="9" id="mOH-yJ-9w4"/>
+                        <constraint firstItem="lWl-iO-Svg" firstAttribute="centerY" secondItem="wNf-im-DDV" secondAttribute="centerY" id="qzY-cf-ACx"/>
+                        <constraint firstItem="lWl-iO-Svg" firstAttribute="centerX" secondItem="wNf-im-DDV" secondAttribute="centerX" id="wO0-Bw-34l"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="wNf-im-DDV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7Ce-Ua-6V1"/>
+                <constraint firstItem="wNf-im-DDV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="46" id="9nv-Yd-u6I"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <connections>
+                <outlet property="containerView" destination="wNf-im-DDV" id="1oL-dq-CP8"/>
+                <outlet property="toastMessageLabel" destination="lWl-iO-Svg" id="kEJ-1n-xsk"/>
+            </connections>
+            <point key="canvasLocation" x="420.28985507246381" y="162.05357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
