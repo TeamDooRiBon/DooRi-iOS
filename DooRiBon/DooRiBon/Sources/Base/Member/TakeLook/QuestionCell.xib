@@ -59,7 +59,6 @@
                             <constraint firstAttribute="width" constant="24" id="s0w-uK-Y5n"/>
                         </constraints>
                         <state key="normal" image="iconRightDown"/>
-                        <state key="selected" image="iconRightUp"/>
                         <connections>
                             <action selector="cellExpandButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SLX-fh-0PG"/>
                         </connections>
@@ -94,15 +93,15 @@
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="blueCircleView" destination="6we-JS-5ez" id="jvQ-Hi-Zkk"/>
+                <outlet property="cellButton" destination="2lt-Gt-gjU" id="UKz-nF-tAK"/>
                 <outlet property="numberLabel" destination="KuM-a1-DE7" id="x5R-45-0Be"/>
                 <outlet property="questionTitleLabel" destination="2bn-mj-TYz" id="cXH-60-Pxz"/>
             </connections>
-            <point key="canvasLocation" x="117.59999999999999" y="12.593703148425789"/>
+            <point key="canvasLocation" x="-109.59999999999999" y="11.694152923538232"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="iconRightDown" width="24" height="24"/>
-        <image name="iconRightUp" width="24" height="24"/>
         <namedColor name="gray7">
             <color red="0.91399997472763062" green="0.92199999094009399" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

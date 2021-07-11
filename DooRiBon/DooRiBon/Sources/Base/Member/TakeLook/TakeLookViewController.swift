@@ -218,9 +218,11 @@ extension TakeLookViewController: UITableViewDataSource
         headerView.sectionIndex = section   // 섹션의 인덱스 값을 담아두기
         headerView.numberLabel.text = numberList[section]
         headerView.questionTitleLabel.text = questionList[section]
+        
         headerView.delegate = self
         
         return headerView
     }
+    
 
 }

@@ -12,21 +12,30 @@ class QuestionCell: UITableViewHeaderFooterView  {
     var sectionNumber: Int = 0
     var delegate: HeaderViewDelegate?
     var sectionIndex = 0        // section값을 저장할 property
+    private var isOpened: Bool = false {
+        didSet {
+            isOpened ? self.cellButton.setImage(UIImage(named: "iconRightUp"), for: .normal) : self.cellButton.setImage(UIImage(named: "iconRightDown"), for: .normal)
+            
+            layoutIfNeeded()
+        }
+    }
     
     @IBOutlet weak var blueCircleView: UIView!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var questionTitleLabel: UILabel!
-    override func awakeFromNib() {
+    @IBOutlet weak var cellButton: UIButton!
     
-
+    
+    override func awakeFromNib() {
         super.awakeFromNib()
+        isOpened = false
         blueCircleView.layer.cornerRadius = blueCircleView.frame.height / 2
 
     
     }
     override func prepareForReuse() {
         super.prepareForReuse()
-        
+        self.cellButton.setImage(UIImage(named: "iconRightDown"), for: .normal)
     }
     
     override func draw(_ rect: CGRect) {
@@ -38,11 +47,11 @@ class QuestionCell: UITableViewHeaderFooterView  {
     
     // 버튼을 클릭
     @IBAction func cellExpandButtonClicked(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+//        sender.isSelected = !sender.isSelected
         sectionNumber = sectionIndex
         delegate?.didTouchSection(self.sectionNumber)
+        isOpened = !isOpened
     }
-    
   
 }
 
