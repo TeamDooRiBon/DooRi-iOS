@@ -19,9 +19,9 @@
 		392EF95326918476008CA532 /* ComeTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95226918476008CA532 /* ComeTripListDataModel.swift */; };
 		392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9542691848D008CA532 /* LastTripListDataModel.swift */; };
 		39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39865B35268F7DF700961BF4 /* CALayer+Extension.swift */; };
-		408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D1ADE26957D8F00BBC454 /* CalendarCell.swift */; };
 		39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EAC4B02692E0FA00114734 /* StartTripViewController.swift */; };
 		39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAC4B12692E0FA00114734 /* StartTripViewController.xib */; };
+		408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D1ADE26957D8F00BBC454 /* CalendarCell.swift */; };
 		4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */; };
 		4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */; };
 		4095558C2695718D00130ACB /* AddDateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */; };
@@ -52,6 +52,12 @@
 		BD5B425F2695ABBE0002A290 /* PlanDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5B425D2695ABBE0002A290 /* PlanDataTableViewCell.xib */; };
 		BD5CBC432694961C00935E79 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5CBC412694961C00935E79 /* DateCollectionViewCell.swift */; };
 		BD5CBC442694961C00935E79 /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */; };
+		BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC8D269848D800D09B11 /* TripTopView.swift */; };
+		BD5EEC90269848D800D09B11 /* TripTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC8E269848D800D09B11 /* TripTopView.xib */; };
+		BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */; };
+		BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */; };
+		BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */; };
+		BD5EEC9926986AC600D09B11 /* BoardHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */; };
 		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
 		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
 		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
@@ -66,13 +72,14 @@
 		BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */; };
 		BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C301268B5BDF00C4F233 /* FontEmpty.swift */; };
 		BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C303268B5C7300C4F233 /* UIView+Extension.swift */; };
+		BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B4C7D2697253C00DCCA03 /* ToastView.swift */; };
+		BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7B4C7F2697254300DCCA03 /* ToastView.xib */; };
+		BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5626826994E2000616CBF /* DummyDataModel.swift */; };
 		BDCC36772695C61C009AE274 /* PlanDataHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */; };
 		BDCC36792695C627009AE274 /* PlanDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */; };
 		BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC367B2695DA66009AE274 /* PlanDataModel.swift */; };
 		BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC367D2695DEAA009AE274 /* NoDataTableViewCell.swift */; };
 		BDCC36802695DEAA009AE274 /* NoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDCC367E2695DEAA009AE274 /* NoDataTableViewCell.xib */; };
-		BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B4C7D2697253C00DCCA03 /* ToastView.swift */; };
-		BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7B4C7F2697254300DCCA03 /* ToastView.xib */; };
 		BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF1C119268E287900C82CF6 /* Colors.xcassets */; };
 		BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */; };
 /* End PBXBuildFile section */
@@ -90,9 +97,9 @@
 		392EF95226918476008CA532 /* ComeTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripListDataModel.swift; sourceTree = "<group>"; };
 		392EF9542691848D008CA532 /* LastTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripListDataModel.swift; sourceTree = "<group>"; };
 		39865B35268F7DF700961BF4 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
-		408D1ADE26957D8F00BBC454 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		39EAC4B02692E0FA00114734 /* StartTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripViewController.swift; sourceTree = "<group>"; };
 		39EAC4B12692E0FA00114734 /* StartTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartTripViewController.xib; sourceTree = "<group>"; };
+		408D1ADE26957D8F00BBC454 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripPlanStoryboard.storyboard; sourceTree = "<group>"; };
 		4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanViewController.swift; sourceTree = "<group>"; };
 		4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDateStoryboard.storyboard; sourceTree = "<group>"; };
@@ -125,6 +132,12 @@
 		BD5B425D2695ABBE0002A290 /* PlanDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDataTableViewCell.xib; sourceTree = "<group>"; };
 		BD5CBC412694961C00935E79 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD5CBC422694961C00935E79 /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
+		BD5EEC8D269848D800D09B11 /* TripTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTopView.swift; sourceTree = "<group>"; };
+		BD5EEC8E269848D800D09B11 /* TripTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTopView.xib; sourceTree = "<group>"; };
+		BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardNoDataTableViewCell.swift; sourceTree = "<group>"; };
+		BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardNoDataTableViewCell.xib; sourceTree = "<group>"; };
+		BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,13 +154,14 @@
 		BD75C2FF268B5BA800C4F233 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		BD75C301268B5BDF00C4F233 /* FontEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEmpty.swift; sourceTree = "<group>"; };
 		BD75C303268B5C7300C4F233 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BD7B4C7D2697253C00DCCA03 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		BD7B4C7F2697254300DCCA03 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		BDA5626826994E2000616CBF /* DummyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataModel.swift; sourceTree = "<group>"; };
 		BDCC36762695C61C009AE274 /* PlanDataHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataHeaderView.swift; sourceTree = "<group>"; };
 		BDCC36782695C627009AE274 /* PlanDataHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDataHeaderView.xib; sourceTree = "<group>"; };
 		BDCC367B2695DA66009AE274 /* PlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataModel.swift; sourceTree = "<group>"; };
 		BDCC367D2695DEAA009AE274 /* NoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataTableViewCell.swift; sourceTree = "<group>"; };
 		BDCC367E2695DEAA009AE274 /* NoDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataTableViewCell.xib; sourceTree = "<group>"; };
-		BD7B4C7D2697253C00DCCA03 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		BD7B4C7F2697254300DCCA03 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
 		BDF1C119268E287900C82CF6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +181,7 @@
 		0A1BD3B8268E192400702EC5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BD5EEC8C2698483900D09B11 /* TripTop */,
 				0A88A00E269493C800A4EBD0 /* Popup */,
 				0A1BD3BD268E1C7000702EC5 /* PagerTab */,
 			);
@@ -208,26 +223,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		408D1ADD26957D5100BBC454 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				408D1ADE26957D8F00BBC454 /* CalendarCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		4091C6372692264F009EDB60 /* AddTripPlan */ = {
-			isa = PBXGroup;
-			children = (
-				4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */,
-				4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */,
-			);
-			path = AddTripPlan;
-			sourceTree = "<group>";
-		};
-		4095558A2695715200130ACB /* AddDate */ = {
-			isa = PBXGroup;
-			children = (
 		39EAC4AF2692E00000114734 /* StartTrip */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +232,7 @@
 			path = StartTrip;
 			sourceTree = "<group>";
 		};
-		BD55F43D26919BF8004E7114 /* JoinTrip */ = {
+		408D1ADD26957D5100BBC454 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				408D1ADE26957D8F00BBC454 /* CalendarCell.swift */,
@@ -309,6 +304,8 @@
 		BD0AD611269363090033DAD8 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				BDA5626726994E0E00616CBF /* Models */,
+				BD5EEC9126986A4500D09B11 /* Cells */,
 				BD0AD619269363E30033DAD8 /* BoardStoryboard.storyboard */,
 				BD0AD6212693653D0033DAD8 /* BoardViewController.swift */,
 			);
@@ -364,6 +361,26 @@
 				BD5B425D2695ABBE0002A290 /* PlanDataTableViewCell.xib */,
 				BDCC367D2695DEAA009AE274 /* NoDataTableViewCell.swift */,
 				BDCC367E2695DEAA009AE274 /* NoDataTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BD5EEC8C2698483900D09B11 /* TripTop */ = {
+			isa = PBXGroup;
+			children = (
+				BD5EEC8D269848D800D09B11 /* TripTopView.swift */,
+				BD5EEC8E269848D800D09B11 /* TripTopView.xib */,
+			);
+			path = TripTop;
+			sourceTree = "<group>";
+		};
+		BD5EEC9126986A4500D09B11 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */,
+				BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */,
+				BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */,
+				BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -531,6 +548,23 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		BD7B4C7A2697250000DCCA03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD7B4C7D2697253C00DCCA03 /* ToastView.swift */,
+				BD7B4C7F2697254300DCCA03 /* ToastView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BDA5626726994E0E00616CBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BDA5626826994E2000616CBF /* DummyDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BDCC36732695C5E9009AE274 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,13 +580,6 @@
 				BDCC367B2695DA66009AE274 /* PlanDataModel.swift */,
 			);
 			path = Models;
-		BD7B4C7A2697250000DCCA03 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BD7B4C7D2697253C00DCCA03 /* ToastView.swift */,
-				BD7B4C7F2697254300DCCA03 /* ToastView.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		DD665D5B38E29E0B2DEF1B9E /* Pods */ = {
@@ -628,6 +655,9 @@
 				BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */,
 				BD55F43F26919C17004E7114 /* JoinTripStoryboard.storyboard in Resources */,
 				BD0AD60E269361D50033DAD8 /* TripStoryboard.storyboard in Resources */,
+				BD5EEC90269848D800D09B11 /* TripTopView.xib in Resources */,
+				BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */,
+				BD5EEC9926986AC600D09B11 /* BoardHeaderTableViewCell.xib in Resources */,
 				BDCC36792695C627009AE274 /* PlanDataHeaderView.xib in Resources */,
 				BD0AD618269363D90033DAD8 /* PlanStoryboard.storyboard in Resources */,
 				BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
@@ -712,6 +742,7 @@
 				BD0AD6222693653D0033DAD8 /* BoardViewController.swift in Sources */,
 				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
+				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
 				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
 				BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
@@ -719,6 +750,7 @@
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
 				40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
+				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
 				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
@@ -726,6 +758,7 @@
 				392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */,
 				39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */,
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
+				BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */,
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,
 				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
@@ -740,10 +773,9 @@
 				BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */,
 				BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
+				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
 				392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */,
-				BD75C2F2268B582A00C4F233 /* ModelEmpty.swift in Sources */,
 				0A88A0142694A61800A4EBD0 /* UIApplication+Extension.swift in Sources */,
-				BD75C2EC268B57E700C4F233 /* CellEmpty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
