@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct styleQuestionListDataModel {
+struct StyleQuestionListDataModel {
     var number: String
     var question: String
     var count: String
