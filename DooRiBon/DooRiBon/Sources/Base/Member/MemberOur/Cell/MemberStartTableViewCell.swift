@@ -1,13 +1,13 @@
 //
-//  MemberSelfTableViewCell.swift
+//  MemberStartTableViewCell.swift
 //  DooRiBon
 //
-//  Created by 한상진 on 2021/07/09.
+//  Created by 한상진 on 2021/07/11.
 //
 
 import UIKit
 
-class MemberSelfTableViewCell: UITableViewCell {
+class MemberStartTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +19,5 @@ class MemberSelfTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
