@@ -31,9 +31,6 @@
                             <constraint firstItem="dUL-fD-hxL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="wN5-rm-rsj"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="pagerTab" destination="dUL-fD-hxL" id="fTT-ex-bbV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
