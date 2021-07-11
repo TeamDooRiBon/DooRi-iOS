@@ -24,14 +24,21 @@ class PlanViewController: UIViewController {
             calendarView.reloadData()
         }
     }
-    
-    private var isSelectedArray: [Bool] = []  // 셀 선택 유무 담을 Bool 배열
-    private var selectedDate: Int?         // 오늘 날짜를 디폴트 값으로 시작
+    private var planDummyData: [PlanDataModel] = [] {
+        didSet {
+            contentsTableView.reloadData()
+        }
+    }
+    private var selectedDate: Int?            // 오늘 날짜를 디폴트 값으로 시작
+    private var dataStatus: Bool {
+        !planDummyData.isEmpty
+    }
     
     // MARK: - IBOutlets
 
     @IBOutlet weak var calendarAreaView: UIView!
     @IBOutlet weak var calendarView: UICollectionView!
+    @IBOutlet weak var contentsTableView: UITableView!
     
     // MARK: - Life Cycle
     
@@ -40,6 +47,7 @@ class PlanViewController: UIViewController {
 
         configureUI()
         setupCollectionView()
+        setupTableView()
         setupData()
     }
     
@@ -58,7 +66,8 @@ class PlanViewController: UIViewController {
     }
     
     @IBAction private func codeCopyButtonClicked(_ sender: UIButton) {
-        print("참여코드 복사 완료")
+        let toastView = ToastView.loadFromXib()
+        toastView.show(message: "참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
     }
 }
 
@@ -84,13 +93,36 @@ extension PlanViewController {
         calendarView.register(UINib(nibName: "DateCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: DateCollectionViewCell.cellId)
     }
     
+    /// TableView Setup
+    private func setupTableView() {
+        contentsTableView.delegate = self
+        contentsTableView.dataSource = self
+        
+        contentsTableView.register(UINib(nibName: "PlanDataTableViewCell", bundle: nil), forCellReuseIdentifier: PlanDataTableViewCell.cellId)
+        contentsTableView.register(UINib(nibName: "NoDataTableViewCell", bundle: nil), forCellReuseIdentifier: NoDataTableViewCell.cellId)
+        
+        contentsTableView.separatorStyle = .none
+        contentsTableView.backgroundColor = .clear
+        contentsTableView.rowHeight = UITableView.automaticDimension
+    }
+    
     /// Dummy Setup
     private func setupData() {
         dummyData.append(contentsOf: [
             6, 7, 8, 9, 10, 11,
             12, 13, 14, 15, 16, 17
         ])
-
+        planDummyData.append(contentsOf: [
+            PlanDataModel(planTime: "10:00 AM",
+                          planTitle: "김포공항 앞에서 모이기",
+                          planDescription: "2304 버스 정류장 찾아보기"),
+            PlanDataModel(planTime: "12:00 AM",
+                          planTitle: "인천공항으로 출발",
+                          planDescription: "여권 꼭 챙기기"),
+            PlanDataModel(planTime: "12:00 AM",
+                          planTitle: "인천공항으로 출발",
+                          planDescription: "여권 꼭 챙기기")
+        ])
         selectedDate = getTodayInfo()
     }
     
@@ -101,17 +133,6 @@ extension PlanViewController {
         dateFormatter.dateFormat = "MM" // 2020-08-13 16:30
         let str = dateFormatter.string(from: nowDate) // 현재 시간의 Date를 format에 맞춰 string으로 반환
         return Int(str) ?? -1
-    }
-    
-    /// 셀 선택 상태 변경해주는 토글 함수
-    private func toggleSelection(index: Int) {
-        for i in 0..<isSelectedArray.count {
-            if i == index {
-                isSelectedArray[i] = true
-            } else {
-                isSelectedArray[i] = false
-            }
-        }
     }
 }
 
@@ -168,5 +189,57 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout {
     // 전체 Edge
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 7, left: 21, bottom: 11, right: 21)
+    }
+}
+
+extension PlanViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath.row)번째 셀클릭")
+    }
+}
+
+extension PlanViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = PlanDataHeaderView.loadFromXib()
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        51
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dataStatus { // 데이터 있을 때 셀 개수 처리
+            return planDummyData.count
+        } else { // 데이터 있을 때 셀 개수 처리
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if dataStatus { // 데이터 있을 때 셀처리
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PlanDataTableViewCell.cellId, for: indexPath) as? PlanDataTableViewCell else {
+                return UITableViewCell()
+            }
+            if indexPath.row == 0 {
+                cell.bottomLineView.isHidden = planDummyData.count == 1
+                cell.topLineView.isHidden = true
+            } else if indexPath.row == planDummyData.count - 1 {
+                cell.bottomLineView.isHidden = true
+            }
+            
+            cell.selectionStyle = .none
+            cell.timeLabel.text = planDummyData[indexPath.row].planTime
+            cell.planTitleLabel.text = planDummyData[indexPath.row].planTitle
+            cell.planDescriptionLabel.text = planDummyData[indexPath.row].planDescription
+            
+            return cell
+        } else { // 데이터 없을 때 셀처리
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: NoDataTableViewCell.cellId, for: indexPath) as? NoDataTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            return cell
+        }
     }
 }

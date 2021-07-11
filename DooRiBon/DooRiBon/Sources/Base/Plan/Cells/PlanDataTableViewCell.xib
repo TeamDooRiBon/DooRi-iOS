@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Regular.ttf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="PlanDataTableViewCell" customModule="DooRiBon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="310" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ap-L6-wsd">
+                        <rect key="frame" x="29" y="0.0" width="1" height="14"/>
+                        <color key="backgroundColor" name="gray7"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="08F-Uj-hVf"/>
+                            <constraint firstAttribute="width" constant="1" id="Zpx-te-FYG"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXl-kr-5pN" userLabel="point">
+                        <rect key="frame" x="24" y="14" width="11" height="11"/>
+                        <color key="backgroundColor" name="subOrange2"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="fWG-lu-hvB"/>
+                            <constraint firstAttribute="height" constant="11" id="uve-tf-IEJ"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcM-dP-ZLV">
+                        <rect key="frame" x="29" y="25" width="1" height="39"/>
+                        <color key="backgroundColor" name="gray7"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="UsJ-sQ-9AM"/>
+                            <constraint firstAttribute="height" constant="39" id="nBz-9B-bZo"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXa-pn-Jzv">
+                        <rect key="frame" x="41" y="14" width="45" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="Qnt-9X-erh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
+                        <color key="textColor" name="subBlue2"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvr-3o-r9u">
+                        <rect key="frame" x="92" y="3" width="200" height="58"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김포공항 앞에서 모이기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0U4-bX-syx">
+                                <rect key="frame" x="16" y="10" width="168" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="HB8-kC-Y2C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2304 버스 정류장 찾아보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJN-yM-OX4">
+                                <rect key="frame" x="16" y="31" width="168" height="12"/>
+                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
+                                <color key="textColor" name="gray5"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0U4-bX-syx" firstAttribute="leading" secondItem="Gvr-3o-r9u" secondAttribute="leading" constant="16" id="42R-PM-BxZ"/>
+                            <constraint firstItem="zJN-yM-OX4" firstAttribute="top" secondItem="0U4-bX-syx" secondAttribute="bottom" constant="5" id="4xP-bV-dg9"/>
+                            <constraint firstAttribute="trailing" secondItem="zJN-yM-OX4" secondAttribute="trailing" constant="16" id="9gz-q5-Mff"/>
+                            <constraint firstItem="zJN-yM-OX4" firstAttribute="leading" secondItem="0U4-bX-syx" secondAttribute="leading" id="Kql-cy-4CW"/>
+                            <constraint firstAttribute="trailing" secondItem="0U4-bX-syx" secondAttribute="trailing" constant="16" id="qRW-Ka-b25"/>
+                            <constraint firstItem="0U4-bX-syx" firstAttribute="top" secondItem="Gvr-3o-r9u" secondAttribute="top" constant="10" id="qzn-lL-K9L"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OXl-kr-5pN" firstAttribute="centerX" secondItem="2ap-L6-wsd" secondAttribute="centerX" id="1Ne-iX-L4W"/>
+                    <constraint firstItem="OXl-kr-5pN" firstAttribute="top" secondItem="2ap-L6-wsd" secondAttribute="bottom" id="4rB-7o-Npk"/>
+                    <constraint firstItem="HXa-pn-Jzv" firstAttribute="top" secondItem="OXl-kr-5pN" secondAttribute="top" id="686-QG-9QF"/>
+                    <constraint firstItem="Gvr-3o-r9u" firstAttribute="leading" secondItem="HXa-pn-Jzv" secondAttribute="trailing" constant="6" id="6NS-OV-3VG"/>
+                    <constraint firstItem="tcM-dP-ZLV" firstAttribute="top" secondItem="OXl-kr-5pN" secondAttribute="bottom" id="JCz-gw-j88"/>
+                    <constraint firstAttribute="bottom" secondItem="tcM-dP-ZLV" secondAttribute="bottom" id="R58-r3-w1z"/>
+                    <constraint firstAttribute="bottom" secondItem="Gvr-3o-r9u" secondAttribute="bottom" constant="3" id="Rb6-dw-tkD"/>
+                    <constraint firstItem="HXa-pn-Jzv" firstAttribute="leading" secondItem="OXl-kr-5pN" secondAttribute="trailing" constant="6" id="VGr-gC-Cwu"/>
+                    <constraint firstItem="tcM-dP-ZLV" firstAttribute="centerX" secondItem="OXl-kr-5pN" secondAttribute="centerX" id="eyC-Se-UV8"/>
+                    <constraint firstItem="2ap-L6-wsd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mIt-dj-Dsl"/>
+                    <constraint firstAttribute="trailing" secondItem="Gvr-3o-r9u" secondAttribute="trailing" constant="18" id="rGZ-i3-lGu"/>
+                    <constraint firstItem="Gvr-3o-r9u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="rHX-vs-QO8"/>
+                    <constraint firstItem="2ap-L6-wsd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="29" id="vi2-AK-DlT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bottomLineView" destination="tcM-dP-ZLV" id="032-tt-wFw"/>
+                <outlet property="planBackgroundView" destination="Gvr-3o-r9u" id="G7w-Kc-DU5"/>
+                <outlet property="planDescriptionLabel" destination="zJN-yM-OX4" id="zTg-ua-piL"/>
+                <outlet property="planTitleLabel" destination="0U4-bX-syx" id="a0a-7U-Ayp"/>
+                <outlet property="pointView" destination="OXl-kr-5pN" id="gyF-NQ-LR1"/>
+                <outlet property="timeLabel" destination="HXa-pn-Jzv" id="mPe-pw-JT2"/>
+                <outlet property="topLineView" destination="2ap-L6-wsd" id="rci-Wt-ub2"/>
+            </connections>
+            <point key="canvasLocation" x="130.43478260869566" y="152.67857142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="gray5">
+            <color red="0.62699997425079346" green="0.64300000667572021" blue="0.6589999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray7">
+            <color red="0.91399997472763062" green="0.92199999094009399" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="subBlue2">
+            <color red="0.48600000143051147" green="0.53700000047683716" blue="0.67799997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="subOrange2">
+            <color red="1" green="0.68999999761581421" blue="0.62400001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
