@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--멤버-->
+        <!--MemberViewController-->
         <scene sceneID="8fB-6y-Yfq">
             <objects>
-                <viewController storyboardIdentifier="MemberViewController" id="yNh-y9-x4p" customClass="MemberViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberViewController" title="MemberViewController" id="yNh-y9-x4p" customClass="MemberViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lal-YW-PVx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="pagerTab" destination="lPl-b9-03C" id="ARO-xb-M0J"/>
+                        <outlet property="pagerTab" destination="lPl-b9-03C" id="5oA-Vo-P6F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-rt-0DT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

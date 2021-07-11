@@ -19,17 +19,15 @@
 		392EF95326918476008CA532 /* ComeTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95226918476008CA532 /* ComeTripListDataModel.swift */; };
 		392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9542691848D008CA532 /* LastTripListDataModel.swift */; };
 		39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39865B35268F7DF700961BF4 /* CALayer+Extension.swift */; };
-		39D4B56F2695FB0000AAA5DB /* WeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D4B56E2695FB0000AAA5DB /* WeStoryboard.storyboard */; };
-		39D4B5732695FB1100AAA5DB /* TakeLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */; };
-		39D4B5752695FB4F00AAA5DB /* TakeLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D4B5742695FB4F00AAA5DB /* TakeLookStoryboard.storyboard */; };
-		39D4B5792695FB8C00AAA5DB /* WeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4B5782695FB8C00AAA5DB /* WeViewController.swift */; };
-		39D4B5922696016300AAA5DB /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4B5912696016300AAA5DB /* MemberViewController.swift */; };
-		39D4B594269603FB00AAA5DB /* styleQuestionListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4B593269603FB00AAA5DB /* styleQuestionListDataModel.swift */; };
-		39D4B5962696044C00AAA5DB /* StyleQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4B5952696044C00AAA5DB /* StyleQuestionTableViewCell.swift */; };
-		39EBE8D926972FAD0096DD39 /* JoinTripCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EBE8D826972FAD0096DD39 /* JoinTripCheckViewController.swift */; };
-		39EBE8DC26972FD00096DD39 /* JoinTripCheckStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39EBE8DA26972FD00096DD39 /* JoinTripCheckStoryboard.storyboard */; };
-		39EBE8DE26972FFA0096DD39 /* completePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EBE8DD26972FFA0096DD39 /* completePopup.swift */; };
-		39EBE8E0269730070096DD39 /* completePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EBE8DF269730070096DD39 /* completePopup.xib */; };
+		399C7005269B27400017069C /* WeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7003269B27400017069C /* WeViewController.swift */; };
+		399C7006269B27400017069C /* WeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399C7004269B27400017069C /* WeStoryboard.storyboard */; };
+		399C700A269B27840017069C /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7007269B27840017069C /* QuestionCell.swift */; };
+		399C700B269B27840017069C /* TakeLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7008269B27840017069C /* TakeLookViewController.swift */; };
+		399C700C269B27840017069C /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 399C7009269B27840017069C /* QuestionCell.xib */; };
+		399C7010269B27C80017069C /* styleQuestionListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C700F269B27C80017069C /* styleQuestionListDataModel.swift */; };
+		399C7012269B27E60017069C /* StyleQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7011269B27E60017069C /* StyleQuestionTableViewCell.swift */; };
+		399C7014269B284C0017069C /* TakeLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399C7013269B284C0017069C /* TakeLookStoryboard.storyboard */; };
+		399C7016269B28A40017069C /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7015269B28A40017069C /* MemberViewController.swift */; };
 		39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EAC4B02692E0FA00114734 /* StartTripViewController.swift */; };
 		39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAC4B12692E0FA00114734 /* StartTripViewController.xib */; };
 		408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D1ADE26957D8F00BBC454 /* CalendarCell.swift */; };
@@ -110,17 +108,16 @@
 		392EF95226918476008CA532 /* ComeTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripListDataModel.swift; sourceTree = "<group>"; };
 		392EF9542691848D008CA532 /* LastTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripListDataModel.swift; sourceTree = "<group>"; };
 		39865B35268F7DF700961BF4 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
-		39D4B56E2695FB0000AAA5DB /* WeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = WeStoryboard.storyboard; path = ../../../../../../../PagerTab/PagerTab/WeStoryboard.storyboard; sourceTree = "<group>"; };
-		39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeLookViewController.swift; path = ../../../../../../../PagerTab/PagerTab/TakeLookViewController.swift; sourceTree = "<group>"; };
-		39D4B5742695FB4F00AAA5DB /* TakeLookStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TakeLookStoryboard.storyboard; path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/TakeLookStoryboard.storyboard"; sourceTree = "<group>"; };
-		39D4B5782695FB8C00AAA5DB /* WeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeViewController.swift; path = ../../../../../../../PagerTab/PagerTab/WeViewController.swift; sourceTree = "<group>"; };
-		39D4B5912696016300AAA5DB /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberViewController.swift; path = "../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/MemberViewController.swift"; sourceTree = "<group>"; };
-		39D4B593269603FB00AAA5DB /* styleQuestionListDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = styleQuestionListDataModel.swift; path = "../../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/styleQuestionListDataModel.swift"; sourceTree = "<group>"; };
-		39D4B5952696044C00AAA5DB /* StyleQuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StyleQuestionTableViewCell.swift; path = "../../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/StyleQuestionTableViewCell.swift"; sourceTree = "<group>"; };
-		39EBE8D826972FAD0096DD39 /* JoinTripCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinTripCheckViewController.swift; path = ../../../../../DooriCheck/DooriCheck/JoinTripCheckViewController.swift; sourceTree = "<group>"; };
-		39EBE8DB26972FD00096DD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../../../DooriCheck/DooriCheck/Base.lproj/JoinTripCheckStoryboard.storyboard; sourceTree = "<group>"; };
-		39EBE8DD26972FFA0096DD39 /* completePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = completePopup.swift; path = ../../../../../DooriCheck/DooriCheck/completePopup.swift; sourceTree = "<group>"; };
-		39EBE8DF269730070096DD39 /* completePopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = completePopup.xib; path = ../../../../../DooriCheck/DooriCheck/completePopup.xib; sourceTree = "<group>"; };
+		399C7003269B27400017069C /* WeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeViewController.swift; sourceTree = "<group>"; };
+		399C7004269B27400017069C /* WeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WeStoryboard.storyboard; sourceTree = "<group>"; };
+		399C7007269B27840017069C /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		399C7008269B27840017069C /* TakeLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeLookViewController.swift; sourceTree = "<group>"; };
+		399C7009269B27840017069C /* QuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCell.xib; sourceTree = "<group>"; };
+		399C700F269B27C80017069C /* styleQuestionListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styleQuestionListDataModel.swift; sourceTree = "<group>"; };
+		399C7011269B27E60017069C /* StyleQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		399C7013269B284C0017069C /* TakeLookStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TakeLookStoryboard.storyboard; sourceTree = "<group>"; };
+		399C7015269B28A40017069C /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeLookViewController.swift; path = /PagerTab/PagerTab/TakeLookViewController.swift; sourceTree = "<absolute>"; };
 		39EAC4B02692E0FA00114734 /* StartTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripViewController.swift; sourceTree = "<group>"; };
 		39EAC4B12692E0FA00114734 /* StartTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartTripViewController.xib; sourceTree = "<group>"; };
 		408D1ADE26957D8F00BBC454 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
@@ -249,40 +246,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		39D4B56C2695FAD500AAA5DB /* We */ = {
+		399C6FFE269B25E60017069C /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				39D4B5782695FB8C00AAA5DB /* WeViewController.swift */,
-				39D4B56E2695FB0000AAA5DB /* WeStoryboard.storyboard */,
+				39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */,
 			);
-			path = We;
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		39D4B56D2695FADB00AAA5DB /* TakeLook */ = {
+		399C7001269B27220017069C /* TakeLook */ = {
 			isa = PBXGroup;
 			children = (
-				39D4B58D2695FFB500AAA5DB /* Models */,
-				39D4B58C2695FFA600AAA5DB /* Cells */,
-				39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */,
-				39D4B5742695FB4F00AAA5DB /* TakeLookStoryboard.storyboard */,
+				399C700E269B27A70017069C /* Models */,
+				399C700D269B279E0017069C /* Cells */,
+				399C7007269B27840017069C /* QuestionCell.swift */,
+				399C7009269B27840017069C /* QuestionCell.xib */,
+				399C7008269B27840017069C /* TakeLookViewController.swift */,
+				399C7013269B284C0017069C /* TakeLookStoryboard.storyboard */,
 			);
 			path = TakeLook;
 			sourceTree = "<group>";
 		};
-		39D4B58C2695FFA600AAA5DB /* Cells */ = {
+		399C7002269B27300017069C /* We */ = {
 			isa = PBXGroup;
 			children = (
-				39D4B5952696044C00AAA5DB /* StyleQuestionTableViewCell.swift */,
+				399C7004269B27400017069C /* WeStoryboard.storyboard */,
+				399C7003269B27400017069C /* WeViewController.swift */,
+			);
+			path = We;
+			sourceTree = "<group>";
+		};
+		399C700D269B279E0017069C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				399C7011269B27E60017069C /* StyleQuestionTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		39D4B58D2695FFB500AAA5DB /* Models */ = {
+		399C700E269B27A70017069C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				39D4B593269603FB00AAA5DB /* styleQuestionListDataModel.swift */,
+				399C700F269B27C80017069C /* styleQuestionListDataModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
 		39EAC4AF2692E00000114734 /* StartTrip */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,7 +384,10 @@
 		BD0AD612269363150033DAD8 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				399C7002269B27300017069C /* We */,
+				399C7001269B27220017069C /* TakeLook */,
 				BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */,
+				399C7015269B28A40017069C /* MemberViewController.swift */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -405,12 +417,8 @@
 		BD55F43D26919BF8004E7114 /* JoinTrip */ = {
 			isa = PBXGroup;
 			children = (
-				39EBE8DD26972FFA0096DD39 /* completePopup.swift */,
-				39EBE8DF269730070096DD39 /* completePopup.xib */,
 				BD55F43E26919C17004E7114 /* JoinTripStoryboard.storyboard */,
 				BD55F44026919C2B004E7114 /* JoinTripViewController.swift */,
-				39EBE8DA26972FD00096DD39 /* JoinTripCheckStoryboard.storyboard */,
-				39EBE8D826972FAD0096DD39 /* JoinTripCheckViewController.swift */,
 				BD4EF4902691CB8300A6362D /* CodeTextField.swift */,
 			);
 			path = JoinTrip;
@@ -458,6 +466,7 @@
 				BD75C2C5268B4B3800C4F233 /* Products */,
 				DD665D5B38E29E0B2DEF1B9E /* Pods */,
 				15D308F1FE297543BA7FF80A /* Frameworks */,
+				399C6FFE269B25E60017069C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -717,8 +726,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
-				39EBE8DC26972FD00096DD39 /* JoinTripCheckStoryboard.storyboard in Resources */,
-				39EBE8E0269730070096DD39 /* completePopup.xib in Resources */,
 				BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */,
 				BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */,
 				BD55F43F26919C17004E7114 /* JoinTripStoryboard.storyboard in Resources */,
@@ -736,7 +743,9 @@
 				BDCC36802695DEAA009AE274 /* NoDataTableViewCell.xib in Resources */,
 				BD0AD61C269363ED0033DAD8 /* StoreStoryboard.storyboard in Resources */,
 				BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
+				399C700C269B27840017069C /* QuestionCell.xib in Resources */,
 				4095558C2695718D00130ACB /* AddDateStoryboard.storyboard in Resources */,
+				399C7006269B27400017069C /* WeStoryboard.storyboard in Resources */,
 				BD75C2D4268B4B3900C4F233 /* LaunchScreen.storyboard in Resources */,
 				BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */,
 				BD39D500268DE80D004714B6 /* SpoqaHanSansNeo-Light.ttf in Resources */,
@@ -746,6 +755,7 @@
 				BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */,
 				40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */,
 				BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */,
+				399C7014269B284C0017069C /* TakeLookStoryboard.storyboard in Resources */,
 				BD5B425F2695ABBE0002A290 /* PlanDataTableViewCell.xib in Resources */,
 				BD39D4FF268DE80D004714B6 /* SpoqaHanSansNeo-Bold.ttf in Resources */,
 				4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */,
@@ -819,6 +829,7 @@
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
 				40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
+				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
 				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
 				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
@@ -829,9 +840,10 @@
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */,
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,
-				39EBE8D926972FAD0096DD39 /* JoinTripCheckViewController.swift in Sources */,
 				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
+				399C7010269B27C80017069C /* styleQuestionListDataModel.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
+				399C700A269B27840017069C /* QuestionCell.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
 				4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */,
 				BD5CBC432694961C00935E79 /* DateCollectionViewCell.swift in Sources */,
@@ -841,13 +853,15 @@
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
 				BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */,
+				399C7012269B27E60017069C /* StyleQuestionTableViewCell.swift in Sources */,
 				39D4B5732695FB1100AAA5DB /* TakeLookViewController.swift in Sources */,
-				39EBE8DE26972FFA0096DD39 /* completePopup.swift in Sources */,
 				BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */,
 				BDA5626C2699962B00616CBF /* BoardTableViewCell.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
+				399C7005269B27400017069C /* WeViewController.swift in Sources */,
 				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
 				392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */,
+				399C700B269B27840017069C /* TakeLookViewController.swift in Sources */,
 				0A88A0142694A61800A4EBD0 /* UIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -855,14 +869,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		39EBE8DA26972FD00096DD39 /* JoinTripCheckStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				39EBE8DB26972FD00096DD39 /* Base */,
-			);
-			name = JoinTripCheckStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
 		BD75C2D2268B4B3900C4F233 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
