@@ -66,6 +66,8 @@
 		BD0AD62626936A8A0033DAD8 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AD62526936A8A0033DAD8 /* TripViewController.swift */; };
 		BD172595269C14B2000FB89B /* BoardPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD172594269C14B2000FB89B /* BoardPopupView.swift */; };
 		BD172597269C14BE000FB89B /* BoardPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD172596269C14BE000FB89B /* BoardPopupView.xib */; };
+		BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1725C8269CA04F000FB89B /* NetworkResult.swift */; };
+		BD1725CB269CB39F000FB89B /* NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1725CA269CB39F000FB89B /* NetworkInfo.swift */; };
 		BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */; };
 		BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */; };
 		BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F9268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf */; };
@@ -175,6 +177,8 @@
 		BD0AD62526936A8A0033DAD8 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		BD172594269C14B2000FB89B /* BoardPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPopupView.swift; sourceTree = "<group>"; };
 		BD172596269C14BE000FB89B /* BoardPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardPopupView.xib; sourceTree = "<group>"; };
+		BD1725C8269CA04F000FB89B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		BD1725CA269CB39F000FB89B /* NetworkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfo.swift; sourceTree = "<group>"; };
 		BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
 		BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
 		BD39D4F9268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
@@ -518,6 +522,16 @@
 			path = Plan;
 			sourceTree = "<group>";
 		};
+		BD1725C7269C9F2B000FB89B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2F9268B58E000C4F233 /* APIConstants.swift */,
+				BD1725CA269CB39F000FB89B /* NetworkInfo.swift */,
+				BD1725C8269CA04F000FB89B /* NetworkResult.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		BD55F43D26919BF8004E7114 /* JoinTrip */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +611,7 @@
 			children = (
 				BD75C2D0268B4B3900C4F233 /* Assets.xcassets */,
 				BDF1C119268E287900C82CF6 /* Colors.xcassets */,
+				BD1725C7269C9F2B000FB89B /* Network */,
 				BD75C2DD268B4E4800C4F233 /* Constants */,
 				BD75C2E1268B510D00C4F233 /* Font */,
 				BD75C2E0268B501400C4F233 /* Extensions */,
@@ -620,7 +635,6 @@
 		BD75C2DD268B4E4800C4F233 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				BD75C2F9268B58E000C4F233 /* APIConstants.swift */,
 				BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */,
 				40A0EA41269C4596009EDE74 /* NibConstants.swift */,
 			);
@@ -947,7 +961,6 @@
 				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
 				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
 				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
-				BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
@@ -967,6 +980,7 @@
 				39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */,
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				4073BC6E26986FEC00C5C7B0 /* MemberOurTableViewCell.swift in Sources */,
+				BD1725CB269CB39F000FB89B /* NetworkInfo.swift in Sources */,
 				BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */,
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,
 				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
@@ -981,6 +995,7 @@
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				BD172595269C14B2000FB89B /* BoardPopupView.swift in Sources */,
 				0A88A010269493E000A4EBD0 /* PopupView.swift in Sources */,
+				BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
@@ -1135,13 +1150,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W895YM7ZMH;
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = DooRiBon/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dooribon.DooRiBon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooriboncorp.DooRiBon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1155,13 +1170,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W895YM7ZMH;
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = DooRiBon/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dooribon.DooRiBon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooriboncorp.DooRiBon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
