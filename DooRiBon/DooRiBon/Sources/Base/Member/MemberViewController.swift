@@ -11,6 +11,7 @@ class MemberViewController: UIViewController {
 
 
     @IBOutlet weak var pagerTab: PagerTab!
+    @IBOutlet private var topView: TripTopView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

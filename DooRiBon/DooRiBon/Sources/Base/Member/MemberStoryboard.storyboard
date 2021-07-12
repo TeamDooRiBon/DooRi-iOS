@@ -47,6 +47,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="pagerTab" destination="lPl-b9-03C" id="5oA-Vo-P6F"/>
+                        <outlet property="topView" destination="5ld-ms-rFm" id="pWh-qw-qCK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-rt-0DT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
