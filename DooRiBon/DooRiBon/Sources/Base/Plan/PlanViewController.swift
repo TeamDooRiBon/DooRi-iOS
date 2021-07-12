@@ -216,8 +216,8 @@ extension PlanViewController: UITableViewDelegate {
 extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
     // 델리게이트 메서드
     func didSelectedAddTripButton() {
-        let addTripSB = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
-        let addTripVC = addTripSB.instantiateViewController(identifier: "AddTripViewController") as! AddTripViewController
+        let addTripSB = UIStoryboard(name: "AddTripPlanStoryboard", bundle: nil)
+        let addTripVC = addTripSB.instantiateViewController(identifier: "AddTripPlanViewController") as! AddTripPlanViewController
         navigationController?.pushViewController(addTripVC, animated: true)
     }
     
