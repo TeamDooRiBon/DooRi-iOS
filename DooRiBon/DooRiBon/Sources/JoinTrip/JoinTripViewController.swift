@@ -61,6 +61,11 @@ class JoinTripViewController: UIViewController {
     @IBAction func joinTripButtonClicked(_ sender: Any) {
         
     }
+    
+    @IBAction func backButtonClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
 
 // MARK: - Set up

@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
         setUI()
         setComeTripList()
         setLastTripList()
-        scrollViewDidEndDecelerating(comeTripCollectionView)
+//        scrollViewDidEndDecelerating(comeTripCollectionView)
         
         collectionViewSet()
         tableViewSet()
@@ -56,29 +56,19 @@ class MainViewController: UIViewController {
     
     // 새로운 여행 시작하기 : 팝업 StartTrip 뷰컨으로 이동 -> 팝업과 뒷 화면을 연결해야함
     @IBAction func StartTripButtonClicked(_ sender: Any) {
-        let vc = StartTripViewController(nibName: "StartTripViewController", bundle: nil)
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        self.present(vc, animated: true) {
+        let nextVC = StartTripViewController(nibName: "StartTripViewController", bundle: nil)
+        let naviVC = UINavigationController(rootViewController: nextVC)
+        naviVC.modalPresentationStyle = .overCurrentContext
+        naviVC.modalTransitionStyle = .crossDissolve
+        naviVC.navigationBar.isHidden = true
+        self.present(naviVC, animated: true) {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
-            vc.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+            naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
         }
     }
     
-    
-    // MARK: - 스크롤 인디케이터
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        for cell in comeTripCollectionView.visibleCells {
-            if let row = comeTripCollectionView.indexPath(for: cell)?.item {
-                let totalWidth = backgroundView.frame.width
-                print(totalWidth)
-                print(totalWidth * (CGFloat(row)/3))
-                UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
-                    //self.view.layoutIfNeeded()
-                    self.indicatorBar.frame.origin.x = totalWidth * (CGFloat(row)/3)
-                }
-            }
-        }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/3
     }
     
     
