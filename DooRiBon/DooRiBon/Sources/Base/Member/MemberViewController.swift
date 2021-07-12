@@ -9,12 +9,13 @@ import UIKit
 
 class MemberViewController: UIViewController {
 
+
     @IBOutlet weak var pagerTab: PagerTab!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let vc1 = UIStoryboard(name: "WeStoryboard", bundle: nil).instantiateViewController(identifier: "WeViewController") as? WeViewController else { return }
+        guard let vc1 = UIStoryboard(name: "MemberOurStoryboard", bundle: nil).instantiateViewController(identifier: "MemberOurViewController") as? MemberOurViewController else { return }
         guard let vc2 = UIStoryboard(name: "TakeLookStoryboard", bundle: nil).instantiateViewController(identifier: "TakeLookViewController") as? TakeLookViewController else { return }
         
         let viewControllers: [PageComponentProtocol] = [
