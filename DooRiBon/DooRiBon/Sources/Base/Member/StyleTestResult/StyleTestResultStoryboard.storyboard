@@ -21,20 +21,19 @@
         <!--Style Test Result View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="StyleTestResultViewController" id="Y6W-OH-hqX" customClass="StyleTestResultViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="x3Z-1m-Gzx">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="x3Z-1m-Gzx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-t8-2YJ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gc7-za-7jr">
-                                                <rect key="frame" x="117" y="586" width="141" height="24"/>
+                                                <rect key="frame" x="117" y="543" width="141" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미지 결과 저장하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jme-JE-rJW">
                                                         <rect key="frame" x="0.0" y="4.5" width="105" height="15.5"/>
@@ -74,11 +73,18 @@
                                                     <constraint firstItem="xF1-3Q-ygq" firstAttribute="top" secondItem="Gc7-za-7jr" secondAttribute="top" id="wCf-ky-95d"/>
                                                 </constraints>
                                             </view>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bit-KI-1mH">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
+                                            </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="white9"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Gc7-za-7jr" secondAttribute="bottom" constant="57" id="Uhk-D6-TGH"/>
+                                            <constraint firstItem="Gc7-za-7jr" firstAttribute="top" secondItem="bit-KI-1mH" secondAttribute="bottom" constant="50" id="3cH-zE-qRN"/>
+                                            <constraint firstAttribute="trailing" secondItem="bit-KI-1mH" secondAttribute="trailing" id="Nrv-rf-neB"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gc7-za-7jr" secondAttribute="bottom" constant="100" id="Uhk-D6-TGH"/>
+                                            <constraint firstItem="bit-KI-1mH" firstAttribute="leading" secondItem="Csd-t8-2YJ" secondAttribute="leading" id="dKz-yU-FuC"/>
                                             <constraint firstItem="Gc7-za-7jr" firstAttribute="leading" secondItem="Csd-t8-2YJ" secondAttribute="leading" constant="117" id="fwm-gE-kIZ"/>
+                                            <constraint firstItem="bit-KI-1mH" firstAttribute="top" secondItem="Csd-t8-2YJ" secondAttribute="top" id="iCS-rJ-gfx"/>
                                             <constraint firstAttribute="trailing" secondItem="Gc7-za-7jr" secondAttribute="trailing" constant="117" id="s11-Qa-Ysw"/>
                                         </constraints>
                                     </view>
@@ -91,7 +97,7 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUt-pM-i5b">
-                                <rect key="frame" x="107" y="600" width="161" height="42"/>
+                                <rect key="frame" x="107" y="615" width="161" height="42"/>
                                 <color key="backgroundColor" name="white9"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="2Bm-TH-X7g"/>
@@ -102,7 +108,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
+                                        <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
@@ -111,17 +117,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="x3Z-1m-Gzx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FlS-AN-Whr"/>
-                            <constraint firstItem="Csd-t8-2YJ" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" id="KBV-HI-tqv"/>
+                            <constraint firstItem="Csd-t8-2YJ" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" priority="250" id="KBV-HI-tqv"/>
                             <constraint firstItem="Csd-t8-2YJ" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="P6J-rt-7YZ"/>
                             <constraint firstItem="WUt-pM-i5b" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="107" id="PBv-UI-sZb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="x3Z-1m-Gzx" secondAttribute="trailing" id="TsN-Yw-Nwt"/>
                             <constraint firstItem="x3Z-1m-Gzx" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="XE0-eV-xnK"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WUt-pM-i5b" secondAttribute="bottom" constant="25" id="hi2-fD-MK1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WUt-pM-i5b" secondAttribute="bottom" constant="10" id="hi2-fD-MK1"/>
                             <constraint firstAttribute="bottom" secondItem="x3Z-1m-Gzx" secondAttribute="bottom" id="tvY-vx-hZx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WUt-pM-i5b" secondAttribute="trailing" constant="107" id="xOM-v4-lJX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="WUt-pM-i5b" id="idS-eQ-T7p"/>
+                        <outlet property="resultImageView" destination="bit-KI-1mH" id="Kiu-JE-hku"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="66.964285714285708"/>
         </scene>
