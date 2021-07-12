@@ -33,13 +33,10 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
     func tableViewSet() {
         memberOurTableView.delegate = self
         memberOurTableView.dataSource = self
-        var nibName = UINib(nibName: "MemberStartView", bundle: nil)
-        memberOurTableView.register(nibName, forCellReuseIdentifier: "MemberStartView")
+        memberOurTableView.register(NibConstants.MemberStartViewNib, forCellReuseIdentifier: "MemberStartView")
+        memberOurTableView.register(NibConstants.MemberStartNib, forCellReuseIdentifier: "MemberStartTableViewCell")
+        memberOurTableView.register(NibConstants.MemberCodeCopyNib, forCellReuseIdentifier: "MemberCodeCopyTableViewCell")
         memberOurTableView.backgroundColor = .clear
-        nibName = UINib(nibName: "MemberStart", bundle: nil)
-        memberOurTableView.register(nibName, forCellReuseIdentifier: "MemberStartTableViewCell")
-        nibName = UINib(nibName: "MemberCodeCopy", bundle: nil)
-        memberOurTableView.register(nibName, forCellReuseIdentifier: "MemberCodeCopyTableViewCell")
     }
     
     func myStyleListSet() {
@@ -87,11 +84,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.memberHeaderLabel.text = "나의 여행 유형"
             headerView.memberHeaderLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 16)
             headerView.memberHeaderLabel.textColor = Colors.black2.color
-            if myStyleList.count == 0 {
-                headerView.memberHeaderButton.isHidden = true
-            } else {
-                headerView.memberHeaderButton.isHidden = false
-            }
+            headerView.memberHeaderButton.isHidden = myStyleList.count == 0
         case 1:
             headerView.memberHeaderLabel.text = "함께하는 멤버들의 여행 유형"
             headerView.memberHeaderLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 16)
