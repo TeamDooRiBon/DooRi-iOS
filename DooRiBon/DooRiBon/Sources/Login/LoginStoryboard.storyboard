@@ -12,12 +12,75 @@
         <!--Login View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="LoginViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9f-nr-WO2">
+                                <rect key="frame" x="0.0" y="688" width="414" height="100"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.8980392157" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="koX-zr-0x6"/>
+                                </constraints>
+                                <state key="normal" title="로그인 하기"/>
+                                <connections>
+                                    <action selector="loginButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZiQ-Uv-xgz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6I-Ue-OJQ">
+                                <rect key="frame" x="0.0" y="446" width="414" height="100"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.8980392157" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="iVM-7X-NvA"/>
+                                </constraints>
+                                <state key="normal" title="토큰 존재 여부 확인"/>
+                                <connections>
+                                    <action selector="testBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2vc-Fd-og2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uc-Nw-toP">
+                                <rect key="frame" x="0.0" y="285" width="414" height="100"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.8980392157" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Eao-qH-nMD"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="wJE-Fp-qhr"/>
+                                </constraints>
+                                <state key="normal" title="토큰 정보 보기"/>
+                                <connections>
+                                    <action selector="tokenInform:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="m3i-k2-Hrz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8m-ON-eXa">
+                                <rect key="frame" x="0.0" y="139" width="414" height="100"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.8980392157" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="bIw-3X-uuc"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="hvH-us-c2k"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="lWN-H9-78o"/>
+                                </constraints>
+                                <state key="normal" title="사용자 정보 가져오기"/>
+                                <connections>
+                                    <action selector="getUserInform:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="M8r-fQ-0xp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y9f-nr-WO2" firstAttribute="top" secondItem="C6I-Ue-OJQ" secondAttribute="bottom" constant="142" id="4lL-6Z-8Ha"/>
+                            <constraint firstItem="9Uc-Nw-toP" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="7SI-84-GGk"/>
+                            <constraint firstItem="9Uc-Nw-toP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9RX-UT-qOV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y9f-nr-WO2" secondAttribute="trailing" id="AN1-rN-SNG"/>
+                            <constraint firstItem="n8m-ON-eXa" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="DYv-2Y-fFJ"/>
+                            <constraint firstItem="9Uc-Nw-toP" firstAttribute="top" secondItem="n8m-ON-eXa" secondAttribute="bottom" constant="46" id="PzP-Ok-y3m"/>
+                            <constraint firstItem="n8m-ON-eXa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aaG-VU-knF"/>
+                            <constraint firstItem="C6I-Ue-OJQ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="bow-wg-kX8"/>
+                            <constraint firstItem="Y9f-nr-WO2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="nx5-7m-sj7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Y9f-nr-WO2" secondAttribute="bottom" constant="74" id="r97-25-3mB"/>
+                            <constraint firstItem="C6I-Ue-OJQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rXc-fR-ts6"/>
+                            <constraint firstItem="C6I-Ue-OJQ" firstAttribute="top" secondItem="9Uc-Nw-toP" secondAttribute="bottom" constant="61" id="wys-cb-vTY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

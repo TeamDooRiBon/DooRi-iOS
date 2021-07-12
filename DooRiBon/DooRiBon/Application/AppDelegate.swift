@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 카카오 SDK 초기화
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        KakaoSDKCommon.initSDK(appKey: "NATIVE_APP_KEY")
+        KakaoSDKCommon.initSDK(appKey: "20b5a489718efe1008ff1dfbb41fa0f3")
         return true
     }
 
