@@ -41,7 +41,7 @@
                             <constraint firstItem="5ld-ms-rFm" firstAttribute="leading" secondItem="pKD-2S-Oes" secondAttribute="leading" id="gJV-n6-AA3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="멤버" image="iconPeopleInactiveIos" selectedImage="iconPeopleActiveIos" id="9SQ-1c-JHc">
+                    <tabBarItem key="tabBarItem" title="멤버" image="iconPeopleInactiveIos" selectedImage="iconMembersActive" id="9SQ-1c-JHc">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -55,7 +55,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconPeopleActiveIos" width="24.333333969116211" height="24"/>
+        <image name="iconMembersActive" width="30" height="30"/>
         <image name="iconPeopleInactiveIos" width="24.333333969116211" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
