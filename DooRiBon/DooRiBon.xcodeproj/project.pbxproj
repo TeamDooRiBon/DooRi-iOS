@@ -518,6 +518,14 @@
 			path = Plan;
 			sourceTree = "<group>";
 		};
+		BD1725C7269C9F2B000FB89B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BD75C2F9268B58E000C4F233 /* APIConstants.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		BD55F43D26919BF8004E7114 /* JoinTrip */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +605,7 @@
 			children = (
 				BD75C2D0268B4B3900C4F233 /* Assets.xcassets */,
 				BDF1C119268E287900C82CF6 /* Colors.xcassets */,
+				BD1725C7269C9F2B000FB89B /* Network */,
 				BD75C2DD268B4E4800C4F233 /* Constants */,
 				BD75C2E1268B510D00C4F233 /* Font */,
 				BD75C2E0268B501400C4F233 /* Extensions */,
@@ -620,7 +629,6 @@
 		BD75C2DD268B4E4800C4F233 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				BD75C2F9268B58E000C4F233 /* APIConstants.swift */,
 				BDF1C11E268E318C00C82CF6 /* ColorConstants.swift */,
 				40A0EA41269C4596009EDE74 /* NibConstants.swift */,
 			);
@@ -947,7 +955,6 @@
 				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
 				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
 				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
-				BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
@@ -1135,13 +1142,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W895YM7ZMH;
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = DooRiBon/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dooribon.DooRiBon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooriboncorp.DooRiBon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1155,13 +1162,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W895YM7ZMH;
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = DooRiBon/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dooribon.DooRiBon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooriboncorp.DooRiBon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
