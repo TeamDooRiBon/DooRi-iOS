@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Medium.ttf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="MemberStartTableViewCell" id="QWe-l4-Ecl" customClass="MemberStartTableViewCell" customModule="DooRiBon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="226"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jib-ZP-3Nc">
+                    <rect key="frame" x="0.0" y="0.0" width="339" height="226"/>
+                    <color key="backgroundColor" name="white8"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTestStart" translatesAutoresizingMaskIntoConstraints="NO" id="hb3-Cc-jT3">
+                    <rect key="frame" x="0.0" y="0.0" width="339" height="226"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="white8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 여행 스타일을 한번에 공유하세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuv-wA-d94">
+                    <rect key="frame" x="42" y="140.5" width="255" height="16.5"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
+                    <color key="textColor" name="white9"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70X-cf-Wgw">
+                    <rect key="frame" x="74" y="168" width="191" height="42"/>
+                    <color key="backgroundColor" name="white9"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
+                    <state key="normal" title="   여행 유형 TEST 시작 &gt;   ">
+                        <color key="titleColor" name="pointBlue"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="21"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="G3g-ZW-vwb"/>
+            <color key="backgroundColor" name="white8"/>
+            <constraints>
+                <constraint firstItem="Jib-ZP-3Nc" firstAttribute="bottom" secondItem="G3g-ZW-vwb" secondAttribute="bottom" id="0Fq-ZU-JyJ"/>
+                <constraint firstItem="G3g-ZW-vwb" firstAttribute="trailing" secondItem="70X-cf-Wgw" secondAttribute="trailing" constant="74" id="BpF-uQ-ENm"/>
+                <constraint firstItem="hb3-Cc-jT3" firstAttribute="leading" secondItem="G3g-ZW-vwb" secondAttribute="leading" id="CJ2-fR-Fiq"/>
+                <constraint firstItem="Jib-ZP-3Nc" firstAttribute="top" secondItem="QWe-l4-Ecl" secondAttribute="top" id="Fez-5G-Smf"/>
+                <constraint firstItem="G3g-ZW-vwb" firstAttribute="trailing" secondItem="hb3-Cc-jT3" secondAttribute="trailing" id="GtA-VF-zoH"/>
+                <constraint firstItem="Kuv-wA-d94" firstAttribute="leading" secondItem="G3g-ZW-vwb" secondAttribute="leading" constant="42" id="J4O-cv-07x"/>
+                <constraint firstItem="G3g-ZW-vwb" firstAttribute="trailing" secondItem="Kuv-wA-d94" secondAttribute="trailing" constant="42" id="O3b-zA-pdg"/>
+                <constraint firstItem="G3g-ZW-vwb" firstAttribute="bottom" secondItem="hb3-Cc-jT3" secondAttribute="bottom" id="QUs-7e-e7n"/>
+                <constraint firstItem="hb3-Cc-jT3" firstAttribute="top" secondItem="QWe-l4-Ecl" secondAttribute="top" id="X06-gl-PvI"/>
+                <constraint firstItem="Jib-ZP-3Nc" firstAttribute="leading" secondItem="G3g-ZW-vwb" secondAttribute="leading" id="bbs-zd-GjV"/>
+                <constraint firstItem="Jib-ZP-3Nc" firstAttribute="trailing" secondItem="G3g-ZW-vwb" secondAttribute="trailing" id="eff-oo-SXW"/>
+                <constraint firstItem="70X-cf-Wgw" firstAttribute="top" secondItem="QWe-l4-Ecl" secondAttribute="top" constant="168" id="jKQ-A5-ZA5"/>
+                <constraint firstItem="G3g-ZW-vwb" firstAttribute="bottom" secondItem="70X-cf-Wgw" secondAttribute="bottom" constant="16" id="m5A-Fd-4RT"/>
+                <constraint firstItem="G3g-ZW-vwb" firstAttribute="bottom" secondItem="Kuv-wA-d94" secondAttribute="bottom" constant="69" id="myW-CZ-FH5"/>
+                <constraint firstItem="70X-cf-Wgw" firstAttribute="leading" secondItem="G3g-ZW-vwb" secondAttribute="leading" constant="74" id="sm2-Zh-adA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-128.2608695652174" y="72.991071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="imgTestStart" width="339" height="226"/>
+        <namedColor name="pointBlue">
+            <color red="0.41999998688697815" green="0.56099998950958252" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white8">
+            <color red="0.96899998188018799" green="0.97299998998641968" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white9">
+            <color red="0.99199998378753662" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
