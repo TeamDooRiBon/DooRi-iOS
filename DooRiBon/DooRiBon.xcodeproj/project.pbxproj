@@ -67,6 +67,7 @@
 		BD172595269C14B2000FB89B /* BoardPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD172594269C14B2000FB89B /* BoardPopupView.swift */; };
 		BD172597269C14BE000FB89B /* BoardPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD172596269C14BE000FB89B /* BoardPopupView.xib */; };
 		BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1725C8269CA04F000FB89B /* NetworkResult.swift */; };
+		BD1725CB269CB39F000FB89B /* NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1725CA269CB39F000FB89B /* NetworkInfo.swift */; };
 		BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */; };
 		BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */; };
 		BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F9268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf */; };
@@ -177,6 +178,7 @@
 		BD172594269C14B2000FB89B /* BoardPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPopupView.swift; sourceTree = "<group>"; };
 		BD172596269C14BE000FB89B /* BoardPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardPopupView.xib; sourceTree = "<group>"; };
 		BD1725C8269CA04F000FB89B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		BD1725CA269CB39F000FB89B /* NetworkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfo.swift; sourceTree = "<group>"; };
 		BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
 		BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
 		BD39D4F9268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				BD75C2F9268B58E000C4F233 /* APIConstants.swift */,
+				BD1725CA269CB39F000FB89B /* NetworkInfo.swift */,
 				BD1725C8269CA04F000FB89B /* NetworkResult.swift */,
 			);
 			path = Network;
@@ -977,6 +980,7 @@
 				39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */,
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				4073BC6E26986FEC00C5C7B0 /* MemberOurTableViewCell.swift in Sources */,
+				BD1725CB269CB39F000FB89B /* NetworkInfo.swift in Sources */,
 				BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */,
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,
 				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
