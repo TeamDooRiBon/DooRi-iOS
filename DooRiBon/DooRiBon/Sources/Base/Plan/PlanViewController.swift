@@ -112,7 +112,7 @@ extension PlanViewController {
     private func setupTableView() {
         contentsTableView.delegate = self
         contentsTableView.dataSource = self
-        
+
         contentsTableView.register(UINib(nibName: "PlanDataTableViewCell", bundle: nil), forCellReuseIdentifier: PlanDataTableViewCell.cellId)
         contentsTableView.register(UINib(nibName: "NoDataTableViewCell", bundle: nil), forCellReuseIdentifier: NoDataTableViewCell.cellId)
         
@@ -213,9 +213,17 @@ extension PlanViewController: UITableViewDelegate {
     }
 }
 
-extension PlanViewController: UITableViewDataSource {
+extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
+    // 델리게이트 메서드
+    func didSelectedAddTripButton() {
+        let addTripSB = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
+        let addTripVC = addTripSB.instantiateViewController(identifier: "AddTripViewController") as! AddTripViewController
+        navigationController?.pushViewController(addTripVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = PlanDataHeaderView.loadFromXib()
+        headerView.delegate = self
         return headerView
     }
     
