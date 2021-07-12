@@ -1,27 +1,15 @@
 //
-//  PopupView.swift
+//  OutPopupView.swift
 //  DooRiBon
 //
-//  Created by Lee, Hyejin on 2021/07/06.
+//  Created by 민 on 2021/07/12.
 //
+
 
 import UIKit
 import SnapKit
 
-/* Example
-     PopupView.loadFromXib()
-         .setTitle("TITLE")
-         .setDescription("Description")
-         .setCancelButton()
-         .setConfirmButton()
-         .present { event in
-              if event == .confirm {
-                    // confirm action
-              }
-         }
- */
-
-class PopupView: UIView {
+class OutPopupView: UIView {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var buttonsStackView: UIStackView!
 
@@ -97,7 +85,7 @@ class PopupView: UIView {
         return self
     }
 
-    func setConfirmButton(_ text: String = "확인") -> Self {
+    func setConfirmButton(_ text: String = "나갈게요") -> Self {
         confirmButton.setTitle(text, for: .normal)
         buttonsStackView.addArrangedSubview(confirmButton)
         confirmButton.snp.makeConstraints {
@@ -106,7 +94,7 @@ class PopupView: UIView {
         return self
     }
 
-    func setCancelButton(_ text: String? = "취소") -> Self {
+    func setCancelButton(_ text: String? = "계속할게요") -> Self {
         cancelButton.setTitle(text, for: .normal)
         buttonsStackView.addArrangedSubview(cancelButton)
         cancelButton.snp.makeConstraints {
@@ -156,3 +144,4 @@ class PopupView: UIView {
         }
     }
 }
+
