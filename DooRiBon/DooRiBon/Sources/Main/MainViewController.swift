@@ -155,7 +155,12 @@ extension MainViewController: UICollectionViewDataSource
 
 extension MainViewController: UICollectionViewDelegate
 {
-   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
+        if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
+            navigationController?.pushViewController(tripVC, animated: true)
+        }
+    }
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout
@@ -190,7 +195,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 
 extension MainViewController: UITableViewDelegate
 {
-
+    
 }
 
 extension MainViewController: UITableViewDataSource
