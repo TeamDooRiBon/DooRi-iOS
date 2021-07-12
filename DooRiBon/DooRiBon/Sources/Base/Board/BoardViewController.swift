@@ -8,11 +8,14 @@
 import UIKit
 
 class BoardViewController: UIViewController {
+    // MARK: - IBOutlets
     
     @IBOutlet weak var topContainerView: TripTopView!
     @IBOutlet var iconImageView: [UIImageView]!
     @IBOutlet var iconTitleLabel: [UILabel]!
     @IBOutlet weak private var tableView: UITableView!
+    
+    // MARK: - Properties
     
     let topView = TripTopView()
     let iconName = ["Goal", "Aim", "Role", "Check"]
@@ -40,6 +43,8 @@ class BoardViewController: UIViewController {
         }
     }
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -61,7 +66,7 @@ extension BoardViewController {
         selectedData = dummyData[0]
     }
 
-    // MARK: - Buttons
+    // MARK: - Button Actions
     
     private func setupButtonAction() {
         topContainerView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
@@ -107,6 +112,8 @@ extension BoardViewController {
         }
     }
     
+    // MARK: - IBActions
+    // 버튼 영역에 있는 각 아이콘에 대한 액션
     @IBAction private func iconClicked(_ sender: UIButton) {
         /// 이미지 선택/비선택 처리
         let _ = iconImageView.enumerated().map {
@@ -164,11 +171,11 @@ extension BoardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
-        case 0:
+        case 0: // 헤더셀
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardHeaderTableViewCell.cellId, for: indexPath) as? BoardHeaderTableViewCell else { return UITableViewCell() }
             cell.subTitleLabel.text = selectedData?.titleName
             return cell
-        default:
+        default: // 데이터셀
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.cellId, for: indexPath) as? BoardTableViewCell else { return UITableViewCell() }
             
             if indexPath.row % 2 == 0 {
@@ -176,10 +183,8 @@ extension BoardViewController: UITableViewDataSource {
             } else {
                 cell.setData(goalContents: "여행가기", userName: "댕굴")
             }
-            
-            
+   
             return cell
         }
-        
     }
 }
