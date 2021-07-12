@@ -48,6 +48,9 @@
                                 <real key="value" value="6"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="writeButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="20z-Cx-Zq9"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
