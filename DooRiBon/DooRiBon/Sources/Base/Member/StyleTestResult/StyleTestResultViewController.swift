@@ -47,6 +47,9 @@ class StyleTestResultViewController: UIViewController {
     }
     
 }
+
+//MARK:- Extension
+
 extension UIImage {
     public func resized(to target: CGSize) -> UIImage? {
         let ratio = min(
