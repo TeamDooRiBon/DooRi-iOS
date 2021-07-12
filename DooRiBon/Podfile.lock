@@ -1,16 +1,58 @@
 PODS:
   - Alamofire (5.4.1)
   - FSCalendar (2.8.3)
+  - KakaoSDK (2.5.4):
+    - KakaoSDKAuth (= 2.5.4)
+    - KakaoSDKCommon (= 2.5.4)
+    - KakaoSDKLink (= 2.5.4)
+    - KakaoSDKNavi (= 2.5.4)
+    - KakaoSDKStory (= 2.5.4)
+    - KakaoSDKTalk (= 2.5.4)
+    - KakaoSDKTemplate (= 2.5.4)
+    - KakaoSDKUser (= 2.5.4)
+  - KakaoSDKAuth (2.5.4):
+    - KakaoSDKCommon (= 2.5.4)
+  - KakaoSDKCommon (2.5.4):
+    - KakaoSDKCommon/Common (= 2.5.4)
+    - KakaoSDKCommon/Network (= 2.5.4)
+  - KakaoSDKCommon/Common (2.5.4)
+  - KakaoSDKCommon/Network (2.5.4):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.5.4)
+  - KakaoSDKLink (2.5.4):
+    - KakaoSDKCommon (= 2.5.4)
+    - KakaoSDKTemplate (= 2.5.4)
+  - KakaoSDKNavi (2.5.4):
+    - KakaoSDKCommon/Common (= 2.5.4)
+  - KakaoSDKStory (2.5.4):
+    - KakaoSDKUser (= 2.5.4)
+  - KakaoSDKTalk (2.5.4):
+    - KakaoSDKTemplate (= 2.5.4)
+    - KakaoSDKUser (= 2.5.4)
+  - KakaoSDKTemplate (2.5.4):
+    - KakaoSDKCommon/Common (= 2.5.4)
+  - KakaoSDKUser (2.5.4):
+    - KakaoSDKAuth (= 2.5.4)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - FSCalendar (from `https://github.com/hyejinL/FSCalendar.git`, branch `dooribun`)
+  - KakaoSDK
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - KakaoSDK
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKLink
+    - KakaoSDKNavi
+    - KakaoSDKStory
+    - KakaoSDKTalk
+    - KakaoSDKTemplate
+    - KakaoSDKUser
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -26,8 +68,17 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   FSCalendar: ed63fee7df375e34340c1236308fdbfc568d26ac
+  KakaoSDK: d6195a679d9964a243f816eb160397a41b40d89c
+  KakaoSDKAuth: 6fbd3579e80efffa05a24f17f696c59ca5ab331f
+  KakaoSDKCommon: caa186f5cf6f7426ab5135b43001ad997e018daa
+  KakaoSDKLink: f28c1cfd67e76e8a4dd11b6dc11d9516be98ba72
+  KakaoSDKNavi: 3da6692ef3c6c5260f0239edeef3f21c438022c0
+  KakaoSDKStory: 2f58e2f89a1b032dae4d98fc33faebebafa46189
+  KakaoSDKTalk: 41abfd99cf661b186935b95fa295c412dd2eb8a8
+  KakaoSDKTemplate: 37c2c19dad4538a0897fde26ac367e7c7f0c2f11
+  KakaoSDKUser: 285abc213101bd07a9b44735defd36994ea9ada8
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 87de49301bd0cc7130c891b19e10db661ed7c0c6
+PODFILE CHECKSUM: 6231faeac9a5c3acaa64ac290df21abaf3b53d2a
 
 COCOAPODS: 1.10.1
