@@ -39,6 +39,7 @@ class PlanViewController: UIViewController {
     @IBOutlet weak var calendarAreaView: UIView!
     @IBOutlet weak var calendarView: UICollectionView!
     @IBOutlet weak var contentsTableView: UITableView!
+    @IBOutlet private var topView: TripTopView!
     
     // MARK: - Life Cycle
     
@@ -46,29 +47,13 @@ class PlanViewController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+        setupButtonAction()
         setupCollectionView()
         setupTableView()
         setupData()
     }
     
     // MARK: - IBActions
-    
-    @IBAction private func backButtonClicked(_ sender: UIButton) {
-        print("뒤로가기 버튼 클릭")
-    }
-    
-    @IBAction private func profileButtonClicked(_ sender: UIButton) {
-        print("프로필 버튼 클릭")
-    }
-    
-    @IBAction private func memberButtonClicked(_ sender: UIButton) {
-        print("멤버 버튼 클릭")
-    }
-    
-    @IBAction private func codeCopyButtonClicked(_ sender: UIButton) {
-        let toastView = ToastView.loadFromXib()
-        toastView.show(message: "참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
-    }
 }
 
 // MARK: - Helpers
@@ -86,6 +71,36 @@ extension PlanViewController {
                                            spread: 0)
     }
     
+    // MARK: - Button Actions
+    
+    private func setupButtonAction() {
+        topView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
+        topView.profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
+        topView.settingButton.addTarget(self, action: #selector(settingButtonClicked), for: .touchUpInside)
+        topView.memberButton.addTarget(self, action: #selector(memberButtonClicked), for: .touchUpInside)
+        topView.codeButton.addTarget(self, action: #selector(codeButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func backButtonClicked(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func profileButtonClicked(_ sender: UIButton) {
+        print("profile button clicked")
+    }
+    
+    @objc func settingButtonClicked(_ sender: UIButton) {
+        print("setting button clicked")
+    }
+    
+    @objc func memberButtonClicked(_ sender: UIButton) {
+        print("member button clicked")
+    }
+    
+    @objc func codeButtonClicked(_ sender: UIButton) {
+        ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+    }
+    
     /// CollectionView Setup
     private func setupCollectionView() {
         calendarView.delegate = self
@@ -97,7 +112,7 @@ extension PlanViewController {
     private func setupTableView() {
         contentsTableView.delegate = self
         contentsTableView.dataSource = self
-        
+
         contentsTableView.register(UINib(nibName: "PlanDataTableViewCell", bundle: nil), forCellReuseIdentifier: PlanDataTableViewCell.cellId)
         contentsTableView.register(UINib(nibName: "NoDataTableViewCell", bundle: nil), forCellReuseIdentifier: NoDataTableViewCell.cellId)
         
@@ -198,9 +213,17 @@ extension PlanViewController: UITableViewDelegate {
     }
 }
 
-extension PlanViewController: UITableViewDataSource {
+extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
+    // 델리게이트 메서드
+    func didSelectedAddTripButton() {
+        let addTripSB = UIStoryboard(name: "AddTripPlanStoryboard", bundle: nil)
+        let addTripVC = addTripSB.instantiateViewController(identifier: "AddTripPlanViewController") as! AddTripPlanViewController
+        navigationController?.pushViewController(addTripVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = PlanDataHeaderView.loadFromXib()
+        headerView.delegate = self
         return headerView
     }
     

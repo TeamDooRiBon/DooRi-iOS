@@ -179,6 +179,9 @@ class AddTripPlanViewController: UIViewController {
     }
     
     //MARK:- IBAction
+    @IBAction func backButtonClicked(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func notAddButtonClicked(_ sender: Any) {
         if !notAddCheck {
