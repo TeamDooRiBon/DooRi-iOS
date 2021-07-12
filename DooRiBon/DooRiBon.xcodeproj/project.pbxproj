@@ -28,6 +28,8 @@
 		399C7016269B28A40017069C /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7015269B28A40017069C /* MemberViewController.swift */; };
 		39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EAC4B02692E0FA00114734 /* StartTripViewController.swift */; };
 		39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAC4B12692E0FA00114734 /* StartTripViewController.xib */; };
+		40299CBB269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40299CBA269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard */; };
+		40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */; };
 		4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */; };
 		4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */; };
 		4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6B26986FDA00C5C7B0 /* MemberOurTableViewModel.swift */; };
@@ -127,6 +129,8 @@
 		39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeLookViewController.swift; path = /PagerTab/PagerTab/TakeLookViewController.swift; sourceTree = "<absolute>"; };
 		39EAC4B02692E0FA00114734 /* StartTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripViewController.swift; sourceTree = "<group>"; };
 		39EAC4B12692E0FA00114734 /* StartTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartTripViewController.xib; sourceTree = "<group>"; };
+		40299CBA269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StyleTestResultStoryboard.storyboard; sourceTree = "<group>"; };
+		40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTestResultViewController.swift; sourceTree = "<group>"; };
 		4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberOurStoryboard.storyboard; sourceTree = "<group>"; };
 		4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurViewController.swift; sourceTree = "<group>"; };
 		4073BC6B26986FDA00C5C7B0 /* MemberOurTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurTableViewModel.swift; sourceTree = "<group>"; };
@@ -310,6 +314,15 @@
 			path = StartTrip;
 			sourceTree = "<group>";
 		};
+		40299CB9269B66B800A4C9B6 /* StyleTestResult */ = {
+			isa = PBXGroup;
+			children = (
+				40299CBA269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard */,
+				40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */,
+			);
+			path = StyleTestResult;
+			sourceTree = "<group>";
+		};
 		4073BC6826986FAA00C5C7B0 /* MemberOur */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +447,7 @@
 		BD0AD612269363150033DAD8 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				40299CB9269B66B800A4C9B6 /* StyleTestResult */,
 				4073BC6826986FAA00C5C7B0 /* MemberOur */,
 				399C7001269B27220017069C /* TakeLook */,
 				BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */,
@@ -776,6 +790,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40299CBB269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard in Resources */,
 				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
 				409E26D22699D90E001C5CED /* MemberHeaderView.xib in Resources */,
 				BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */,
@@ -878,6 +893,8 @@
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
 				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
+				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
+				BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
