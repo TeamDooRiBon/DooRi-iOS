@@ -54,25 +54,13 @@ extension BoardViewController {
     private func setupUI() {
         navigationController?.navigationBar.isHidden = true
         
-        setupTop()
         setupButtonAction()
     }
     
     private func setupData() {
         selectedData = dummyData[0]
     }
-    
-    // MARK: - Top Area
 
-    private func setupTop() {
-//        topContainerView.addSubview(topView)
-//        topContainerView.snp.makeConstraints {
-//            $0.left.right.equalToSuperview()
-//            $0.width.equalToSuperview()
-//            $0.height.equalTo(190)
-//        }
-    }
-    
     // MARK: - Buttons
     
     private func setupButtonAction() {
@@ -182,10 +170,6 @@ extension BoardViewController: UITableViewDataSource {
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.cellId, for: indexPath) as? BoardTableViewCell else { return UITableViewCell() }
-            
-//            cell.setData(imageName: selectedData?.imageName ?? "",
-//                         message: selectedData?.message ?? "",
-//                         description: selectedData?.description ?? "")
             
             if indexPath.row % 2 == 0 {
                 cell.setData(goalContents: "제주도 한라산 등산하기! 아침에 일찍 일어나서 꼭 갈거야 한라산.... ", userName: "김민영")
