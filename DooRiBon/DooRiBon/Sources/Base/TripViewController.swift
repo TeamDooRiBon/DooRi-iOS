@@ -49,7 +49,7 @@ class TripViewController: UITabBarController {
         tabBar.layer.applyShadow(color: Colors.black2.color, alpha: 0.08, x: 0, y: -4, blur: 10)
 
         // 탭바 속 아이템 간격 조정
-        tabBar.itemWidth = 60
+        tabBar.itemWidth = 88
         tabBar.itemPositioning = .centered
         
         let selectedColor   = Colors.pointBlue.color

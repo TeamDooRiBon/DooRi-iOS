@@ -77,7 +77,7 @@ extension BoardViewController {
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
-        print("back button clicked")
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {

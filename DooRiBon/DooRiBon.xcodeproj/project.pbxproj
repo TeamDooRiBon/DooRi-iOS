@@ -34,6 +34,8 @@
 		39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAC4B12692E0FA00114734 /* StartTripViewController.xib */; };
 		39F21BA4269BD83400673511 /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */; };
 		39F21BA6269BDB4100673511 /* AnswerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA5269BDB4100673511 /* AnswerDataModel.swift */; };
+		40299CBB269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40299CBA269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard */; };
+		40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */; };
 		4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */; };
 		4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */; };
 		4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6B26986FDA00C5C7B0 /* MemberOurTableViewModel.swift */; };
@@ -59,10 +61,8 @@
 		BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */; };
 		BD0AD618269363D90033DAD8 /* PlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */; };
 		BD0AD61A269363E30033DAD8 /* BoardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD619269363E30033DAD8 /* BoardStoryboard.storyboard */; };
-		BD0AD61C269363ED0033DAD8 /* StoreStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD61B269363ED0033DAD8 /* StoreStoryboard.storyboard */; };
 		BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AD61F269365050033DAD8 /* PlanViewController.swift */; };
 		BD0AD6222693653D0033DAD8 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AD6212693653D0033DAD8 /* BoardViewController.swift */; };
-		BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AD6232693655E0033DAD8 /* StoreViewController.swift */; };
 		BD0AD62626936A8A0033DAD8 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AD62526936A8A0033DAD8 /* TripViewController.swift */; };
 		BD172595269C14B2000FB89B /* BoardPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD172594269C14B2000FB89B /* BoardPopupView.swift */; };
 		BD172597269C14BE000FB89B /* BoardPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD172596269C14BE000FB89B /* BoardPopupView.xib */; };
@@ -141,6 +141,8 @@
 		39EAC4B12692E0FA00114734 /* StartTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartTripViewController.xib; sourceTree = "<group>"; };
 		39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
 		39F21BA5269BDB4100673511 /* AnswerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDataModel.swift; sourceTree = "<group>"; };
+		40299CBA269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StyleTestResultStoryboard.storyboard; sourceTree = "<group>"; };
+		40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTestResultViewController.swift; sourceTree = "<group>"; };
 		4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberOurStoryboard.storyboard; sourceTree = "<group>"; };
 		4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurViewController.swift; sourceTree = "<group>"; };
 		4073BC6B26986FDA00C5C7B0 /* MemberOurTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurTableViewModel.swift; sourceTree = "<group>"; };
@@ -168,10 +170,8 @@
 		BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberStoryboard.storyboard; sourceTree = "<group>"; };
 		BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlanStoryboard.storyboard; sourceTree = "<group>"; };
 		BD0AD619269363E30033DAD8 /* BoardStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BoardStoryboard.storyboard; sourceTree = "<group>"; };
-		BD0AD61B269363ED0033DAD8 /* StoreStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreStoryboard.storyboard; sourceTree = "<group>"; };
 		BD0AD61F269365050033DAD8 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		BD0AD6212693653D0033DAD8 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
-		BD0AD6232693655E0033DAD8 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		BD0AD62526936A8A0033DAD8 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		BD172594269C14B2000FB89B /* BoardPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPopupView.swift; sourceTree = "<group>"; };
 		BD172596269C14BE000FB89B /* BoardPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardPopupView.xib; sourceTree = "<group>"; };
@@ -363,6 +363,15 @@
 			path = StartTrip;
 			sourceTree = "<group>";
 		};
+		40299CB9269B66B800A4C9B6 /* StyleTestResult */ = {
+			isa = PBXGroup;
+			children = (
+				40299CBA269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard */,
+				40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */,
+			);
+			path = StyleTestResult;
+			sourceTree = "<group>";
+		};
 		4073BC6826986FAA00C5C7B0 /* MemberOur */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,7 +477,6 @@
 				BD0AD612269363150033DAD8 /* Member */,
 				BD0AD614269363480033DAD8 /* Plan */,
 				BD0AD611269363090033DAD8 /* Board */,
-				BD0AD613269363220033DAD8 /* Store */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -488,21 +496,13 @@
 		BD0AD612269363150033DAD8 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				40299CB9269B66B800A4C9B6 /* StyleTestResult */,
 				4073BC6826986FAA00C5C7B0 /* MemberOur */,
 				399C7001269B27220017069C /* TakeLook */,
 				BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */,
 				399C7015269B28A40017069C /* MemberViewController.swift */,
 			);
 			path = Member;
-			sourceTree = "<group>";
-		};
-		BD0AD613269363220033DAD8 /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				BD0AD61B269363ED0033DAD8 /* StoreStoryboard.storyboard */,
-				BD0AD6232693655E0033DAD8 /* StoreViewController.swift */,
-			);
-			path = Store;
 			sourceTree = "<group>";
 		};
 		BD0AD614269363480033DAD8 /* Plan */ = {
@@ -840,6 +840,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40299CBB269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard in Resources */,
 				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
 				409E26D22699D90E001C5CED /* MemberHeaderView.xib in Resources */,
 				BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */,
@@ -859,7 +860,6 @@
 				39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */,
 				0A88A0122694941F00A4EBD0 /* PopupView.xib in Resources */,
 				BDCC36802695DEAA009AE274 /* NoDataTableViewCell.xib in Resources */,
-				BD0AD61C269363ED0033DAD8 /* StoreStoryboard.storyboard in Resources */,
 				BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
 				399C700C269B27840017069C /* QuestionCell.xib in Resources */,
 				4095558C2695718D00130ACB /* AddDateStoryboard.storyboard in Resources */,
@@ -946,6 +946,7 @@
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
 				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
+				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
 				BD0AD6242693655E0033DAD8 /* StoreViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,

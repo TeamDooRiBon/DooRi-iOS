@@ -30,7 +30,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD3-b5-ED5">
-                        <rect key="frame" x="111.5" y="430.5" width="152.5" height="275.5"/>
+                        <rect key="frame" x="108.5" y="430.5" width="158.5" height="275.5"/>
                         <string key="text">아직 이 날의 일정이 없어요!
 첫 일정을 등록해주세요</string>
                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
