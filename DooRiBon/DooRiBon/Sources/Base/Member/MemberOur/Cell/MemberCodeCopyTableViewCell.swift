@@ -15,12 +15,6 @@ class MemberCodeCopyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         informLabelSet()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func informLabelSet() {
         informLabel.text = "아직 진행된 TEST가 없어요\n일행에게 참여코드를 공유하여 여행 유형을 비교해보세요!"

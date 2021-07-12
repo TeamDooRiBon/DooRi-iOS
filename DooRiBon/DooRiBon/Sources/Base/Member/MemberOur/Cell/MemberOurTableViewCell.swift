@@ -28,10 +28,4 @@ class MemberOurTableViewCell: UITableViewCell {
         memberOurBackgroundView.layer.applyShadow(color: .black, alpha: 0.07, x: 0, y: 3, blur: 10, spread: 0)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
