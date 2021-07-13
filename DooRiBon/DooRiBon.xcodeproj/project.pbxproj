@@ -16,12 +16,12 @@
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF94E269183F8008CA532 /* LastTripTableViewCell.swift */; };
 		392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95026918450008CA532 /* ComeTripCollectionViewCell.swift */; };
-		392EF95326918476008CA532 /* ComeTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95226918476008CA532 /* ComeTripListDataModel.swift */; };
-		392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9542691848D008CA532 /* LastTripListDataModel.swift */; };
 		392FCFBA269C2DE700981069 /* OutPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392FCFB9269C2DE700981069 /* OutPopupView.swift */; };
 		392FCFBC269C2DF900981069 /* OutPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392FCFBB269C2DF900981069 /* OutPopupView.xib */; };
 		3975958D269B569D008E8360 /* TestChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3975958C269B569D008E8360 /* TestChoiceViewController.swift */; };
 		3975958F269B56A9008E8360 /* TestChoiceStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3975958E269B56A9008E8360 /* TestChoiceStoryboard.storyboard */; };
+		3976DFB6269D5AEC00062059 /* MainDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DFB5269D5AEC00062059 /* MainDataModel.swift */; };
+		3976DFB8269D5BF400062059 /* GetMainDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DFB7269D5BF400062059 /* GetMainDataService.swift */; };
 		39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39865B35268F7DF700961BF4 /* CALayer+Extension.swift */; };
 		399C700A269B27840017069C /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7007269B27840017069C /* QuestionCell.swift */; };
 		399C700B269B27840017069C /* TakeLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7008269B27840017069C /* TakeLookViewController.swift */; };
@@ -95,7 +95,6 @@
 		BD75C2E5268B52AD00C4F233 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2E4268B52AD00C4F233 /* MainStoryboard.storyboard */; };
 		BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2E6268B52BD00C4F233 /* MainViewController.swift */; };
 		BD75C2E9268B575E00C4F233 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2E8268B575E00C4F233 /* Device.swift */; };
-		BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2EE268B580900C4F233 /* ServiceEmpty.swift */; };
 		BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F5268B58AD00C4F233 /* ViewEmpty.swift */; };
 		BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F7268B58B500C4F233 /* ProtocolEmpty.swift */; };
 		BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2F9268B58E000C4F233 /* APIConstants.swift */; };
@@ -126,12 +125,12 @@
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		392EF94E269183F8008CA532 /* LastTripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripTableViewCell.swift; sourceTree = "<group>"; };
 		392EF95026918450008CA532 /* ComeTripCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripCollectionViewCell.swift; sourceTree = "<group>"; };
-		392EF95226918476008CA532 /* ComeTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripListDataModel.swift; sourceTree = "<group>"; };
-		392EF9542691848D008CA532 /* LastTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripListDataModel.swift; sourceTree = "<group>"; };
 		392FCFB9269C2DE700981069 /* OutPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutPopupView.swift; sourceTree = "<group>"; };
 		392FCFBB269C2DF900981069 /* OutPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutPopupView.xib; sourceTree = "<group>"; };
 		3975958C269B569D008E8360 /* TestChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestChoiceViewController.swift; sourceTree = "<group>"; };
 		3975958E269B56A9008E8360 /* TestChoiceStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestChoiceStoryboard.storyboard; sourceTree = "<group>"; };
+		3976DFB5269D5AEC00062059 /* MainDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataModel.swift; sourceTree = "<group>"; };
+		3976DFB7269D5BF400062059 /* GetMainDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMainDataService.swift; sourceTree = "<group>"; };
 		39865B35268F7DF700961BF4 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		399C7007269B27840017069C /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		399C7008269B27840017069C /* TakeLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeLookViewController.swift; sourceTree = "<group>"; };
@@ -210,7 +209,6 @@
 		BD75C2E4268B52AD00C4F233 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BD75C2E6268B52BD00C4F233 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BD75C2E8268B575E00C4F233 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		BD75C2EE268B580900C4F233 /* ServiceEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEmpty.swift; sourceTree = "<group>"; };
 		BD75C2F5268B58AD00C4F233 /* ViewEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEmpty.swift; sourceTree = "<group>"; };
 		BD75C2F7268B58B500C4F233 /* ProtocolEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolEmpty.swift; sourceTree = "<group>"; };
 		BD75C2F9268B58E000C4F233 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -735,7 +733,7 @@
 		BD75C2ED268B57F400C4F233 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				BD75C2EE268B580900C4F233 /* ServiceEmpty.swift */,
+				3976DFB7269D5BF400062059 /* GetMainDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -743,8 +741,7 @@
 		BD75C2F0268B581100C4F233 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				392EF95226918476008CA532 /* ComeTripListDataModel.swift */,
-				392EF9542691848D008CA532 /* LastTripListDataModel.swift */,
+				3976DFB5269D5AEC00062059 /* MainDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -968,7 +965,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				392EF95326918476008CA532 /* ComeTripListDataModel.swift in Sources */,
 				4097AC94269B0F9F00E34CCC /* MemberCodeCopyTableViewCell.swift in Sources */,
 				40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */,
 				BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */,
@@ -982,7 +978,6 @@
 				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
-				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
 				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
@@ -992,11 +987,11 @@
 				39F21BA6269BDB4100673511 /* AnswerDataModel.swift in Sources */,
 				4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */,
 				4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */,
+				3976DFB8269D5BF400062059 /* GetMainDataService.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
 				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
-				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
@@ -1013,6 +1008,7 @@
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				399C700A269B27840017069C /* QuestionCell.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
+				3976DFB6269D5AEC00062059 /* MainDataModel.swift in Sources */,
 				409E26D42699D91E001C5CED /* MemberHeaderView.swift in Sources */,
 				4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */,
 				BD5CBC432694961C00935E79 /* DateCollectionViewCell.swift in Sources */,
