@@ -23,13 +23,16 @@ struct Trip: Codable {
 
 // MARK: - Group
 struct Group: Codable {
-    let id, startDate, endDate, travelName: String
+    let _id: String
+    let startDate: Date
+    let endDate: Date
+    let travelName: String
     let image: String
     let destination: String
     let members: [String]
 
-    enum CodingKeys: String, CodingKey {
-        case id = "_id"
-        case startDate, endDate, travelName, image, destination, members
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case id = "_id"
+//        case startDate, endDate, travelName, image, destination, members
+//    }
 }

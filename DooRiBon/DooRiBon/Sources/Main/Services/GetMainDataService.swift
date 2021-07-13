@@ -33,7 +33,8 @@ struct GetMainDataService
                 let networkResult = self.judgeStatus(by: statusCode, value)
                 completion(networkResult)
             
-            case .failure: completion(.pathErr)
+            case .failure:
+                completion(.pathErr)
                 
             }
         }
@@ -41,9 +42,11 @@ struct GetMainDataService
     }
     
     private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
-          
+        
+        let f = DateFormatter()
+        f.dateFormat = "yyyy-MM-dd-HH:mm"
         let decoder = JSONDecoder()
-
+        decoder.dateDecodingStrategy = .formatted(f)
         guard let decodedData = try? decoder.decode(MainDataModel.self, from: data)
         else { return .pathErr }
         

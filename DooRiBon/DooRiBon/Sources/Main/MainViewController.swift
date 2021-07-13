@@ -42,7 +42,9 @@ class MainViewController: UIViewController {
     var textCount: Int = 0
     
     var allTripData: MainDataModel?
-//    var devideTripData: Group?
+
+    let formatter = DateFormatter()
+    let calendar = Calendar.current
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -99,11 +101,11 @@ class MainViewController: UIViewController {
             switch(response)
             {
             case .success(let comeData):
-                if let data = comeData as? MainDataModel {
-                    self.allTripData = data
-                    self.comeTripCollectionView.reloadData()
-                    self.lastTripTableView.reloadData()
-                    self.setDevideTripData()
+                if let comeTrip = comeData as? MainDataModel {
+                    allTripData = comeTrip
+                    comeTripCollectionView.reloadData()
+                    lastTripTableView.reloadData()
+                    setDevideTripData()
                 }
             case .requestErr(let message):
                 print("requestERR", message)
@@ -128,36 +130,41 @@ class MainViewController: UIViewController {
         if (allTripData?.data![2].when == "endTravels") {
             lastTripList = (allTripData?.data![2].group)!
         }
-        
         setNowTripList()
         setComeTripList()
         setLastTripList()
     }
     
     // 번들님은 지금 여행 중이에요! 부분 데이터
+    // 이미지 아직 안넣음
     func setNowTripList()
     {
-        print(nowTripList.count)
-        nowTripDateLabel.text = nowTripList[0].startDate + "-" + nowTripList[0].endDate
-        self.nowTripDateLabel.text = nowTripList[0].startDate
-        self.nowTripTitleLabel.text = nowTripList[0].travelName
+        formatter.dateFormat = "yyyy.MM.dd"
+        let start = formatter.string(from: nowTripList[0].startDate)
+        let end = formatter.string(from: nowTripList[0].endDate)
+        nowTripDateLabel.text = "\(start) - \(end)"
         self.nowTripLocationLabel.text = nowTripList[0].destination
-        self.nowTripMembersLabel.text = nowTripList[0].members[0]
+        if nowTripList[0].members.count == 1 {
+            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님과 함께"
+        } else {
+            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님외 \(nowTripList[0].members.count - 1)명과 함께"
+        }
     }
     
     // 두근두근, 다가오는 여행 부분 데이터
+    // 이미지 아직 안넣음
     func setComeTripList()
     {
-        print(comeTripList.count)
-        print(comeTripList)
-        
+//        formatter.dateFormat = "yyyy.MM.dd"
+//        let start = formatter.string(from: comeTripList.startDate)
+//        formatter.dateFormat = "MM.dd"
+//        comeTripList.
     }
     
     // 추억 속 지난 여행 부분 데이터
     func setLastTripList()
     {
-        print(lastTripList.count)
-        print(lastTripList)
+        
     }
     
     // 컬렉션 뷰 부분
@@ -191,6 +198,10 @@ class MainViewController: UIViewController {
     func setUI() {
         self.navigationController?.navigationBar.isHidden = true
     }
+    
+    func dDayCalculate(from date: Date) -> Int {
+        return calendar.dateComponents([.day], from: date, to: Date()).day! - 1
+    }
 
     
 }
@@ -205,10 +216,16 @@ extension MainViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let comeTripCell = collectionView.dequeueReusableCell(withReuseIdentifier: ComeTripCollectionViewCell.identifier, for: indexPath) as? ComeTripCollectionViewCell else {return UICollectionViewCell()}
         
+        formatter.dateFormat = "yyyy.MM.dd"
+        let start = formatter.string(from: comeTripList[indexPath.row].startDate)
+        formatter.dateFormat = "MM.dd"
+        let end = formatter.string(from: comeTripList[indexPath.row].endDate)
+        let dday = dDayCalculate(from: comeTripList[indexPath.row].startDate)
+        
         comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
-                            dday: comeTripList[indexPath.row].startDate,
+                            dday: "D\(dday)",
                             title: comeTripList[indexPath.row].travelName,
-                            date: comeTripList[indexPath.row].endDate,
+                            date: "\(start) - \(end)",
                             location: comeTripList[indexPath.row].destination,
                             members: comeTripList[indexPath.row].members[0])
 
