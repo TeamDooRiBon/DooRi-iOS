@@ -16,8 +16,6 @@
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF94E269183F8008CA532 /* LastTripTableViewCell.swift */; };
 		392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95026918450008CA532 /* ComeTripCollectionViewCell.swift */; };
-		392EF95326918476008CA532 /* ComeTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95226918476008CA532 /* ComeTripListDataModel.swift */; };
-		392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF9542691848D008CA532 /* LastTripListDataModel.swift */; };
 		392FCFBA269C2DE700981069 /* OutPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392FCFB9269C2DE700981069 /* OutPopupView.swift */; };
 		392FCFBC269C2DF900981069 /* OutPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392FCFBB269C2DF900981069 /* OutPopupView.xib */; };
 		3975958D269B569D008E8360 /* TestChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3975958C269B569D008E8360 /* TestChoiceViewController.swift */; };
@@ -127,8 +125,6 @@
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		392EF94E269183F8008CA532 /* LastTripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripTableViewCell.swift; sourceTree = "<group>"; };
 		392EF95026918450008CA532 /* ComeTripCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripCollectionViewCell.swift; sourceTree = "<group>"; };
-		392EF95226918476008CA532 /* ComeTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripListDataModel.swift; sourceTree = "<group>"; };
-		392EF9542691848D008CA532 /* LastTripListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripListDataModel.swift; sourceTree = "<group>"; };
 		392FCFB9269C2DE700981069 /* OutPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutPopupView.swift; sourceTree = "<group>"; };
 		392FCFBB269C2DF900981069 /* OutPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutPopupView.xib; sourceTree = "<group>"; };
 		3975958C269B569D008E8360 /* TestChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestChoiceViewController.swift; sourceTree = "<group>"; };
@@ -745,8 +741,6 @@
 		BD75C2F0268B581100C4F233 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				392EF95226918476008CA532 /* ComeTripListDataModel.swift */,
-				392EF9542691848D008CA532 /* LastTripListDataModel.swift */,
 				3976DFB5269D5AEC00062059 /* MainDataModel.swift */,
 			);
 			path = Models;
@@ -971,7 +965,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				392EF95326918476008CA532 /* ComeTripListDataModel.swift in Sources */,
 				4097AC94269B0F9F00E34CCC /* MemberCodeCopyTableViewCell.swift in Sources */,
 				40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */,
 				BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */,
@@ -985,7 +978,6 @@
 				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
-				392EF9552691848D008CA532 /* LastTripListDataModel.swift in Sources */,
 				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
@@ -1000,7 +992,6 @@
 				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
 				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
-				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,

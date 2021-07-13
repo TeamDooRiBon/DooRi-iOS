@@ -14,14 +14,13 @@ struct GetMainDataService
     
     func getPersonInfo(completion : @escaping (NetworkResult<Any>) -> Void)
     {
-        let URL = APIConstants.baseURL
-        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        let URL = APIConstants.tripURL
+        let header : HTTPHeaders = NetworkInfo.headerWithToken
         
         let dataRequest = AF.request(URL,
                                      method: .get,
                                      encoding: JSONEncoding.default,
                                      headers: header)
-        
         
         dataRequest.responseData { dataResponse in
             
@@ -46,7 +45,7 @@ struct GetMainDataService
         let decoder = JSONDecoder()
 
         guard let decodedData = try? decoder.decode(MainDataModel.self, from: data)
-        else { return .pathErr}
+        else { return .pathErr }
         
         switch statusCode {
         

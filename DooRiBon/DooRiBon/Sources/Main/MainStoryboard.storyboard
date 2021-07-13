@@ -427,6 +427,8 @@
                                                                     <outlet property="comeTripTitleLabel" destination="eNT-ZD-7T8" id="bTL-fE-ZXH"/>
                                                                     <outlet property="dateLabel" destination="aLi-JL-Q3T" id="DYE-gi-Vra"/>
                                                                     <outlet property="ddayLabel" destination="eUZ-6T-qNN" id="vRK-BP-53d"/>
+                                                                    <outlet property="locationLabel" destination="pwY-Qg-rCU" id="Jg8-Hk-dZi"/>
+                                                                    <outlet property="memberLabel" destination="Abe-TP-KkW" id="mDH-eW-mbf"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
@@ -640,6 +642,8 @@
                                                                 </tableViewCellContentView>
                                                                 <inset key="separatorInset" minX="18" minY="0.0" maxX="17" maxY="0.0"/>
                                                                 <connections>
+                                                                    <outlet property="lastLocationLabel" destination="sKu-Fa-RHr" id="8Rj-z2-ZTM"/>
+                                                                    <outlet property="lastMemberLabel" destination="v8I-Tc-NWg" id="1Qp-hk-DcX"/>
                                                                     <outlet property="tripImageView" destination="CKh-cL-uhu" id="QNN-HV-aK7"/>
                                                                     <outlet property="tripTitleLabel" destination="Dmz-9h-RWa" id="DZv-NS-O10"/>
                                                                 </connections>
@@ -817,8 +821,10 @@
                         <outlet property="lastTripMenuLabel" destination="e4P-fF-cjq" id="NOW-qr-VY9"/>
                         <outlet property="lastTripTableView" destination="8Qi-1i-xlm" id="dA2-B8-cer"/>
                         <outlet property="mainTitleLabel" destination="qO8-47-OZQ" id="hCw-48-5GJ"/>
-                        <outlet property="nowTripDateLabel" destination="O1A-tm-fec" id="xXL-yX-LGu"/>
-                        <outlet property="nowTripTitleLabel" destination="tZI-OE-Apb" id="5fK-hn-bGR"/>
+                        <outlet property="nowTripDateLabel" destination="O1A-tm-fec" id="h3x-3H-xvL"/>
+                        <outlet property="nowTripLocationLabel" destination="1fg-2T-xcS" id="W36-Bw-e5K"/>
+                        <outlet property="nowTripMembersLabel" destination="Cd6-x1-dsy" id="jcq-aR-Fhv"/>
+                        <outlet property="nowTripTitleLabel" destination="tZI-OE-Apb" id="vQS-P5-xo2"/>
                         <outlet property="scrollView" destination="9b9-AS-Jj4" id="enT-KI-1h8"/>
                         <outlet property="styleTripMenuLabel" destination="DnP-lS-p1V" id="1hy-o7-qYA"/>
                         <outlet property="styleTripView" destination="C35-t1-y67" id="59z-XA-34S"/>
@@ -856,7 +862,7 @@
         <image name="iconRightStroke" width="15" height="15"/>
         <image name="iconUserMainMid" width="18" height="18"/>
         <image name="iconUserMainTop" width="18" height="18"/>
-        <image name="imageDum" width="348" height="273"/>
+        <image name="imageDum" width="320" height="245"/>
         <image name="logoText" width="90" height="12"/>
         <namedColor name="gray4">
             <color red="0.36899998784065247" green="0.39599999785423279" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -17,8 +17,6 @@ class MainViewController: UIViewController {
     
     // 라벨
     @IBOutlet weak var mainTitleLabel: UILabel!
-    @IBOutlet weak var nowTripDateLabel: UILabel!
-    @IBOutlet weak var nowTripTitleLabel: UILabel!
     @IBOutlet weak var comeTripMenuLabel: UILabel!
     @IBOutlet weak var lastTripMenuLabel: UILabel!
     @IBOutlet weak var styleTripMenuLabel: UILabel!
@@ -29,27 +27,42 @@ class MainViewController: UIViewController {
     @IBOutlet weak var styleTripView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    // MARK: - 지금 여행중이에요! 부분
+    @IBOutlet weak var nowTripDateLabel: UILabel!
+    @IBOutlet weak var nowTripTitleLabel: UILabel!
+    @IBOutlet weak var nowTripLocationLabel: UILabel!
+    @IBOutlet weak var nowTripMembersLabel: UILabel!
+    
     // MARK: - 배열
+    var nowTripList: [Group] = []
     var comeTripList : [Group] = []
     var lastTripList : [Group] = []
     
     var currentIndex : Int = 0
     var textCount: Int = 0
     
+    var allTripData: MainDataModel?
+//    var devideTripData: Group?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUI()
-        setComeTripList()
-        setLastTripList()
-//        scrollViewDidEndDecelerating(comeTripCollectionView)
+        // setLastTripList()
+
+        shadowSet()
+        
+    }
+    
+    // MARK: - viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setTripData()
         
         collectionViewSet()
         tableViewSet()
-        shadowSet()
-        
+
     }
     
     // MARK: - 액션
@@ -74,20 +87,23 @@ class MainViewController: UIViewController {
     
     // MARK: - 함수
     // StartTrip 팝업을 dismiss하는 함수
-    @objc func dismissAlertController(){
+    @objc func dismissAlertController() {
         self.dismiss(animated: true, completion: nil)
     }
     
     
     // 두근두근, 다가오는 여행 부분 데이터
-    func setComeTripList()
+    func setTripData()
     {
-        GetMainDataService.shared.getPersonInfo{ (response) in
+        GetMainDataService.shared.getPersonInfo{ [self] (response) in
             switch(response)
             {
             case .success(let comeData):
                 if let data = comeData as? MainDataModel {
-                    
+                    self.allTripData = data
+                    self.comeTripCollectionView.reloadData()
+                    self.lastTripTableView.reloadData()
+                    self.setDevideTripData()
                 }
             case .requestErr(let message):
                 print("requestERR", message)
@@ -99,23 +115,49 @@ class MainViewController: UIViewController {
                 print("networkERR")
             }
         }
-//        comeTripList.append(contentsOf: [
-//        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-4", tripTitle: "티미티미 파리 여행",
-//                              date: "2020.05.21 - 05.23"),
-//        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-3", tripTitle: "티미티미 파리 여행",
-//                              date: "2020.05.21 - 05.23"),
-//        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-2", tripTitle: "티미티미 파리 여행",
-//                              date: "2020.05.21 - 05.23")
-//        ])
+    }
+    
+    func setDevideTripData()
+    {
+        if (allTripData?.data![0].when == "nowTravels") {
+            nowTripList = (allTripData?.data![0].group)!
+        }
+        if (allTripData?.data![1].when == "comeTravels") {
+            comeTripList = (allTripData?.data![1].group)!
+        }
+        if (allTripData?.data![2].when == "endTravels") {
+            lastTripList = (allTripData?.data![2].group)!
+        }
+        
+        setNowTripList()
+        setComeTripList()
+        setLastTripList()
+    }
+    
+    // 번들님은 지금 여행 중이에요! 부분 데이터
+    func setNowTripList()
+    {
+        print(nowTripList.count)
+        nowTripDateLabel.text = nowTripList[0].startDate + "-" + nowTripList[0].endDate
+        self.nowTripDateLabel.text = nowTripList[0].startDate
+        self.nowTripTitleLabel.text = nowTripList[0].travelName
+        self.nowTripLocationLabel.text = nowTripList[0].destination
+        self.nowTripMembersLabel.text = nowTripList[0].members[0]
+    }
+    
+    // 두근두근, 다가오는 여행 부분 데이터
+    func setComeTripList()
+    {
+        print(comeTripList.count)
+        print(comeTripList)
+        
     }
     
     // 추억 속 지난 여행 부분 데이터
     func setLastTripList()
     {
-//        lastTripList.append(contentsOf: [
-//        MainDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
-//        MainDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
-//        MainDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),])
+        print(lastTripList.count)
+        print(lastTripList)
     }
     
     // 컬렉션 뷰 부분
@@ -149,6 +191,8 @@ class MainViewController: UIViewController {
     func setUI() {
         self.navigationController?.navigationBar.isHidden = true
     }
+
+    
 }
 
 // MARK: - 익스텐션_컬렉션뷰
@@ -161,10 +205,13 @@ extension MainViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let comeTripCell = collectionView.dequeueReusableCell(withReuseIdentifier: ComeTripCollectionViewCell.identifier, for: indexPath) as? ComeTripCollectionViewCell else {return UICollectionViewCell()}
         
-        comeTripCell.setData(imageName: comeTripList[indexPath.row].comeTripImageName,
-                             dday: comeTripList[indexPath.row].dday,
-                             title: comeTripList[indexPath.row].tripTitle,
-                             date: comeTripList[indexPath.row].date)
+        comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
+                            dday: comeTripList[indexPath.row].startDate,
+                            title: comeTripList[indexPath.row].travelName,
+                            date: comeTripList[indexPath.row].endDate,
+                            location: comeTripList[indexPath.row].destination,
+                            members: comeTripList[indexPath.row].members[0])
+
         return comeTripCell
     }
     
@@ -225,8 +272,10 @@ extension MainViewController: UITableViewDataSource
         
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
         
-        tripCell.setdata(imageName: lastTripList[indexPath.row].tripImageName,
-                         title: lastTripList[indexPath.row].title)
+        tripCell.setdata(imageName: lastTripList[indexPath.row].image,
+                         title: lastTripList[indexPath.row].travelName,
+                         location: lastTripList[indexPath.row].destination,
+                         member: lastTripList[indexPath.row].members[0])
         
         return tripCell
     }

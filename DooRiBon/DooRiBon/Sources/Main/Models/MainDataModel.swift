@@ -18,7 +18,7 @@ struct MainDataModel: Codable {
 // MARK: - Datum
 struct Trip: Codable {
     let when: String
-    let group: [Group]
+    let group: [Group]?
 }
 
 // MARK: - Group
