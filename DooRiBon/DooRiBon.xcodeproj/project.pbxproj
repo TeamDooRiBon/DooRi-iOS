@@ -68,6 +68,7 @@
 		BD172597269C14BE000FB89B /* BoardPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD172596269C14BE000FB89B /* BoardPopupView.xib */; };
 		BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1725C8269CA04F000FB89B /* NetworkResult.swift */; };
 		BD1725CB269CB39F000FB89B /* NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1725CA269CB39F000FB89B /* NetworkInfo.swift */; };
+		BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1725D4269D77CE000FB89B /* JoinTripDataModel.swift */; };
 		BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */; };
 		BD39D4FD268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */; };
 		BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD39D4F9268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf */; };
@@ -179,6 +180,7 @@
 		BD172596269C14BE000FB89B /* BoardPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardPopupView.xib; sourceTree = "<group>"; };
 		BD1725C8269CA04F000FB89B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		BD1725CA269CB39F000FB89B /* NetworkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfo.swift; sourceTree = "<group>"; };
+		BD1725D4269D77CE000FB89B /* JoinTripDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTripDataModel.swift; sourceTree = "<group>"; };
 		BD39D4F7268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
 		BD39D4F8268DE80D004714B6 /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
 		BD39D4F9268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
@@ -532,12 +534,29 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		BD1725D2269D7724000FB89B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BD1725D4269D77CE000FB89B /* JoinTripDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BD1725D3269D772F000FB89B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		BD55F43D26919BF8004E7114 /* JoinTrip */ = {
 			isa = PBXGroup;
 			children = (
-				BD55F43E26919C17004E7114 /* JoinTripStoryboard.storyboard */,
 				BD55F44026919C2B004E7114 /* JoinTripViewController.swift */,
+				BD55F43E26919C17004E7114 /* JoinTripStoryboard.storyboard */,
 				BD4EF4902691CB8300A6362D /* CodeTextField.swift */,
+				BD1725D2269D7724000FB89B /* Models */,
+				BD1725D3269D772F000FB89B /* Services */,
 			);
 			path = JoinTrip;
 			sourceTree = "<group>";
@@ -972,6 +991,7 @@
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
 				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
+				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
 				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
