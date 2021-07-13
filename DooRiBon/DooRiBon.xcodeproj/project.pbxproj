@@ -90,6 +90,8 @@
 		BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */; };
 		BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */; };
 		BD5EEC9926986AC600D09B11 /* BoardHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */; };
+		BD6074B5269DF8AD00CA62F3 /* AddBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */; };
+		BD6074B7269DF92700CA62F3 /* AddBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B6269DF92700CA62F3 /* AddBoardResponse.swift */; };
 		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
 		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
 		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
@@ -204,6 +206,8 @@
 		BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardNoDataTableViewCell.xib; sourceTree = "<group>"; };
 		BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardRequest.swift; sourceTree = "<group>"; };
+		BD6074B6269DF92700CA62F3 /* AddBoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardResponse.swift; sourceTree = "<group>"; };
 		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -781,6 +785,8 @@
 			isa = PBXGroup;
 			children = (
 				BDA5626826994E2000616CBF /* DummyDataModel.swift */,
+				BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */,
+				BD6074B6269DF92700CA62F3 /* AddBoardResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1026,12 +1032,14 @@
 				BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
+				BD6074B5269DF8AD00CA62F3 /* AddBoardRequest.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
 				BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */,
 				399C7012269B27E60017069C /* StyleQuestionTableViewCell.swift in Sources */,
 				BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */,
 				BDA5626C2699962B00616CBF /* BoardTableViewCell.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
+				BD6074B7269DF92700CA62F3 /* AddBoardResponse.swift in Sources */,
 				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
 				40A0EA42269C4596009EDE74 /* NibConstants.swift in Sources */,
 				392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */,
