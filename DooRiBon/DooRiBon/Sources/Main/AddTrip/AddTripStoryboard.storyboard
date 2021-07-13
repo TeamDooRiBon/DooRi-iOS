@@ -234,7 +234,7 @@
                                                     <constraint firstAttribute="height" constant="328" id="7iG-tC-LGs"/>
                                                     <constraint firstAttribute="height" constant="328" id="zS2-jz-cgz"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xP9-em-xrr">
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xP9-em-xrr">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -415,6 +415,7 @@
                     <navigationItem key="navigationItem" id="jg6-Uw-yA0"/>
                     <size key="freeformSize" width="375" height="1031"/>
                     <connections>
+                        <outlet property="bottomView" destination="ek5-dk-28i" id="G3w-8D-dFW"/>
                         <outlet property="endDateLabel" destination="X72-D0-O1m" id="I60-f5-lDM"/>
                         <outlet property="endDateView" destination="7zo-4U-PtA" id="AJS-dV-zN5"/>
                         <outlet property="photoCollectionView" destination="Zdk-FE-Rfx" id="4aO-tw-lJa"/>

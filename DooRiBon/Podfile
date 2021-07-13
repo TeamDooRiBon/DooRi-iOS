@@ -10,4 +10,5 @@ target 'DooRiBon' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'FSCalendar', :git => 'https://github.com/hyejinL/FSCalendar.git', :branch => 'dooribun'
    # Pods for FSCalendarPractice
+  pod 'Kingfisher', '~> 6.0'
 end

@@ -29,7 +29,22 @@ struct APIConstants {
     
     // Base URL
     static let baseURL = "http://13.209.82.176:5000"
+
+    // MARK: - /travel URLs
+    static let inviteCodeURL = baseURL + "/travel/group/:inviteCode"    // 여행 참여, 여행 정보 조회
+    static let addTripURL = baseURL + "/travel" // 여행 생성 뷰 post
+    static let addTripImageURL = baseURL + "/image"
+
+    // MARK: - /auth/user URLs
     
-    // 여행 생성 뷰
-    static let addTripURL = baseURL + "/travel"
+    // MARK: - /schedule
+
+    // MARK: - /board
+    
+    // MARK: - /tendency
+    
+    // MARK: - /image
+    
+    // MARK: - /user/myPage
+
 }

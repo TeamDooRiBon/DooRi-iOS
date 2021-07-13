@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AddTripViewController: UIViewController {
     
@@ -27,10 +28,11 @@ class AddTripViewController: UIViewController {
     /// View
     @IBOutlet weak var startDateView: UIView!
     @IBOutlet weak var endDateView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     
     //MARK:- Variable
     
-    var photoList: [PhotoCollectionViewModel] = []
+    var photoUrlList: [String] = []
     var photoIsSelected = false
     var selectCheck = false
     var selectedIndex: Int?
@@ -42,6 +44,7 @@ class AddTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photoListSet()
+        bottomShadowSet()
         notificationSet()
     }
     
@@ -73,13 +76,32 @@ class AddTripViewController: UIViewController {
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         photoCollectionView.register((UINib(nibName: "PhotoCollectionViewCell", bundle: nil)), forCellWithReuseIdentifier: "photoCell")
-        for _ in 0...15 {
-            photoList.append(PhotoCollectionViewModel(photoName: "dummyImg"))
+        AddTripImageService.shared.getData { (result) in
+            switch(result)
+            {
+            case .success(let imageObject):
+                if let image = imageObject as? AddTripImageResponse {
+                    self.photoUrlList = image.data
+                    self.photoCollectionView.reloadData()
+                }
+            case .requestErr(_):
+                return
+            case .pathErr:
+                return
+            case .serverErr:
+                return
+            case .networkFail:
+                return
+            }
         }
     }
     
     func notificationSet() {
         NotificationCenter.default.addObserver(self, selector: #selector(checking), name: UITextField.textDidChangeNotification, object: nil)
+    }
+    
+    func bottomShadowSet() {
+        bottomView.layer.applyShadow(color: .black, alpha: 0.04, x: 0, y: -3, blur: 10, spread: 0)
     }
     
     @IBAction func startNewTripButtonClicked(_ sender: Any) {
@@ -136,13 +158,15 @@ extension AddTripViewController: dateLabelProtocol {
 extension AddTripViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoList.count
+        return photoUrlList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell()}
-        let photo = photoList[indexPath.row]
-        cell.imageSet(imageName: photo.photoName)
+        let url = photoUrlList[indexPath.row]
+        if let imgUrl = URL(string: url) {
+            cell.imageSet(imageUrl: imgUrl)
+        }
         return cell
     }
     
@@ -164,6 +188,10 @@ extension AddTripViewController: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 extension AddTripViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSize: CGFloat = Device.width * (76 / 375)
+        return CGSize(width: cellSize, height: cellSize)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 7
