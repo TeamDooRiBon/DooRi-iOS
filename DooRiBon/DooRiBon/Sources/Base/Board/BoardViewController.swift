@@ -54,11 +54,11 @@ class BoardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        postTripBoard()
+//        postTripBoard()
     }
     
-    private func postTripBoard() {
-        let input = AddBoardRequest(content: "여행 목표 추가 테스트 - 1:59am")
+    private func postTripBoard(contents: String) {
+        let input = AddBoardRequest(content: contents)
         AddBoardDataService.shared.postTripBoard(input,
                                                  groupId: "60ed24ad317c7b2480ee1ec6",
                                                  tag: "goal") { response in
@@ -172,7 +172,6 @@ extension BoardViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UINib(nibName: "BoardHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: BoardHeaderTableViewCell.cellId)
         tableView.register(UINib(nibName: "BoardNoDataTableViewCell", bundle: nil), forCellReuseIdentifier: BoardNoDataTableViewCell.cellId)
         tableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: BoardTableViewCell.cellId)
         
@@ -185,6 +184,15 @@ extension BoardViewController {
 // MARK: - TableView Delegate
 
 extension BoardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        let height = Device.height * (52 / 812)
+        return 52
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let boardHeaderView = BoardSectionHeaderView.loadFromXib()
+        return boardHeaderView
+    }
 }
 
 // MARK: - TableView DataSource
@@ -195,22 +203,14 @@ extension BoardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.cellId, for: indexPath) as? BoardTableViewCell else { return UITableViewCell() }
         
-        switch indexPath.row {
-        case 0: // 헤더셀
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardHeaderTableViewCell.cellId, for: indexPath) as? BoardHeaderTableViewCell else { return UITableViewCell() }
-            cell.subTitleLabel.text = selectedData?.titleName
-            return cell
-        default: // 데이터셀
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.cellId, for: indexPath) as? BoardTableViewCell else { return UITableViewCell() }
-            
-            if indexPath.row % 2 == 0 {
-                cell.setData(goalContents: "제주도 한라산 등산하기! 아침에 일찍 일어나서 꼭 갈거야 한라산.... ", userName: "김민영")
-            } else {
-                cell.setData(goalContents: "여행가기", userName: "댕굴")
-            }
-   
-            return cell
+        if indexPath.row % 2 == 0 {
+            cell.setData(goalContents: "제주도 한라산 등산하기! 아침에 일찍 일어나서 꼭 갈거야 한라산.... ", userName: "김민영")
+        } else {
+            cell.setData(goalContents: "여행가기", userName: "댕굴")
         }
+
+        return cell
     }
 }

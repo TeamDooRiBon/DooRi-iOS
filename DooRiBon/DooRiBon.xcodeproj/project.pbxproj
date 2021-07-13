@@ -88,11 +88,11 @@
 		BD5EEC90269848D800D09B11 /* TripTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC8E269848D800D09B11 /* TripTopView.xib */; };
 		BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */; };
 		BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */; };
-		BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */; };
-		BD5EEC9926986AC600D09B11 /* BoardHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */; };
 		BD6074B5269DF8AD00CA62F3 /* AddBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */; };
 		BD6074B7269DF92700CA62F3 /* AddBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B6269DF92700CA62F3 /* AddBoardResponse.swift */; };
 		BD6074BA269DFA0200CA62F3 /* AddBoardDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */; };
+		BD6074BC269E015E00CA62F3 /* BoardSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074BB269E015E00CA62F3 /* BoardSectionHeaderView.swift */; };
+		BD6074C0269E019C00CA62F3 /* BoardSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */; };
 		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
 		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
 		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
@@ -205,11 +205,11 @@
 		BD5EEC8E269848D800D09B11 /* TripTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTopView.xib; sourceTree = "<group>"; };
 		BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardNoDataTableViewCell.swift; sourceTree = "<group>"; };
 		BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardNoDataTableViewCell.xib; sourceTree = "<group>"; };
-		BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardRequest.swift; sourceTree = "<group>"; };
 		BD6074B6269DF92700CA62F3 /* AddBoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardResponse.swift; sourceTree = "<group>"; };
 		BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardDataService.swift; sourceTree = "<group>"; };
+		BD6074BB269E015E00CA62F3 /* BoardSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSectionHeaderView.swift; sourceTree = "<group>"; };
+		BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardSectionHeaderView.xib; sourceTree = "<group>"; };
 		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -600,8 +600,6 @@
 		BD5EEC9126986A4500D09B11 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BD5EEC9626986AC600D09B11 /* BoardHeaderTableViewCell.swift */,
-				BD5EEC9726986AC600D09B11 /* BoardHeaderTableViewCell.xib */,
 				BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */,
 				BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */,
 				BDA5626A2699962B00616CBF /* BoardTableViewCell.swift */,
@@ -807,6 +805,8 @@
 			children = (
 				BD172594269C14B2000FB89B /* BoardPopupView.swift */,
 				BD172596269C14BE000FB89B /* BoardPopupView.xib */,
+				BD6074BB269E015E00CA62F3 /* BoardSectionHeaderView.swift */,
+				BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -906,8 +906,8 @@
 				4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */,
 				BD5EEC90269848D800D09B11 /* TripTopView.xib in Resources */,
 				BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */,
-				BD5EEC9926986AC600D09B11 /* BoardHeaderTableViewCell.xib in Resources */,
 				BDCC36792695C627009AE274 /* PlanDataHeaderView.xib in Resources */,
+				BD6074C0269E019C00CA62F3 /* BoardSectionHeaderView.xib in Resources */,
 				BD0AD618269363D90033DAD8 /* PlanStoryboard.storyboard in Resources */,
 				BDA5626D2699962B00616CBF /* BoardTableViewCell.xib in Resources */,
 				BD39D4FE268DE80D004714B6 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
@@ -1016,7 +1016,6 @@
 				3976DFB8269D5BF400062059 /* GetMainDataService.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
-				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
@@ -1041,6 +1040,7 @@
 				BD75C2E9268B575E00C4F233 /* Device.swift in Sources */,
 				BD172595269C14B2000FB89B /* BoardPopupView.swift in Sources */,
 				0A88A010269493E000A4EBD0 /* PopupView.swift in Sources */,
+				BD6074BC269E015E00CA62F3 /* BoardSectionHeaderView.swift in Sources */,
 				BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
