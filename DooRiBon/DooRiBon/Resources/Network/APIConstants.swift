@@ -29,4 +29,7 @@ struct APIConstants {
     
     // Base URL
     static let baseURL = "http://13.209.82.176:5000"
+    
+    // 여행 생성 뷰
+    static let addTripURL = baseURL + "/travel"
 }

@@ -47,6 +47,8 @@
 		4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */; };
 		4095558C2695718D00130ACB /* AddDateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */; };
 		4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095558D2695719A00130ACB /* AddDateViewController.swift */; };
+		4096A977269D6D0000EBDE56 /* AddTripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4096A976269D6D0000EBDE56 /* AddTripService.swift */; };
+		4096A979269D6D1600EBDE56 /* AddTripDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4096A978269D6D1600EBDE56 /* AddTripDataModel.swift */; };
 		4097AC92269B0E5700E34CCC /* MemberStartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4097AC91269B0E5700E34CCC /* MemberStartTableViewCell.swift */; };
 		4097AC94269B0F9F00E34CCC /* MemberCodeCopyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4097AC93269B0F9F00E34CCC /* MemberCodeCopyTableViewCell.swift */; };
 		409E26D22699D90E001C5CED /* MemberHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409E26D12699D90E001C5CED /* MemberHeaderView.xib */; };
@@ -156,6 +158,8 @@
 		4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanViewController.swift; sourceTree = "<group>"; };
 		4095558B2695718D00130ACB /* AddDateStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDateStoryboard.storyboard; sourceTree = "<group>"; };
 		4095558D2695719A00130ACB /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
+		4096A976269D6D0000EBDE56 /* AddTripService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripService.swift; sourceTree = "<group>"; };
+		4096A978269D6D1600EBDE56 /* AddTripDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripDataModel.swift; sourceTree = "<group>"; };
 		4097AC91269B0E5700E34CCC /* MemberStartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberStartTableViewCell.swift; sourceTree = "<group>"; };
 		4097AC93269B0F9F00E34CCC /* MemberCodeCopyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCodeCopyTableViewCell.swift; sourceTree = "<group>"; };
 		409E26D12699D90E001C5CED /* MemberHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberHeaderView.xib; sourceTree = "<group>"; };
@@ -435,6 +439,14 @@
 			path = AddDate;
 			sourceTree = "<group>";
 		};
+		4096A975269D699400EBDE56 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4096A976269D6D0000EBDE56 /* AddTripService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		409E26D02699D8FA001C5CED /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */,
+				4096A978269D6D1600EBDE56 /* AddTripDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -464,6 +477,7 @@
 		40B5A08C268EE1ED00A89875 /* AddTrip */ = {
 			isa = PBXGroup;
 			children = (
+				4096A975269D699400EBDE56 /* Service */,
 				4095558A2695715200130ACB /* AddDate */,
 				40AE782C268F81B90058806B /* Models */,
 				40AE7825268F7F680058806B /* Cells */,
@@ -952,6 +966,7 @@
 				BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */,
 				BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */,
 				BD0AD62626936A8A0033DAD8 /* TripViewController.swift in Sources */,
+				4096A979269D6D1600EBDE56 /* AddTripDataModel.swift in Sources */,
 				BDCC36772695C61C009AE274 /* PlanDataHeaderView.swift in Sources */,
 				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
 				3975958D269B569D008E8360 /* TestChoiceViewController.swift in Sources */,
@@ -1003,6 +1018,7 @@
 				399C7012269B27E60017069C /* StyleQuestionTableViewCell.swift in Sources */,
 				BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */,
 				BDA5626C2699962B00616CBF /* BoardTableViewCell.swift in Sources */,
+				4096A977269D6D0000EBDE56 /* AddTripService.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
 				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
 				40A0EA42269C4596009EDE74 /* NibConstants.swift in Sources */,

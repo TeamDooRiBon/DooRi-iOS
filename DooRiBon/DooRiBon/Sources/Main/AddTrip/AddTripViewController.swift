@@ -33,6 +33,9 @@ class AddTripViewController: UIViewController {
     var photoList: [PhotoCollectionViewModel] = []
     var photoIsSelected = false
     var selectCheck = false
+    var selectedIndex: Int?
+    var startDateParsing: String?
+    var endDateParsing: String?
     
     //MARK:- Life Cycle
     
@@ -80,7 +83,27 @@ class AddTripViewController: UIViewController {
     }
     
     @IBAction func startNewTripButtonClicked(_ sender: Any) {
-        print("Test!")
+        if let travelName = tripNameTextField.text, let destination = tripLocationTextField.text, let startDate = startDateParsing, let endDate = endDateParsing, let selectedIndex = selectedIndex {
+            AddTripService.shared.postData(travelName: travelName, destination: destination, startDate: startDate, endDate: endDate, imageIndex: selectedIndex) {result in
+                switch result {
+                case .success(_):
+                    print("success")
+                    self.navigationController?.popViewController(animated: true)
+                case .requestErr(_):
+                    print("requestErr")
+                    return
+                case .pathErr:
+                    print("pathErr")
+                    return
+                case .serverErr:
+                    print("serverErr")
+                    return
+                case .networkFail:
+                    print("netWorkFail")
+                    return
+                }
+            }
+        }
     }
     
     @objc func checking() {
@@ -99,9 +122,11 @@ class AddTripViewController: UIViewController {
 //MARK:- Extension
 
 extension AddTripViewController: dateLabelProtocol {
-    func startEndDateLabelSet(start: String, end: String) {
+    func startEndDateLabelSet(start: String, end: String, startParsing: String, endParsing: String) {
         startDateLabel.text = start
         endDateLabel.text = end
+        startDateParsing = startParsing
+        endDateParsing = endParsing
         startDateView.backgroundColor = Colors.white9.color
         endDateView.backgroundColor = Colors.white9.color
         checking()
@@ -125,6 +150,7 @@ extension AddTripViewController: UICollectionViewDelegate, UICollectionViewDataS
         if !selectCheck {
             photoIsSelected = true
             selectCheck = true
+            selectedIndex = indexPath.row
         } else {
             photoIsSelected = false
             selectCheck = false
