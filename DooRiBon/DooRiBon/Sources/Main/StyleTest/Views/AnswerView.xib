@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Regular.ttf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnswerView" customModule="DooRiBon" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="answerLabel" destination="sW0-U3-Yhn" id="3pB-eP-weU"/>
+                <outlet property="circleView" destination="gF8-O8-Nzp" id="4xa-Tc-t9d"/>
+                <outlet property="numberLabel" destination="OZf-Tq-jNv" id="4Ge-Ko-Wde"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9I6-9B-NqI">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gF8-O8-Nzp">
+                    <rect key="frame" x="10" y="37.5" width="24" height="24"/>
+                    <color key="backgroundColor" name="subOrange1"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="ClZ-wG-671"/>
+                        <constraint firstAttribute="width" secondItem="gF8-O8-Nzp" secondAttribute="height" multiplier="1:1" id="deo-ms-Z8n"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZf-Tq-jNv">
+                    <rect key="frame" x="18" y="40.5" width="8" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="gr0-ds-UEX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sW0-U3-Yhn">
+                    <rect key="frame" x="41" y="17" width="287" height="67"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="287" id="MZ3-ue-PAl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="13"/>
+                    <color key="textColor" name="black3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="zV1-2r-OwQ"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="sW0-U3-Yhn" firstAttribute="top" secondItem="9I6-9B-NqI" secondAttribute="top" constant="17" id="6um-Kx-Rxz"/>
+                <constraint firstAttribute="bottom" secondItem="sW0-U3-Yhn" secondAttribute="bottom" constant="15" id="BUg-Pm-f1B"/>
+                <constraint firstItem="gF8-O8-Nzp" firstAttribute="centerY" secondItem="9I6-9B-NqI" secondAttribute="centerY" id="QRV-Mb-TSk"/>
+                <constraint firstItem="OZf-Tq-jNv" firstAttribute="centerX" secondItem="gF8-O8-Nzp" secondAttribute="centerX" id="QbR-EH-meg"/>
+                <constraint firstItem="sW0-U3-Yhn" firstAttribute="leading" secondItem="gF8-O8-Nzp" secondAttribute="trailing" constant="7" id="eHJ-gA-WZN"/>
+                <constraint firstItem="OZf-Tq-jNv" firstAttribute="centerY" secondItem="gF8-O8-Nzp" secondAttribute="centerY" id="kbk-y0-VPm"/>
+                <constraint firstItem="gF8-O8-Nzp" firstAttribute="leading" secondItem="9I6-9B-NqI" secondAttribute="leading" constant="10" id="xwb-C5-BRA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="513.04347826086962" y="-171.09375"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="black3">
+            <color red="0.27799999713897705" green="0.29800000786781311" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="subOrange1">
+            <color red="1" green="0.60000002384185791" blue="0.51800000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
