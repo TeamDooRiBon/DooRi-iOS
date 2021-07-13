@@ -25,19 +25,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb2-QR-vAx">
-                    <rect key="frame" x="23" y="18" width="44.5" height="20.5"/>
+                    <rect key="frame" x="23" y="18" width="44.5" height="19"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
                     <color key="textColor" name="pointBlue"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021. 07. 29 목요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VI-Hk-zZ1">
-                    <rect key="frame" x="92.5" y="20.5" width="104" height="15.5"/>
+                    <rect key="frame" x="92.5" y="20.5" width="101.5" height="14"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                     <color key="textColor" name="gray5"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4b-fU-Tu6">
-                    <rect key="frame" x="309" y="17.5" width="87" height="22"/>
+                    <rect key="frame" x="309" y="16.5" width="87" height="22"/>
                     <color key="backgroundColor" name="pointOrange"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="87" id="OA5-MG-y57"/>
