@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct BoardPopupData {
+    var title: String
+    var description: String
+}
+
 class BoardViewController: UIViewController {
     // MARK: - IBOutlets
     
@@ -37,11 +42,21 @@ class BoardViewController: UIViewController {
                        message: "여행 전에 미리 체크하세요!",
                        description: "이번 여행에서 꼭 확인해야\n하는 것들을 미리 공유해요")
     ]
+    let popupData = [
+        BoardPopupData(title: "여행 목표", description: "이번 여행의 목표를 함께 공유하세요!"),
+        BoardPopupData(title: "꼭 알아줘", description: "이번 여행에 함께하는 사람들에게\n나에 대해 꼭 알리고 싶은 것을 작성해주세요!"),
+        BoardPopupData(title: "역할 분담", description: "이번 여행에서 나는 이런 역할을 담당할게!"),
+        BoardPopupData(title: "체크리스트", description: "준비는 철저하게! 필요한 것을 미리 체크하세요"),
+    ]
+    
     private var selectedData: DummyDataModel? {
         didSet {
             tableView.reloadData()
         }
     }
+    private var selectedTag: String = "goal"
+    private var selectedTagIndex: Int = 0
+    private var contents: String = ""
     
     // MARK: - Life Cycle
     
@@ -54,14 +69,13 @@ class BoardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        postTripBoard()
     }
     
-    private func postTripBoard(contents: String) {
+    private func postTripBoard(contents: String, tag: String) {
         let input = AddBoardRequest(content: contents)
         AddBoardDataService.shared.postTripBoard(input,
                                                  groupId: "60ed24ad317c7b2480ee1ec6",
-                                                 tag: "goal") { response in
+                                                 tag: tag) { response in
             switch(response)
             {
             case .success(let data) :
@@ -125,9 +139,9 @@ extension BoardViewController {
     // 예시
     enum Icon: String {
         case goal = "Goal"
-        case check
-        case role
-        case aim
+        case check = "Check"
+        case role = "Role"
+        case aim = "Aim"
         
         var activeImage: UIImage? {
             UIImage(named: "\(rawValue)Active")
@@ -135,6 +149,18 @@ extension BoardViewController {
         
         var inActiveImage: UIImage? {
             UIImage(named: "\(rawValue)Inactive")
+        }
+    }
+    
+    // 태그
+    enum Tag: String {
+        case goal = "goal"
+        case know
+        case role
+        case check
+        
+        var selectedTag: String? {
+            return "\(rawValue)"
         }
     }
     
@@ -155,15 +181,25 @@ extension BoardViewController {
         switch sender.tag {
         case 0:
             selectedData = dummyData[0]
+            selectedTag = "\(Tag.goal)"
+            self.selectedTagIndex = 0
         case 1:
             selectedData = dummyData[1]
+            selectedTag = "\(Tag.know)"
+            self.selectedTagIndex = 1
         case 2:
             selectedData = dummyData[2]
+            selectedTag = "\(Tag.role)"
+            self.selectedTagIndex = 2
         case 3:
             selectedData = dummyData[3]
+            selectedTag = "\(Tag.check)"
+            self.selectedTagIndex = 3
         default:
             return
         }
+        
+        tableView.reloadData()
     }
     
     // MARK: - TableView Setup
@@ -183,14 +219,33 @@ extension BoardViewController {
 
 // MARK: - TableView Delegate
 
-extension BoardViewController: UITableViewDelegate {
+extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelegate, BoardPopupProtocol {
+    func sendContentsData(contents: String) {
+        self.contents = contents
+    }
+    
+    func didSelectedAddTripButton() {
+        print(11111, "\(selectedTag)")
+        let boardPopupView = BoardPopupView.loadFromXib()
+        boardPopupView.delegate = self
+        boardPopupView
+            .setTitle(popupData[selectedTagIndex].title)
+            .setDescription(popupData[selectedTagIndex].description)
+            .present { event in
+                if event == .confirm {
+                    self.postTripBoard(contents: self.contents, tag: self.selectedTag)
+                }
+            }
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        let height = Device.height * (52 / 812)
         return 52
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let boardHeaderView = BoardSectionHeaderView.loadFromXib()
+        boardHeaderView.delegate = self
+        boardHeaderView.boardTitle.text = selectedData?.titleName
         return boardHeaderView
     }
 }
