@@ -1,0 +1,64 @@
+//
+//  AddBoardDataService.swift
+//  DooRiBon
+//
+//  Created by taehy.k on 2021/07/14.
+//
+
+import Foundation
+
+import Alamofire
+
+struct AddBoardDataService {
+    // MARK: - 싱글턴 변수
+    static let shared = AddBoardDataService()
+    
+    // MARK: - URL Create
+    
+    private func makeURL(groupId: String, tag: String) -> String {
+        let url = APIConstants.postBoardURL
+            .replacingOccurrences(of: ":groupId", with: groupId)
+            .replacingOccurrences(of: ":tag", with: tag)
+        return url
+    }
+    
+    // MARK: - Post Function
+    
+    func postTripBoard(_ parameters: AddBoardRequest, groupId: String, tag: String, completion: @escaping (NetworkResult<Any>)->()) {
+        let url = makeURL(groupId: groupId, tag: tag)
+        let headers: HTTPHeaders = NetworkInfo.headerWithToken
+        
+        let dataRequest = AF.request(url,
+                                     method: .post,
+                                     parameters: parameters,
+                                     encoder: JSONParameterEncoder(),
+                                     headers: headers)
+        
+        dataRequest.responseData { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeStatus(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    // MARK: - Judge Status
+    
+    private func judgeStatus(status: Int, data: Data) -> NetworkResult<Any> {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(JoinTripResponse.self, from: data) else {return .pathErr}
+        
+        switch status {
+        case 200: return .success(decodedData)
+        case 400..<500: return .requestErr(decodedData)
+        case 500: return .serverErr
+        default: return .networkFail
+        }
+    }
+}
