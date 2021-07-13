@@ -18,6 +18,7 @@ class TestChoiceViewController: UIViewController {
     @IBOutlet weak var indicatorBar: UIView!
     
     private var answerList: [AnswerDataModel] = []
+    private lazy var answers: [Int] = Array(repeating: 0, count: answerList.count)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +26,35 @@ class TestChoiceViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         
         serAnswerList()
+        updateQuestion(0)
         answerCollectionView.delegate = self
         answerCollectionView.dataSource = self
+
+        answerCollectionView.isScrollEnabled = false
     }
-    
+
     @IBAction func previousButtonClicked(_ sender: Any) {
-        
+        guard let cell = answerCollectionView.visibleCells.first,
+           let currentNumber = answerCollectionView.indexPath(for: cell)?.item else {
+            return
+        }
+        let previousItem = max(currentNumber - 1, 0)
+        answerCollectionView.scrollToItem(at: IndexPath(item: previousItem, section: 0), at: .left, animated: true)
+        updateQuestion(previousItem)
     }
     
     @IBAction func nextButtonClicked(_ sender: Any) {
-        // answerCollectionView.scrollToItem(at: IndexPath, at: <#T##UICollectionView.ScrollPosition#>, animated: <#T##Bool#>)
+        guard let cell = answerCollectionView.visibleCells.first,
+           let currentNumber = answerCollectionView.indexPath(for: cell)?.item else {
+            return
+        }
+        let nextItem = min(currentNumber + 1, answerList.count - 1)
+        answerCollectionView.scrollToItem(at: IndexPath(item: nextItem, section: 0), at: .left, animated: true)
+        updateQuestion(nextItem)
     }
     
     @IBAction func outTestButtonClicked(_ sender: Any) {
+        // FIXME: 공통 popup으로 바꾸세요.
         OutPopupView.loadFromXib()
             .setTitle("정말 나가시겠습니까?")
             .setDescription("""
@@ -69,8 +86,38 @@ class TestChoiceViewController: UIViewController {
             AnswerDataModel(answer1: "사람들이 많이 가는 유명한 장소 위주로 다닐래", answer2: "랜드마크 몇 군데만 가고 나머지는 마음대로 다닐래", answer3: "아무도 안 가본 새로운 장소를 찾아보고 싶어", answer4: "함께 하는 사람들이 가자는 대로 갈래")
         ])
     }
+
+    func updateQuestion(_ currentNumber: Int) {
+        self.questionNumberLabel.text = "Q\(currentNumber + 1)"
+        // 질문 내용 변경
+        switch currentNumber {
+        case 0:
+            self.questionLabel.text = "계획을 세울 때 나는?"
+        case 1:
+            self.questionLabel.text = "한 장소에서 다른 장소로 이동할 때 나는?"
+        case 2:
+            self.questionLabel.text = "내가 원하는 여행 스타일은"
+        case 3:
+            self.questionLabel.text = "멋진 풍경이 내 눈 앞에 펼쳐졌을 때 나는?"
+        case 4:
+            self.questionLabel.text = "가려고 했던 식당이 문을 닫았을 때 나는?"
+        case 5:
+            self.questionLabel.text = "내가 더 많은 시간을 보내고 싶은 곳은?"
+        case 6:
+            self.questionLabel.text = "일행과 서로 가고 싶은 곳이 다를 때는?"
+        case 7:
+            self.questionLabel.text = "일행과 서로 가고 싶은 곳이 다를 때는?"
+        case 8:
+            self.questionLabel.text = "다른 사람들이 말을 걸어왔을 때 나는?"
+        case 9:
+            self.questionLabel.text = "방문할 장소를 선택할 때 나는?"
+        default:
+            self.questionLabel.text = " "
+        }
+    }
     
     // MARK: - 컬렉션뷰 인덱스에 따른 변화
+    // FIXME: MainViewController 처럼 바꾸기
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         for cell in answerCollectionView.visibleCells {
             if let row = answerCollectionView.indexPath(for: cell)?.item {
@@ -79,43 +126,6 @@ class TestChoiceViewController: UIViewController {
                 let totalWidth = backgroundView.frame.width
                 UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
                     self.indicatorBar.frame.origin.x = totalWidth * (CGFloat(row)/10)
-                }
-            
-                // 질문 내용 변경
-                switch row {
-                case 0:
-                    self.questionNumberLabel.text = "Q1"
-                    self.questionLabel.text = "계획을 세울 때 나는?"
-                case 1:
-                    self.questionNumberLabel.text = "Q2"
-                    self.questionLabel.text = "한 장소에서 다른 장소로 이동할 때 나는?"
-                case 2:
-                    self.questionNumberLabel.text = "Q3"
-                    self.questionLabel.text = "내가 원하는 여행 스타일은"
-                case 3:
-                    self.questionNumberLabel.text = "Q4"
-                    self.questionLabel.text = "멋진 풍경이 내 눈 앞에 펼쳐졌을 때 나는?"
-                case 4:
-                    self.questionNumberLabel.text = "Q5"
-                    self.questionLabel.text = "가려고 했던 식당이 문을 닫았을 때 나는?"
-                case 5:
-                    self.questionNumberLabel.text = "Q6"
-                    self.questionLabel.text = "내가 더 많은 시간을 보내고 싶은 곳은?"
-                case 6:
-                    self.questionNumberLabel.text = "Q7"
-                    self.questionLabel.text = "일행과 서로 가고 싶은 곳이 다를 때는?"
-                case 7:
-                    self.questionNumberLabel.text = "Q8"
-                    self.questionLabel.text = "일행과 서로 가고 싶은 곳이 다를 때는?"
-                case 8:
-                    self.questionNumberLabel.text = "Q9"
-                    self.questionLabel.text = "다른 사람들이 말을 걸어왔을 때 나는?"
-                case 9:
-                    self.questionNumberLabel.text = "Q10"
-                    self.questionLabel.text = "방문할 장소를 선택할 때 나는?"
-                default:
-                    self.questionNumberLabel.text = " "
-                    self.questionLabel.text = " "
                 }
             }
         }
@@ -154,9 +164,9 @@ extension TestChoiceViewController: UICollectionViewDelegateFlowLayout
         
         let width = UIScreen.main.bounds.width      // 현재 사용하는 기기의 width를 가져와서 저장
         
-        let cellWidth = width * (339/375)            // 제플린에서의 비율만큼 곱해서 width를 결정
+        let cellWidth = width - 18 * 2
         let cellHeight = cellWidth * (240/339)        // 제플린에서의 비율만큼 곱해서 height를 결정
-        
+
         return CGSize(width: cellWidth, height: cellHeight)     // 정해진 가로/세로를 CGSize형으로 return
     }
     
@@ -175,4 +185,15 @@ extension TestChoiceViewController: UICollectionViewDelegateFlowLayout
         return 36
     }
     
+}
+
+extension TestChoiceViewController: AnswerCollectionViewCellDelegate {
+    func didSelectedAnswer(_ index: Int) {
+        guard let cell = answerCollectionView.visibleCells.first,
+              let currentNumber = answerCollectionView.indexPath(for: cell)?.item,
+              currentNumber < answerList.count else {
+            return
+        }
+        answers[currentNumber] = index
+    }
 }

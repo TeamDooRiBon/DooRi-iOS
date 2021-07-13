@@ -10,6 +10,8 @@
 		0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BD3B9268E193E00702EC5 /* PagerTab.swift */; };
 		0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BD3BB268E1C6C00702EC5 /* PagerTabSampleViewController.swift */; };
 		0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */; };
+		0A278237269CAB410001591F /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A278236269CAB410001591F /* AnswerView.swift */; };
+		0A278239269CAB490001591F /* AnswerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A278238269CAB490001591F /* AnswerView.xib */; };
 		0A88A010269493E000A4EBD0 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88A00F269493E000A4EBD0 /* PopupView.swift */; };
 		0A88A0122694941F00A4EBD0 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A88A0112694941E00A4EBD0 /* PopupView.xib */; };
 		0A88A0142694A61800A4EBD0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */; };
@@ -120,6 +122,8 @@
 		0A1BD3B9268E193E00702EC5 /* PagerTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTab.swift; sourceTree = "<group>"; };
 		0A1BD3BB268E1C6C00702EC5 /* PagerTabSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTabSampleViewController.swift; sourceTree = "<group>"; };
 		0A1BD3BF268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PagerTabSampleViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
+		0A278236269CAB410001591F /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
+		0A278238269CAB490001591F /* AnswerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerView.xib; sourceTree = "<group>"; };
 		0A88A00F269493E000A4EBD0 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		0A88A0112694941E00A4EBD0 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 			children = (
 				392FCFB9269C2DE700981069 /* OutPopupView.swift */,
 				392FCFBB269C2DF900981069 /* OutPopupView.xib */,
+				0A278236269CAB410001591F /* AnswerView.swift */,
+				0A278238269CAB490001591F /* AnswerView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -895,6 +901,7 @@
 				407E640A269A139E007C8081 /* MemberStart.xib in Resources */,
 				39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */,
 				0A88A0122694941F00A4EBD0 /* PopupView.xib in Resources */,
+				0A278239269CAB490001591F /* AnswerView.xib in Resources */,
 				BDCC36802695DEAA009AE274 /* NoDataTableViewCell.xib in Resources */,
 				BD39D4FC268DE80D004714B6 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
 				399C700C269B27840017069C /* QuestionCell.xib in Resources */,
@@ -979,6 +986,7 @@
 				BD1725D7269D78F7000FB89B /* JoinTripDataService.swift in Sources */,
 				3975958D269B569D008E8360 /* TestChoiceViewController.swift in Sources */,
 				BD0AD6222693653D0033DAD8 /* BoardViewController.swift in Sources */,
+				0A278237269CAB410001591F /* AnswerView.swift in Sources */,
 				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
