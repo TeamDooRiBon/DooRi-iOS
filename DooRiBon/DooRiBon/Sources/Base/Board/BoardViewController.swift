@@ -51,6 +51,32 @@ class BoardViewController: UIViewController {
         setupTableView()
         setupData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        postTripBoard()
+    }
+    
+    private func postTripBoard() {
+        let input = AddBoardRequest(content: "여행 목표 추가 테스트 - 1:59am")
+        AddBoardDataService.shared.postTripBoard(input,
+                                                 groupId: "60ed24ad317c7b2480ee1ec6",
+                                                 tag: "goal") { response in
+            switch(response)
+            {
+            case .success(let data) :
+                print(data)
+            case .requestErr(let message) :
+                print(message)
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
 }
 
 extension BoardViewController {
