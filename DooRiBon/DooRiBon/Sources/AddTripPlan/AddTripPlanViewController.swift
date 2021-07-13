@@ -50,7 +50,7 @@ class AddTripPlanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timeButtonSet()
+        buttonSet()
         textFieldSet()
         notificationSet()
         datePickerBackgroundViewSet()
@@ -71,7 +71,7 @@ class AddTripPlanViewController: UIViewController {
         planMemoTextField.delegate = self
     }
     
-    func timeButtonSet() {
+    func buttonSet() {
         var origImage = UIImage(named: "timeStartBoxline")
         
         let startTintedImage = origImage?.withRenderingMode(.alwaysTemplate)
@@ -82,6 +82,8 @@ class AddTripPlanViewController: UIViewController {
         let endTintedImage = origImage?.withRenderingMode(.alwaysTemplate)
         endTimeButton.setImage(endTintedImage, for: .normal)
         endTimeButton.tintColor = Colors.gray6.color
+        
+        addNewPlanButton.isEnabled = false
     }
     
     func notificationSet() {
@@ -148,17 +150,21 @@ class AddTripPlanViewController: UIViewController {
             if planTitleTextField.text != "" && planLocationTextField.text != "" && timeSelectCheck {
                 addNewPlanButton.backgroundColor = Colors.pointOrange.color
                 addNewPlanButton.setTitleColor(Colors.white8.color, for: .normal)
+                addNewPlanButton.isEnabled = true
             } else {
                 addNewPlanButton.backgroundColor = Colors.gray7.color
                 addNewPlanButton.setTitleColor(Colors.gray4.color, for: .normal)
+                addNewPlanButton.isEnabled = false
             }
         } else {
             if planTitleTextField.text != "" && timeSelectCheck {
                 addNewPlanButton.backgroundColor = Colors.pointOrange.color
                 addNewPlanButton.setTitleColor(Colors.white8.color, for: .normal)
+                addNewPlanButton.isEnabled = true
             } else {
                 addNewPlanButton.backgroundColor = Colors.gray7.color
                 addNewPlanButton.setTitleColor(Colors.gray4.color, for: .normal)
+                addNewPlanButton.isEnabled = false
             }
         }
     }
@@ -250,6 +256,44 @@ class AddTripPlanViewController: UIViewController {
         })
         checking()
     }
+    
+    @IBAction func addNewPlanButtonClicked(_ sender: Any) {
+//        if let title = planTitleTextField.text, let startTime = startTimeLabel.text, let endTime = endTimeLabel.text, let location = planLocationTextField.text, let memo = planMemoTextField.text {
+//            AddTripPlanService.shared.addTripPlan(groupID: "60ed24ad317c7b2480ee1ec6", title: title, startTime: startTime, endTime: endTime, location: location, memo: memo) { result in
+//                switch result {
+//                case .success(_):
+//                    print("success")
+//                    self.navigationController?.popViewController(animated: true)
+//                case .requestErr(_):
+//                    print("requestErr")
+//                case .pathErr:
+//                    print("pathErr")
+//                case .serverErr:
+//                    print("serverErr")
+//                case .networkFail:
+//                    print("networkFail")
+//                }
+//            }
+//        }
+        print(startTimeLabel.text)
+        print(endTimeLabel.text)
+        AddTripPlanService.shared.addTripPlan(groupID: "60ed24ad317c7b2480ee1ec6", title: "test", startTime: "2021-07-05 16:30", endTime: "2021-07-05 17:00", location: "숙소", memo: "사진 찍자") { result in
+            switch result {
+            case .success(_):
+                print("success")
+                self.navigationController?.popViewController(animated: true)
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
 }
 
 //MARK:- Extension

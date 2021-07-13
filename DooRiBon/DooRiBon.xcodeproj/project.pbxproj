@@ -36,6 +36,8 @@
 		39F21BA6269BDB4100673511 /* AnswerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA5269BDB4100673511 /* AnswerDataModel.swift */; };
 		40299CBB269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40299CBA269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard */; };
 		40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */; };
+		402E5203269DD62300635B41 /* AddTripPlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E5202269DD62300635B41 /* AddTripPlanDataModel.swift */; };
+		402E5205269DD67500635B41 /* AddTripPlanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E5204269DD67500635B41 /* AddTripPlanService.swift */; };
 		4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */; };
 		4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */; };
 		4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6B26986FDA00C5C7B0 /* MemberOurTableViewModel.swift */; };
@@ -147,6 +149,8 @@
 		39F21BA5269BDB4100673511 /* AnswerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDataModel.swift; sourceTree = "<group>"; };
 		40299CBA269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StyleTestResultStoryboard.storyboard; sourceTree = "<group>"; };
 		40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTestResultViewController.swift; sourceTree = "<group>"; };
+		402E5202269DD62300635B41 /* AddTripPlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanDataModel.swift; sourceTree = "<group>"; };
+		402E5204269DD67500635B41 /* AddTripPlanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanService.swift; sourceTree = "<group>"; };
 		4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberOurStoryboard.storyboard; sourceTree = "<group>"; };
 		4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurViewController.swift; sourceTree = "<group>"; };
 		4073BC6B26986FDA00C5C7B0 /* MemberOurTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurTableViewModel.swift; sourceTree = "<group>"; };
@@ -380,6 +384,22 @@
 			path = StyleTestResult;
 			sourceTree = "<group>";
 		};
+		402E5200269DD5A900635B41 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				402E5204269DD67500635B41 /* AddTripPlanService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		402E5201269DD61300635B41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				402E5202269DD62300635B41 /* AddTripPlanDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4073BC6826986FAA00C5C7B0 /* MemberOur */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +443,8 @@
 		4091C6372692264F009EDB60 /* AddTripPlan */ = {
 			isa = PBXGroup;
 			children = (
+				402E5201269DD61300635B41 /* Model */,
+				402E5200269DD5A900635B41 /* Service */,
 				4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */,
 				4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */,
 			);
@@ -994,6 +1016,7 @@
 				4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
+				402E5203269DD62300635B41 /* AddTripPlanDataModel.swift in Sources */,
 				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
 				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
@@ -1022,6 +1045,7 @@
 				BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
+				402E5205269DD67500635B41 /* AddTripPlanService.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
 				BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */,
 				399C7012269B27E60017069C /* StyleQuestionTableViewCell.swift in Sources */,

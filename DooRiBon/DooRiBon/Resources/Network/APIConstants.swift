@@ -36,7 +36,7 @@ struct APIConstants {
     // MARK: - /auth/user URLs
     
     // MARK: - /schedule
-
+    static let addPlanURL = baseURL + "/schedule/:groupId"
     // MARK: - /board
     
     // MARK: - /tendency
