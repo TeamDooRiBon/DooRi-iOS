@@ -82,8 +82,6 @@ class BoardPopupView: UIView {
     }
     
     @IBAction func confirmButtonClicked(_ sender: Any) {
-//        print("confirm button click")
-//        print(self.contentsTextView.text)
         delegate?.sendContentsData(contents: self.contentsTextView.text)
         closeView(.confirm)
     }

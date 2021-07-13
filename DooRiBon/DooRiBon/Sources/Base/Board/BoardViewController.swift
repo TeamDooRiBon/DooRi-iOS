@@ -72,6 +72,12 @@ class BoardViewController: UIViewController {
         }
     }
     
+    private var currentBoardData: [AddBoardData]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     private var selectedTag: String = "goal"
     private var selectedTagIndex: Int = 0
     private var contents: String = ""
@@ -87,6 +93,9 @@ class BoardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
+        getBoardData(tag: tag)
     }
     
     private func postTripBoard(contents: String, tag: String) {
@@ -98,6 +107,28 @@ class BoardViewController: UIViewController {
             {
             case .success(let data) :
                 print(data)
+            case .requestErr(let message) :
+                print(message)
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    private func getBoardData(tag: String) {
+        AddBoardDataService.shared.getTripBoard(groupId: "60ed24ad317c7b2480ee1ec6",
+                                                tag: tag) { response in
+            switch(response)
+            {
+            case .success(let data) :
+                if let data = data as? [AddBoardData] {
+                    self.currentBoardData = data
+                }
+
             case .requestErr(let message) :
                 print(message)
             case .pathErr :
@@ -202,6 +233,9 @@ extension BoardViewController {
             return
         }
         
+        guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
+        getBoardData(tag: tag)
+        
         tableView.reloadData()
     }
     
@@ -225,6 +259,7 @@ extension BoardViewController {
 extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelegate, BoardPopupProtocol {
     func sendContentsData(contents: String) {
         self.contents = contents
+        tableView.reloadData()
     }
     
     func didSelectedAddTripButton() {
@@ -240,6 +275,8 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
             .present { event in
                 if event == .confirm {
                     self.postTripBoard(contents: self.contents, tag: description)
+                    self.getBoardData(tag: description)
+                    self.tableView.reloadData()
                 }
             }
     }
@@ -260,17 +297,16 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
 
 extension BoardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return currentBoardData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.cellId, for: indexPath) as? BoardTableViewCell else { return UITableViewCell() }
         
-        if indexPath.row % 2 == 0 {
-            cell.setData(goalContents: "제주도 한라산 등산하기! 아침에 일찍 일어나서 꼭 갈거야 한라산.... ", userName: "김민영")
-        } else {
-            cell.setData(goalContents: "여행가기", userName: "댕굴")
+        if let data = currentBoardData?[indexPath.row] {
+            cell.setData(goalContents: data.content, userName: data.name)
         }
+        
 
         return cell
     }

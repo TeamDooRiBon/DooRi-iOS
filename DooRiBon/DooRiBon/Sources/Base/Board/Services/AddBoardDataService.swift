@@ -22,6 +22,31 @@ struct AddBoardDataService {
         return url
     }
     
+    // MARK: - Get Function
+    
+    func getTripBoard(groupId: String, tag: String, completion: @escaping (NetworkResult<Any>)->()) {
+        let url = makeURL(groupId: groupId, tag: tag)
+        let headers: HTTPHeaders = NetworkInfo.headerWithToken
+        
+        let dataRequest = AF.request(url,
+                                     method: .get,
+                                     encoding: JSONEncoding.default,
+                                     headers: headers)
+        
+        dataRequest.responseData { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeStatus(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
     // MARK: - Post Function
     
     func postTripBoard(_ parameters: AddBoardRequest, groupId: String, tag: String, completion: @escaping (NetworkResult<Any>)->()) {
@@ -55,7 +80,7 @@ struct AddBoardDataService {
         guard let decodedData = try? decoder.decode(AddBoardResponse.self, from: data) else {return .pathErr}
         
         switch status {
-        case 200: return .success(decodedData)
+        case 200: return .success(decodedData.data as Any)
         case 400..<500: return .requestErr(decodedData)
         case 500: return .serverErr
         default: return .networkFail
