@@ -1,16 +1,19 @@
 PODS:
   - Alamofire (5.4.1)
   - FSCalendar (2.8.3)
+  - Kingfisher (6.1.0)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - FSCalendar (from `https://github.com/hyejinL/FSCalendar.git`, branch `dooribun`)
+  - Kingfisher (~> 6.0)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -26,8 +29,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   FSCalendar: ed63fee7df375e34340c1236308fdbfc568d26ac
+  Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 87de49301bd0cc7130c891b19e10db661ed7c0c6
+PODFILE CHECKSUM: 7e5ab95ff915890445e2ab89f00d4d8b8873b433
 
 COCOAPODS: 1.10.0
