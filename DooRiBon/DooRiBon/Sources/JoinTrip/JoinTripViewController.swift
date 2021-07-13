@@ -59,13 +59,13 @@ class JoinTripViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func joinTripButtonClicked(_ sender: Any) {
-        
+        let inviteCode = checkInviteCode()
+        getTripData(inviteCode: inviteCode)
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
 }
 
 // MARK: - Set up
@@ -185,6 +185,35 @@ extension JoinTripViewController {
             joinButton.setTitle("입력 완료", for: .normal)
             activateTotalArea()
         }
+    }
+    
+    // MARK: - Service
+    private func getTripData(inviteCode: String) {
+        JoinTripDataService.shared.getTripInfoWithInviteCode(inviteCode: inviteCode) { (response) in
+            switch(response)
+            {
+            case .success(let data) :
+                print(data)
+            case .requestErr(let message) :
+                print(message)
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    private func checkInviteCode() -> String {
+        var inviteCode = ""
+        codeTextField.forEach {
+            if let code = $0.text {
+                inviteCode += code
+            }
+        }
+        return inviteCode
     }
 }
 
