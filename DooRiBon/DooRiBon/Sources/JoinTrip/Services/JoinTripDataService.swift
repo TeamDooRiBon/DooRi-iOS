@@ -14,11 +14,18 @@ struct JoinTripDataService {
     
     static let shared = JoinTripDataService()
     
+    // MARK: - URL Create
+    
+    private func makeURL(inviteCode: String) -> String {
+        let url = APIConstants.inviteCodeURL.replacingOccurrences(of: ":inviteCode", with: inviteCode)
+        return url
+    }
+    
     // MARK: - API 요청 함수
     
-    func getTripInfoWithInviteCode(completion: @escaping (NetworkResult<Any>)->()) {
+    func getTripInfoWithInviteCode(inviteCode: String, completion: @escaping (NetworkResult<Any>)->()) {
         
-        let url: String = APIConstants.inviteCodeURL            // URL
+        let url: String = makeURL(inviteCode: inviteCode)       // URL
         let header: HTTPHeaders = NetworkInfo.headerWithToken   // Headers
         
         let dataRequest = AF.request(url,
@@ -31,10 +38,6 @@ struct JoinTripDataService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                
-                print("😁 \(statusCode)")
-                print("💽 \(data)")
-                    
                 completion(judgeStatus(status: statusCode, data: data))
                 
             case .failure(let err):
@@ -48,7 +51,7 @@ struct JoinTripDataService {
     
     private func judgeStatus(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(JoinTripData.self, from: data) else {return .pathErr}
+        guard let decodedData = try? decoder.decode(JoinTripResponse.self, from: data) else {return .pathErr}
         
         switch status {
         case 200: return .success(decodedData)
