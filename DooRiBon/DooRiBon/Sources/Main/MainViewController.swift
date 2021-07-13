@@ -30,8 +30,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - 배열
-    var comeTripList : [ComeTripListDataModel] = []
-    var lastTripList : [LastTripListDataModel] = []
+    var comeTripList : [Group] = []
+    var lastTripList : [Group] = []
     
     var currentIndex : Int = 0
     var textCount: Int = 0
@@ -82,23 +82,40 @@ class MainViewController: UIViewController {
     // 두근두근, 다가오는 여행 부분 데이터
     func setComeTripList()
     {
-        comeTripList.append(contentsOf: [
-        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-4", tripTitle: "티미티미 파리 여행",
-                              date: "2020.05.21 - 05.23"),
-        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-3", tripTitle: "티미티미 파리 여행",
-                              date: "2020.05.21 - 05.23"),
-        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-2", tripTitle: "티미티미 파리 여행",
-                              date: "2020.05.21 - 05.23")
-        ])
+        GetMainDataService.shared.getPersonInfo{ (response) in
+            switch(response)
+            {
+            case .success(let comeData):
+                if let data = comeData as? MainDataModel {
+                    
+                }
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
+//        comeTripList.append(contentsOf: [
+//        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-4", tripTitle: "티미티미 파리 여행",
+//                              date: "2020.05.21 - 05.23"),
+//        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-3", tripTitle: "티미티미 파리 여행",
+//                              date: "2020.05.21 - 05.23"),
+//        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-2", tripTitle: "티미티미 파리 여행",
+//                              date: "2020.05.21 - 05.23")
+//        ])
     }
     
     // 추억 속 지난 여행 부분 데이터
     func setLastTripList()
     {
-        lastTripList.append(contentsOf: [
-        LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
-        LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
-        LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),])
+//        lastTripList.append(contentsOf: [
+//        MainDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
+//        MainDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
+//        MainDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),])
     }
     
     // 컬렉션 뷰 부분

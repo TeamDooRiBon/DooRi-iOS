@@ -45,3 +45,5 @@ struct APIConstants {
     
     // MARK: - /user/myPage
 }
+
+    // MARK: - URLs
