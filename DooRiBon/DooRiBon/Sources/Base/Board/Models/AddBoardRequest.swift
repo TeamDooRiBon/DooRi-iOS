@@ -11,6 +11,6 @@
 
 import Foundation
 
-struct AddBoardRequest: Codable {
+struct AddBoardRequest: Encodable {
     var content: String
 }
