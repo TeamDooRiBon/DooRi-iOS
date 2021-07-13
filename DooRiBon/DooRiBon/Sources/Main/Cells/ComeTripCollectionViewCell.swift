@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ComeTripCollectionViewCell: UICollectionViewCell {
     static let identifier : String = "ComeTripCollectionViewCell"
@@ -25,10 +26,8 @@ class ComeTripCollectionViewCell: UICollectionViewCell {
     
     func setData(imageName: String, dday: String, title: String, date: String, location: String, members: String)
     {
-        if let image = UIImage(named: imageName)
-        {
-            comeTripImageView.image = image
-        }
+        let url = URL(string: imageName)
+        comeTripImageView.kf.setImage(with: url)
         ddayLabel.text = dday
         comeTripTitleLabel.text = title
         dateLabel.text = date

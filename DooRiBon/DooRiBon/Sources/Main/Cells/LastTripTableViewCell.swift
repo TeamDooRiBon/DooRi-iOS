@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class LastTripTableViewCell: UITableViewCell {
 
@@ -29,7 +30,9 @@ class LastTripTableViewCell: UITableViewCell {
     
     func setdata(imageName: String, title: String, location: String, member: String)
     {
-        tripImageView.image = UIImage(named: imageName)
+        let url = URL(string: imageName)
+        tripImageView.layer.cornerRadius = tripImageView.frame.height / 2
+        tripImageView.kf.setImage(with: url)
         tripTitleLabel.text = title
         lastLocationLabel.text = location
         lastMemberLabel.text = member

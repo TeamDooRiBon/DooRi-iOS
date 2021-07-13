@@ -68,6 +68,15 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Su3-7g-8tG">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="405"/>
                                                 <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HB0-bl-kBm">
+                                                        <rect key="frame" x="0.0" y="82" width="375" height="323"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="30"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번들님은 지금 여행 중이에요!✈️" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qO8-47-OZQ">
                                                         <rect key="frame" x="20" y="4" width="276" height="66"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="23"/>
@@ -79,7 +88,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="323" id="vhc-Vu-qa4"/>
                                                         </constraints>
-                                                        <state key="normal" image="frame8"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.05.21 - 2020.05.27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1A-tm-fec">
                                                         <rect key="frame" x="19" y="298" width="201" height="25"/>
@@ -273,7 +281,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="340" height="140"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lOX-XR-s64">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lOX-XR-s64">
                                                                             <rect key="frame" x="0.0" y="0.0" width="135" height="140"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="140" id="riD-5N-PDV"/>
@@ -349,7 +357,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ts-Dp-lKq">
-                                                                            <rect key="frame" x="149" y="104" width="141" height="24"/>
+                                                                            <rect key="frame" x="149" y="104" width="140.66666666666663" height="24"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUserMainMid" translatesAutoresizingMaskIntoConstraints="NO" id="rZD-8z-ObU">
                                                                                     <rect key="frame" x="8" y="3" width="18" height="18"/>
@@ -359,7 +367,7 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미몽님 외 3명과 함께" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-TP-KkW">
-                                                                                    <rect key="frame" x="29" y="3" width="104" height="18"/>
+                                                                                    <rect key="frame" x="29.000000000000007" y="3" width="103.66666666666669" height="18"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="104" id="aga-77-hpe"/>
                                                                                     </constraints>
@@ -522,7 +530,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CKh-cL-uhu">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CKh-cL-uhu">
                                                                             <rect key="frame" x="29" y="9" width="115" height="116"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="115" id="acm-CA-1kF"/>
@@ -603,6 +611,11 @@
                                                                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                                                     <color key="textColor" name="gray4"/>
                                                                                     <nil key="highlightedColor"/>
+                                                                                    <variation key="default">
+                                                                                        <mask key="constraints">
+                                                                                            <exclude reference="bIv-D4-vSm"/>
+                                                                                        </mask>
+                                                                                    </variation>
                                                                                 </label>
                                                                             </subviews>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -841,6 +854,7 @@
                         <outlet property="lastTripTableView" destination="8Qi-1i-xlm" id="dA2-B8-cer"/>
                         <outlet property="mainTitleLabel" destination="qO8-47-OZQ" id="hCw-48-5GJ"/>
                         <outlet property="nowTripDateLabel" destination="O1A-tm-fec" id="h3x-3H-xvL"/>
+                        <outlet property="nowTripImageView" destination="HB0-bl-kBm" id="Bkr-xL-yeE"/>
                         <outlet property="nowTripLocationLabel" destination="1fg-2T-xcS" id="W36-Bw-e5K"/>
                         <outlet property="nowTripMembersLabel" destination="Cd6-x1-dsy" id="jcq-aR-Fhv"/>
                         <outlet property="nowTripTitleLabel" destination="tZI-OE-Apb" id="vQS-P5-xo2"/>
@@ -875,7 +889,6 @@
     <resources>
         <image name="btnEdit" width="55" height="22"/>
         <image name="dooribonLogo" width="90" height="42"/>
-        <image name="frame8" width="375" height="323"/>
         <image name="iconAirplaneFill" width="20" height="20"/>
         <image name="iconMypage" width="24" height="24"/>
         <image name="iconRightStroke" width="15" height="15"/>

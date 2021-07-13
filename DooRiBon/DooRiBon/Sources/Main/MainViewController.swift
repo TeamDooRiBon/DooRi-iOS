@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainViewController: UIViewController {
     
@@ -26,6 +27,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var indicatorBar: UIView!
     @IBOutlet weak var styleTripView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var nowTripImageView: UIImageView!
     
     // MARK: - 지금 여행중이에요! 부분
     @IBOutlet weak var nowTripDateLabel: UILabel!
@@ -51,8 +53,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         setUI()
-        // setLastTripList()
-
         shadowSet()
         
     }
@@ -60,8 +60,8 @@ class MainViewController: UIViewController {
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setTripData()
         
+        setTripData()
         collectionViewSet()
         tableViewSet()
 
@@ -129,6 +129,7 @@ class MainViewController: UIViewController {
         }
         if (allTripData?.data![2].when == "endTravels") {
             lastTripList = (allTripData?.data![2].group)!
+            lastTripTableView.reloadData()
         }
         setNowTripList()
         setComeTripList()
@@ -149,6 +150,12 @@ class MainViewController: UIViewController {
         } else {
             nowTripMembersLabel.text = "\(nowTripList[0].members[0])님외 \(nowTripList[0].members.count - 1)명과 함께"
         }
+        let url = URL(string: nowTripList[0].image)
+        nowTripImageView.layer.cornerRadius = 30
+        nowTripImageView.layer.maskedCorners = [
+            .layerMinXMinYCorner, .layerMaxXMinYCorner
+        ]
+        nowTripImageView.kf.setImage(with: url)
     }
     
     // 두근두근, 다가오는 여행 부분 데이터
@@ -164,7 +171,7 @@ class MainViewController: UIViewController {
     // 추억 속 지난 여행 부분 데이터
     func setLastTripList()
     {
-        
+//        last
     }
     
     // 컬렉션 뷰 부분
@@ -274,12 +281,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 
 // MARK: - 익스텐션_테이블뷰
 
-extension MainViewController: UITableViewDelegate
-{
-    
-}
-
-extension MainViewController: UITableViewDataSource
+extension MainViewController: UITableViewDataSource, UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lastTripList.count
@@ -288,11 +290,12 @@ extension MainViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
-        
+        print("test")
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
                          location: lastTripList[indexPath.row].destination,
                          member: lastTripList[indexPath.row].members[0])
+        tripCell.selectionStyle = .none
         
         return tripCell
     }
