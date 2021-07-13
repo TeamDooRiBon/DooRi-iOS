@@ -27,7 +27,7 @@
 import Foundation
 
 // MARK: - JoinTrip 전체 데이터 모델
-struct JoinTripDataModel: Codable {
+struct JoinTripResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
