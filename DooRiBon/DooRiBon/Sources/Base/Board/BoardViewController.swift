@@ -12,6 +12,23 @@ struct BoardPopupData {
     var description: String
 }
 
+// 태그
+enum Tag: Int {
+    case goal
+    case know
+    case role
+    case check
+
+    var description: String {
+        switch self {
+        case .goal: return "goal"
+        case .know: return "know"
+        case .role: return "role"
+        case .check: return "check"
+        }
+    }
+}
+
 class BoardViewController: UIViewController {
     // MARK: - IBOutlets
     
@@ -54,6 +71,7 @@ class BoardViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
     private var selectedTag: String = "goal"
     private var selectedTagIndex: Int = 0
     private var contents: String = ""
@@ -151,18 +169,7 @@ extension BoardViewController {
             UIImage(named: "\(rawValue)Inactive")
         }
     }
-    
-    // 태그
-    enum Tag: String {
-        case goal = "goal"
-        case know
-        case role
-        case check
-        
-        var selectedTag: String? {
-            return "\(rawValue)"
-        }
-    }
+
     
     // MARK: - IBActions
     // 버튼 영역에 있는 각 아이콘에 대한 액션
@@ -181,19 +188,15 @@ extension BoardViewController {
         switch sender.tag {
         case 0:
             selectedData = dummyData[0]
-            selectedTag = "\(Tag.goal)"
             self.selectedTagIndex = 0
         case 1:
             selectedData = dummyData[1]
-            selectedTag = "\(Tag.know)"
             self.selectedTagIndex = 1
         case 2:
             selectedData = dummyData[2]
-            selectedTag = "\(Tag.role)"
             self.selectedTagIndex = 2
         case 3:
             selectedData = dummyData[3]
-            selectedTag = "\(Tag.check)"
             self.selectedTagIndex = 3
         default:
             return
@@ -225,7 +228,10 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
     }
     
     func didSelectedAddTripButton() {
-        print(11111, "\(selectedTag)")
+        print(self.selectedTagIndex)
+        let selectedTag = Tag(rawValue: selectedTagIndex)
+        guard let description = selectedTag?.description else { return }
+        
         let boardPopupView = BoardPopupView.loadFromXib()
         boardPopupView.delegate = self
         boardPopupView
@@ -233,7 +239,7 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
             .setDescription(popupData[selectedTagIndex].description)
             .present { event in
                 if event == .confirm {
-                    self.postTripBoard(contents: self.contents, tag: self.selectedTag)
+                    self.postTripBoard(contents: self.contents, tag: description)
                 }
             }
     }
