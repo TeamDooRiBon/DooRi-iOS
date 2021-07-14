@@ -91,6 +91,8 @@
 		BD6074BA269DFA0200CA62F3 /* AddBoardDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */; };
 		BD6074BC269E015E00CA62F3 /* BoardSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074BB269E015E00CA62F3 /* BoardSectionHeaderView.swift */; };
 		BD6074C0269E019C00CA62F3 /* BoardSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */; };
+		BD6074D1269ED71600CA62F3 /* TripPlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074D0269ED71600CA62F3 /* TripPlanDataModel.swift */; };
+		BD6074D4269ED7B900CA62F3 /* TripPlanDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074D3269ED7B900CA62F3 /* TripPlanDataService.swift */; };
 		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
 		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
 		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
@@ -206,6 +208,8 @@
 		BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardDataService.swift; sourceTree = "<group>"; };
 		BD6074BB269E015E00CA62F3 /* BoardSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSectionHeaderView.swift; sourceTree = "<group>"; };
 		BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardSectionHeaderView.xib; sourceTree = "<group>"; };
+		BD6074D0269ED71600CA62F3 /* TripPlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanDataModel.swift; sourceTree = "<group>"; };
+		BD6074D3269ED7B900CA62F3 /* TripPlanDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanDataService.swift; sourceTree = "<group>"; };
 		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -521,6 +525,7 @@
 		BD0AD614269363480033DAD8 /* Plan */ = {
 			isa = PBXGroup;
 			children = (
+				BD6074D2269ED78F00CA62F3 /* Service */,
 				BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */,
 				BD0AD61F269365050033DAD8 /* PlanViewController.swift */,
 				BD5CBC40269495DA00935E79 /* Cells */,
@@ -608,6 +613,14 @@
 				BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BD6074D2269ED78F00CA62F3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BD6074D3269ED7B900CA62F3 /* TripPlanDataService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BD75C2BB268B4B3700C4F233 = {
@@ -818,6 +831,7 @@
 			isa = PBXGroup;
 			children = (
 				BDCC367B2695DA66009AE274 /* PlanDataModel.swift */,
+				BD6074D0269ED71600CA62F3 /* TripPlanDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -987,6 +1001,7 @@
 				40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */,
 				BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */,
 				BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */,
+				BD6074D4269ED7B900CA62F3 /* TripPlanDataService.swift in Sources */,
 				BD0AD62626936A8A0033DAD8 /* TripViewController.swift in Sources */,
 				BDCC36772695C61C009AE274 /* PlanDataHeaderView.swift in Sources */,
 				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
@@ -1000,6 +1015,7 @@
 				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
+				BD6074D1269ED71600CA62F3 /* TripPlanDataModel.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
 				40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */,
 				39F21BA6269BDB4100673511 /* AnswerDataModel.swift in Sources */,

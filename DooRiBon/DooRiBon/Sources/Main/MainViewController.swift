@@ -73,7 +73,6 @@ class MainViewController: UIViewController {
             tripVC.tripData = nowTripList[0]
             present(tripVC, animated: true, completion: nil)
         }
-        print(nowTripList)
     }
     
     // 새로운 여행 시작하기 : 팝업 StartTrip 뷰컨으로 이동 -> 팝업과 뒷 화면을 연결해야함
