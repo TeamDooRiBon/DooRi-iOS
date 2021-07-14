@@ -23,6 +23,7 @@ class BottomSheetView: UIView {
     @IBOutlet weak var bottomSheetViewTopConstraint: NSLayoutConstraint!
     
     private var eventHandler: ((_ type: EventType) -> Void)?
+    
     private var defaultHeight: CGFloat = 300
 
     enum BottomSheetType {
@@ -31,8 +32,8 @@ class BottomSheetView: UIView {
     }
 
     enum EventType {
-        case confirm
-        case cancel
+        case edit
+        case delete
     }
 
     override func awakeFromNib() {
@@ -91,12 +92,12 @@ class BottomSheetView: UIView {
     }
 
 
-    @objc private func cancelAction(_ sender: UIButton) {
-        closeView(.cancel)
+    @IBAction private func deleteAction(_ sender: UIButton) {
+        closeView(.delete)
     }
 
-    @objc private func confirmAction(_ sender: UIButton) {
-        closeView(.confirm)
+    @IBAction private func editAction(_ sender: UIButton) {
+        closeView(.edit)
     }
 
     private func closeView(_ type: EventType) {

@@ -45,6 +45,9 @@
                                             <real key="value" value="10"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="deleteAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="gLr-kK-Azp"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGz-nl-2Aj">
                                     <rect key="frame" x="192.66666666666663" y="0.0" width="185.33333333333337" height="52"/>
@@ -61,6 +64,9 @@
                                             <real key="value" value="10"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="editAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="AVz-fn-mjK"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
