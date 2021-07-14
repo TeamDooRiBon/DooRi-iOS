@@ -17,6 +17,9 @@ class PlanViewController: UIViewController {
         return gregorian
     }()
     
+    private var tripData: Group?
+    let formatter = DateFormatter()
+    
     // MARK: - Dummy Data
     
     private var dummyData: [Int] = [] {
@@ -24,7 +27,7 @@ class PlanViewController: UIViewController {
             calendarView.reloadData()
         }
     }
-    private var planDummyData: [PlanDataModel] = [] {
+    private var planDummyData: [Schedule] = [] {
         didSet {
             contentsTableView.reloadData()
         }
@@ -40,11 +43,12 @@ class PlanViewController: UIViewController {
     @IBOutlet weak var calendarView: UICollectionView!
     @IBOutlet weak var contentsTableView: UITableView!
     @IBOutlet private var topView: TripTopView!
+    @IBOutlet weak var currentYearLabel: UILabel!
+    @IBOutlet weak var currentMonthLabel: UILabel!
     
     static var profileData: [Profile] = []
     static var thisID: String = ""
 
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -53,13 +57,14 @@ class PlanViewController: UIViewController {
         configureUI()
         setupButtonAction()
         setupCollectionView()
+        setupTopView()
         setupTableView()
         setupData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTopView()
+        getSchduleData(date: "2021-07-15")
     }
     
     // MARK: - IBActions
@@ -124,8 +129,59 @@ extension PlanViewController {
     /// TopView Setup
     private func setupTopView() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        tripData = model
+        setupDateData()
         topView.setTopViewData(tripData: model)
         MemberViewController.thisID = model._id
+    }
+    
+    private func setupDateData() {
+        guard let startDate = tripData?.startDate else { return }
+        guard let endDate = tripData?.endDate else { return }
+        
+        formatter.dateFormat = "YYYY"
+        let startYear = formatter.string(from: startDate)
+        currentYearLabel.text = startYear
+        formatter.dateFormat = "M"
+        let startMonth = formatter.string(from: startDate)
+        currentMonthLabel.text = startMonth
+        formatter.dateFormat = "dd"
+        let start = formatter.string(from: startDate)
+        formatter.dateFormat = "dd"
+        let end = formatter.string(from: endDate)
+        
+        let startTime: Int = Int(start)!
+        let endTime: Int = Int(end)!
+
+        for i in startTime..<endTime {
+            dummyData.append(i)
+        }
+    }
+    
+    // MARK: - 서버 통신 (특정 날짜 일정 조회 API)
+    
+    private func getSchduleData(date: String) {
+        guard let groupId = tripData?._id else { return }
+        print(groupId)
+        
+        TripPlanDataService.shared.getTripPlan(groupId: groupId,
+                                               date: date) { [weak self] (response) in
+            switch response {
+            case .success(let data):
+                print("success", data)
+                if let schedule = data as? [Schedule] {
+                    self!.planDummyData = schedule
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .pathErr:
+                print("pathErr")
+            }
+        }
     }
     
     /// CollectionView Setup
@@ -150,21 +206,6 @@ extension PlanViewController {
     
     /// Dummy Setup
     private func setupData() {
-        dummyData.append(contentsOf: [
-            6, 7, 8, 9, 10, 11,
-            12, 13, 14, 15, 16, 17
-        ])
-        planDummyData.append(contentsOf: [
-            PlanDataModel(planTime: "10:00 AM",
-                          planTitle: "김포공항 앞에서 모이기",
-                          planDescription: "2304 버스 정류장 찾아보기"),
-            PlanDataModel(planTime: "12:00 AM",
-                          planTitle: "인천공항으로 출발",
-                          planDescription: "여권 꼭 챙기기"),
-            PlanDataModel(planTime: "12:00 AM",
-                          planTitle: "인천공항으로 출발",
-                          planDescription: "여권 꼭 챙기기")
-        ])
         selectedDate = getTodayInfo()
     }
     
@@ -172,9 +213,23 @@ extension PlanViewController {
     private func getTodayInfo() -> Int {
         let nowDate = Date() // 현재의 Date (ex: 2020-08-13 09:14:48 +0000)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM" // 2020-08-13 16:30
+        dateFormatter.dateFormat = "dd" // 2020-08-13 16:30
         let str = dateFormatter.string(from: nowDate) // 현재 시간의 Date를 format에 맞춰 string으로 반환
         return Int(str) ?? -1
+    }
+    
+    private func strToDate(date: String) -> String {
+        let dateStr = date // Date 형태의 String
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm" // 2020-08-13-16:30
+                
+        let convertDate = dateFormatter.date(from: dateStr) // Date 타입으로 변환
+                
+        let myDateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "HH:mm" // 2020년 08월 13일 오후 04시 30분
+        let convertStr = myDateFormatter.string(from: convertDate!)
+        print(convertStr)
+        return convertStr
     }
 }
 
@@ -277,10 +332,13 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
                 cell.bottomLineView.isHidden = true
             }
             
+            let time = strToDate(date: planDummyData[indexPath.row].formatTime)
+//            print(time)
+            
             cell.selectionStyle = .none
-            cell.timeLabel.text = planDummyData[indexPath.row].planTime
-            cell.planTitleLabel.text = planDummyData[indexPath.row].planTitle
-            cell.planDescriptionLabel.text = planDummyData[indexPath.row].planDescription
+            cell.timeLabel.text = time
+            cell.planTitleLabel.text = planDummyData[indexPath.row].title
+            cell.planDescriptionLabel.text = planDummyData[indexPath.row].memo
             
             return cell
         } else { // 데이터 없을 때 셀처리
