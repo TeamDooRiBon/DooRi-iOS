@@ -27,11 +27,7 @@ class TripViewController: UITabBarController {
     // MARK: - Properties
     
     let appearance = UITabBarItem.appearance()
-    var tripData: Group? {
-        didSet {
-            print("tripData")
-        }
-    }
+    var tripData: Group?
 
     // MARK: - Life Cycles
     
