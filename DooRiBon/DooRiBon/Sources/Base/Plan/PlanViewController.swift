@@ -98,7 +98,9 @@ extension PlanViewController {
         print("setting button clicked")
         let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
         guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
-        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.hidesBottomBarWhenPushed = true
+        nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
+        nextVC.buttonData = "여행 정보 수정하기"
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="504" y="-80"/>
         </scene>
-        <!--PlanViewController-->
+        <!--PlanNavigationViewController-->
         <scene sceneID="RAy-TE-1W6">
             <objects>
-                <viewControllerPlaceholder storyboardName="PlanStoryboard" referencedIdentifier="PlanViewController" id="vbX-Sf-isF" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="PlanStoryboard" referencedIdentifier="PlanNavigationViewController" id="vbX-Sf-isF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Tu8-v5-akO"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcH-AF-Byp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

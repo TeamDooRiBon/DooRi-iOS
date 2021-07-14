@@ -39,11 +39,14 @@ class AddTripViewController: UIViewController {
     var selectedIndex: Int?
     var startDateParsing: String?
     var endDateParsing: String?
+    var topLabelData: String = ""
+    var buttonData: String = ""
     
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         photoListSet()
         bottomShadowSet()
         notificationSet()
@@ -73,6 +76,13 @@ class AddTripViewController: UIViewController {
     //MARK:- Function
     
     /// 추후 서버 연동시 변경될 함수입니다.
+    func configureUI() {
+        if topLabelData != "" {
+            topLabel.text = topLabelData
+            startNewTripButton.setTitle(buttonData, for: .normal)
+        }
+    }
+    
     func photoListSet() {
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self

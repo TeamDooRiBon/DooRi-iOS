@@ -22,7 +22,7 @@
         <!--Plan Navigation View Controller-->
         <scene sceneID="xOx-j1-LOc">
             <objects>
-                <navigationController id="xFg-o7-W3c" customClass="PlanNavigationViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PlanNavigationViewController" id="xFg-o7-W3c" customClass="PlanNavigationViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bR4-zp-ZXs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
