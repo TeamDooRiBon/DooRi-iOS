@@ -27,6 +27,7 @@ class TripViewController: UITabBarController {
     // MARK: - Properties
     
     let appearance = UITabBarItem.appearance()
+    var tripData: Group?
 
     // MARK: - Life Cycles
     
@@ -34,6 +35,10 @@ class TripViewController: UITabBarController {
         super.viewDidLoad()
         
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
 

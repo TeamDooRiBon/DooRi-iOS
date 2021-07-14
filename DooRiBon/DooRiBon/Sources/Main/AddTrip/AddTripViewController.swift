@@ -47,7 +47,6 @@ class AddTripViewController: UIViewController {
         photoListSet()
         bottomShadowSet()
         notificationSet()
-        hideKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -201,19 +200,5 @@ extension AddTripViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 7
-    }
-}
-extension UIViewController
-{
-    func hideKeyboard()
-    {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    @objc func dismissKeyboard()
-    {
-        view.endEditing(true)
     }
 }

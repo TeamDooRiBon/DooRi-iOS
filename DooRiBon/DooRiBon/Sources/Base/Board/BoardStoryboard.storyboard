@@ -228,7 +228,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="YCS-k1-Rpy" id="XdP-c9-1GN"/>
-                        <outlet property="topContainerView" destination="gyK-uK-iJ4" id="SoY-Kf-oTw"/>
+                        <outlet property="topView" destination="gyK-uK-iJ4" id="iRZ-b2-dhh"/>
                         <outletCollection property="iconImageView" destination="5oc-D0-hsE" collectionClass="NSMutableArray" id="CmF-zv-47g"/>
                         <outletCollection property="iconImageView" destination="xpx-0U-fxz" collectionClass="NSMutableArray" id="uu6-18-dqX"/>
                         <outletCollection property="iconImageView" destination="hK4-af-mC4" collectionClass="NSMutableArray" id="o95-cI-1be"/>
