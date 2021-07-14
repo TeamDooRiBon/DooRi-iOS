@@ -46,6 +46,8 @@
 		40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */; };
 		402E5203269DD62300635B41 /* AddTripPlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E5202269DD62300635B41 /* AddTripPlanDataModel.swift */; };
 		402E5205269DD67500635B41 /* AddTripPlanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E5204269DD67500635B41 /* AddTripPlanService.swift */; };
+		40320989269F2F76003DCB8A /* StyleResultDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40320988269F2F76003DCB8A /* StyleResultDataModel.swift */; };
+		4032098B269F2FB1003DCB8A /* StyleResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032098A269F2FB1003DCB8A /* StyleResultService.swift */; };
 		4057E82E269F0DAA00DE024D /* StyleTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4057E82D269F0DAA00DE024D /* StyleTestService.swift */; };
 		4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */; };
 		4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */; };
@@ -174,6 +176,8 @@
 		40299CBC269B66E400A4C9B6 /* StyleTestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTestResultViewController.swift; sourceTree = "<group>"; };
 		402E5202269DD62300635B41 /* AddTripPlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanDataModel.swift; sourceTree = "<group>"; };
 		402E5204269DD67500635B41 /* AddTripPlanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanService.swift; sourceTree = "<group>"; };
+		40320988269F2F76003DCB8A /* StyleResultDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleResultDataModel.swift; sourceTree = "<group>"; };
+		4032098A269F2FB1003DCB8A /* StyleResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleResultService.swift; sourceTree = "<group>"; };
 		4057E82D269F0DAA00DE024D /* StyleTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTestService.swift; sourceTree = "<group>"; };
 		4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberOurStoryboard.storyboard; sourceTree = "<group>"; };
 		4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				39F21BA5269BDB4100673511 /* StyleQuestionDataModel.swift */,
+				40320988269F2F76003DCB8A /* StyleResultDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				4057E82D269F0DAA00DE024D /* StyleTestService.swift */,
+				4032098A269F2FB1003DCB8A /* StyleResultService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1110,6 +1116,7 @@
 				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
 				BD75C2E7268B52BD00C4F233 /* MainViewController.swift in Sources */,
 				BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */,
+				4032098B269F2FB1003DCB8A /* StyleResultService.swift in Sources */,
 				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
@@ -1127,6 +1134,7 @@
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
 				40253C90269DB7250045620F /* UIImage+Extension.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
+				40320989269F2F76003DCB8A /* StyleResultDataModel.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
 				40253C8E269DAFFF0045620F /* AddTripImageDateModel.swift in Sources */,

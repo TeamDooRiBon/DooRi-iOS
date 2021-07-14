@@ -39,17 +39,15 @@ struct APIConstants {
     // MARK: - /auth/user URLs
     
     // MARK: - /schedule
-<<<<<<< HEAD
     static let getSpecificDateURL = baseURL + "/schedule/daily/:groupId/:date"
-
-=======
     static let addPlanURL = baseURL + "/schedule/:groupId"
->>>>>>> e523d33624652750458b629a82db0403c56c52ba
+    
     // MARK: - /board
     static let postBoardURL = baseURL + "/board/:groupId/:tag"          // 여행 보드 추가
     
     // MARK: - /tendency
     static let styleQuestionURL = baseURL + "/tendency/question"
+    static let styleResultSaveURL = baseURL + "/tendency/:groupId"
     
     // MARK: - /image
     
