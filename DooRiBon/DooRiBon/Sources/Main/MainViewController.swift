@@ -6,60 +6,61 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainViewController: UIViewController {
     
     // MARK: - 아울렛
     
-    // 컬렉션, 테이블뷰
+    /// 컬렉션, 테이블뷰
     @IBOutlet weak var comeTripCollectionView: UICollectionView!
     @IBOutlet weak var lastTripTableView: UITableView!
     
-    // 라벨
+    /// 라벨
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var comeTripMenuLabel: UILabel!
     @IBOutlet weak var lastTripMenuLabel: UILabel!
     @IBOutlet weak var styleTripMenuLabel: UILabel!
     
-    // 뷰
+    /// 뷰
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var indicatorBar: UIView!
     @IBOutlet weak var styleTripView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var nowTripImageView: UIImageView!
     
-    // MARK: - 지금 여행중이에요! 부분
     @IBOutlet weak var nowTripDateLabel: UILabel!
     @IBOutlet weak var nowTripTitleLabel: UILabel!
     @IBOutlet weak var nowTripLocationLabel: UILabel!
     @IBOutlet weak var nowTripMembersLabel: UILabel!
+    
+    /// 제약
+    @IBOutlet weak var lastTripViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - 배열
     var nowTripList: [Group] = []
     var comeTripList : [Group] = []
     var lastTripList : [Group] = []
     
-    var currentIndex : Int = 0
-    var textCount: Int = 0
-    
     var allTripData: MainDataModel?
-//    var devideTripData: Group?
+
+    let formatter = DateFormatter()
+    let calendar = Calendar.current
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUI()
-        // setLastTripList()
-
         shadowSet()
-        
+
     }
     
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setTripData()
         
+        setTripData()
         collectionViewSet()
         tableViewSet()
 
@@ -99,11 +100,11 @@ class MainViewController: UIViewController {
             switch(response)
             {
             case .success(let comeData):
-                if let data = comeData as? MainDataModel {
-                    self.allTripData = data
-                    self.comeTripCollectionView.reloadData()
-                    self.lastTripTableView.reloadData()
-                    self.setDevideTripData()
+                if let comeTrip = comeData as? MainDataModel {
+                    allTripData = comeTrip
+                    comeTripCollectionView.reloadData()
+                    lastTripTableView.reloadData()
+                    setDevideTripData()
                 }
             case .requestErr(let message):
                 print("requestERR", message)
@@ -127,37 +128,31 @@ class MainViewController: UIViewController {
         }
         if (allTripData?.data![2].when == "endTravels") {
             lastTripList = (allTripData?.data![2].group)!
+            lastTripViewHeightConstraint.constant = CGFloat(175 * lastTripList.count)
+            lastTripTableView.reloadData()
         }
-        
         setNowTripList()
-        setComeTripList()
-        setLastTripList()
     }
     
     // 번들님은 지금 여행 중이에요! 부분 데이터
     func setNowTripList()
     {
-        print(nowTripList.count)
-        nowTripDateLabel.text = nowTripList[0].startDate + "-" + nowTripList[0].endDate
-        self.nowTripDateLabel.text = nowTripList[0].startDate
-        self.nowTripTitleLabel.text = nowTripList[0].travelName
+        formatter.dateFormat = "yyyy.MM.dd"
+        let start = formatter.string(from: nowTripList[0].startDate)
+        let end = formatter.string(from: nowTripList[0].endDate)
+        nowTripDateLabel.text = "\(start) - \(end)"
         self.nowTripLocationLabel.text = nowTripList[0].destination
-        self.nowTripMembersLabel.text = nowTripList[0].members[0]
-    }
-    
-    // 두근두근, 다가오는 여행 부분 데이터
-    func setComeTripList()
-    {
-        print(comeTripList.count)
-        print(comeTripList)
-        
-    }
-    
-    // 추억 속 지난 여행 부분 데이터
-    func setLastTripList()
-    {
-        print(lastTripList.count)
-        print(lastTripList)
+        if nowTripList[0].members.count == 1 {
+            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님과 함께"
+        } else {
+            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님외 \(nowTripList[0].members.count - 1)명과 함께"
+        }
+        let url = URL(string: nowTripList[0].image)
+        nowTripImageView.layer.cornerRadius = 30
+        nowTripImageView.layer.maskedCorners = [
+            .layerMinXMinYCorner, .layerMaxXMinYCorner
+        ]
+        nowTripImageView.kf.setImage(with: url)
     }
     
     // 컬렉션 뷰 부분
@@ -179,6 +174,7 @@ class MainViewController: UIViewController {
         // automaticDimension
         lastTripTableView.estimatedRowHeight = 133
         lastTripTableView.rowHeight = UITableView.automaticDimension
+
     }
     
     // 쉐도우
@@ -190,6 +186,10 @@ class MainViewController: UIViewController {
     
     func setUI() {
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func dDayCalculate(from date: Date) -> Int {
+        return calendar.dateComponents([.day], from: date, to: Date()).day! - 1
     }
 
     
@@ -205,10 +205,16 @@ extension MainViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let comeTripCell = collectionView.dequeueReusableCell(withReuseIdentifier: ComeTripCollectionViewCell.identifier, for: indexPath) as? ComeTripCollectionViewCell else {return UICollectionViewCell()}
         
+        formatter.dateFormat = "yyyy.MM.dd"
+        let start = formatter.string(from: comeTripList[indexPath.row].startDate)
+        formatter.dateFormat = "MM.dd"
+        let end = formatter.string(from: comeTripList[indexPath.row].endDate)
+        let dday = dDayCalculate(from: comeTripList[indexPath.row].startDate)
+        
         comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
-                            dday: comeTripList[indexPath.row].startDate,
+                            dday: "D\(dday)",
                             title: comeTripList[indexPath.row].travelName,
-                            date: comeTripList[indexPath.row].endDate,
+                            date: "\(start) - \(end)",
                             location: comeTripList[indexPath.row].destination,
                             members: comeTripList[indexPath.row].members[0])
 
@@ -232,7 +238,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = UIScreen.main.bounds.width      // 현재 사용하는 기기의 width를 가져와서 저장
-        
         let cellWidth = width * (340/375)            // 제플린에서의 비율만큼 곱해서 width를 결정
         let cellHeight = cellWidth * (140/340)        // 제플린에서의 비율만큼 곱해서 height를 결정
         
@@ -257,12 +262,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 
 // MARK: - 익스텐션_테이블뷰
 
-extension MainViewController: UITableViewDelegate
-{
-    
-}
-
-extension MainViewController: UITableViewDataSource
+extension MainViewController: UITableViewDataSource, UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lastTripList.count
@@ -271,11 +271,12 @@ extension MainViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
-        
+        print("test")
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
                          location: lastTripList[indexPath.row].destination,
                          member: lastTripList[indexPath.row].members[0])
+        tripCell.selectionStyle = .none
         
         return tripCell
     }
