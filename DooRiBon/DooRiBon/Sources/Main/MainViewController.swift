@@ -68,6 +68,13 @@ class MainViewController: UIViewController {
     
     // MARK: - 액션
     
+    @IBAction func nowTripClicked(_ sender: Any) {
+        let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
+        if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
+            navigationController?.pushViewController(tripVC, animated: true)
+        }
+    }
+    
     // 새로운 여행 시작하기 : 팝업 StartTrip 뷰컨으로 이동 -> 팝업과 뒷 화면을 연결해야함
     @IBAction func StartTripButtonClicked(_ sender: Any) {
         let nextVC = StartTripViewController(nibName: "StartTripViewController", bundle: nil)
@@ -264,6 +271,13 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate
 {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
+        if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
+            navigationController?.pushViewController(tripVC, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lastTripList.count
     }

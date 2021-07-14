@@ -87,6 +87,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="323" id="vhc-Vu-qa4"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="nowTripClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EhC-ZO-jb8"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.05.21 - 2020.05.27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1A-tm-fec">
                                                         <rect key="frame" x="19" y="298" width="201" height="25"/>
