@@ -852,6 +852,7 @@
                         <outlet property="indicatorBar" destination="FxW-8p-J4l" id="bAI-Rn-QN4"/>
                         <outlet property="lastTripMenuLabel" destination="e4P-fF-cjq" id="NOW-qr-VY9"/>
                         <outlet property="lastTripTableView" destination="8Qi-1i-xlm" id="dA2-B8-cer"/>
+                        <outlet property="lastTripViewHeightConstraint" destination="BuI-mU-2NA" id="m7D-Lh-Y7i"/>
                         <outlet property="mainTitleLabel" destination="qO8-47-OZQ" id="hCw-48-5GJ"/>
                         <outlet property="nowTripDateLabel" destination="O1A-tm-fec" id="h3x-3H-xvL"/>
                         <outlet property="nowTripImageView" destination="HB0-bl-kBm" id="Bkr-xL-yeE"/>

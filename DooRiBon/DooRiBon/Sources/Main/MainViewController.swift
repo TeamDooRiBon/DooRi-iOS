@@ -12,36 +12,35 @@ class MainViewController: UIViewController {
     
     // MARK: - 아울렛
     
-    // 컬렉션, 테이블뷰
+    /// 컬렉션, 테이블뷰
     @IBOutlet weak var comeTripCollectionView: UICollectionView!
     @IBOutlet weak var lastTripTableView: UITableView!
     
-    // 라벨
+    /// 라벨
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var comeTripMenuLabel: UILabel!
     @IBOutlet weak var lastTripMenuLabel: UILabel!
     @IBOutlet weak var styleTripMenuLabel: UILabel!
     
-    // 뷰
+    /// 뷰
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var indicatorBar: UIView!
     @IBOutlet weak var styleTripView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nowTripImageView: UIImageView!
     
-    // MARK: - 지금 여행중이에요! 부분
     @IBOutlet weak var nowTripDateLabel: UILabel!
     @IBOutlet weak var nowTripTitleLabel: UILabel!
     @IBOutlet weak var nowTripLocationLabel: UILabel!
     @IBOutlet weak var nowTripMembersLabel: UILabel!
     
+    /// 제약
+    @IBOutlet weak var lastTripViewHeightConstraint: NSLayoutConstraint!
+    
     // MARK: - 배열
     var nowTripList: [Group] = []
     var comeTripList : [Group] = []
     var lastTripList : [Group] = []
-    
-    var currentIndex : Int = 0
-    var textCount: Int = 0
     
     var allTripData: MainDataModel?
 
@@ -54,7 +53,7 @@ class MainViewController: UIViewController {
 
         setUI()
         shadowSet()
-        
+
     }
     
     // MARK: - viewWillAppear
@@ -129,15 +128,13 @@ class MainViewController: UIViewController {
         }
         if (allTripData?.data![2].when == "endTravels") {
             lastTripList = (allTripData?.data![2].group)!
+            lastTripViewHeightConstraint.constant = CGFloat(175 * lastTripList.count)
             lastTripTableView.reloadData()
         }
         setNowTripList()
-        setComeTripList()
-        setLastTripList()
     }
     
     // 번들님은 지금 여행 중이에요! 부분 데이터
-    // 이미지 아직 안넣음
     func setNowTripList()
     {
         formatter.dateFormat = "yyyy.MM.dd"
@@ -156,22 +153,6 @@ class MainViewController: UIViewController {
             .layerMinXMinYCorner, .layerMaxXMinYCorner
         ]
         nowTripImageView.kf.setImage(with: url)
-    }
-    
-    // 두근두근, 다가오는 여행 부분 데이터
-    // 이미지 아직 안넣음
-    func setComeTripList()
-    {
-//        formatter.dateFormat = "yyyy.MM.dd"
-//        let start = formatter.string(from: comeTripList.startDate)
-//        formatter.dateFormat = "MM.dd"
-//        comeTripList.
-    }
-    
-    // 추억 속 지난 여행 부분 데이터
-    func setLastTripList()
-    {
-//        last
     }
     
     // 컬렉션 뷰 부분
@@ -193,6 +174,7 @@ class MainViewController: UIViewController {
         // automaticDimension
         lastTripTableView.estimatedRowHeight = 133
         lastTripTableView.rowHeight = UITableView.automaticDimension
+
     }
     
     // 쉐도우
@@ -256,7 +238,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = UIScreen.main.bounds.width      // 현재 사용하는 기기의 width를 가져와서 저장
-        
         let cellWidth = width * (340/375)            // 제플린에서의 비율만큼 곱해서 width를 결정
         let cellHeight = cellWidth * (140/340)        // 제플린에서의 비율만큼 곱해서 height를 결정
         
