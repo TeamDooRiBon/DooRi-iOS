@@ -46,7 +46,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="71"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rit-r2-uHf">
-                                                <rect key="frame" x="34" y="13" width="19.5" height="10.5"/>
+                                                <rect key="frame" x="34" y="13" width="18" height="9.5"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="8"/>
                                                 <color key="textColor" name="subBlue1"/>
                                                 <nil key="highlightedColor"/>

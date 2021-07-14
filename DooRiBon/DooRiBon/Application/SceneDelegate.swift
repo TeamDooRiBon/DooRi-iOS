@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         // 맨 처음 보여줄 뷰 컨트롤러 객체 생성 (루트 뷰 컨트롤러로 사용할 객체)
-        let rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil)
-            .instantiateViewController(identifier: "MainViewController")
+        let rootViewController = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
+            .instantiateViewController(identifier: "StyleQuestionViewController")
 
         // 윈도우 위에 쌓이는 것 중에서 윈도우와 가장 근접한 부분을 rootViewController 라고 함
         window?.rootViewController = UINavigationController(rootViewController: rootViewController)

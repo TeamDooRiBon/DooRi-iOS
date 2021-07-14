@@ -44,6 +44,7 @@ struct APIConstants {
     static let postBoardURL = baseURL + "/board/:groupId/:tag"          // 여행 보드 추가
     
     // MARK: - /tendency
+    static let styleQuestionURL = baseURL + "/tendency/question"
     
     // MARK: - /image
     
