@@ -16,6 +16,8 @@ class MemberPopupCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.memberProfileImage.layer.cornerRadius = self.memberProfileImage.frame.height / 2
         // Initialization code
     }
 

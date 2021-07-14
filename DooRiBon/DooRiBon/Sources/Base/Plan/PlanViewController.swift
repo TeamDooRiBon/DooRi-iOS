@@ -41,6 +41,10 @@ class PlanViewController: UIViewController {
     @IBOutlet weak var contentsTableView: UITableView!
     @IBOutlet private var topView: TripTopView!
     
+    static var profileData: [Profile] = []
+    static var thisID: String = ""
+
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -99,14 +103,16 @@ extension PlanViewController {
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
+       
         WithPopupView.loadFromXib()
             .setTitle("함께하는 사람")
             .setDescription("총 5명")
             .setConfirmButton("참여코드 복사하기")
+            .setGroupId(id: MemberViewController.thisID)
             .present { event in
-                if event == .confirm {
+                 if event == .confirm {
                     ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
-                }
+                 }
             }
 
     }
@@ -119,6 +125,7 @@ extension PlanViewController {
     private func setupTopView() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         topView.setTopViewData(tripData: model)
+        MemberViewController.thisID = model._id
     }
     
     /// CollectionView Setup
@@ -185,8 +192,7 @@ extension PlanViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionViewCell.cellId,
-                                                            for: indexPath) as? DateCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateCollectionViewCell.cellId, for: indexPath) as? DateCollectionViewCell else { return UICollectionViewCell() }
         
         /// 데이터 표시
         cell.dayNumberLabel.text = "D\(indexPath.row + 1)"

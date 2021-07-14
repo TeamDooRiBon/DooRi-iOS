@@ -347,23 +347,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		39369201269EC13E003348A7 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				393691FE269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib */,
-				393691FD269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		39369203269EC6CD003348A7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				39369204269EC6FB003348A7 /* MemberPopupDataModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		3975958B269B5618008E8360 /* StyleTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,10 +399,11 @@
 		39E35958269EFFD90077B946 /* WithMemberPopup */ = {
 			isa = PBXGroup;
 			children = (
+				39E35960269F34C10077B946 /* Services */,
+				39E3595F269F34A90077B946 /* Models */,
+				39E3595E269F34820077B946 /* Cells */,
 				393691F9269EB838003348A7 /* WithPopupView.xib */,
 				393691FB269EB84D003348A7 /* WithPopupView.swift */,
-				39E35956269EFF290077B946 /* MemberProfileDataModel.swift */,
-				39E35959269F00730077B946 /* GetMemberProfileDataService.swift */,
 			);
 			path = WithMemberPopup;
 			sourceTree = "<group>";
@@ -430,6 +414,32 @@
 				39E3595C269F2D8C0077B946 /* CheckTripViewController.swift */,
 			);
 			path = CheckTrip;
+			sourceTree = "<group>";
+		};
+		39E3595E269F34820077B946 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				393691FE269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib */,
+				393691FD269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		39E3595F269F34A90077B946 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				39369204269EC6FB003348A7 /* MemberPopupDataModel.swift */,
+				39E35956269EFF290077B946 /* MemberProfileDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		39E35960269F34C10077B946 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				39E35959269F00730077B946 /* GetMemberProfileDataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		39EAC4AF2692E00000114734 /* StartTrip */ = {
@@ -606,8 +616,6 @@
 		BD0AD612269363150033DAD8 /* Member */ = {
 			isa = PBXGroup;
 			children = (
-				39369203269EC6CD003348A7 /* Models */,
-				39369201269EC13E003348A7 /* Cells */,
 				40299CB9269B66B800A4C9B6 /* StyleTestResult */,
 				4073BC6826986FAA00C5C7B0 /* MemberOur */,
 				399C7001269B27220017069C /* TakeLook */,
