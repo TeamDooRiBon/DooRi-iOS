@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootViewController = UIStoryboard(name: "PlanStoryboard", bundle: nil)
             .instantiateViewController(identifier: "PlanViewController")
 
-        
         // 윈도우 위에 쌓이는 것 중에서 윈도우와 가장 근접한 부분을 rootViewController 라고 함
         window?.rootViewController = UINavigationController(rootViewController: rootViewController)
 
