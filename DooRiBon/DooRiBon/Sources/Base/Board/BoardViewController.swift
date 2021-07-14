@@ -80,6 +80,9 @@ class BoardViewController: UIViewController {
     private var selectedTagIndex: Int = 0
     private var contents: String = ""
     
+    static var profileData: [Profile] = []
+    static var thisID: String = ""
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -146,6 +149,7 @@ extension BoardViewController {
     private func setupTopView() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         topView.setTopViewData(tripData: model)
+        MemberViewController.thisID = model._id
     }
     
     private func setupUI() {
@@ -181,7 +185,18 @@ extension BoardViewController {
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
-        print("member button clicked")
+       
+        WithPopupView.loadFromXib()
+            .setTitle("함께하는 사람")
+            .setDescription("총 5명")
+            .setConfirmButton("참여코드 복사하기")
+            .setGroupId(id: MemberViewController.thisID)
+            .present { event in
+                 if event == .confirm {
+                    ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+                 }
+            }
+
     }
     
     @objc func codeButtonClicked(_ sender: UIButton) {
