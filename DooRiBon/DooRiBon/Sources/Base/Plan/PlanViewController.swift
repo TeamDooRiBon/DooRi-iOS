@@ -96,6 +96,10 @@ extension PlanViewController {
     
     @objc func settingButtonClicked(_ sender: UIButton) {
         print("setting button clicked")
+        let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
+        guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        nextVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {

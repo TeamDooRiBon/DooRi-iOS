@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-410" y="119"/>
         </scene>
-        <!--MemberViewController-->
+        <!--MemberNaigationViewController-->
         <scene sceneID="jH8-oS-boT">
             <objects>
-                <viewControllerPlaceholder storyboardName="MemberStoryboard" referencedIdentifier="MemberViewController" id="Kdz-Ih-ixc" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MemberStoryboard" referencedIdentifier="MemberNaigationViewController" id="Kdz-Ih-ixc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="wnY-NA-IVm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Xy-KI-yzc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="487" y="15"/>
         </scene>
-        <!--BoardViewController-->
+        <!--BoardNavigationViewController-->
         <scene sceneID="doN-KS-Otl">
             <objects>
-                <viewControllerPlaceholder storyboardName="BoardStoryboard" referencedIdentifier="BoardViewController" id="njv-6N-C8E" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="BoardStoryboard" referencedIdentifier="BoardNavigationViewController" id="njv-6N-C8E" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="f0h-CO-aQH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eM-0X-Yt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

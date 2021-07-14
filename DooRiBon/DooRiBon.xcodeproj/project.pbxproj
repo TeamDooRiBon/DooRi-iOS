@@ -39,6 +39,9 @@
 		39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAC4B12692E0FA00114734 /* StartTripViewController.xib */; };
 		39F21BA4269BD83400673511 /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */; };
 		39F21BA6269BDB4100673511 /* AnswerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA5269BDB4100673511 /* AnswerDataModel.swift */; };
+		40076923269EF4C1003C15ED /* MemberNaigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076922269EF4C1003C15ED /* MemberNaigationViewController.swift */; };
+		40076925269EF7B8003C15ED /* BoardNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076924269EF7B8003C15ED /* BoardNavigationViewController.swift */; };
+		40076927269EF96A003C15ED /* PlanNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076926269EF96A003C15ED /* PlanNavigationViewController.swift */; };
 		40253C8C269DAF220045620F /* AddTripImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40253C8B269DAF220045620F /* AddTripImageService.swift */; };
 		40253C8E269DAFFF0045620F /* AddTripImageDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40253C8D269DAFFF0045620F /* AddTripImageDateModel.swift */; };
 		40253C90269DB7250045620F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40253C8F269DB7250045620F /* UIImage+Extension.swift */; };
@@ -164,6 +167,9 @@
 		39EAC4B12692E0FA00114734 /* StartTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartTripViewController.xib; sourceTree = "<group>"; };
 		39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
 		39F21BA5269BDB4100673511 /* AnswerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDataModel.swift; sourceTree = "<group>"; };
+		40076922269EF4C1003C15ED /* MemberNaigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberNaigationViewController.swift; sourceTree = "<group>"; };
+		40076924269EF7B8003C15ED /* BoardNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardNavigationViewController.swift; sourceTree = "<group>"; };
+		40076926269EF96A003C15ED /* PlanNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanNavigationViewController.swift; sourceTree = "<group>"; };
 		40253C8B269DAF220045620F /* AddTripImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripImageService.swift; sourceTree = "<group>"; };
 		40253C8D269DAFFF0045620F /* AddTripImageDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripImageDateModel.swift; sourceTree = "<group>"; };
 		40253C8F269DB7250045620F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -582,6 +588,7 @@
 				BD5EEC9126986A4500D09B11 /* Cells */,
 				BD0AD619269363E30033DAD8 /* BoardStoryboard.storyboard */,
 				BD0AD6212693653D0033DAD8 /* BoardViewController.swift */,
+				40076924269EF7B8003C15ED /* BoardNavigationViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -597,6 +604,7 @@
 				399C7001269B27220017069C /* TakeLook */,
 				BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */,
 				399C7015269B28A40017069C /* MemberViewController.swift */,
+				40076922269EF4C1003C15ED /* MemberNaigationViewController.swift */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -610,6 +618,7 @@
 				BDCC36732695C5E9009AE274 /* Views */,
 				BDCC367A2695DA3B009AE274 /* Models */,
 				BD7B4C7A2697250000DCCA03 /* View */,
+				40076926269EF96A003C15ED /* PlanNavigationViewController.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -1093,13 +1102,12 @@
 				4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */,
 				40253C8C269DAF220045620F /* AddTripImageService.swift in Sources */,
 				4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */,
+				40076927269EF96A003C15ED /* PlanNavigationViewController.swift in Sources */,
 				3976DFB8269D5BF400062059 /* GetMainDataService.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
 				402E5203269DD62300635B41 /* AddTripPlanDataModel.swift in Sources */,
-				BD5EEC9826986AC600D09B11 /* BoardHeaderTableViewCell.swift in Sources */,
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
-				BD75C2EF268B580900C4F233 /* ServiceEmpty.swift in Sources */,
 				40253C90269DB7250045620F /* UIImage+Extension.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
@@ -1118,6 +1126,7 @@
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				399C700A269B27840017069C /* QuestionCell.swift in Sources */,
 				393691FC269EB84D003348A7 /* WithPopupView.swift in Sources */,
+				40076923269EF4C1003C15ED /* MemberNaigationViewController.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
 				3976DFB6269D5AEC00062059 /* MainDataModel.swift in Sources */,
 				409E26D42699D91E001C5CED /* MemberHeaderView.swift in Sources */,
@@ -1130,6 +1139,7 @@
 				39369205269EC6FB003348A7 /* MemberPopupDataModel.swift in Sources */,
 				BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
+				40076925269EF7B8003C15ED /* BoardNavigationViewController.swift in Sources */,
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
 				402E5205269DD67500635B41 /* AddTripPlanService.swift in Sources */,
 				393691FF269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift in Sources */,
