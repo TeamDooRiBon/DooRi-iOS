@@ -12,6 +12,9 @@ class MemberViewController: UIViewController {
 
     @IBOutlet weak var pagerTab: PagerTab!
     @IBOutlet private var topView: TripTopView!
+    
+    static var profileData: [Profile] = []
+    static var thisID: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,7 @@ extension MemberViewController {
     private func setupTopView() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         topView.setTopViewData(tripData: model)
+        MemberViewController.thisID = model._id
     }
     
     // MARK: - Button Actions
@@ -68,10 +72,12 @@ extension MemberViewController {
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
+        
         WithPopupView.loadFromXib()
             .setTitle("함께하는 사람")
             .setDescription("총 5명")
             .setConfirmButton("참여코드 복사하기")
+            .setGroupId(id: MemberViewController.thisID)
             .present { event in
                  if event == .confirm {
                     ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")

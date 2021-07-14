@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MemberPopupCollectionViewCell: UICollectionViewCell {
     static let identifier : String = "MemberPopupCollectionViewCell"
@@ -15,14 +16,17 @@ class MemberPopupCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.memberProfileImage.layer.cornerRadius = self.memberProfileImage.frame.height / 2
         // Initialization code
     }
 
     func setData(imageName: String,
                  memberName: String) {
-        if let image = UIImage(named: imageName)
+        if let url = URL(string: imageName)
         {
-            memberProfileImage.image = image
+            print(url)
+            memberProfileImage.kf.setImage(with: url)
         }
         memberLabel.text = memberName
     }
