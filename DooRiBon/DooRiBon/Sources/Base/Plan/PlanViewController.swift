@@ -87,7 +87,7 @@ extension PlanViewController {
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {

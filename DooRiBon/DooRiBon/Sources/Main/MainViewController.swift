@@ -69,8 +69,9 @@ class MainViewController: UIViewController {
     @IBAction func nowTripClicked(_ sender: Any) {
         let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
         if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
-            navigationController?.pushViewController(tripVC, animated: true)
+            tripVC.modalPresentationStyle = .overFullScreen
             tripVC.tripData = nowTripList[0]
+            present(tripVC, animated: true, completion: nil)
         }
         print(nowTripList)
     }
@@ -236,8 +237,9 @@ extension MainViewController: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
         if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
-            navigationController?.pushViewController(tripVC, animated: true)
+            tripVC.modalPresentationStyle = .overFullScreen
             tripVC.tripData = comeTripList[indexPath.row]
+            present(tripVC, animated: true, completion: nil)
         }
     }
 }
@@ -276,8 +278,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
         if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
-            navigationController?.pushViewController(tripVC, animated: true)
+            tripVC.modalPresentationStyle = .overFullScreen
             tripVC.tripData = lastTripList[indexPath.row]
+            present(tripVC, animated: true, completion: nil)
         }
     }
     

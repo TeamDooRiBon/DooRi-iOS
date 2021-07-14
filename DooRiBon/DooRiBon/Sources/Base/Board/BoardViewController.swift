@@ -38,7 +38,6 @@ class BoardViewController: UIViewController {
     @IBOutlet weak private var tableView: UITableView!
     
     // MARK: - Properties
-//    let topView = TripTopView()
     let iconName = ["Goal", "Aim", "Role", "Check"]
     let dummyData = [
         DummyDataModel(titleName: "우리의 여행 목표",
@@ -170,7 +169,7 @@ extension BoardViewController {
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
@@ -297,7 +296,6 @@ extension BoardViewController: UITableViewDataSource {
             cell.setData(goalContents: data.content, userName: data.name)
         }
         
-
         return cell
     }
 }
