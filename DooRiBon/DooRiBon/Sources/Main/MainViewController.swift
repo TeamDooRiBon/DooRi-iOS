@@ -72,6 +72,7 @@ class MainViewController: UIViewController {
             navigationController?.pushViewController(tripVC, animated: true)
             tripVC.tripData = nowTripList[0]
         }
+        print(nowTripList)
     }
     
     // 새로운 여행 시작하기 : 팝업 StartTrip 뷰컨으로 이동 -> 팝업과 뒷 화면을 연결해야함
@@ -147,6 +148,7 @@ class MainViewController: UIViewController {
         let start = formatter.string(from: nowTripList[0].startDate)
         let end = formatter.string(from: nowTripList[0].endDate)
         nowTripDateLabel.text = "\(start) - \(end)"
+        self.nowTripTitleLabel.text = nowTripList[0].travelName
         self.nowTripLocationLabel.text = nowTripList[0].destination
         if nowTripList[0].members.count == 1 {
             nowTripMembersLabel.text = "\(nowTripList[0].members[0])님과 함께"
