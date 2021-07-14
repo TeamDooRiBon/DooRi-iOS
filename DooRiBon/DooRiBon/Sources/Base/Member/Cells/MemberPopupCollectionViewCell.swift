@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MemberPopupCollectionViewCell: UICollectionViewCell {
     static let identifier : String = "MemberPopupCollectionViewCell"
@@ -20,9 +21,10 @@ class MemberPopupCollectionViewCell: UICollectionViewCell {
 
     func setData(imageName: String,
                  memberName: String) {
-        if let image = UIImage(named: imageName)
+        if let url = URL(string: imageName)
         {
-            memberProfileImage.image = image
+            print(url)
+            memberProfileImage.kf.setImage(with: url)
         }
         memberLabel.text = memberName
     }
