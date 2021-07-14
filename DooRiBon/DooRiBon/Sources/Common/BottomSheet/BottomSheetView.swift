@@ -67,6 +67,11 @@ class BottomSheetView: UIView {
         hostLabel.text = text
         return self
     }
+    
+    func setInfomation(_ text: String) -> Self {
+        infoLabel.text = text
+        return self
+    }
 
     func setDescription(_ text: String) -> Self {
         let style = NSMutableParagraphStyle()
