@@ -59,7 +59,7 @@ extension AnswerCollectionViewCell: AnswerViewDelegate {
         ]
 
         for (i, view) in views.enumerated() {
-            if view === answerView {
+            if view == answerView {
                 delegate?.didSelectedAnswer(i)
             } else {
                 view.isSelected = false

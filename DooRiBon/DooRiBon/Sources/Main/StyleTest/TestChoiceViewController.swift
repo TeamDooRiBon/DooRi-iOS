@@ -8,17 +8,22 @@
 import UIKit
 
 class TestChoiceViewController: UIViewController {
-
+    // 컬렉션 뷰
     @IBOutlet weak var answerCollectionView: UICollectionView!
-    
+    // 라벨
     @IBOutlet weak var questionNumberLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
     
+    // 뷰
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var indicatorBar: UIView!
     
     private var answerList: [AnswerDataModel] = []
-    private lazy var answers: [Int] = Array(repeating: 0, count: answerList.count)
+    private lazy var answers: [Int] = Array(repeating: -1, count: answerList.count)
+    
+    
+// MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +37,10 @@ class TestChoiceViewController: UIViewController {
 
         answerCollectionView.isScrollEnabled = false
     }
+    
+// MARK: - 버튼
 
+    // 이전 문항 버튼 클릭시
     @IBAction func previousButtonClicked(_ sender: Any) {
         guard let cell = answerCollectionView.visibleCells.first,
            let currentNumber = answerCollectionView.indexPath(for: cell)?.item else {
@@ -43,26 +51,43 @@ class TestChoiceViewController: UIViewController {
         updateQuestion(previousItem)
     }
     
+    // 다음 문항 버튼 클릭시
     @IBAction func nextButtonClicked(_ sender: Any) {
         guard let cell = answerCollectionView.visibleCells.first,
-           let currentNumber = answerCollectionView.indexPath(for: cell)?.item else {
+              let currentNumber = answerCollectionView.indexPath(for: cell)?.item,
+              currentNumber < answerList.count else {
             return
         }
-        let nextItem = min(currentNumber + 1, answerList.count - 1)
-        answerCollectionView.scrollToItem(at: IndexPath(item: nextItem, section: 0), at: .left, animated: true)
-        updateQuestion(nextItem)
+        // 4개 중 1개를 선택할때만 버튼을 작동시킴
+        if (answers[currentNumber] != -1) {
+            guard let cell = answerCollectionView.visibleCells.first,
+                  let currentNumber = answerCollectionView.indexPath(for: cell)?.item else {
+                return
+            }
+            nextButton.backgroundColor = Colors.gray7.color
+            nextButton.setTitleColor(Colors.gray4.color, for: .normal)
+            
+            let nextItem = min(currentNumber + 1, answerList.count - 1)
+            answerCollectionView.scrollToItem(at: IndexPath(item: nextItem, section: 0), at: .left, animated: true)
+            updateQuestion(nextItem)
+        }
+        
+        // 마지막 버튼 이름 바꾸기
+        if (currentNumber == 8) {
+            nextButton.setTitle("결과 보러가기", for: .normal)
+        }
     }
     
+    // 상단 x버튼 클릭 시
     @IBAction func outTestButtonClicked(_ sender: Any) {
-        // FIXME: 공통 popup으로 바꾸세요.
-        OutPopupView.loadFromXib()
+        PopupView.loadFromXib()
             .setTitle("정말 나가시겠습니까?")
             .setDescription("""
                             지금까지의 응답 정보는 저장되지 않습니다.
                             테스트 중단을 원하신다면 오른쪽 버튼을 눌러주세요
                             """)
-            .setCancelButton()
-            .setConfirmButton()
+            .setCancelButton("계속할게요")
+            .setConfirmButton("나갈게요")
             .present { event in
                 if event == .confirm {
                     // confirm action
@@ -70,7 +95,9 @@ class TestChoiceViewController: UIViewController {
             }
     }
     
+    // MARK: - 함수
     
+    // 문제 선택지 리스트
     func serAnswerList()
     {
         answerList.append(contentsOf: [
@@ -87,6 +114,7 @@ class TestChoiceViewController: UIViewController {
         ])
     }
 
+    // 질문 내용 변경
     func updateQuestion(_ currentNumber: Int) {
         self.questionNumberLabel.text = "Q\(currentNumber + 1)"
         // 질문 내용 변경
@@ -115,22 +143,27 @@ class TestChoiceViewController: UIViewController {
             self.questionLabel.text = " "
         }
     }
-    
-    // MARK: - 컬렉션뷰 인덱스에 따른 변화
-    // FIXME: MainViewController 처럼 바꾸기
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        for cell in answerCollectionView.visibleCells {
-            if let row = answerCollectionView.indexPath(for: cell)?.item {
-                
-                // 인디케이터 바
-                let totalWidth = backgroundView.frame.width
-                UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
-                    self.indicatorBar.frame.origin.x = totalWidth * (CGFloat(row)/10)
-                }
-            }
-        }
+
+    // 인디케이터 바
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/10
     }
     
+    // 다음 문항 버튼 색상 변경
+    func buttonChangeColor() {
+        guard let cell = answerCollectionView.visibleCells.first,
+              let currentNumber = answerCollectionView.indexPath(for: cell)?.item,
+              currentNumber < answerList.count else {
+            return
+        }
+        
+        if (answers[currentNumber] == 0 || answers[currentNumber] == 1 ||
+            answers[currentNumber] == 2 || answers[currentNumber] == 3) {
+            nextButton.backgroundColor = Colors.pointOrange.color
+            nextButton.setTitleColor(Colors.white9.color, for: .normal)
+        }
+    }
+
 }
 
 // MARK: - 익스텐션
@@ -142,7 +175,7 @@ extension TestChoiceViewController: UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let answerCell = collectionView.dequeueReusableCell(withReuseIdentifier: AnswerCollectionViewCell.identifier, for: indexPath) as? AnswerCollectionViewCell else { return UICollectionViewCell() }
-        
+        answerCell.delegate = self
         answerCell.setData(answer1: answerList[indexPath.row].answer1,
                            answer2: answerList[indexPath.row].answer2,
                            answer3: answerList[indexPath.row].answer3,
@@ -155,7 +188,7 @@ extension TestChoiceViewController: UICollectionViewDataSource
 
 extension TestChoiceViewController: UICollectionViewDelegate
 {
-    
+
 }
 
 extension TestChoiceViewController: UICollectionViewDelegateFlowLayout
@@ -189,11 +222,14 @@ extension TestChoiceViewController: UICollectionViewDelegateFlowLayout
 
 extension TestChoiceViewController: AnswerCollectionViewCellDelegate {
     func didSelectedAnswer(_ index: Int) {
+        
         guard let cell = answerCollectionView.visibleCells.first,
               let currentNumber = answerCollectionView.indexPath(for: cell)?.item,
               currentNumber < answerList.count else {
             return
         }
         answers[currentNumber] = index
+        buttonChangeColor()
+        print(answers)
     }
 }
