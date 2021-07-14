@@ -17,6 +17,8 @@ class PlanViewController: UIViewController {
         return gregorian
     }()
     
+    var tripData: Group?
+    
     // MARK: - Dummy Data
     
     private var dummyData: [Int] = [] {

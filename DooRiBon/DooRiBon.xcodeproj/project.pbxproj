@@ -72,6 +72,10 @@
 		40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */; };
 		40B5A090268EE2E500A89875 /* AddTripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */; };
 		40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5A091268EE35100A89875 /* AddTripViewController.swift */; };
+		40EBD31F269F44FF00DFC057 /* EditTripDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */; };
+		40EBD321269F455400DFC057 /* EditTripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD320269F455400DFC057 /* EditTripService.swift */; };
+		40EBD324269F5D9600DFC057 /* TripInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD323269F5D9600DFC057 /* TripInfoDataModel.swift */; };
+		40EBD327269F5DFB00DFC057 /* TripInformService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD326269F5DFB00DFC057 /* TripInformService.swift */; };
 		BD0AD60E269361D50033DAD8 /* TripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD60D269361D50033DAD8 /* TripStoryboard.storyboard */; };
 		BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */; };
 		BD0AD618269363D90033DAD8 /* PlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */; };
@@ -200,6 +204,10 @@
 		40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewModel.swift; sourceTree = "<group>"; };
 		40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripStoryboard.storyboard; sourceTree = "<group>"; };
 		40B5A091268EE35100A89875 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripDataModel.swift; sourceTree = "<group>"; };
+		40EBD320269F455400DFC057 /* EditTripService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripService.swift; sourceTree = "<group>"; };
+		40EBD323269F5D9600DFC057 /* TripInfoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoDataModel.swift; sourceTree = "<group>"; };
+		40EBD326269F5DFB00DFC057 /* TripInformService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInformService.swift; sourceTree = "<group>"; };
 		4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRiBon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.release.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.release.xcconfig"; sourceTree = "<group>"; };
 		BD0AD60D269361D50033DAD8 /* TripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripStoryboard.storyboard; sourceTree = "<group>"; };
@@ -522,6 +530,7 @@
 			children = (
 				4096A976269D6D0000EBDE56 /* AddTripService.swift */,
 				40253C8B269DAF220045620F /* AddTripImageService.swift */,
+				40EBD320269F455400DFC057 /* EditTripService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -550,6 +559,7 @@
 				40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */,
 				4096A978269D6D1600EBDE56 /* AddTripDataModel.swift */,
 				40253C8D269DAFFF0045620F /* AddTripImageDateModel.swift */,
+				40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -567,9 +577,27 @@
 			path = AddTrip;
 			sourceTree = "<group>";
 		};
+		40EBD322269F5D7C00DFC057 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40EBD323269F5D9600DFC057 /* TripInfoDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		40EBD325269F5DED00DFC057 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				40EBD326269F5DFB00DFC057 /* TripInformService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		BD0AD610269362DB0033DAD8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				40EBD322269F5D7C00DFC057 /* Model */,
+				40EBD325269F5DED00DFC057 /* Service */,
 				BD0AD60D269361D50033DAD8 /* TripStoryboard.storyboard */,
 				BD0AD62526936A8A0033DAD8 /* TripViewController.swift */,
 				BD0AD612269363150033DAD8 /* Member */,
@@ -1110,13 +1138,17 @@
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
 				40253C90269DB7250045620F /* UIImage+Extension.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
+				40EBD324269F5D9600DFC057 /* TripInfoDataModel.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
 				40253C8E269DAFFF0045620F /* AddTripImageDateModel.swift in Sources */,
 				392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */,
 				39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */,
+				40EBD321269F455400DFC057 /* EditTripService.swift in Sources */,
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				4073BC6E26986FEC00C5C7B0 /* MemberOurTableViewCell.swift in Sources */,
+				40EBD31F269F44FF00DFC057 /* EditTripDataModel.swift in Sources */,
+				40EBD327269F5DFB00DFC057 /* TripInformService.swift in Sources */,
 				BD1725CB269CB39F000FB89B /* NetworkInfo.swift in Sources */,
 				BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */,
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,

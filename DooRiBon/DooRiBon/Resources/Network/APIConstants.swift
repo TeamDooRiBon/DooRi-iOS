@@ -34,7 +34,9 @@ struct APIConstants {
     static let tripURL = baseURL + "/travel"
     static let inviteCodeURL = baseURL + "/travel/group/:inviteCode"    // 여행 참여, 여행 정보 조회
     static let addTripURL = baseURL + "/travel" // 여행 생성 뷰 post
-    static let addTripImageURL = baseURL + "/image"
+    static let addTripImageURL = baseURL + "/image" // 여행 생성 뷰 이미지 호출
+    static let editTripURL = baseURL + "/travel/:groupId" // 여행 데이터 편집
+    static let getTripInform = baseURL + "/travel/:groupId"
 
     // MARK: - /auth/user URLs
     

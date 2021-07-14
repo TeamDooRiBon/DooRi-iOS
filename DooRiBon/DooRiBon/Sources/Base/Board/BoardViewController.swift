@@ -79,6 +79,7 @@ class BoardViewController: UIViewController {
     private var selectedTag: String = "goal"
     private var selectedTagIndex: Int = 0
     private var contents: String = ""
+    var tripData: Group?
     
     // MARK: - Life Cycle
     

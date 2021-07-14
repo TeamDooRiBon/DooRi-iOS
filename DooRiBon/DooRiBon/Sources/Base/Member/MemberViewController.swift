@@ -12,6 +12,9 @@ class MemberViewController: UIViewController {
 
     @IBOutlet weak var pagerTab: PagerTab!
     @IBOutlet private var topView: TripTopView!
+    
+    // MARK: - Properties
+    var tripData: Group?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,20 +33,63 @@ class MemberViewController: UIViewController {
         pagerTab.setup(self, viewControllers: viewControllers, style: style)
         // 상단영역 버튼 액션 연결
         setupButtonAction()
+        setupFirstData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        setupTopView()
+        
+        refreshTopView()
+    }
+    
+    func refreshTopView() {
+        TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
+            switch(response)
+            {
+            case .success(let data):
+                if let tripResponse = data as? TripInfoResponse {
+                    print("여기부터임")
+                    let tripInfo = tripResponse.data
+//                    let f = DateFormatter()
+//                    f.dateFormat = "yyyy.MM.dd"
+//                    let start = f.date(from: tripInfo.startDate)
+//                    f.dateFormat = "MM.dd"
+//                    let end = f.date(from: tripInfo.endDate)
+                    print(tripInfo.startDate)
+                    print(tripInfo.endDate)
+                    tripData?.startDate = tripInfo.startDate ?? Date()
+                    tripData?.endDate = tripInfo.endDate ?? Date()
+                    tripData?.travelName = tripInfo.travelName
+                    tripData?.destination = tripInfo.destination
+                    setupTopView()
+                    print(tripData?.startDate)
+                    print(tripData?.endDate)
+                    print(tripData?.travelName)
+                    print(tripData?.destination)
+                }
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
     }
 }
 
 extension MemberViewController {
+    private func setupFirstData() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        tripData = model
+        setupTopView()
+    }
     /// TopView Setup
     private func setupTopView() {
-        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
-        topView.setTopViewData(tripData: model)
+        topView.setTopViewData(tripData: tripData!)
     }
     
     // MARK: - Button Actions
@@ -68,6 +114,7 @@ extension MemberViewController {
         print("setting button clicked")
         let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
         guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        nextVC.groupId = tripData?._id ?? ""
         nextVC.hidesBottomBarWhenPushed = true
         nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
         nextVC.buttonData = "여행 정보 수정하기"
