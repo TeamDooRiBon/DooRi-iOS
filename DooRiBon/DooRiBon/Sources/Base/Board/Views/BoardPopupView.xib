@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Bold.ttf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="SpoqaHanSansNeo-Regular.ttf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BoardPopupView" customModule="DooRiBon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dS-wc-uvl">
+                    <rect key="frame" x="27.666666666666657" y="244.33333333333334" width="320" height="323.33333333333326"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="0ll-iD-pWE">
+                            <rect key="frame" x="20" y="15.999999999999972" width="279" height="289.33333333333326"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="GL7-iC-U19">
+                                    <rect key="frame" x="0.0" y="0.0" width="279" height="48"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="여행 목표" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iiy-xq-Lyg">
+                                            <rect key="frame" x="0.0" y="0.0" width="279" height="26.666666666666668"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="20"/>
+                                            <color key="textColor" name="black1"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 여행의 목표를 함께 공유하세요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUu-xn-3Ly">
+                                            <rect key="frame" x="0.0" y="32.666666666666686" width="279" height="15.333333333333336"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                                            <color key="textColor" name="gray5"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="khV-Zu-nPR">
+                                    <rect key="frame" x="0.0" y="67.000000000000014" width="279" height="155.33333333333337"/>
+                                    <color key="backgroundColor" name="gray7"/>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="idn-C4-3Vs">
+                                    <rect key="frame" x="0.0" y="241.33333333333337" width="279" height="48"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELg-Hu-E7f">
+                                            <rect key="frame" x="0.0" y="0.0" width="136" height="48"/>
+                                            <color key="backgroundColor" name="gray7"/>
+                                            <state key="normal" title="취소">
+                                                <color key="titleColor" name="gray4"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cancelButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="YZL-yl-Wg3"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l43-Pv-eVY">
+                                            <rect key="frame" x="143" y="0.0" width="136" height="48"/>
+                                            <color key="backgroundColor" name="pointOrange"/>
+                                            <state key="normal" title="확인">
+                                                <color key="titleColor" name="white9"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="confirmButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="t7T-Ii-Rj3"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="wgY-hh-6zy"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="GL7-iC-U19" firstAttribute="top" secondItem="0ll-iD-pWE" secondAttribute="top" id="3uu-mT-8KC"/>
+                                <constraint firstAttribute="bottom" secondItem="idn-C4-3Vs" secondAttribute="bottom" id="452-zb-WgC"/>
+                                <constraint firstItem="khV-Zu-nPR" firstAttribute="centerY" secondItem="0ll-iD-pWE" secondAttribute="centerY" id="ARX-mE-Xgl"/>
+                                <constraint firstAttribute="trailing" secondItem="GL7-iC-U19" secondAttribute="trailing" id="D0j-fC-p4E"/>
+                                <constraint firstItem="idn-C4-3Vs" firstAttribute="leading" secondItem="0ll-iD-pWE" secondAttribute="leading" id="IRb-R6-rTi"/>
+                                <constraint firstItem="GL7-iC-U19" firstAttribute="leading" secondItem="0ll-iD-pWE" secondAttribute="leading" id="J29-Mm-abJ"/>
+                                <constraint firstItem="khV-Zu-nPR" firstAttribute="leading" secondItem="0ll-iD-pWE" secondAttribute="leading" id="K5r-xT-Xb7"/>
+                                <constraint firstAttribute="trailing" secondItem="khV-Zu-nPR" secondAttribute="trailing" id="Rbf-3n-fL8"/>
+                                <constraint firstAttribute="trailing" secondItem="idn-C4-3Vs" secondAttribute="trailing" id="UU8-wQ-vCX"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="0ll-iD-pWE" firstAttribute="leading" secondItem="3dS-wc-uvl" secondAttribute="leading" constant="20" id="2mo-4R-UuO"/>
+                        <constraint firstItem="0ll-iD-pWE" firstAttribute="top" secondItem="3dS-wc-uvl" secondAttribute="top" constant="16" id="3HN-AP-242"/>
+                        <constraint firstAttribute="trailing" secondItem="0ll-iD-pWE" secondAttribute="trailing" constant="21" id="CI9-Of-3lZ"/>
+                        <constraint firstAttribute="bottom" secondItem="0ll-iD-pWE" secondAttribute="bottom" constant="18" id="RQD-8T-4UF"/>
+                        <constraint firstAttribute="width" constant="320" id="SNG-oJ-nig"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="323" id="fKA-1t-s1I"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.12549019607843137" green="0.125" blue="0.125" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3dS-wc-uvl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PkJ-kJ-lWH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3dS-wc-uvl" secondAttribute="bottom" constant="210.33333333333337" id="dkO-05-kYY"/>
+                <constraint firstItem="3dS-wc-uvl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ta6-Rq-vEv"/>
+            </constraints>
+            <connections>
+                <outlet property="cancelButton" destination="ELg-Hu-E7f" id="acM-m0-m5h"/>
+                <outlet property="confirmButton" destination="l43-Pv-eVY" id="g48-n8-9Gm"/>
+                <outlet property="containerView" destination="3dS-wc-uvl" id="7Fy-Fn-lgN"/>
+                <outlet property="contentsTextView" destination="khV-Zu-nPR" id="JVe-GZ-fzS"/>
+                <outlet property="descriptionLabel" destination="JUu-xn-3Ly" id="TVJ-ih-1Pp"/>
+                <outlet property="titleLabel" destination="Iiy-xq-Lyg" id="yZP-Qw-V4h"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="137"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="black1">
+            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray4">
+            <color red="0.36899998784065247" green="0.39599999785423279" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray5">
+            <color red="0.62699997425079346" green="0.64300000667572021" blue="0.6589999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray7">
+            <color red="0.91399997472763062" green="0.92199999094009399" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pointOrange">
+            <color red="1" green="0.48199999332427979" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white9">
+            <color red="0.99199998378753662" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

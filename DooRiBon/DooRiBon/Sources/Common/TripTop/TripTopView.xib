@@ -21,9 +21,13 @@
             <connections>
                 <outlet property="backButton" destination="Nlm-59-Pcf" id="rzB-i7-fcu"/>
                 <outlet property="codeButton" destination="pHB-75-SWd" id="Pd4-J3-KjB"/>
+                <outlet property="destinationLabel" destination="iu7-21-mTy" id="8I2-OL-TBK"/>
                 <outlet property="memberButton" destination="gku-5F-UaV" id="xoY-CU-UzM"/>
+                <outlet property="memberDescriptionLabel" destination="ljy-zR-Dlw" id="VjA-hG-5bG"/>
+                <outlet property="periodLabel" destination="xaF-LN-CXU" id="9dS-iY-NXr"/>
                 <outlet property="profileButton" destination="Sra-ab-z3R" id="Maj-lC-wio"/>
                 <outlet property="settingButton" destination="x9s-Ck-9rc" id="Mgb-z5-URl"/>
+                <outlet property="tripTitleLabel" destination="zQX-er-1MN" id="OB1-7D-xfi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -31,22 +35,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="303" translatesAutoresizingMaskIntoConstraints="NO" id="daB-UO-IT6">
-                    <rect key="frame" x="9" y="46" width="351" height="24"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-59-Pcf">
-                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                            <state key="normal" image="iconBackGrey"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-ab-z3R">
-                            <rect key="frame" x="327" y="0.0" width="24" height="24"/>
-                            <state key="normal" image="iconMypage"/>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="0UW-nL-EUq"/>
-                    </constraints>
-                </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021. 07. 29 - 08. 02" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-LN-CXU">
                     <rect key="frame" x="18" y="86" width="339" height="20.333333333333329"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="16"/>
@@ -144,35 +132,45 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gku-5F-UaV">
                     <rect key="frame" x="134" y="147.33333333333334" width="147" height="28"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-ab-z3R">
+                    <rect key="frame" x="336" y="46" width="24" height="24"/>
+                    <state key="normal" image="iconMypage"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-59-Pcf">
+                    <rect key="frame" x="9" y="46" width="24" height="24"/>
+                    <state key="normal" image="iconBackGrey"/>
+                </button>
             </subviews>
             <color key="backgroundColor" name="backgroundBlue"/>
             <constraints>
                 <constraint firstItem="hhG-uV-akM" firstAttribute="top" secondItem="zQX-er-1MN" secondAttribute="bottom" constant="8" id="2fU-2O-AIN"/>
                 <constraint firstItem="pHB-75-SWd" firstAttribute="centerY" secondItem="hhG-uV-akM" secondAttribute="centerY" id="7FM-bP-tuh"/>
                 <constraint firstItem="gku-5F-UaV" firstAttribute="leading" secondItem="hhG-uV-akM" secondAttribute="leading" id="803-mk-EvT"/>
-                <constraint firstItem="daB-UO-IT6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="AIK-pi-r4A"/>
                 <constraint firstItem="x9s-Ck-9rc" firstAttribute="top" secondItem="xaF-LN-CXU" secondAttribute="bottom" constant="8" id="AYD-Sr-guE"/>
                 <constraint firstItem="gku-5F-UaV" firstAttribute="bottom" secondItem="hhG-uV-akM" secondAttribute="bottom" id="Bhl-cx-2Db"/>
                 <constraint firstItem="xaF-LN-CXU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="JQb-VV-7Bp"/>
                 <constraint firstItem="Klq-6B-6i3" firstAttribute="leading" secondItem="zQX-er-1MN" secondAttribute="leading" id="MIy-Rg-Crm"/>
-                <constraint firstItem="xaF-LN-CXU" firstAttribute="top" secondItem="daB-UO-IT6" secondAttribute="bottom" constant="16" id="P9i-cC-4Td"/>
                 <constraint firstItem="x9s-Ck-9rc" firstAttribute="leading" secondItem="zQX-er-1MN" secondAttribute="trailing" constant="7" id="Qhr-Py-Obd"/>
                 <constraint firstItem="zQX-er-1MN" firstAttribute="top" secondItem="xaF-LN-CXU" secondAttribute="bottom" constant="4" id="R5E-LS-Ss4"/>
                 <constraint firstItem="zQX-er-1MN" firstAttribute="leading" secondItem="xaF-LN-CXU" secondAttribute="leading" id="Swv-QP-Pdl"/>
                 <constraint firstItem="pHB-75-SWd" firstAttribute="trailing" secondItem="hhG-uV-akM" secondAttribute="trailing" constant="21" id="VGS-YF-JDW"/>
+                <constraint firstItem="Sra-ab-z3R" firstAttribute="centerY" secondItem="Nlm-59-Pcf" secondAttribute="centerY" id="YOC-qC-Lop"/>
                 <constraint firstItem="gku-5F-UaV" firstAttribute="top" secondItem="hhG-uV-akM" secondAttribute="top" id="Yg0-4K-0eT"/>
+                <constraint firstItem="Sra-ab-z3R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="46" id="Z2e-Zj-cbw"/>
+                <constraint firstItem="xaF-LN-CXU" firstAttribute="top" secondItem="Nlm-59-Pcf" secondAttribute="bottom" constant="16" id="aeg-op-Mbo"/>
                 <constraint firstAttribute="trailing" secondItem="xaF-LN-CXU" secondAttribute="trailing" constant="18" id="cHH-uf-LcQ"/>
+                <constraint firstAttribute="trailing" secondItem="Sra-ab-z3R" secondAttribute="trailing" constant="15" id="eMk-rG-TIN"/>
                 <constraint firstItem="pHB-75-SWd" firstAttribute="leading" secondItem="gku-5F-UaV" secondAttribute="trailing" id="f7K-KA-NXT"/>
                 <constraint firstItem="Klq-6B-6i3" firstAttribute="top" secondItem="zQX-er-1MN" secondAttribute="bottom" constant="8" id="nLW-TD-fe9"/>
                 <constraint firstItem="hhG-uV-akM" firstAttribute="leading" secondItem="Klq-6B-6i3" secondAttribute="trailing" constant="7" id="nSU-TR-0QC"/>
-                <constraint firstItem="daB-UO-IT6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="46" id="ovk-Uo-n3u"/>
-                <constraint firstAttribute="trailing" secondItem="daB-UO-IT6" secondAttribute="trailing" constant="15" id="qOb-Z7-HRq"/>
+                <constraint firstItem="Nlm-59-Pcf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="46" id="oj6-Aj-8wH"/>
+                <constraint firstItem="Nlm-59-Pcf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="qFq-h2-qD7"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x9s-Ck-9rc" secondAttribute="trailing" constant="15" id="vbG-cq-fOy"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="228" y="-69"/>
+            <point key="canvasLocation" x="228" y="-69.458128078817737"/>
         </view>
     </objects>
     <resources>

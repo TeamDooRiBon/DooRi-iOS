@@ -23,9 +23,8 @@ import SnapKit
 
 class PopupView: UIView {
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var contentsStackView: UIStackView!
     @IBOutlet private weak var buttonsStackView: UIStackView!
-
+    @IBOutlet weak var contentsStackView: UIStackView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
 

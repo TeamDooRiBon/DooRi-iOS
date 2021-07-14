@@ -11,6 +11,7 @@ class MemberViewController: UIViewController {
 
 
     @IBOutlet weak var pagerTab: PagerTab!
+    @IBOutlet private var topView: TripTopView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,59 @@ class MemberViewController: UIViewController {
         style.titleActiveColor = UIColor.orange
         style.barColor = UIColor.orange
         pagerTab.setup(self, viewControllers: viewControllers, style: style)
+        // 상단영역 버튼 액션 연결
+        setupButtonAction()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTopView()
+    }
+}
+
+extension MemberViewController {
+    /// TopView Setup
+    private func setupTopView() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        topView.setTopViewData(tripData: model)
+    }
+    
+    // MARK: - Button Actions
+    
+    private func setupButtonAction() {
+        topView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
+        topView.profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
+        topView.settingButton.addTarget(self, action: #selector(settingButtonClicked), for: .touchUpInside)
+        topView.memberButton.addTarget(self, action: #selector(memberButtonClicked), for: .touchUpInside)
+        topView.codeButton.addTarget(self, action: #selector(codeButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func backButtonClicked(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func profileButtonClicked(_ sender: UIButton) {
+        print("profile button clicked")
+    }
+    
+    @objc func settingButtonClicked(_ sender: UIButton) {
+        print("setting button clicked")
+    }
+    
+    @objc func memberButtonClicked(_ sender: UIButton) {
+        WithPopupView.loadFromXib()
+            .setTitle("함께하는 사람")
+            .setDescription("총 5명")
+            .setConfirmButton("참여코드 복사하기")
+            .present { event in
+                 if event == .confirm {
+                    ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+                 }
+            }
+    }
+    
+    @objc func codeButtonClicked(_ sender: UIButton) {
+        ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
     }
 }
 

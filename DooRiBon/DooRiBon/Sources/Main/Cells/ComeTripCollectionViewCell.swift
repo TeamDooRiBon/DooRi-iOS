@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ComeTripCollectionViewCell: UICollectionViewCell {
     static let identifier : String = "ComeTripCollectionViewCell"
@@ -14,6 +15,8 @@ class ComeTripCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ddayLabel: UILabel!
     @IBOutlet weak var comeTripTitleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var memberLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,15 +24,15 @@ class ComeTripCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func setData(imageName: String, dday: String, title: String, date: String)
+    func setData(imageName: String, dday: String, title: String, date: String, location: String, members: String)
     {
-        if let image = UIImage(named: imageName)
-        {
-            comeTripImageView.image = image
-        }
+        let url = URL(string: imageName)
+        comeTripImageView.kf.setImage(with: url)
         ddayLabel.text = dday
         comeTripTitleLabel.text = title
         dateLabel.text = date
+        locationLabel.text = location
+        memberLabel.text = members
     }
     
 }
