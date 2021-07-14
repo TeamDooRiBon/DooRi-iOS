@@ -215,23 +215,9 @@ extension BoardViewController {
         let _ = iconTitleLabel.enumerated().map {
             $0.element.textColor = $0.0 == sender.tag ? Colors.pointOrange.color : Colors.gray5.color
         }
-        /// 각 버튼 클릭했을때 컨텐츠 영역 처리 (ex. 데이터 리로드)
-        switch sender.tag {
-        case 0:
-            selectedData = dummyData[0]
-            self.selectedTagIndex = 0
-        case 1:
-            selectedData = dummyData[1]
-            self.selectedTagIndex = 1
-        case 2:
-            selectedData = dummyData[2]
-            self.selectedTagIndex = 2
-        case 3:
-            selectedData = dummyData[3]
-            self.selectedTagIndex = 3
-        default:
-            return
-        }
+        
+        selectedData = dummyData[sender.tag]
+        selectedTagIndex = sender.tag
         
         guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
         getBoardData(tag: tag)
