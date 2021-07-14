@@ -37,7 +37,7 @@
                                 <color key="tintColor" name="black1"/>
                                 <state key="normal" title="Button" image="xmark" catalog="system"/>
                                 <connections>
-                                    <action selector="outTestButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="11V-NA-lWL"/>
+                                    <action selector="outTestButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nEd-8C-faV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-BM-TJw">
@@ -190,14 +190,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjk-4q-hA3">
                                 <rect key="frame" x="191" y="696" width="166" height="52"/>
-                                <color key="backgroundColor" name="pointOrange"/>
+                                <color key="backgroundColor" name="gray7"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="0Tq-bl-M1P"/>
                                     <constraint firstAttribute="width" constant="166" id="Wah-d5-Cmp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
                                 <state key="normal" title="다음 문항">
-                                    <color key="titleColor" name="white9"/>
+                                    <color key="titleColor" name="gray4"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -236,6 +236,7 @@
                         <outlet property="answerCollectionView" destination="nhK-1x-pcV" id="TFg-yb-Mi0"/>
                         <outlet property="backgroundView" destination="aTb-GL-FLQ" id="mzm-1N-aGH"/>
                         <outlet property="indicatorBar" destination="hD0-EF-Bob" id="uX6-mI-gjL"/>
+                        <outlet property="nextButton" destination="Yjk-4q-hA3" id="BXo-DW-VPU"/>
                         <outlet property="questionLabel" destination="I4E-hb-TAU" id="azc-ox-Jhf"/>
                         <outlet property="questionNumberLabel" destination="BOh-BM-TJw" id="GXC-O6-duJ"/>
                     </connections>
@@ -264,9 +265,6 @@
         </namedColor>
         <namedColor name="pointOrange">
             <color red="1" green="0.48199999332427979" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="white9">
-            <color red="0.99199998378753662" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
