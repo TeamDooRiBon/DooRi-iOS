@@ -29,16 +29,22 @@ struct APIConstants {
     
     // Base URL
     static let baseURL = "http://13.209.82.176:5000"
-    
+
     // MARK: - /travel URLs
     static let tripURL = baseURL + "/travel"
     static let inviteCodeURL = baseURL + "/travel/group/:inviteCode"    // 여행 참여, 여행 정보 조회
-    
+    static let addTripURL = baseURL + "/travel" // 여행 생성 뷰 post
+    static let addTripImageURL = baseURL + "/image"
+
     // MARK: - /auth/user URLs
     
     // MARK: - /schedule
+<<<<<<< HEAD
     static let getSpecificDateURL = baseURL + "/schedule/daily/:groupId/:date"
 
+=======
+    static let addPlanURL = baseURL + "/schedule/:groupId"
+>>>>>>> e523d33624652750458b629a82db0403c56c52ba
     // MARK: - /board
     static let postBoardURL = baseURL + "/board/:groupId/:tag"          // 여행 보드 추가
     
@@ -47,6 +53,7 @@ struct APIConstants {
     // MARK: - /image
     
     // MARK: - /user/myPage
+
 }
 
     // MARK: - URLs

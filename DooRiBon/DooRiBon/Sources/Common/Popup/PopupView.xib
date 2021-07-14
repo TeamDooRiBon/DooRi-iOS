@@ -28,19 +28,19 @@
                     <rect key="frame" x="27" y="319" width="360" height="268"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DmO-7W-eeN">
-                            <rect key="frame" x="21" y="20" width="318" height="47"/>
+                            <rect key="frame" x="21" y="20" width="318" height="44"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="a5t-Lu-EbI">
-                                    <rect key="frame" x="0.0" y="0.0" width="318" height="47"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="318" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNu-OF-DVX">
-                                            <rect key="frame" x="0.0" y="0.0" width="318" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="19"/>
                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIr-Bu-qFG">
-                                            <rect key="frame" x="0.0" y="31.5" width="318" height="15.5"/>
+                                            <rect key="frame" x="0.0" y="30" width="318" height="14"/>
                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                             <color key="textColor" name="gray5"/>
                                             <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="1zg-pK-eoP">
-                            <rect key="frame" x="19" y="82" width="322" height="164"/>
+                            <rect key="frame" x="19" y="79" width="322" height="167"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEG-py-itm">
                                     <rect key="frame" x="0.0" y="0.0" width="133" height="50"/>

@@ -62,7 +62,7 @@ class AddDateViewController: UIViewController {
     }
     
     @IBAction func selectButtonClicked(_ sender: Any) {
-        self.delegate?.startEndDateLabelSet(start: startDateLabelData, end: endDateLabelData)
+        self.delegate?.startEndDateLabelSet(start: startDateLabelData, end: endDateLabelData, startParsing: startString, endParsing: endString)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -109,7 +109,7 @@ class AddDateViewController: UIViewController {
 //MARK:- Protocol
 
 protocol dateLabelProtocol {
-    func startEndDateLabelSet(start: String, end: String)
+    func startEndDateLabelSet(start: String, end: String, startParsing: String, endParsing: String)
 }
 
 //MARK:- Extension

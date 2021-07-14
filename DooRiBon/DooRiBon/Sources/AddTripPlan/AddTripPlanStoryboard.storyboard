@@ -171,6 +171,9 @@
                                                 <real key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addNewPlanButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MAZ-yR-LTF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mG-qv-llh">
                                         <rect key="frame" x="292" y="291" width="23" height="23"/>
