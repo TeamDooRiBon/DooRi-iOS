@@ -21,9 +21,13 @@
             <connections>
                 <outlet property="backButton" destination="Nlm-59-Pcf" id="rzB-i7-fcu"/>
                 <outlet property="codeButton" destination="pHB-75-SWd" id="Pd4-J3-KjB"/>
+                <outlet property="destinationLabel" destination="iu7-21-mTy" id="8I2-OL-TBK"/>
                 <outlet property="memberButton" destination="gku-5F-UaV" id="xoY-CU-UzM"/>
+                <outlet property="memberDescriptionLabel" destination="ljy-zR-Dlw" id="VjA-hG-5bG"/>
+                <outlet property="periodLabel" destination="xaF-LN-CXU" id="9dS-iY-NXr"/>
                 <outlet property="profileButton" destination="Sra-ab-z3R" id="Maj-lC-wio"/>
                 <outlet property="settingButton" destination="x9s-Ck-9rc" id="Mgb-z5-URl"/>
+                <outlet property="tripTitleLabel" destination="zQX-er-1MN" id="OB1-7D-xfi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

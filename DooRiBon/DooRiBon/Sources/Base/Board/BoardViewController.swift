@@ -32,14 +32,12 @@ enum Tag: Int {
 class BoardViewController: UIViewController {
     // MARK: - IBOutlets
     
-    @IBOutlet weak var topContainerView: TripTopView!
+    @IBOutlet weak var topView: TripTopView!
     @IBOutlet var iconImageView: [UIImageView]!
     @IBOutlet var iconTitleLabel: [UILabel]!
     @IBOutlet weak private var tableView: UITableView!
     
     // MARK: - Properties
-    
-    let topView = TripTopView()
     let iconName = ["Goal", "Aim", "Role", "Check"]
     let dummyData = [
         DummyDataModel(titleName: "우리의 여행 목표",
@@ -93,7 +91,7 @@ class BoardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupTopView()
         guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
         getBoardData(tag: tag)
     }
@@ -144,6 +142,11 @@ class BoardViewController: UIViewController {
 
 extension BoardViewController {
     // MARK: - Setup
+    /// TopView Setup
+    private func setupTopView() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        topView.setTopViewData(tripData: model)
+    }
     
     private func setupUI() {
         navigationController?.navigationBar.isHidden = true
@@ -158,15 +161,15 @@ extension BoardViewController {
     // MARK: - Button Actions
     
     private func setupButtonAction() {
-        topContainerView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
-        topContainerView.profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
-        topContainerView.settingButton.addTarget(self, action: #selector(settingButtonClicked), for: .touchUpInside)
-        topContainerView.memberButton.addTarget(self, action: #selector(memberButtonClicked), for: .touchUpInside)
-        topContainerView.codeButton.addTarget(self, action: #selector(codeButtonClicked), for: .touchUpInside)
+        topView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
+        topView.profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
+        topView.settingButton.addTarget(self, action: #selector(settingButtonClicked), for: .touchUpInside)
+        topView.memberButton.addTarget(self, action: #selector(memberButtonClicked), for: .touchUpInside)
+        topView.codeButton.addTarget(self, action: #selector(codeButtonClicked), for: .touchUpInside)
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
@@ -293,7 +296,6 @@ extension BoardViewController: UITableViewDataSource {
             cell.setData(goalContents: data.content, userName: data.name)
         }
         
-
         return cell
     }
 }

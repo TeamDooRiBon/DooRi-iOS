@@ -31,9 +31,20 @@ class MemberViewController: UIViewController {
         // 상단영역 버튼 액션 연결
         setupButtonAction()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTopView()
+    }
 }
 
 extension MemberViewController {
+    /// TopView Setup
+    private func setupTopView() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        topView.setTopViewData(tripData: model)
+    }
+    
     // MARK: - Button Actions
     
     private func setupButtonAction() {
@@ -45,7 +56,7 @@ extension MemberViewController {
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
@@ -57,7 +68,15 @@ extension MemberViewController {
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
-        print("member button clicked")
+        WithPopupView.loadFromXib()
+            .setTitle("함께하는 사람")
+            .setDescription("총 5명")
+            .setConfirmButton("참여코드 복사하기")
+            .present { event in
+                 if event == .confirm {
+                    ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+                 }
+            }
     }
     
     @objc func codeButtonClicked(_ sender: UIButton) {

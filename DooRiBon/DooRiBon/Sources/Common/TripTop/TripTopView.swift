@@ -9,6 +9,10 @@ import UIKit
 
 class TripTopView: UIView {
     // MARK: - IBOutlets
+    @IBOutlet weak var periodLabel: UILabel!
+    @IBOutlet weak var tripTitleLabel: UILabel!
+    @IBOutlet weak var destinationLabel: UILabel!
+    @IBOutlet weak var memberDescriptionLabel: UILabel!
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
@@ -17,6 +21,10 @@ class TripTopView: UIView {
     @IBOutlet weak var codeButton: UIButton!
     
     let xibName = "TripTopView"
+    let formatter = DateFormatter()
+    let calendar = Calendar.current
+    private var startDate: Date?
+    private var endDate: Date?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,5 +40,20 @@ class TripTopView: UIView {
         let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
+    }
+    
+    func setTopViewData(tripData: Group) {
+        startDate = tripData.startDate
+        endDate = tripData.endDate
+    
+        formatter.dateFormat = "yyyy.MM.dd"
+        let start = formatter.string(from: tripData.startDate)
+        formatter.dateFormat = "MM.dd"
+        let end = formatter.string(from: tripData.endDate)
+        
+        periodLabel.text = "\(start) - \(end)"
+        tripTitleLabel.text = tripData.travelName
+        destinationLabel.text = tripData.destination
+        memberDescriptionLabel.text = tripData.members[0]
     }
 }

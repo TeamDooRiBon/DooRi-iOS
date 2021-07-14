@@ -11,4 +11,6 @@ target 'DooRiBon' do
   pod 'FSCalendar', :git => 'https://github.com/hyejinL/FSCalendar.git', :branch => 'dooribun'
    # Pods for FSCalendarPractice
   pod 'Kingfisher', '~> 6.0'
+  pod 'MaterialComponents/BottomSheet'
+  pod 'MaterialComponents/BottomSheet+ShapeThemer'
 end

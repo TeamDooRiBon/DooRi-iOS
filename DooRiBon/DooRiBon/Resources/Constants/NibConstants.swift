@@ -12,4 +12,5 @@ struct NibConstants {
     static let MemberStartViewNib = UINib(nibName: "MemberStartView", bundle: nil)
     static let MemberStartNib = UINib(nibName: "MemberStart", bundle: nil)
     static let MemberCodeCopyNib = UINib(nibName: "MemberCodeCopy", bundle: nil)
+    static let MemberPopupNib = UINib(nibName: "MemberPopupCollectionViewCell", bundle: nil)
 }
