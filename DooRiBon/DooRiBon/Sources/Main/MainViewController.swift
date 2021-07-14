@@ -53,7 +53,6 @@ class MainViewController: UIViewController {
 
         setUI()
         shadowSet()
-
     }
     
     // MARK: - viewWillAppear
@@ -63,10 +62,19 @@ class MainViewController: UIViewController {
         setTripData()
         collectionViewSet()
         tableViewSet()
-
     }
     
     // MARK: - 액션
+    
+    @IBAction func nowTripClicked(_ sender: Any) {
+        let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
+        if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
+            tripVC.modalPresentationStyle = .overFullScreen
+            tripVC.tripData = nowTripList[0]
+            present(tripVC, animated: true, completion: nil)
+        }
+        print(nowTripList)
+    }
     
     // 새로운 여행 시작하기 : 팝업 StartTrip 뷰컨으로 이동 -> 팝업과 뒷 화면을 연결해야함
     @IBAction func StartTripButtonClicked(_ sender: Any) {
@@ -141,6 +149,7 @@ class MainViewController: UIViewController {
         let start = formatter.string(from: nowTripList[0].startDate)
         let end = formatter.string(from: nowTripList[0].endDate)
         nowTripDateLabel.text = "\(start) - \(end)"
+        self.nowTripTitleLabel.text = nowTripList[0].travelName
         self.nowTripLocationLabel.text = nowTripList[0].destination
         if nowTripList[0].members.count == 1 {
             nowTripMembersLabel.text = "\(nowTripList[0].members[0])님과 함께"
@@ -228,7 +237,9 @@ extension MainViewController: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
         if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
-            navigationController?.pushViewController(tripVC, animated: true)
+            tripVC.modalPresentationStyle = .overFullScreen
+            tripVC.tripData = comeTripList[indexPath.row]
+            present(tripVC, animated: true, completion: nil)
         }
     }
 }
@@ -264,6 +275,15 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate
 {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
+        if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
+            tripVC.modalPresentationStyle = .overFullScreen
+            tripVC.tripData = lastTripList[indexPath.row]
+            present(tripVC, animated: true, completion: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lastTripList.count
     }
@@ -271,7 +291,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
-        print("test")
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
                          location: lastTripList[indexPath.row].destination,

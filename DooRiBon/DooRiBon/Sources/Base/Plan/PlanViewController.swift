@@ -53,6 +53,11 @@ class PlanViewController: UIViewController {
         setupData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTopView()
+    }
+    
     // MARK: - IBActions
 }
 
@@ -82,7 +87,7 @@ extension PlanViewController {
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
@@ -99,6 +104,12 @@ extension PlanViewController {
     
     @objc func codeButtonClicked(_ sender: UIButton) {
         ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+    }
+    
+    /// TopView Setup
+    private func setupTopView() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        topView.setTopViewData(tripData: model)
     }
     
     /// CollectionView Setup
