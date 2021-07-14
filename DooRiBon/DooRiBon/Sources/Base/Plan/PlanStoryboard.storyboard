@@ -140,6 +140,8 @@
                         <outlet property="calendarAreaView" destination="B9K-oA-KgM" id="Z9p-gl-zHU"/>
                         <outlet property="calendarView" destination="OeZ-ms-OfT" id="ozh-U4-ueT"/>
                         <outlet property="contentsTableView" destination="w1L-EH-7IJ" id="W0V-9q-6oz"/>
+                        <outlet property="currentMonthLabel" destination="7ZN-pz-hIT" id="ofU-MA-lh6"/>
+                        <outlet property="currentYearLabel" destination="rit-r2-uHf" id="tNK-vD-FPQ"/>
                         <outlet property="topView" destination="lF5-i6-YmL" id="ZJ9-yp-APZ"/>
                     </connections>
                 </viewController>
