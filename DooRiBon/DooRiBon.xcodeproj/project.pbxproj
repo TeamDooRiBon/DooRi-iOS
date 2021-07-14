@@ -18,6 +18,11 @@
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF94E269183F8008CA532 /* LastTripTableViewCell.swift */; };
 		392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95026918450008CA532 /* ComeTripCollectionViewCell.swift */; };
+		393691FA269EB838003348A7 /* WithPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393691F9269EB838003348A7 /* WithPopupView.xib */; };
+		393691FC269EB84D003348A7 /* WithPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393691FB269EB84D003348A7 /* WithPopupView.swift */; };
+		393691FF269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393691FD269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift */; };
+		39369200269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393691FE269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib */; };
+		39369205269EC6FB003348A7 /* MemberPopupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39369204269EC6FB003348A7 /* MemberPopupDataModel.swift */; };
 		3975958D269B569D008E8360 /* TestChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3975958C269B569D008E8360 /* TestChoiceViewController.swift */; };
 		3975958F269B56A9008E8360 /* TestChoiceStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3975958E269B56A9008E8360 /* TestChoiceStoryboard.storyboard */; };
 		3976DFB6269D5AEC00062059 /* MainDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976DFB5269D5AEC00062059 /* MainDataModel.swift */; };
@@ -130,6 +135,11 @@
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		392EF94E269183F8008CA532 /* LastTripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripTableViewCell.swift; sourceTree = "<group>"; };
 		392EF95026918450008CA532 /* ComeTripCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripCollectionViewCell.swift; sourceTree = "<group>"; };
+		393691F9269EB838003348A7 /* WithPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithPopupView.xib; sourceTree = "<group>"; };
+		393691FB269EB84D003348A7 /* WithPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithPopupView.swift; sourceTree = "<group>"; };
+		393691FD269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberPopupCollectionViewCell.swift; sourceTree = "<group>"; };
+		393691FE269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberPopupCollectionViewCell.xib; sourceTree = "<group>"; };
+		39369204269EC6FB003348A7 /* MemberPopupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberPopupDataModel.swift; sourceTree = "<group>"; };
 		3975958C269B569D008E8360 /* TestChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestChoiceViewController.swift; sourceTree = "<group>"; };
 		3975958E269B56A9008E8360 /* TestChoiceStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestChoiceStoryboard.storyboard; sourceTree = "<group>"; };
 		3976DFB5269D5AEC00062059 /* MainDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataModel.swift; sourceTree = "<group>"; };
@@ -315,6 +325,32 @@
 				39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		39369201269EC13E003348A7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				393691FE269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib */,
+				393691FD269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		39369202269EC15F003348A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				393691F9269EB838003348A7 /* WithPopupView.xib */,
+				393691FB269EB84D003348A7 /* WithPopupView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		39369203269EC6CD003348A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				39369204269EC6FB003348A7 /* MemberPopupDataModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3975958B269B5618008E8360 /* StyleTest */ = {
@@ -509,6 +545,9 @@
 		BD0AD612269363150033DAD8 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				39369203269EC6CD003348A7 /* Models */,
+				39369202269EC15F003348A7 /* Views */,
+				39369201269EC13E003348A7 /* Cells */,
 				40299CB9269B66B800A4C9B6 /* StyleTestResult */,
 				4073BC6826986FAA00C5C7B0 /* MemberOur */,
 				399C7001269B27220017069C /* TakeLook */,
@@ -893,6 +932,7 @@
 				40299CBB269B66D500A4C9B6 /* StyleTestResultStoryboard.storyboard in Resources */,
 				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
 				409E26D22699D90E001C5CED /* MemberHeaderView.xib in Resources */,
+				393691FA269EB838003348A7 /* WithPopupView.xib in Resources */,
 				BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */,
 				BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */,
 				BD55F43F26919C17004E7114 /* JoinTripStoryboard.storyboard in Resources */,
@@ -918,6 +958,7 @@
 				BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */,
 				407E640E269A1769007C8081 /* MemberCodeCopy.xib in Resources */,
 				BD39D500268DE80D004714B6 /* SpoqaHanSansNeo-Light.ttf in Resources */,
+				39369200269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib in Resources */,
 				0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */,
 				BD172597269C14BE000FB89B /* BoardPopupView.xib in Resources */,
 				BD0AD61A269363E30033DAD8 /* BoardStoryboard.storyboard in Resources */,
@@ -1024,6 +1065,7 @@
 				39F21BA4269BD83400673511 /* AnswerCollectionViewCell.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				399C700A269B27840017069C /* QuestionCell.swift in Sources */,
+				393691FC269EB84D003348A7 /* WithPopupView.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
 				3976DFB6269D5AEC00062059 /* MainDataModel.swift in Sources */,
 				409E26D42699D91E001C5CED /* MemberHeaderView.swift in Sources */,
@@ -1033,9 +1075,11 @@
 				BD172595269C14B2000FB89B /* BoardPopupView.swift in Sources */,
 				0A88A010269493E000A4EBD0 /* PopupView.swift in Sources */,
 				BD6074BC269E015E00CA62F3 /* BoardSectionHeaderView.swift in Sources */,
+				39369205269EC6FB003348A7 /* MemberPopupDataModel.swift in Sources */,
 				BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
+				393691FF269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift in Sources */,
 				BD6074B5269DF8AD00CA62F3 /* AddBoardRequest.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
 				BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */,

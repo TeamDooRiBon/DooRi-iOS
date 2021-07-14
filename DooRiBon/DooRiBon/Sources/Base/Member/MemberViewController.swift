@@ -68,7 +68,15 @@ extension MemberViewController {
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
-        print("member button clicked")
+        WithPopupView.loadFromXib()
+            .setTitle("함께하는 사람")
+            .setDescription("총 5명")
+            .setConfirmButton("참여코드 복사하기")
+            .present { event in
+                 if event == .confirm {
+                    ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+                 }
+            }
     }
     
     @objc func codeButtonClicked(_ sender: UIButton) {
