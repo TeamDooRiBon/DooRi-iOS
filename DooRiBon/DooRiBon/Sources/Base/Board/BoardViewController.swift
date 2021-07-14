@@ -7,6 +7,28 @@
 
 import UIKit
 
+struct BoardPopupData {
+    var title: String
+    var description: String
+}
+
+// 태그
+enum Tag: Int {
+    case goal
+    case know
+    case role
+    case check
+
+    var description: String {
+        switch self {
+        case .goal: return "goal"
+        case .know: return "know"
+        case .role: return "role"
+        case .check: return "check"
+        }
+    }
+}
+
 class BoardViewController: UIViewController {
     // MARK: - IBOutlets
     
@@ -37,11 +59,28 @@ class BoardViewController: UIViewController {
                        message: "여행 전에 미리 체크하세요!",
                        description: "이번 여행에서 꼭 확인해야\n하는 것들을 미리 공유해요")
     ]
+    let popupData = [
+        BoardPopupData(title: "여행 목표", description: "이번 여행의 목표를 함께 공유하세요!"),
+        BoardPopupData(title: "꼭 알아줘", description: "이번 여행에 함께하는 사람들에게\n나에 대해 꼭 알리고 싶은 것을 작성해주세요!"),
+        BoardPopupData(title: "역할 분담", description: "이번 여행에서 나는 이런 역할을 담당할게!"),
+        BoardPopupData(title: "체크리스트", description: "준비는 철저하게! 필요한 것을 미리 체크하세요"),
+    ]
+    
     private var selectedData: DummyDataModel? {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    private var currentBoardData: [AddBoardData]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    private var selectedTag: String = "goal"
+    private var selectedTagIndex: Int = 0
+    private var contents: String = ""
     
     // MARK: - Life Cycle
     
@@ -50,6 +89,56 @@ class BoardViewController: UIViewController {
         setupUI()
         setupTableView()
         setupData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
+        getBoardData(tag: tag)
+    }
+    
+    private func postTripBoard(contents: String, tag: String) {
+        let input = AddBoardRequest(content: contents)
+        AddBoardDataService.shared.postTripBoard(input,
+                                                 groupId: "60ed24ad317c7b2480ee1ec6",
+                                                 tag: tag) { response in
+            switch(response)
+            {
+            case .success(let data) :
+                print(data)
+            case .requestErr(let message) :
+                print(message)
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    private func getBoardData(tag: String) {
+        AddBoardDataService.shared.getTripBoard(groupId: "60ed24ad317c7b2480ee1ec6",
+                                                tag: tag) { response in
+            switch(response)
+            {
+            case .success(let data) :
+                if let data = data as? [AddBoardData] {
+                    self.currentBoardData = data
+                }
+
+            case .requestErr(let message) :
+                print(message)
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
 
@@ -99,9 +188,9 @@ extension BoardViewController {
     // 예시
     enum Icon: String {
         case goal = "Goal"
-        case check
-        case role
-        case aim
+        case check = "Check"
+        case role = "Role"
+        case aim = "Aim"
         
         var activeImage: UIImage? {
             UIImage(named: "\(rawValue)Active")
@@ -111,6 +200,7 @@ extension BoardViewController {
             UIImage(named: "\(rawValue)Inactive")
         }
     }
+
     
     // MARK: - IBActions
     // 버튼 영역에 있는 각 아이콘에 대한 액션
@@ -125,19 +215,14 @@ extension BoardViewController {
         let _ = iconTitleLabel.enumerated().map {
             $0.element.textColor = $0.0 == sender.tag ? Colors.pointOrange.color : Colors.gray5.color
         }
-        /// 각 버튼 클릭했을때 컨텐츠 영역 처리 (ex. 데이터 리로드)
-        switch sender.tag {
-        case 0:
-            selectedData = dummyData[0]
-        case 1:
-            selectedData = dummyData[1]
-        case 2:
-            selectedData = dummyData[2]
-        case 3:
-            selectedData = dummyData[3]
-        default:
-            return
-        }
+        
+        selectedData = dummyData[sender.tag]
+        selectedTagIndex = sender.tag
+        
+        guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
+        getBoardData(tag: tag)
+        
+        tableView.reloadData()
     }
     
     // MARK: - TableView Setup
@@ -146,7 +231,6 @@ extension BoardViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UINib(nibName: "BoardHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: BoardHeaderTableViewCell.cellId)
         tableView.register(UINib(nibName: "BoardNoDataTableViewCell", bundle: nil), forCellReuseIdentifier: BoardNoDataTableViewCell.cellId)
         tableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: BoardTableViewCell.cellId)
         
@@ -158,33 +242,58 @@ extension BoardViewController {
 
 // MARK: - TableView Delegate
 
-extension BoardViewController: UITableViewDelegate {
+extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelegate, BoardPopupProtocol {
+    func sendContentsData(contents: String) {
+        self.contents = contents
+        tableView.reloadData()
+    }
+    
+    func didSelectedAddTripButton() {
+        print(self.selectedTagIndex)
+        let selectedTag = Tag(rawValue: selectedTagIndex)
+        guard let description = selectedTag?.description else { return }
+        
+        let boardPopupView = BoardPopupView.loadFromXib()
+        boardPopupView.delegate = self
+        boardPopupView
+            .setTitle(popupData[selectedTagIndex].title)
+            .setDescription(popupData[selectedTagIndex].description)
+            .present { event in
+                if event == .confirm {
+                    self.postTripBoard(contents: self.contents, tag: description)
+                    self.getBoardData(tag: description)
+                    self.tableView.reloadData()
+                }
+            }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 52
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let boardHeaderView = BoardSectionHeaderView.loadFromXib()
+        boardHeaderView.delegate = self
+        boardHeaderView.boardTitle.text = selectedData?.titleName
+        return boardHeaderView
+    }
 }
 
 // MARK: - TableView DataSource
 
 extension BoardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return currentBoardData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.cellId, for: indexPath) as? BoardTableViewCell else { return UITableViewCell() }
         
-        switch indexPath.row {
-        case 0: // 헤더셀
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardHeaderTableViewCell.cellId, for: indexPath) as? BoardHeaderTableViewCell else { return UITableViewCell() }
-            cell.subTitleLabel.text = selectedData?.titleName
-            return cell
-        default: // 데이터셀
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.cellId, for: indexPath) as? BoardTableViewCell else { return UITableViewCell() }
-            
-            if indexPath.row % 2 == 0 {
-                cell.setData(goalContents: "제주도 한라산 등산하기! 아침에 일찍 일어나서 꼭 갈거야 한라산.... ", userName: "김민영")
-            } else {
-                cell.setData(goalContents: "여행가기", userName: "댕굴")
-            }
-   
-            return cell
+        if let data = currentBoardData?[indexPath.row] {
+            cell.setData(goalContents: data.content, userName: data.name)
         }
+        
+
+        return cell
     }
 }

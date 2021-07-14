@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol BoardPopupProtocol {
+    func sendContentsData(contents: String)
+}
+
 class BoardPopupView: UIView {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -16,6 +20,7 @@ class BoardPopupView: UIView {
     @IBOutlet private weak var confirmButton: UIButton!
 
     private var eventHandler: ((_ type: EventType) -> Void)?
+    var delegate: BoardPopupProtocol?
 
     enum EventType {
         case confirm
@@ -51,6 +56,10 @@ class BoardPopupView: UIView {
         return self
     }
     
+    func getTextField() -> String {
+        contentsTextView.text
+    }
+    
     func placeholderSetting() {
         contentsTextView.delegate = self
         contentsTextView.text = "Ex. 인생사진 찍어오기!"
@@ -73,6 +82,7 @@ class BoardPopupView: UIView {
     }
     
     @IBAction func confirmButtonClicked(_ sender: Any) {
+        delegate?.sendContentsData(contents: self.contentsTextView.text)
         closeView(.confirm)
     }
     
