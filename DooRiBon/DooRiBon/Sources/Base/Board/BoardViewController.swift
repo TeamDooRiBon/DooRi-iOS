@@ -295,6 +295,18 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
         boardHeaderView.boardTitle.text = selectedData?.titleName
         return boardHeaderView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        BottomSheetView.loadFromXib()
+            .setBottomSheetType(.board)
+            .setHost("누구누구님")
+            .setDescription("안녕하세여")
+            .present { event in
+                if event == .edit {
+                } else {
+                }
+            }
+    }
 }
 
 // MARK: - TableView DataSource

@@ -291,6 +291,16 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout {
 extension PlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.row)번째 셀클릭")
+        BottomSheetView.loadFromXib()
+            .setBottomSheetType(.plan)
+            .setHost("누구누구님")
+            .setDescription("안녕하세여")
+            .setDetail(time: "123", destination: "123", memo: "!23")
+            .present { event in
+                if event == .edit {
+                } else {
+                }
+            }
     }
 }
 

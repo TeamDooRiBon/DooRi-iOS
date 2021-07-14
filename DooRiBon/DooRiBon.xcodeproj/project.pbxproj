@@ -108,6 +108,8 @@
 		BD6074C0269E019C00CA62F3 /* BoardSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */; };
 		BD6074D1269ED71600CA62F3 /* TripPlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074D0269ED71600CA62F3 /* TripPlanDataModel.swift */; };
 		BD6074D4269ED7B900CA62F3 /* TripPlanDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074D3269ED7B900CA62F3 /* TripPlanDataService.swift */; };
+		BD6074D9269F2C3900CA62F3 /* BottomSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6074D8269F2C3900CA62F3 /* BottomSheetView.xib */; };
+		BD6074DB269F2C4100CA62F3 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074DA269F2C4100CA62F3 /* BottomSheetView.swift */; };
 		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
 		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
 		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
@@ -240,6 +242,8 @@
 		BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardSectionHeaderView.xib; sourceTree = "<group>"; };
 		BD6074D0269ED71600CA62F3 /* TripPlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanDataModel.swift; sourceTree = "<group>"; };
 		BD6074D3269ED7B900CA62F3 /* TripPlanDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanDataService.swift; sourceTree = "<group>"; };
+		BD6074D8269F2C3900CA62F3 /* BottomSheetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetView.xib; sourceTree = "<group>"; };
+		BD6074DA269F2C4100CA62F3 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 		0A1BD3B8268E192400702EC5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BD6074D5269F27D500CA62F3 /* BottomSheet */,
 				BD5EEC8C2698483900D09B11 /* TripTop */,
 				0A88A00E269493C800A4EBD0 /* Popup */,
 				0A1BD3BD268E1C7000702EC5 /* PagerTab */,
@@ -731,6 +736,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		BD6074D5269F27D500CA62F3 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				BD6074D8269F2C3900CA62F3 /* BottomSheetView.xib */,
+				BD6074DA269F2C4100CA62F3 /* BottomSheetView.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
 		BD75C2BB268B4B3700C4F233 = {
 			isa = PBXGroup;
 			children = (
@@ -1045,6 +1059,7 @@
 				39369200269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib in Resources */,
 				0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */,
 				BD172597269C14BE000FB89B /* BoardPopupView.xib in Resources */,
+				BD6074D9269F2C3900CA62F3 /* BottomSheetView.xib in Resources */,
 				BD0AD61A269363E30033DAD8 /* BoardStoryboard.storyboard in Resources */,
 				BD5CBC442694961C00935E79 /* DateCollectionViewCell.xib in Resources */,
 				3975958F269B56A9008E8360 /* TestChoiceStoryboard.storyboard in Resources */,
@@ -1110,6 +1125,7 @@
 				BD6074BA269DFA0200CA62F3 /* AddBoardDataService.swift in Sources */,
 				4097AC94269B0F9F00E34CCC /* MemberCodeCopyTableViewCell.swift in Sources */,
 				40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */,
+				BD6074DB269F2C4100CA62F3 /* BottomSheetView.swift in Sources */,
 				BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */,
 				BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */,
 				BD6074D4269ED7B900CA62F3 /* TripPlanDataService.swift in Sources */,
