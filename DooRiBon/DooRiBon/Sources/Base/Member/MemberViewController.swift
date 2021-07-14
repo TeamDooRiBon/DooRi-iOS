@@ -31,9 +31,20 @@ class MemberViewController: UIViewController {
         // 상단영역 버튼 액션 연결
         setupButtonAction()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTopView()
+    }
 }
 
 extension MemberViewController {
+    /// TopView Setup
+    private func setupTopView() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        topView.setTopViewData(tripData: model)
+    }
+    
     // MARK: - Button Actions
     
     private func setupButtonAction() {

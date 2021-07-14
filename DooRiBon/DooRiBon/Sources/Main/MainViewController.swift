@@ -67,8 +67,6 @@ class MainViewController: UIViewController {
     // MARK: - 액션
     
     @IBAction func nowTripClicked(_ sender: Any) {
-//        print(11111, nowTripList[0])
-        
         let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
         if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
             navigationController?.pushViewController(tripVC, animated: true)
@@ -234,8 +232,6 @@ extension MainViewController: UICollectionViewDataSource
 extension MainViewController: UICollectionViewDelegate
 {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(333333, comeTripList[indexPath.row])
-        
         let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
         if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
             navigationController?.pushViewController(tripVC, animated: true)
@@ -276,8 +272,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 extension MainViewController: UITableViewDataSource, UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(333333, lastTripList[indexPath.row])
-        
         let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
         if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
             navigationController?.pushViewController(tripVC, animated: true)
