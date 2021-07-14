@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PhotoCollectionViewCell: UICollectionViewCell {
 
@@ -45,12 +46,13 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func prepareForReuse() {
+    }
+    
     //MARK:- Function
     
-    func imageSet(imageName: String) {
-        if let image = UIImage(named: imageName) {
-            mainPhoto.image = image
-        }
+    func imageSet(imageUrl: URL) {
+        mainPhoto.kf.setImage(with: imageUrl)
     }
 
 }

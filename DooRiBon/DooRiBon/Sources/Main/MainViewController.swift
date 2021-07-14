@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
     
     /// 제약
     @IBOutlet weak var lastTripViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var indicatorBarWidthConstraint: NSLayoutConstraint!
     
     // MARK: - 배열
     var nowTripList: [Group] = []
@@ -43,7 +44,6 @@ class MainViewController: UIViewController {
     var lastTripList : [Group] = []
     
     var allTripData: MainDataModel?
-
     let formatter = DateFormatter()
     let calendar = Calendar.current
 
@@ -89,8 +89,16 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func goStyleTestButtonClicked(_ sender: Any) {
+        let testStortboard = UIStoryboard(name: "TestChoiceStoryboard", bundle: nil)
+        if let testVC = testStortboard.instantiateViewController(identifier: "TestChoiceViewController") as? TestChoiceViewController {
+            testVC.modalPresentationStyle = .overFullScreen
+            self.present(testVC, animated: true, completion: nil)
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/3
+        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/CGFloat(comeTripList.count)
     }
     
     
@@ -133,10 +141,15 @@ class MainViewController: UIViewController {
         }
         if (allTripData?.data![1].when == "comeTravels") {
             comeTripList = (allTripData?.data![1].group)!
+            self.indicatorBarWidthConstraint.constant = self.backgroundView.frame.width/CGFloat(self.comeTripList.count)
         }
         if (allTripData?.data![2].when == "endTravels") {
             lastTripList = (allTripData?.data![2].group)!
-            lastTripViewHeightConstraint.constant = CGFloat(175 * lastTripList.count)
+            if lastTripList.count == 1 {
+                lastTripViewHeightConstraint.constant = 200
+            } else {
+                lastTripViewHeightConstraint.constant = CGFloat(170 * lastTripList.count)
+            }
             lastTripTableView.reloadData()
         }
         setNowTripList()
@@ -257,7 +270,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
     
     // ContentInset 메서드: Cell에서 Content 외부에 존재하는 Inset의 크기를 결정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.zero    //  Inset을 사용하지 않는다는 뜻
+        return UIEdgeInsets.zero    //  Inset을 사용하지 않는다는 뜻x
     }
     
     // minimumLineSpacing 메서드: Cell 들의 위, 아래 간격 지정
@@ -300,4 +313,3 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
         return tripCell
     }
 }
-
