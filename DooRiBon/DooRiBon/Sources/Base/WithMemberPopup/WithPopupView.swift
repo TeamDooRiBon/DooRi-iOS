@@ -14,7 +14,13 @@ class WithPopupView: UIView {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet weak var memberCollectionView: UICollectionView!
     
-    private var memberList : [MemberPopupDataModel] = []
+    private var profileList: [Profile] = [] {
+        didSet {
+            memberCollectionView.reloadData()
+            changeLabel()
+        }
+    }
+    private var groupId: String = ""
     
     fileprivate lazy var confirmButton: UIButton = {
         let button = UIButton()
@@ -46,23 +52,35 @@ class WithPopupView: UIView {
         memberCollectionView.delegate = self
         memberCollectionView.dataSource = self
         
-        setMemberList()
         memberCollectionView.register(NibConstants.MemberPopupNib, forCellWithReuseIdentifier: "MemberPopupCollectionViewCell")
         
+    }
         
-        
-        
+    func setProfileData(id: String)
+    {
+        GetMemberProfileDataService.shared.getPersonInfo(groupId: id) { (response) in
+            switch(response)
+            {
+            case .success(let profileData):
+                if let data = profileData as? [Profile] {
+                    self.profileList = data
+                    print(self.profileList)
+                }
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
-    func setMemberList()
-    {
-        memberList.append(contentsOf: [
-        MemberPopupDataModel(imageName: "imgProfile", memberName: "김민영"),
-        MemberPopupDataModel(imageName: "imgProfile", memberName: "박유진"),
-        MemberPopupDataModel(imageName: "imgProfile", memberName: "변주현"),
-        MemberPopupDataModel(imageName: "imgProfile", memberName: "김태현"),
-        MemberPopupDataModel(imageName: "imgProfile", memberName: "김다운")
-        ])
+    func setGroupId(id: String) -> Self {
+        setProfileData(id: id)
+        return self
     }
 
     func present(_ eventHandler: @escaping ((_ type: EventType) -> Void)) {
@@ -103,6 +121,10 @@ class WithPopupView: UIView {
             $0.height.equalTo(50)
         }
         return self
+    }
+    
+    func changeLabel() {
+        descriptionLabel.text = "총 \(profileList.count)명"
     }
 
     @objc private func confirmAction(_ sender: UIButton) {
@@ -146,14 +168,14 @@ class WithPopupView: UIView {
 extension WithPopupView: UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        memberList.count
+        profileList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let memberCell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberPopupCollectionViewCell.identifier, for: indexPath) as? MemberPopupCollectionViewCell else {return UICollectionViewCell() }
         
-        memberCell.setData(imageName: memberList[indexPath.row].imageName,
-                           memberName: memberList[indexPath.row].memberName)
+        memberCell.setData(imageName: profileList[indexPath.row].profileImage,
+                           memberName: profileList[indexPath.row].name)
 
         return memberCell
     }
