@@ -27,6 +27,9 @@ class JoinTripViewController: UIViewController {
         }
     }
     
+    var joinData: [JoinTripData]?
+    
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var codeStackView: UIStackView!
@@ -189,11 +192,12 @@ extension JoinTripViewController {
     
     // MARK: - Service
     private func getTripData(inviteCode: String) {
-        JoinTripDataService.shared.getTripInfoWithInviteCode(inviteCode: inviteCode) { (response) in
+        JoinTripDataService.shared.getTripInfoWithInviteCode(inviteCode: inviteCode) { [self] (response) in
             switch(response)
             {
             case .success(let data) :
                 print(data)
+                self.rightCodeCheck(data as! JoinTripData)
             case .requestErr(let message) :
                 print(message)
             case .pathErr :
@@ -214,6 +218,12 @@ extension JoinTripViewController {
             }
         }
         return inviteCode
+    }
+    
+    func rightCodeCheck(_ data: JoinTripData) {
+        guard let vc = UIStoryboard(name: "CheckTripStoryboard", bundle: nil).instantiateViewController(identifier: "CheckTripViewController") as? CheckTripViewController else { return }
+        vc.checkTripData = data
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
