@@ -2,56 +2,24 @@ PODS:
   - Alamofire (5.4.1)
   - FSCalendar (2.8.3)
   - Kingfisher (6.1.0)
-  - MaterialComponents/Availability (124.2.0)
-  - MaterialComponents/BottomSheet (124.2.0):
-    - MaterialComponents/Elevation
-    - MaterialComponents/private/KeyboardWatcher
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-  - "MaterialComponents/BottomSheet+ShapeThemer (124.2.0)":
-    - MaterialComponents/BottomSheet
-    - MaterialComponents/schemes/Shape
-  - MaterialComponents/Elevation (124.2.0):
-    - MaterialComponents/Availability
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-  - MaterialComponents/private/Application (124.2.0)
-  - MaterialComponents/private/Color (124.2.0):
-    - MaterialComponents/Availability
-  - MaterialComponents/private/KeyboardWatcher (124.2.0):
-    - MaterialComponents/private/Application
-  - MaterialComponents/private/Math (124.2.0)
-  - MaterialComponents/schemes/Shape (124.2.0):
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-  - MaterialComponents/ShadowElevations (124.2.0)
-  - MaterialComponents/ShadowLayer (124.2.0):
-    - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (124.2.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/Shapes
-  - MaterialComponents/Shapes (124.2.0):
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShadowLayer
+  - lottie-ios (3.2.0)
+  - SkeletonView (1.21.1)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - FSCalendar (from `https://github.com/hyejinL/FSCalendar.git`, branch `dooribun`)
   - Kingfisher (~> 6.0)
-  - MaterialComponents/BottomSheet
-  - "MaterialComponents/BottomSheet+ShapeThemer"
+  - lottie-ios
+  - SkeletonView
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
-    - MaterialComponents
+    - lottie-ios
+    - SkeletonView
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -68,9 +36,10 @@ SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   FSCalendar: ed63fee7df375e34340c1236308fdbfc568d26ac
   Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
-  MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+  lottie-ios: b6b911246246a90a1d25e7388afe6d9ef003d293
+  SkeletonView: 5b79eb6e09d2a7f3d2e620d34ff97510a1c763e9
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 1d9ca91edc07c4aaced2d67f6c826deae6af278e
+PODFILE CHECKSUM: 91b9fe361384338c0b3bc166b8cc09b9f88e5abf
 
 COCOAPODS: 1.10.1
