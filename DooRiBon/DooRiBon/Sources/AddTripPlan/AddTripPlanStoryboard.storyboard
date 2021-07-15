@@ -177,7 +177,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mG-qv-llh">
                                         <rect key="frame" x="292" y="291" width="23" height="23"/>
-                                        <state key="normal" image="btnNotAdd"/>
+                                        <state key="normal" image="btnNotadd"/>
                                         <connections>
                                             <action selector="notAddButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tgq-dl-Q1C"/>
                                         </connections>
@@ -377,6 +377,7 @@
                         <outlet property="startDateLabel" destination="XZK-SN-Ehs" id="Dia-nn-Ovn"/>
                         <outlet property="startTimeButton" destination="jgd-dE-oZn" id="dnc-Re-eqV"/>
                         <outlet property="startTimeLabel" destination="2Pp-hL-lLm" id="QBk-BQ-AVv"/>
+                        <outlet property="topLabel" destination="XJW-fB-4kB" id="MDO-v1-73C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -386,7 +387,7 @@
     </scenes>
     <resources>
         <image name="backIconWhite" width="24" height="24"/>
-        <image name="btnNotAdd" width="23" height="23"/>
+        <image name="btnNotadd" width="23" height="23"/>
         <image name="scheduleIllust" width="183" height="164"/>
         <image name="timeEndBoxline" width="167.5" height="69"/>
         <image name="timeStartBoxline" width="173.5" height="69"/>

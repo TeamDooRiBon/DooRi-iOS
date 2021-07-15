@@ -45,7 +45,7 @@ struct APIConstants {
     static let addPlanURL = baseURL + "/schedule/:groupId"
     static let scheduleURL = baseURL + "/schedule"
     static let getScheduleURL = baseURL + "/schedule/:groupId/:scheduleId"
-    
+    static let editPlanURL = baseURL + "/schedule/:groupId/:scheduleId"
 
     // MARK: - /board
     static let boardURL = baseURL + "/board"
