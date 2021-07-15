@@ -70,7 +70,7 @@ class BoardViewController: UIViewController {
         }
     }
     
-    private var currentBoardData: [AddBoardData]? {
+    private var currentBoardData: [BoardData]? {
         didSet {
             tableView.reloadData()
         }
@@ -81,7 +81,7 @@ class BoardViewController: UIViewController {
     private var contents: String = ""
     
     static var profileData: [Profile] = []
-    static var thisID: String = ""
+    private var thisID: String = ""
     
     // MARK: - Life Cycle
     
@@ -96,13 +96,13 @@ class BoardViewController: UIViewController {
         super.viewWillAppear(animated)
         setupTopView()
         guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
-        getBoardData(tag: tag)
+        getBoardData(groupId: self.thisID, tag: tag)
     }
     
-    private func postTripBoard(contents: String, tag: String) {
+    private func postTripBoard(contents: String, groupId: String, tag: String) {
         let input = AddBoardRequest(content: contents)
         AddBoardDataService.shared.postTripBoard(input,
-                                                 groupId: "60ed24ad317c7b2480ee1ec6",
+                                                 groupId: groupId,
                                                  tag: tag) { response in
             switch(response)
             {
@@ -120,13 +120,15 @@ class BoardViewController: UIViewController {
         }
     }
     
-    private func getBoardData(tag: String) {
-        AddBoardDataService.shared.getTripBoard(groupId: "60ed24ad317c7b2480ee1ec6",
+    private func getBoardData(groupId: String, tag: String) {
+        AddBoardDataService.shared.getTripBoard(groupId: groupId,
                                                 tag: tag) { response in
+            
+            
             switch(response)
             {
             case .success(let data) :
-                if let data = data as? [AddBoardData] {
+                if let data = data as? [BoardData] {
                     self.currentBoardData = data
                 }
 
@@ -149,7 +151,7 @@ extension BoardViewController {
     private func setupTopView() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         topView.setTopViewData(tripData: model)
-        MemberViewController.thisID = model._id
+        self.thisID = model._id
     }
     
     private func setupUI() {
@@ -190,7 +192,7 @@ extension BoardViewController {
             .setTitle("함께하는 사람")
             .setDescription("총 5명")
             .setConfirmButton("참여코드 복사하기")
-            .setGroupId(id: MemberViewController.thisID)
+            .setGroupId(id: self.thisID)
             .present { event in
                  if event == .confirm {
                     ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
@@ -238,7 +240,7 @@ extension BoardViewController {
         selectedTagIndex = sender.tag
         
         guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
-        getBoardData(tag: tag)
+        getBoardData(groupId: self.thisID, tag: tag)
         
         tableView.reloadData()
     }
@@ -278,8 +280,8 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
             .setDescription(popupData[selectedTagIndex].description)
             .present { event in
                 if event == .confirm {
-                    self.postTripBoard(contents: self.contents, tag: description)
-                    self.getBoardData(tag: description)
+                    self.postTripBoard(contents: self.contents, groupId: self.thisID, tag: description)
+                    self.getBoardData(groupId: self.thisID, tag: description)
                     self.tableView.reloadData()
                 }
             }
