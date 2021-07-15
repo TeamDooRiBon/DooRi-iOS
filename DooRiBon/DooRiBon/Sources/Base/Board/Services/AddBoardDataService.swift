@@ -22,6 +22,11 @@ struct AddBoardDataService {
         return url
     }
     
+    private func makeDeleteURL(groupId: String, tag: String, boardId: String) -> String {
+        let url = APIConstants.boardURL + "/\(groupId)" + "/\(tag)" + "/\(boardId)"
+        return url
+    }
+    
     // MARK: - Get Function
     
     func getTripBoard(groupId: String, tag: String, completion: @escaping (NetworkResult<Any>)->()) {
@@ -73,11 +78,37 @@ struct AddBoardDataService {
         }
     }
     
+    // MARK: - Delete Function
+    
+    func deleteTripBoard(groupId: String, tag: String, boardId: String, completion: @escaping (NetworkResult<Any>)->()) {
+        let url = makeDeleteURL(groupId: groupId, tag: tag, boardId: boardId)
+        let headers: HTTPHeaders = NetworkInfo.headerWithToken
+        
+        let dataRequest = AF.request(url,
+                                     method: .delete,
+                                     encoding: JSONEncoding.default,
+                                     headers: headers)
+        
+        dataRequest.responseData { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeStatus(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    
     // MARK: - Judge Status
     
     private func judgeStatus(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(AddBoardResponse.self, from: data) else {return .pathErr}
+        guard let decodedData = try? decoder.decode(BoardResponse.self, from: data) else {return .pathErr}
         
         switch status {
         case 200: return .success(decodedData.data as Any)

@@ -45,7 +45,6 @@ class TripTopView: UIView {
     func setTopViewData(tripData: Group) {
         startDate = tripData.startDate
         endDate = tripData.endDate
-    
         formatter.dateFormat = "yyyy.MM.dd"
         let start = formatter.string(from: tripData.startDate)
         formatter.dateFormat = "MM.dd"

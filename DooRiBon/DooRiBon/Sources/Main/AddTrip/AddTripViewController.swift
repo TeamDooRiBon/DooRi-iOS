@@ -39,11 +39,15 @@ class AddTripViewController: UIViewController {
     var selectedIndex: Int?
     var startDateParsing: String?
     var endDateParsing: String?
+    var topLabelData: String = ""
+    var buttonData: String = ""
+    var groupId: String = ""
     
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         photoListSet()
         bottomShadowSet()
         notificationSet()
@@ -73,6 +77,13 @@ class AddTripViewController: UIViewController {
     //MARK:- Function
     
     /// 추후 서버 연동시 변경될 함수입니다.
+    func configureUI() {
+        if topLabelData != "" {
+            topLabel.text = topLabelData
+            startNewTripButton.setTitle(buttonData, for: .normal)
+        }
+    }
+    
     func photoListSet() {
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
@@ -106,24 +117,48 @@ class AddTripViewController: UIViewController {
     }
     
     @IBAction func startNewTripButtonClicked(_ sender: Any) {
-        if let travelName = tripNameTextField.text, let destination = tripLocationTextField.text, let startDate = startDateParsing, let endDate = endDateParsing, let selectedIndex = selectedIndex {
-            AddTripService.shared.postData(travelName: travelName, destination: destination, startDate: startDate, endDate: endDate, imageIndex: selectedIndex) {result in
-                switch result {
-                case .success(_):
-                    print("success")
-                    self.navigationController?.popViewController(animated: true)
-                case .requestErr(_):
-                    print("requestErr")
-                    return
-                case .pathErr:
-                    print("pathErr")
-                    return
-                case .serverErr:
-                    print("serverErr")
-                    return
-                case .networkFail:
-                    print("netWorkFail")
-                    return
+        if topLabelData == "" {
+            if let travelName = tripNameTextField.text, let destination = tripLocationTextField.text, let startDate = startDateParsing, let endDate = endDateParsing, let selectedIndex = selectedIndex {
+                AddTripService.shared.postData(travelName: travelName, destination: destination, startDate: startDate, endDate: endDate, imageIndex: selectedIndex) {result in
+                    switch result {
+                    case .success(_):
+                        print("success")
+                        self.navigationController?.popViewController(animated: true)
+                    case .requestErr(_):
+                        print("requestErr")
+                        return
+                    case .pathErr:
+                        print("pathErr")
+                        return
+                    case .serverErr:
+                        print("serverErr")
+                        return
+                    case .networkFail:
+                        print("netWorkFail")
+                        return
+                    }
+                }
+            }
+        } else {
+            if let travelName = tripNameTextField.text, let destination = tripLocationTextField.text, let startDate = startDateParsing, let endDate = endDateParsing, let selectedIndex = selectedIndex {
+                EditTripService.shared.patchData(groupID: groupId, travelName: travelName, destination: destination, startDate: startDate, endDate: endDate, imageIndex: selectedIndex) {result in
+                    switch result {
+                    case .success(_):
+                        print("success")
+                        self.navigationController?.popViewController(animated: true)
+                    case .requestErr(_):
+                        print("requestErr")
+                        return
+                    case .pathErr:
+                        print("pathErr")
+                        return
+                    case .serverErr:
+                        print("serverErr")
+                        return
+                    case .networkFail:
+                        print("netWorkFail")
+                        return
+                    }
                 }
             }
         }

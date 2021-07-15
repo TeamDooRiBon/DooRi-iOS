@@ -17,9 +17,9 @@ class PlanViewController: UIViewController {
         return gregorian
     }()
     
-    private var tripData: Group?
+    var tripData: Group?
     let formatter = DateFormatter()
-    
+
     // MARK: - Dummy Data
     
     private var dummyData: [Int] = [] {
@@ -48,6 +48,7 @@ class PlanViewController: UIViewController {
     
     static var profileData: [Profile] = []
     static var thisID: String = ""
+    var schedule: ScheduleData?
 
     // MARK: - Life Cycle
     
@@ -57,14 +58,41 @@ class PlanViewController: UIViewController {
         configureUI()
         setupButtonAction()
         setupCollectionView()
-        setupTopView()
         setupTableView()
         setupData()
+        setupFirstData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getSchduleData(date: "2021-07-15")
+        refreshTopView()
+    }
+    
+    // MARK: - Function
+    func refreshTopView() {
+        TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
+            switch(response)
+            {
+            case .success(let data):
+                if let tripResponse = data as? TripInfoResponse {
+                    let tripInfo = tripResponse.data
+                    tripData?.startDate = tripInfo.startDate
+                    tripData?.endDate = tripInfo.endDate
+                    tripData?.travelName = tripInfo.travelName
+                    tripData?.destination = tripInfo.destination
+                    setupTopView()
+                }
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
     }
     
     // MARK: - IBActions
@@ -73,6 +101,7 @@ class PlanViewController: UIViewController {
 // MARK: - Helpers
 
 extension PlanViewController {
+    
     // MARK: - Configure
     /// UI Setup
     private func configureUI() {
@@ -100,11 +129,16 @@ extension PlanViewController {
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
-        print("profile button clicked")
     }
     
     @objc func settingButtonClicked(_ sender: UIButton) {
-        print("setting button clicked")
+        let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
+        guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        nextVC.groupId = tripData?._id ?? ""
+        nextVC.hidesBottomBarWhenPushed = true
+        nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
+        nextVC.buttonData = "여행 정보 수정하기"
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
@@ -113,7 +147,7 @@ extension PlanViewController {
             .setTitle("함께하는 사람")
             .setDescription("총 5명")
             .setConfirmButton("참여코드 복사하기")
-            .setGroupId(id: MemberViewController.thisID)
+            .setGroupId(id: PlanViewController.thisID)
             .present { event in
                  if event == .confirm {
                     ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
@@ -127,12 +161,17 @@ extension PlanViewController {
     }
     
     /// TopView Setup
-    private func setupTopView() {
+    private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         tripData = model
+        setupTopView()
+    }
+    /// TopView Setup
+    private func setupTopView() {
         setupDateData()
-        topView.setTopViewData(tripData: model)
-        MemberViewController.thisID = model._id
+        print(tripData)
+        topView.setTopViewData(tripData: tripData!)
+        PlanViewController.thisID = tripData?._id ?? ""
     }
     
     private func setupDateData() {
@@ -162,15 +201,87 @@ extension PlanViewController {
     
     private func getSchduleData(date: String) {
         guard let groupId = tripData?._id else { return }
-        print(groupId)
         
         TripPlanDataService.shared.getTripPlan(groupId: groupId,
                                                date: date) { [weak self] (response) in
             switch response {
             case .success(let data):
-                print("success", data)
                 if let schedule = data as? [Schedule] {
                     self!.planDummyData = schedule
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .pathErr:
+                print("pathErr")
+            }
+        }
+    }
+    
+    private func getScheduleData(groupId: String, scheduleId: String) {
+        ScheduleDataService.shared.getSchedule(groupId: groupId,
+                                               scheduleId: scheduleId) { response in
+            
+            switch response {
+            case .success(let data):
+                if let scheduleData = data as? ScheduleData {
+                    self.schedule = scheduleData
+                    let start = scheduleData.startTime
+                    let end = scheduleData.endTime
+                    
+                    let sTime = self.strToDate(type: .hh, date: start)
+                    let eTime = self.strToDate(type: .hh, date: end)
+                    
+                    BottomSheetView.loadFromXib()
+                        .setBottomSheetType(.plan)
+                        .setHost("\(scheduleData.writer.name)님이 작성")
+                        .setInfomation("\(scheduleData.createdAt) 마지막 작성")
+                        .setDescription(scheduleData.tilte)
+                        .setDetail(time: "\(sTime) - \(eTime)",
+                                   destination: scheduleData.location,
+                                   memo: scheduleData.memo)
+                        .present { event in
+                            if event == .edit {
+                                
+                            } else {
+                                PopupView.loadFromXib()
+                                    .setTitle("정말 삭제하시겠습니까?")
+                                    .setDescription("한번 삭제한 항목은 다시 되돌릴 수 없습니다.\n그래도 삭제를 원하신다면 오른쪽 버튼을 눌러주세요")
+                                    .setCancelButton()
+                                    .setConfirmButton()
+                                    .present { event in
+                                        if event == .confirm {
+                                            self.deleteSchedule(groupId: groupId, scheduleId: scheduleId)
+                                        } else {
+                                        }
+                                    }
+                            }
+                        }
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .pathErr:
+                print("pathErr")
+            }
+        }
+    }
+    
+    private func deleteSchedule(groupId: String, scheduleId: String) {
+        ScheduleDataService.shared.deleteSchedule(groupId: groupId,
+                                               scheduleId: scheduleId) { response in
+            switch response {
+            
+            case .success(let data):
+                if let scheduleData = data as? [Schedule] {
+                    self.getSchduleData(date: "2021-07-15")
+                    self.contentsTableView.reloadData()
                 }
             case .requestErr(_):
                 print("requestErr")
@@ -218,7 +329,13 @@ extension PlanViewController {
         return Int(str) ?? -1
     }
     
-    private func strToDate(date: String) -> String {
+    enum TimeType {
+        case HH
+        case hh
+    }
+    
+    private func strToDate(type: TimeType,date: String) -> String {
+        let hour = type == .HH ? "HH" : "a h"
         let dateStr = date // Date 형태의 String
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm" // 2020-08-13-16:30
@@ -226,9 +343,10 @@ extension PlanViewController {
         let convertDate = dateFormatter.date(from: dateStr) // Date 타입으로 변환
                 
         let myDateFormatter = DateFormatter()
-        myDateFormatter.dateFormat = "HH:mm" // 2020년 08월 13일 오후 04시 30분
+        myDateFormatter.dateFormat = "\(hour):mm" // 2020년 08월 13일 오후 04시 30분
+        myDateFormatter.locale = Locale(identifier:"ko_KR")
         let convertStr = myDateFormatter.string(from: convertDate!)
-        print(convertStr)
+        
         return convertStr
     }
 }
@@ -290,7 +408,7 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout {
 
 extension PlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)번째 셀클릭")
+        getScheduleData(groupId: tripData?._id ?? "", scheduleId: planDummyData[indexPath.row].id)
     }
 }
 
@@ -332,8 +450,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
                 cell.bottomLineView.isHidden = true
             }
             
-            let time = strToDate(date: planDummyData[indexPath.row].formatTime)
-//            print(time)
+            let time = strToDate(type: .HH, date: planDummyData[indexPath.row].formatTime)
             
             cell.selectionStyle = .none
             cell.timeLabel.text = time

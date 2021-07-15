@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYF-Jo-LZa">
-                                <rect key="frame" x="18" y="0.0" width="378" height="430"/>
+                                <rect key="frame" x="18" y="0.0" width="378" height="465"/>
                                 <color key="backgroundColor" name="white8"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberOurTableViewCell" rowHeight="113" id="eKD-T5-ATp" customClass="MemberOurTableViewCell" customModule="DooRiBon" customModuleProvider="target">
@@ -147,7 +147,7 @@
                             <constraint firstItem="pYF-Jo-LZa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="1Bi-We-cuF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pYF-Jo-LZa" secondAttribute="trailing" constant="18" id="4Zj-dC-Yik"/>
                             <constraint firstItem="pYF-Jo-LZa" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Ihj-as-vlw"/>
-                            <constraint firstAttribute="bottom" secondItem="pYF-Jo-LZa" secondAttribute="bottom" constant="35" id="zpw-38-UqJ"/>
+                            <constraint firstAttribute="bottom" secondItem="pYF-Jo-LZa" secondAttribute="bottom" id="zpw-38-UqJ"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="465"/>
