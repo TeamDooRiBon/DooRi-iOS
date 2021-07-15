@@ -96,6 +96,12 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func mypageButtonClicked(_ sender: Any) {
+        guard let vc = UIStoryboard(name: "MyPageStoryboard", bundle: nil).instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/CGFloat(comeTripList.count)
     }

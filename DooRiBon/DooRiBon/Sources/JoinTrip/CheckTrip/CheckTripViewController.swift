@@ -40,26 +40,13 @@ class CheckTripViewController: UIViewController {
             ]
         }
         self.checkTripTitleLabel.text = self.checkTripData?.travelName
-        var str1 = self.checkTripData?.startDate.components(separatedBy: "-")
-        var str2 = self.checkTripData?.endDate.components(separatedBy: "-")
+        let str1 = self.checkTripData?.startDate.components(separatedBy: "-")
+        let str2 = self.checkTripData?.endDate.components(separatedBy: "-")
         let start = str1![0] + ". " + str1![1] + ". " + str1![2]
         let end = str2![1] + ". " + str2![2]
         self.checkTripDateLabel.text = start + " - " + end
         self.checkTripLocationLabel.text = self.checkTripData?.destination
         self.makeTripPersonLabel.text = "\(self.checkTripData?.host ?? "한상진")님이 만든 여행"
-        
-        
-//        formatter.dateFormat = "yyyy.MM.dd"
-//        let start = formatter.string(from: self.checkTripData!.startDate)
-//        let end = formatter.string(from: nowTripList[0].endDate)
-//        nowTripDateLabel.text = "\(start) - \(end)"
-//        self.nowTripTitleLabel.text = nowTripList[0].travelName
-//        self.nowTripLocationLabel.text = nowTripList[0].destination
-//        if nowTripList[0].members.count == 1 {
-//            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님과 함께"
-//        } else {
-//            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님외 \(nowTripList[0].members.count - 1)명과 함께"
-//        }
     }
     
     func setShadowView() {
