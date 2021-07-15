@@ -48,6 +48,7 @@ class PlanViewController: UIViewController {
     
     static var profileData: [Profile] = []
     static var thisID: String = ""
+    var schedule: ScheduleData?
 
     // MARK: - Life Cycle
     
@@ -113,7 +114,7 @@ extension PlanViewController {
             .setTitle("함께하는 사람")
             .setDescription("총 5명")
             .setConfirmButton("참여코드 복사하기")
-            .setGroupId(id: MemberViewController.thisID)
+            .setGroupId(id: PlanViewController.thisID)
             .present { event in
                  if event == .confirm {
                     ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
@@ -132,7 +133,7 @@ extension PlanViewController {
         tripData = model
         setupDateData()
         topView.setTopViewData(tripData: model)
-        MemberViewController.thisID = model._id
+        PlanViewController.thisID = model._id
     }
     
     private func setupDateData() {
@@ -184,6 +185,46 @@ extension PlanViewController {
         }
     }
     
+    private func getScheduleData(groupId: String, scheduleId: String) {
+        ScheduleDataService.shared.getSchedule(groupId: groupId,
+                                               scheduleId: scheduleId) { response in
+            
+            switch response {
+            case .success(let data):
+                if let scheduleData = data as? ScheduleData {
+                    self.schedule = scheduleData
+                    let start = scheduleData.startTime
+                    let end = scheduleData.endTime
+                    
+                    let sTime = self.strToDate(type: .hh, date: start)
+                    let eTime = self.strToDate(type: .hh, date: end)
+                    
+                    BottomSheetView.loadFromXib()
+                        .setBottomSheetType(.plan)
+                        .setHost("\(scheduleData.writer.name)님이 작성")
+                        .setInfomation("\(scheduleData.createdAt) 마지막 작성")
+                        .setDescription(scheduleData.tilte)
+                        .setDetail(time: "\(sTime) - \(eTime)",
+                                   destination: scheduleData.location,
+                                   memo: scheduleData.memo)
+                        .present { event in
+                            if event == .edit {
+                            } else {
+                            }
+                        }
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .pathErr:
+                print("pathErr")
+            }
+        }
+    }
+    
     /// CollectionView Setup
     private func setupCollectionView() {
         calendarView.delegate = self
@@ -218,7 +259,13 @@ extension PlanViewController {
         return Int(str) ?? -1
     }
     
-    private func strToDate(date: String) -> String {
+    enum TimeType {
+        case HH
+        case hh
+    }
+    
+    private func strToDate(type: TimeType,date: String) -> String {
+        let hour = type == .HH ? "HH" : "a h"
         let dateStr = date // Date 형태의 String
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm" // 2020-08-13-16:30
@@ -226,9 +273,10 @@ extension PlanViewController {
         let convertDate = dateFormatter.date(from: dateStr) // Date 타입으로 변환
                 
         let myDateFormatter = DateFormatter()
-        myDateFormatter.dateFormat = "HH:mm" // 2020년 08월 13일 오후 04시 30분
+        myDateFormatter.dateFormat = "\(hour):mm" // 2020년 08월 13일 오후 04시 30분
+        myDateFormatter.locale = Locale(identifier:"ko_KR")
         let convertStr = myDateFormatter.string(from: convertDate!)
-        print(convertStr)
+        
         return convertStr
     }
 }
@@ -291,16 +339,8 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout {
 extension PlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.row)번째 셀클릭")
-        BottomSheetView.loadFromXib()
-            .setBottomSheetType(.plan)
-            .setHost("누구누구님")
-            .setDescription("안녕하세여")
-            .setDetail(time: "123", destination: "123", memo: "!23")
-            .present { event in
-                if event == .edit {
-                } else {
-                }
-            }
+        print(111111, planDummyData[indexPath.row].id)
+        getScheduleData(groupId: tripData?._id ?? "", scheduleId: planDummyData[indexPath.row].id)
     }
 }
 
@@ -342,8 +382,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
                 cell.bottomLineView.isHidden = true
             }
             
-            let time = strToDate(date: planDummyData[indexPath.row].formatTime)
-//            print(time)
+            let time = strToDate(type: .HH, date: planDummyData[indexPath.row].formatTime)
             
             cell.selectionStyle = .none
             cell.timeLabel.text = time
