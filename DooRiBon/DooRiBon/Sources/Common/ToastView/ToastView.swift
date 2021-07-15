@@ -51,8 +51,8 @@ class ToastView: UIView {
     // MARK: - Animations
     // Hide
     private func moveOut() {
-        UIView.animate(withDuration: 0.2, delay: 1.5, animations: {
-            self.frame.origin.y = -100
+        UIView.animate(withDuration: 0.7, delay: 1.0, animations: {
+            self.containerView.alpha = 0.0
         }, completion: {(isCompleted) in
             self.removeFromSuperview()
         })

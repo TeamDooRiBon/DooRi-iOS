@@ -17,20 +17,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 하나의 윈도우 객체 할당
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        
-        // 맨 처음 보여줄 뷰 컨트롤러 객체 생성 (루트 뷰 컨트롤러로 사용할 객체)
-//        let rootViewController = UIStoryboard(name: "MyPageStoryboard", bundle: nil)
-//            .instantiateViewController(identifier: "MyPageViewController")
-        let rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil)
-            .instantiateViewController(identifier: "MainViewController")
-
-        // 윈도우 위에 쌓이는 것 중에서 윈도우와 가장 근접한 부분을 rootViewController 라고 함
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
-
+    
+        window?.rootViewController = SplashViewController()
         // 생성한 윈도우를 핵심 윈도우로 보여줌 (윈도우는 여러 개 생성 가능)
         window?.makeKeyAndVisible()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            let rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil)
+            .instantiateViewController(identifier: "MainViewController")
+            let mainViewController = UINavigationController(rootViewController: rootViewController)
+            self.window?.rootViewController = mainViewController
+            self.window?.makeKeyAndVisible()
+        }
 
     }
 
 }
+
 

@@ -141,7 +141,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-59-Pcf">
                     <rect key="frame" x="9" y="46" width="24" height="24"/>
-                    <state key="normal" image="iconBackGrey"/>
+                    <state key="normal" image="iconClose"/>
                 </button>
             </subviews>
             <color key="backgroundColor" name="backgroundBlue"/>
@@ -179,7 +179,7 @@
     <resources>
         <image name="btnAddpeopleCopycode" width="29" height="29"/>
         <image name="iconAirplaneFill" width="20" height="20"/>
-        <image name="iconBackGrey" width="24" height="24"/>
+        <image name="iconClose" width="24" height="24"/>
         <image name="iconMypage" width="24" height="24"/>
         <image name="iconSettings" width="20" height="20"/>
         <image name="iconUserMainMid" width="18" height="18"/>

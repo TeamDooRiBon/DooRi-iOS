@@ -46,9 +46,11 @@ class PlanViewController: UIViewController {
     @IBOutlet weak var currentYearLabel: UILabel!
     @IBOutlet weak var currentMonthLabel: UILabel!
     
+    private var dates: [String] = []
     static var profileData: [Profile] = []
     static var thisID: String = ""
     var schedule: ScheduleData?
+    private var currentDate: String = ""
 
     // MARK: - Life Cycle
     
@@ -65,11 +67,12 @@ class PlanViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getSchduleData(date: "2021-07-05")
+        getSchduleData(date: currentDate)
         refreshTopView()
     }
     
     // MARK: - Function
+    
     func refreshTopView() {
         
         TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
@@ -188,26 +191,23 @@ extension PlanViewController {
     }
     
     private func setupDateData() {
+        dummyData = []
+        
         guard let startDate = tripData?.startDate else { return }
         guard let endDate = tripData?.endDate else { return }
         
-        formatter.dateFormat = "YYYY"
-        let startYear = formatter.string(from: startDate)
-        currentYearLabel.text = startYear
-        formatter.dateFormat = "M"
-        let startMonth = formatter.string(from: startDate)
-        currentMonthLabel.text = startMonth
-        formatter.dateFormat = "dd"
-        let start = formatter.string(from: startDate)
-        formatter.dateFormat = "dd"
-        let end = formatter.string(from: endDate)
+        let start = Formatter.date.string(from: startDate)
+        let end = Formatter.date.string(from: endDate)
         
-        let startTime: Int = Int(start)!
-        let endTime: Int = Int(end)!
-
-        for i in startTime..<endTime {
-            dummyData.append(i)
+        dates = DateHelper.getDatesBetweenTwo(from: start, to: end)
+        
+        let _ = dates.map {
+            dummyData.append(DateHelper.getOnlyDate(date: $0))
         }
+    }
+    
+    func dDayCalculate(startDate: Date, endDate: Date) -> Int {
+        return calendar.dateComponents([.day], from: startDate, to: endDate).day!
     }
     
     // MARK: - 서버 통신 (특정 날짜 일정 조회 API)
@@ -294,7 +294,7 @@ extension PlanViewController {
             switch response {
             
             case .success(let data):
-                if let scheduleData = data as? [Schedule] {
+                if data is [Schedule] {
                     self.getSchduleData(date: "2021-07-15")
                     self.contentsTableView.reloadData()
                 }
@@ -364,12 +364,18 @@ extension PlanViewController {
         
         return convertStr
     }
+    
+    private func setCalendar(date: String) {
+        currentYearLabel.text = DateHelper.getOnlyYear(date: date)
+        currentMonthLabel.text = DateHelper.getOnlyMonth(date: date)
+    }
 }
 
 // MARK: - Collection View Data Delegate
 extension PlanViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedDate = dummyData[indexPath.row]
+        setCalendar(date: dates[indexPath.row])
     }
 }
 
@@ -387,7 +393,7 @@ extension PlanViewController: UICollectionViewDataSource {
         cell.dateLabel.text = String(describing: dummyData[indexPath.row])
         
         /// 선택된 날짜일때만 isSelected 변경
-        if dummyData[indexPath.row] == selectedDate {
+        if dates[indexPath.row] == currentDate {
             cell.isSelected = true
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         } else {
