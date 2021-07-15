@@ -4,10 +4,19 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Bold.ttf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="SpoqaHanSansNeo-Medium.ttf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JoinCompleteViewController" customModule="DooRiBon" customModuleProvider="target">
             <connections>
@@ -21,8 +30,43 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzT-SQ-Odo">
                     <rect key="frame" x="27.666666666666657" y="305.66666666666669" width="320" height="211.00000000000006"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="참여 완료!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plx-U1-Q7l">
+                            <rect key="frame" x="30" y="23" width="260" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="JOr-GU-Sb5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="20"/>
+                            <color key="textColor" name="black3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 여행 홈으로 이동 중" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUq-xa-QmE">
+                            <rect key="frame" x="31" y="166" width="258" height="27"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="27" id="iKo-5B-ixe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                            <color key="textColor" name="pointBlue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingImg" translatesAutoresizingMaskIntoConstraints="NO" id="CWN-Tc-Sa2">
+                            <rect key="frame" x="105" y="59" width="104" height="77"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="77" id="MgQ-R7-DyD"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="CWN-Tc-Sa2" firstAttribute="top" secondItem="Plx-U1-Q7l" secondAttribute="bottom" constant="10" id="Ksd-BH-GMN"/>
+                        <constraint firstItem="yUq-xa-QmE" firstAttribute="centerX" secondItem="EzT-SQ-Odo" secondAttribute="centerX" id="Lzc-kD-HQU"/>
+                        <constraint firstItem="yUq-xa-QmE" firstAttribute="leading" secondItem="EzT-SQ-Odo" secondAttribute="leading" constant="31" id="MCW-pp-dJu"/>
+                        <constraint firstAttribute="trailing" secondItem="CWN-Tc-Sa2" secondAttribute="trailing" constant="111" id="Pql-Fc-se1"/>
+                        <constraint firstAttribute="bottom" secondItem="yUq-xa-QmE" secondAttribute="bottom" constant="18" id="Uo1-Bk-7mt"/>
+                        <constraint firstItem="Plx-U1-Q7l" firstAttribute="top" secondItem="EzT-SQ-Odo" secondAttribute="top" constant="23" id="Yoa-6e-pfV"/>
+                        <constraint firstItem="Plx-U1-Q7l" firstAttribute="centerX" secondItem="EzT-SQ-Odo" secondAttribute="centerX" id="afr-hk-NT7"/>
+                        <constraint firstItem="CWN-Tc-Sa2" firstAttribute="leading" secondItem="EzT-SQ-Odo" secondAttribute="leading" constant="105" id="cFx-x1-MA6"/>
+                        <constraint firstItem="Plx-U1-Q7l" firstAttribute="leading" secondItem="EzT-SQ-Odo" secondAttribute="leading" constant="30" id="czX-FX-lSN"/>
                         <constraint firstAttribute="height" constant="211" id="nlM-4Y-jKg"/>
                         <constraint firstAttribute="width" constant="320" id="sXx-Zl-RWF"/>
                     </constraints>
@@ -43,6 +87,13 @@
         </view>
     </objects>
     <resources>
+        <image name="loadingImg" width="106" height="94"/>
+        <namedColor name="black3">
+            <color red="0.27799999713897705" green="0.29800000786781311" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pointBlue">
+            <color red="0.41999998688697815" green="0.56099998950958252" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
