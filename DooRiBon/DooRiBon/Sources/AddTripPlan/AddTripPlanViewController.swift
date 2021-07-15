@@ -69,7 +69,7 @@ class AddTripPlanViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         configureUI()
-        
+        print(startDate, 11111111111111)
     }
     
     //MARK:- Function

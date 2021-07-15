@@ -18,13 +18,11 @@ class StyleQuestionViewController: UIViewController {
     // 뷰
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var indicatorBar: UIView!
+    @IBOutlet weak var indicatorBarWidth: NSLayoutConstraint!
     
     var questionDataList: [StyleQuestionData] = []
-    var questionAnswerWeightList: [StyleQuestionAnswerWeight] = []
     var testResult: StyleResultData?
-    private lazy var weightResult: [Int] = Array(repeating: 0, count: 8)
     private lazy var answers: [Int] = Array(repeating: -1, count: questionDataList.count)
-    var selectedWeight: [Int] = []
     static var thisID: String = ""
     
     
@@ -35,6 +33,8 @@ class StyleQuestionViewController: UIViewController {
         answerCollectionView.delegate = self
         answerCollectionView.dataSource = self
         answerCollectionView.isScrollEnabled = false
+
+        buttonChangeColor(isEnabled: false, isLast: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,44 +53,32 @@ class StyleQuestionViewController: UIViewController {
         let previousItem = max(currentNumber - 1, 0)
         answerCollectionView.scrollToItem(at: IndexPath(item: previousItem, section: 0), at: .left, animated: true)
         updateQuestion(previousItem)
-        for i in Range(0...7) {
-            weightResult[i] -= selectedWeight[i]
-        }
-        print("가중치 합 : \(weightResult)")
+        buttonChangeColor(isEnabled: true, isLast: false)
     }
     
     // 다음 문항 버튼 클릭시
     @IBAction func nextButtonClicked(_ sender: Any) {
         guard let cell = answerCollectionView.visibleCells.first,
-              let currentNumber = answerCollectionView.indexPath(for: cell)?.item, currentNumber < questionDataList.count else {
+              let currentNumber = answerCollectionView.indexPath(for: cell)?.item else {
             return
         }
-        if currentNumber == 9 {
+
+        guard currentNumber < questionDataList.count - 1 else {
             print("도착")
             testResultSave()
             return
         }
-        // 4개 중 1개를 선택할때만 버튼을 작동시킴
-        if (answers[currentNumber] != -1) {
-            guard let cell = answerCollectionView.visibleCells.first,
-                  let currentNumber = answerCollectionView.indexPath(for: cell)?.item else {
-                return
-            }
-            nextButton.backgroundColor = Colors.gray7.color
-            nextButton.setTitleColor(Colors.gray4.color, for: .normal)
 
-            let nextItem = min(currentNumber + 1, questionDataList.count - 1)
-            answerCollectionView.scrollToItem(at: IndexPath(item: nextItem, section: 0), at: .left, animated: true)
-            updateQuestion(nextItem)
+        let nextItem = min(currentNumber + 1, questionDataList.count - 1)
+
+        // 다음 질문이 미선택시에만 color 변경
+        if answers[nextItem] == -1 {
+            // currentNumber가 질문리스트보다 적으면 nextButton을 터치할 수 있도록 하면서 컬러도 변경
+            buttonChangeColor(isEnabled: false, isLast: nextItem == questionDataList.count - 1)
         }
-        for i in Range(0...7) {
-            weightResult[i] += selectedWeight[i]
-        }
-        print("가중치 합 : \(weightResult)")
-        // 마지막 버튼 이름 바꾸기
-        if (currentNumber == 8) {
-            nextButton.setTitle("결과 보러가기", for: .normal)
-        }
+
+        answerCollectionView.scrollToItem(at: IndexPath(item: nextItem, section: 0), at: .left, animated: true)
+        updateQuestion(nextItem)
     }
     
     // 상단 x버튼 클릭 시
@@ -122,6 +110,7 @@ class StyleQuestionViewController: UIViewController {
                     questionDataList = titleContent.data
                     answerCollectionView.reloadData()
                     updateQuestion(0)
+                    indicatorBarWidth.constant = backgroundView.frame.width / CGFloat(questionDataList.count)
                 }
             case .requestErr(let message):
                 print("requestERR", message)
@@ -136,12 +125,24 @@ class StyleQuestionViewController: UIViewController {
     }
     
     func testResultSave() {
-        StyleResultService.shared.resultSave(groupID: "60ee5078b0e7cd69292948f3", score: weightResult, choice: answers) { [self] (response) in
+        let weightResult = getWeightResult()
+        guard !weightResult.isEmpty else {
+            return
+        }
+        let styleQuestionStoryboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
+        let viewController = styleQuestionStoryboard.instantiateViewController(identifier: "StyleQuestionLoadingViewController")
+        present(viewController, animated: true, completion: nil)
+
+        StyleResultService.shared.resultSave(groupID: "60ee5078b0e7cd69292948f3", score: weightResult, choice: answers) { [weak self] (response) in
             switch (response) {
             case .success(let data):
                 if let result = data as? StyleResultResponse {
-                    testResult = result.data
-                    goToResultView()
+                    self?.testResult = result.data
+                    
+                    // FIXME: 사실은 present가 완료되는 것보다 dismiss가 먼저 불릴 수도 있기 때문에 굉장히 위험한 방식. 앱잼시에만 사용합니다.
+                    self?.dismiss(animated: true) {
+                        self?.goToResultView()
+                    }
                 }
             case .requestErr(_):
                 print("requestErr")
@@ -153,6 +154,21 @@ class StyleQuestionViewController: UIViewController {
                 print("networkFail")
             }
         }
+    }
+
+    func getWeightResult() -> [Int] {
+        // answers에 -1이 아직 존재하면 계산하지 않음
+        // -1이 존재한다는 것은 아직 선택안한 질문이 있다는 것
+        guard !answers.contains(-1) else {
+            return []
+        }
+        let weightResults = answers.enumerated().map { questionDataList[$0.offset].content[$0.element - 1].weight }
+        let weightData = weightResults.reduce(Array(repeating: 0, count: weightResults.first?.count ?? 0)) { result, weight in
+            result.enumerated().map { $0.element + weight[$0.offset] }
+        }
+
+        print("가중치 합 : \(weightData)")
+        return weightData
     }
     
     func goToResultView() {
@@ -168,26 +184,22 @@ class StyleQuestionViewController: UIViewController {
     func updateQuestion(_ currentNumber: Int) {
         questionNumberLabel.text = "Q\(currentNumber + 1)"
         questionLabel.text = questionDataList[currentNumber].title
-        questionAnswerWeightList = questionDataList[currentNumber].content
     }
 
     // 인디케이터 바
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/10
+        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x / CGFloat(questionDataList.count)
     }
     
     // 다음 문항 버튼 색상 변경
-    func buttonChangeColor() {
-        guard let cell = answerCollectionView.visibleCells.first,
-              let currentNumber = answerCollectionView.indexPath(for: cell)?.item,
-              currentNumber < questionDataList.count else {
-            return
-        }
+    func buttonChangeColor(isEnabled: Bool, isLast: Bool) {
+        nextButton.isEnabled = isEnabled
+        nextButton.backgroundColor = isEnabled ? Colors.pointOrange.color : Colors.gray7.color
+        nextButton.setTitleColor(isEnabled ? Colors.white9.color : Colors.gray4.color, for: .normal)
 
-        if (answers[currentNumber] == 0 || answers[currentNumber] == 1 ||
-            answers[currentNumber] == 2 || answers[currentNumber] == 3) {
-            nextButton.backgroundColor = Colors.pointOrange.color
-            nextButton.setTitleColor(Colors.white9.color, for: .normal)
+        // 마지막 버튼 이름 바꾸기
+        if isLast {
+            nextButton.setTitle("결과 보러가기", for: .normal)
         }
     }
 
@@ -204,14 +216,13 @@ extension StyleQuestionViewController: UICollectionViewDataSource
         guard let answerCell = collectionView.dequeueReusableCell(withReuseIdentifier: AnswerCollectionViewCell.identifier, for: indexPath) as? AnswerCollectionViewCell else { return UICollectionViewCell() }
         answerCell.delegate = self
 
-        print(questionAnswerWeightList[0].answer)
-        print(questionAnswerWeightList[1].answer)
-        print(questionAnswerWeightList[2].answer)
-        print(questionAnswerWeightList[3].answer)
-        answerCell.setData(answer1: questionAnswerWeightList[0].answer,
-                           answer2: questionAnswerWeightList[1].answer,
-                           answer3: questionAnswerWeightList[2].answer,
-                           answer4: questionAnswerWeightList[3].answer)
+        let questionContentList = questionDataList[indexPath.item].content
+        print(questionContentList[0].answer)
+        print(questionContentList[1].answer)
+        print(questionContentList[2].answer)
+        print(questionContentList[3].answer)
+        answerCell.setData(answers: questionContentList,
+                           answerNumber: answers[indexPath.item])
         return answerCell
     }
     
@@ -261,7 +272,8 @@ extension StyleQuestionViewController: AnswerCollectionViewCellDelegate {
         }
         answers[currentNumber] = index + 1
         print(answers)
-        buttonChangeColor()
-        selectedWeight = questionAnswerWeightList[index].weight
+
+        // 질문을 선택하면 컬러 변경
+        buttonChangeColor(isEnabled: true, isLast: currentNumber == questionDataList.count - 1)
     }
 }
