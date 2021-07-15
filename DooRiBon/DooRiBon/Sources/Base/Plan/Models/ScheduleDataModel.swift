@@ -15,6 +15,13 @@ struct ScheduleResponse: Codable {
     let data: ScheduleData?
 }
 
+struct ScheduleResponseAfterDelete: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let data: [Schedule]?
+}
+
 // MARK: - ScheduleData
 struct ScheduleData: Codable {
     let id: String
