@@ -47,6 +47,9 @@
                                             <constraint firstAttribute="width" constant="24" id="sR8-l7-lA2"/>
                                         </constraints>
                                         <state key="normal" image="iconMypage"/>
+                                        <connections>
+                                            <action selector="mypageButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9Rf-i4-dcv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

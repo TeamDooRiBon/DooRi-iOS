@@ -9,7 +9,6 @@ import UIKit
 
 class MemberViewController: UIViewController {
 
-
     @IBOutlet weak var pagerTab: PagerTab!
     @IBOutlet private var topView: TripTopView!
     
@@ -17,6 +16,18 @@ class MemberViewController: UIViewController {
     var tripData: Group?
     static var profileData: [Profile] = []
     static var thisID: String = ""
+    
+    private var myStyleDummyData: TripTendencyDataModel? {
+        didSet {
+            print(myStyleDummyData, "내꺼")
+        }
+    }
+    
+    private var memberStyleDummyData: [TripTendencyDataModel] = [] {
+        didSet {
+            print(memberStyleDummyData, "너꺼")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +53,7 @@ class MemberViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         
+        getStyleData()
         refreshTopView()
     }
     
@@ -80,9 +92,7 @@ extension MemberViewController {
     /// TopView Setup
     private func setupTopView() {
         topView.setTopViewData(tripData: tripData!)
-        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
-        topView.setTopViewData(tripData: model)
-        MemberViewController.thisID = model._id
+        MemberViewController.thisID = tripData?._id ?? ""
     }
     
     // MARK: - Button Actions
@@ -95,12 +105,39 @@ extension MemberViewController {
         topView.codeButton.addTarget(self, action: #selector(codeButtonClicked), for: .touchUpInside)
     }
     
+    // MARK: - 서버 통신 (특정 날짜 일정 조회 API)
+    
+    private func getStyleData() {
+        guard let groupId = tripData?._id else { return }
+
+        GetMemberStyleDataService.shared.getMemberStyle(groupId: groupId)
+                                                        { [weak self] (response) in
+ 
+            switch response {
+            case .success(let data):
+                if let style = data as? DivisionMemberDataModel {
+                    self!.myStyleDummyData = style.myResult
+                    self!.memberStyleDummyData = style.othersResult
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .pathErr:
+                print("pathErr")
+            }
+        }
+    }
+    
     @objc func backButtonClicked(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
-        print("profile button clicked")
+        guard let vc = UIStoryboard(name: "MyPageStoryboard", bundle: nil).instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func settingButtonClicked(_ sender: UIButton) {

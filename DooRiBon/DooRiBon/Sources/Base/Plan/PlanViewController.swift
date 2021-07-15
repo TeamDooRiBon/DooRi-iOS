@@ -15,7 +15,7 @@ class PlanViewController: UIViewController {
         var gregorian = Calendar(identifier: .gregorian)
         gregorian.timeZone = .current
         return gregorian
-    }()
+    }() 
     
     var tripData: Group?
     let formatter = DateFormatter()
@@ -74,6 +74,7 @@ class PlanViewController: UIViewController {
     // MARK: - Function
     
     func refreshTopView() {
+        
         TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
             switch(response)
             {
@@ -97,6 +98,19 @@ class PlanViewController: UIViewController {
             }
         }
     }
+    
+    func editPlan(groupID: String, scheduleID: String) {
+        let editPlanStoryboard = UIStoryboard(name: "AddTripPlanStoryboard", bundle: nil)
+        guard let nextVC = editPlanStoryboard.instantiateViewController(identifier: "AddTripPlanViewController") as? AddTripPlanViewController else { return }
+        nextVC.hidesBottomBarWhenPushed = true
+        nextVC.topLabelData = "일정을 편집하세요"
+        nextVC.buttonData = "일정 편집하기"
+        nextVC.groupID = groupID
+        nextVC.scheduleID = scheduleID
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    // MARK: - IBActions
 }
 
 // MARK: - Helpers
@@ -130,6 +144,8 @@ extension PlanViewController {
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
+        guard let vc = UIStoryboard(name: "MyPageStoryboard", bundle: nil).instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func settingButtonClicked(_ sender: UIButton) {
@@ -242,6 +258,8 @@ extension PlanViewController {
                                    memo: scheduleData.memo)
                         .present { event in
                             if event == .edit {
+                                // 여기부터 하면 됨
+                                self.editPlan(groupID: groupId, scheduleID: scheduleId)
                                 
                             } else {
                                 PopupView.loadFromXib()
@@ -420,6 +438,8 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
     func didSelectedAddTripButton() {
         let addTripSB = UIStoryboard(name: "AddTripPlanStoryboard", bundle: nil)
         let addTripVC = addTripSB.instantiateViewController(identifier: "AddTripPlanViewController") as! AddTripPlanViewController
+        addTripVC.hidesBottomBarWhenPushed = true
+        addTripVC.groupID = tripData?._id ?? ""
         navigationController?.pushViewController(addTripVC, animated: true)
     }
     

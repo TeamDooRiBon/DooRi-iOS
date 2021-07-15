@@ -135,6 +135,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-ab-z3R">
                     <rect key="frame" x="336" y="46" width="24" height="24"/>
                     <state key="normal" image="iconMypage"/>
+                    <connections>
+                        <action selector="mypageButtonClicked:" destination="-1" eventType="touchUpInside" id="Dh7-Lq-Hcg"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-59-Pcf">
                     <rect key="frame" x="9" y="46" width="24" height="24"/>

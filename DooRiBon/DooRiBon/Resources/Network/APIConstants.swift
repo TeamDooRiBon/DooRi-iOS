@@ -45,13 +45,14 @@ struct APIConstants {
     static let addPlanURL = baseURL + "/schedule/:groupId"
     static let scheduleURL = baseURL + "/schedule"
     static let getScheduleURL = baseURL + "/schedule/:groupId/:scheduleId"
-    
+    static let editPlanURL = baseURL + "/schedule/:groupId/:scheduleId"
 
     // MARK: - /board
     static let boardURL = baseURL + "/board"
     static let postBoardURL = baseURL + "/board/:groupId/:tag"          // 여행 보드 추가
     
     // MARK: - /tendency
+    static let styleURL = baseURL + "/tendency"
     static let styleQuestionURL = baseURL + "/tendency/question"
     static let styleResultSaveURL = baseURL + "/tendency/:groupId"
     
