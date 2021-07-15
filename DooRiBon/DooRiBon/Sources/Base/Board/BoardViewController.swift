@@ -211,7 +211,6 @@ extension BoardViewController {
             case .success(let data) :
                 if let data = data as? [BoardData] {
                     self.currentBoardData = data
-                    print(23232323,"성공")
                 }
 
             case .requestErr(let message) :

@@ -107,7 +107,7 @@ class BottomSheetView: UIView {
 
     private func closeView(_ type: EventType) {
         eventHandler?(type)
-        if type == .edit { moveOut() }
+        moveOut()
     }
 
     private func moveOut() {

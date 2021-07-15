@@ -189,7 +189,6 @@ extension PlanViewController {
         let end = formatter.string(from: endDate)
         
         let startTime: Int = Int(start)!
-        let endTime: Int = Int(end)!
         
         let period = dDayCalculate(startDate: startDate, endDate: endDate)
 

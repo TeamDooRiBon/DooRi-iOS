@@ -40,9 +40,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var nowTripLocationLabel: UILabel!
     @IBOutlet weak var nowTripMembersLabel: UILabel!
     @IBOutlet weak var nowTripStateLabel: UILabel!
-    
-    
-    
+
     /// 제약
     @IBOutlet weak var lastTripViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var indicatorBarWidthConstraint: NSLayoutConstraint!
@@ -132,7 +130,6 @@ class MainViewController: UIViewController {
                     setDevideTripData()
                 }
                 setupSkeletionUI(.hide)
-
             case .requestErr(let message):
                 print("requestERR", message)
             case .pathErr:
@@ -311,14 +308,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
                          location: lastTripList[indexPath.row].destination,
                          member: lastTripList[indexPath.row].members[0])
         tripCell.selectionStyle = .none
-        
         return tripCell
     }
 }
