@@ -164,12 +164,11 @@ extension PlanViewController {
     private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         tripData = model
+        setupDateData()
         setupTopView()
     }
     /// TopView Setup
     private func setupTopView() {
-        setupDateData()
-        print(tripData)
         topView.setTopViewData(tripData: tripData!)
         PlanViewController.thisID = tripData?._id ?? ""
     }
@@ -191,10 +190,16 @@ extension PlanViewController {
         
         let startTime: Int = Int(start)!
         let endTime: Int = Int(end)!
+        
+        let period = dDayCalculate(startDate: startDate, endDate: endDate)
 
-        for i in startTime..<endTime {
+        for i in startTime...startTime + period  {
             dummyData.append(i)
         }
+    }
+    
+    func dDayCalculate(startDate: Date, endDate: Date) -> Int {
+        return calendar.dateComponents([.day], from: startDate, to: endDate).day!
     }
     
     // MARK: - 서버 통신 (특정 날짜 일정 조회 API)
