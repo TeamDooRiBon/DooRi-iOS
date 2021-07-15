@@ -16,8 +16,6 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
     
     //MARK:- Variable
     
-//    var memberStyleList: [MemberOurTableViewModel] = []
-//    var myStyleList: [MemberOurTableViewModel] = []
     var tripData: Group?
     private var myStyleData: TripTendencyDataModel?
     private var memberStyleData: [TripTendencyDataModel] = []
