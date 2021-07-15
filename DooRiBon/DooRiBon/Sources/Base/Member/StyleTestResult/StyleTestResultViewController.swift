@@ -18,6 +18,7 @@ class StyleTestResultViewController: UIViewController {
     var name: String = ""
     var imgURL: String = ""
     var style: String = ""
+    var popCount: Int = 3
     
     //MARK:- Life Cycle
     
@@ -35,7 +36,9 @@ class StyleTestResultViewController: UIViewController {
     
     func configureUI() {
         nameLabel.text = "\(name)님은"
-        styleLabel.text = style
+        let title = style.replacingOccurrences(of: " ", with: "\n")
+        styleLabel.text = title
+        print(title)
     }
     
     func imageSet() {
@@ -55,10 +58,17 @@ class StyleTestResultViewController: UIViewController {
         backButton.layer.applyShadow(color: Colors.black2.color, alpha: 0.08, x: 0, y: 1, blur: 10, spread: 2)
     }
     
+    func backTwoWhenNavigationControllerUsed(){
+        let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - popCount ], animated: true)
+        
+        
+    }
+    
     //MARK:- IBAction
     
     @IBAction func backButtonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        backTwoWhenNavigationControllerUsed()
     }
     
     

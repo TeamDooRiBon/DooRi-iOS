@@ -28,13 +28,13 @@
                     <color key="backgroundColor" name="white8"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-Gg-SxH">
-                    <rect key="frame" x="23" y="18" width="293" height="14"/>
+                    <rect key="frame" x="23" y="18" width="293" height="15.5"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                     <color key="textColor" name="gray5"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iR2-M8-Kq7">
-                    <rect key="frame" x="91" y="66" width="157" height="30"/>
+                    <rect key="frame" x="91" y="67.5" width="157" height="31"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
                     <state key="normal" title="참여코드 복사하기">
                         <color key="titleColor" name="pointBlue"/>
@@ -64,9 +64,15 @@
                 <constraint firstItem="3Qe-mQ-ksL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JrA-Le-c6R"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3Qe-mQ-ksL" secondAttribute="trailing" id="QiP-5N-ZQE"/>
                 <constraint firstItem="3Qe-mQ-ksL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nNO-dg-a7G"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="iR2-M8-Kq7" secondAttribute="bottom" constant="31.5" id="tYG-4R-yiR"/>
                 <constraint firstItem="RLY-Gg-SxH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="23" id="xGh-jU-65g"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="tYG-4R-yiR"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="informLabel" destination="RLY-Gg-SxH" id="v4q-8x-gNv"/>
             </connections>

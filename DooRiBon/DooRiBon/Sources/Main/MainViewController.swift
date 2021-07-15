@@ -230,7 +230,7 @@ class MainViewController: UIViewController {
     }
     
     func dDayCalculate(from date: Date) -> Int {
-        return calendar.dateComponents([.day], from: date, to: Date()).day! - 1
+        return calendar.dateComponents([.day], from: date, to: Date()).day!
     }
 }
 
@@ -249,13 +249,21 @@ extension MainViewController: UICollectionViewDataSource
         formatter.dateFormat = "MM.dd"
         let end = formatter.string(from: comeTripList[indexPath.row].endDate)
         let dday = dDayCalculate(from: comeTripList[indexPath.row].startDate)
-        
-        comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
-                            dday: "D\(dday)",
-                            title: comeTripList[indexPath.row].travelName,
-                            date: "\(start) - \(end)",
-                            location: comeTripList[indexPath.row].destination,
-                            members: comeTripList[indexPath.row].members[0])
+        if (dday == 0) {
+            comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
+                                 dday: "D-Day!",
+                                 title: comeTripList[indexPath.row].travelName,
+                                 date: "\(start) - \(end)",
+                                 location: comeTripList[indexPath.row].destination,
+                                 members: comeTripList[indexPath.row].members[0])
+        } else {
+            comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
+                                 dday: "D\(dday)",
+                                 title: comeTripList[indexPath.row].travelName,
+                                 date: "\(start) - \(end)",
+                                 location: comeTripList[indexPath.row].destination,
+                                 members: comeTripList[indexPath.row].members[0])
+        }
 
         return comeTripCell
     }
