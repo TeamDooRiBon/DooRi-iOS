@@ -1,6 +1,9 @@
 # 작은 움직임이 만드는 우리다운 여행, DOORIBON 👀
 
 <br />
+![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg) [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://creativecommons.org/licenses/by/4.0/)  
+<br>
+
 
 * <b> 🚀  두리번 코인 탑승, 아요는 도약중 👀</b>
 
