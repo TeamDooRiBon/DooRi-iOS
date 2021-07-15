@@ -25,11 +25,13 @@ class PlanViewController: UIViewController {
     private var dummyData: [Int] = [] {
         didSet {
             calendarView.reloadData()
+            print("💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚 dummy", dummyData)
         }
     }
     private var planDummyData: [Schedule] = [] {
         didSet {
             contentsTableView.reloadData()
+            print("💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚 planDummy", planDummyData)
         }
     }
     private var selectedDate: Int?            // 오늘 날짜를 디폴트 값으로 시작
@@ -57,24 +59,40 @@ class PlanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("========================view did load============================")
+        
         configureUI()
         setupButtonAction()
         setupCollectionView()
         setupTableView()
-        setupData()
+        
         setupFirstData()
+//        refreshTopView()
+        setupData()
+
+//        getDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getSchduleData(date: currentDate)
+        
+        print("========================view will appear============================")
+        
+//        getSchduleData(date: currentDate)
         refreshTopView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("========================view did appear============================")
+        
+        print("❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️❣️")
     }
     
     // MARK: - Function
     
     func refreshTopView() {
-        
         TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
             switch(response)
             {
@@ -86,6 +104,7 @@ class PlanViewController: UIViewController {
                     tripData?.travelName = tripInfo.travelName
                     tripData?.destination = tripInfo.destination
                     setupTopView()
+//                    getDate(start: tripInfo.startDate, end: tripInfo.endDate)
                 }
             case .requestErr(let message):
                 print("requestERR", message)
@@ -181,29 +200,52 @@ extension PlanViewController {
     private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         tripData = model
-        setupTopView()
+        // - DooRiBon.Group(_id: "60ee5078b0e7cd69292948f3", startDate: 2021-07-13 15:00:00 +0000, endDate: 2021-07-17 15:00:00 +0000, travelName: "아기와 나 in 파리", image: "https://dooribon.s3.ap-northeast-2.amazonaws.com/6.png", destination: "프랑스 파리", members: ["채정아", "한상진", "송훈기"])
+        print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥1 - setupFirst Data \(tripData)")
     }
     /// TopView Setup
     private func setupTopView() {
-        setupDateData()
+//        getDate()
         topView.setTopViewData(tripData: tripData!)
         PlanViewController.thisID = tripData?._id ?? ""
     }
     
-    private func setupDateData() {
-        dummyData = []
+    private func getDate(start: Date, end: Date) {
+
+        print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 2 - setup Date", self.tripData)
         
-        guard let startDate = tripData?.startDate else { return }
-        guard let endDate = tripData?.endDate else { return }
+//        dummyData = []
         
-        let start = Formatter.date.string(from: startDate)
-        let end = Formatter.date.string(from: endDate)
+//        guard let startDate = tripData?.startDate else { return }
+//        guard let endDate = tripData?.endDate else { return }
+        
+        let start = Formatter.date.string(from: start)
+        let end = Formatter.date.string(from: end)
+        
+        print(start, end, 123214124)
         
         dates = DateHelper.getDatesBetweenTwo(from: start, to: end)
+        
+        print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 3 - setup Date", dates)
+        
+        let convertDates = dates
+        
+        print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 4 - Date", convertDates)
+//
+//        currentDate = DateHelper.isTodayInDates(dates: convertDates)
+//        print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 4 - current Date", currentDate)
         
         let _ = dates.map {
             dummyData.append(DateHelper.getOnlyDate(date: $0))
         }
+        
+        print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 5 - - -", dummyData)
+    }
+    
+    private func calculateCurrentDate() {
+        let convertDates = dates
+        currentDate = DateHelper.isTodayInDates(dates: convertDates)
+        print(currentDate)
     }
     
     func dDayCalculate(startDate: Date, endDate: Date) -> Int {
@@ -213,12 +255,16 @@ extension PlanViewController {
     // MARK: - 서버 통신 (특정 날짜 일정 조회 API)
     
     private func getSchduleData(date: String) {
+        
+        print("💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜")
+        
         guard let groupId = tripData?._id else { return }
         
         TripPlanDataService.shared.getTripPlan(groupId: groupId,
                                                date: date) { [weak self] (response) in
             switch response {
             case .success(let data):
+                print("💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜")
                 if let schedule = data as? [Schedule] {
                     self!.planDummyData = schedule
                 }
@@ -440,6 +486,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
         let addTripVC = addTripSB.instantiateViewController(identifier: "AddTripPlanViewController") as! AddTripPlanViewController
         addTripVC.hidesBottomBarWhenPushed = true
         addTripVC.groupID = tripData?._id ?? ""
+        addTripVC.startDate = currentDate
         navigationController?.pushViewController(addTripVC, animated: true)
     }
     
