@@ -169,7 +169,6 @@ extension PlanViewController {
     /// TopView Setup
     private func setupTopView() {
         setupDateData()
-        print(tripData)
         topView.setTopViewData(tripData: tripData!)
         PlanViewController.thisID = tripData?._id ?? ""
     }

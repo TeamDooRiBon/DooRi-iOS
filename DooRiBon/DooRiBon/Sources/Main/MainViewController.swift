@@ -89,8 +89,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func goStyleTestButtonClicked(_ sender: Any) {
-        let testStortboard = UIStoryboard(name: "TestChoiceStoryboard", bundle: nil)
-        if let testVC = testStortboard.instantiateViewController(identifier: "TestChoiceViewController") as? TestChoiceViewController {
+        let testStortboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
+        if let testVC = testStortboard.instantiateViewController(identifier: "StyleQuestionViewController") as? StyleQuestionViewController {
             testVC.modalPresentationStyle = .overFullScreen
             self.present(testVC, animated: true, completion: nil)
         }

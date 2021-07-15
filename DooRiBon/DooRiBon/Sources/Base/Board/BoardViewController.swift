@@ -186,7 +186,6 @@ extension BoardViewController {
     /// TopView Setup
     private func setupTopView() {
         topView.setTopViewData(tripData: tripData!)
-        print(tripData?._id)
         self.thisID = tripData?._id ?? ""
     }
     
