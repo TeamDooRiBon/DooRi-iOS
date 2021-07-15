@@ -43,6 +43,8 @@
 		39E3595A269F00730077B946 /* GetMemberProfileDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E35959269F00730077B946 /* GetMemberProfileDataService.swift */; };
 		39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EAC4B02692E0FA00114734 /* StartTripViewController.swift */; };
 		39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAC4B12692E0FA00114734 /* StartTripViewController.xib */; };
+		39EFFCC926A0722800987125 /* MemberStyleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EFFCC826A0722800987125 /* MemberStyleDataModel.swift */; };
+		39EFFCCB26A0732F00987125 /* GetMemberStyleDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EFFCCA26A0732F00987125 /* GetMemberStyleDataService.swift */; };
 		39F21BA4269BD83400673511 /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */; };
 		39F21BA6269BDB4100673511 /* StyleQuestionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA5269BDB4100673511 /* StyleQuestionDataModel.swift */; };
 		39FC9D8F269F6604002E12A5 /* CheckTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC9D8E269F6604002E12A5 /* CheckTripViewController.swift */; };
@@ -196,6 +198,8 @@
 		39E35959269F00730077B946 /* GetMemberProfileDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMemberProfileDataService.swift; sourceTree = "<group>"; };
 		39EAC4B02692E0FA00114734 /* StartTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripViewController.swift; sourceTree = "<group>"; };
 		39EAC4B12692E0FA00114734 /* StartTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartTripViewController.xib; sourceTree = "<group>"; };
+		39EFFCC826A0722800987125 /* MemberStyleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberStyleDataModel.swift; sourceTree = "<group>"; };
+		39EFFCCA26A0732F00987125 /* GetMemberStyleDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMemberStyleDataService.swift; sourceTree = "<group>"; };
 		39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
 		39F21BA5269BDB4100673511 /* StyleQuestionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleQuestionDataModel.swift; sourceTree = "<group>"; };
 		39FC9D8E269F6604002E12A5 /* CheckTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTripViewController.swift; sourceTree = "<group>"; };
@@ -518,6 +522,22 @@
 			path = StartTrip;
 			sourceTree = "<group>";
 		};
+		39EFFCC626A06E8300987125 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				39EFFCCA26A0732F00987125 /* GetMemberStyleDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		39EFFCC726A06F3500987125 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39EFFCC826A0722800987125 /* MemberStyleDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		40299CB9269B66B800A4C9B6 /* StyleTestResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,6 +733,8 @@
 		BD0AD612269363150033DAD8 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				39EFFCC726A06F3500987125 /* Model */,
+				39EFFCC626A06E8300987125 /* Service */,
 				40299CB9269B66B800A4C9B6 /* StyleTestResult */,
 				4073BC6826986FAA00C5C7B0 /* MemberOur */,
 				399C7001269B27220017069C /* TakeLook */,
@@ -1255,6 +1277,7 @@
 				3976DFB8269D5BF400062059 /* GetMainDataService.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
+				39EFFCC926A0722800987125 /* MemberStyleDataModel.swift in Sources */,
 				402E5203269DD62300635B41 /* AddTripPlanDataModel.swift in Sources */,
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
 				40253C90269DB7250045620F /* UIImage+Extension.swift in Sources */,
@@ -1264,6 +1287,7 @@
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
 				39E35957269EFF290077B946 /* MemberProfileDataModel.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
+				39EFFCCB26A0732F00987125 /* GetMemberStyleDataService.swift in Sources */,
 				40253C8E269DAFFF0045620F /* AddTripImageDateModel.swift in Sources */,
 				39FC9D94269F6641002E12A5 /* JoinCompleteViewController.swift in Sources */,
 				392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */,

@@ -9,7 +9,6 @@ import UIKit
 
 class MemberViewController: UIViewController {
 
-
     @IBOutlet weak var pagerTab: PagerTab!
     @IBOutlet private var topView: TripTopView!
     
@@ -17,6 +16,18 @@ class MemberViewController: UIViewController {
     var tripData: Group?
     static var profileData: [Profile] = []
     static var thisID: String = ""
+    
+    private var myStyleDummyData: TripTendencyDataModel? {
+        didSet {
+            print(myStyleDummyData, "내꺼")
+        }
+    }
+    
+    private var memberStyleDummyData: [TripTendencyDataModel] = [] {
+        didSet {
+            print(memberStyleDummyData, "너꺼")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +53,7 @@ class MemberViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         
+        getStyleData()
         refreshTopView()
     }
     
@@ -91,6 +103,32 @@ extension MemberViewController {
         topView.settingButton.addTarget(self, action: #selector(settingButtonClicked), for: .touchUpInside)
         topView.memberButton.addTarget(self, action: #selector(memberButtonClicked), for: .touchUpInside)
         topView.codeButton.addTarget(self, action: #selector(codeButtonClicked), for: .touchUpInside)
+    }
+    
+    // MARK: - 서버 통신 (특정 날짜 일정 조회 API)
+    
+    private func getStyleData() {
+        guard let groupId = tripData?._id else { return }
+
+        GetMemberStyleDataService.shared.getMemberStyle(groupId: groupId)
+                                                        { [weak self] (response) in
+ 
+            switch response {
+            case .success(let data):
+                if let style = data as? DivisionMemberDataModel {
+                    self!.myStyleDummyData = style.myResult
+                    self!.memberStyleDummyData = style.othersResult
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .pathErr:
+                print("pathErr")
+            }
+        }
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
