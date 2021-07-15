@@ -114,6 +114,7 @@
 		BD5EEC90269848D800D09B11 /* TripTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC8E269848D800D09B11 /* TripTopView.xib */; };
 		BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */; };
 		BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */; };
+		BD5EF04926A070F000F9EB47 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EF04826A070F000F9EB47 /* Date+Extension.swift */; };
 		BD6074B5269DF8AD00CA62F3 /* AddBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */; };
 		BD6074B7269DF92700CA62F3 /* BoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B6269DF92700CA62F3 /* BoardResponse.swift */; };
 		BD6074BA269DFA0200CA62F3 /* AddBoardDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */; };
@@ -265,6 +266,7 @@
 		BD5EEC8E269848D800D09B11 /* TripTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTopView.xib; sourceTree = "<group>"; };
 		BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardNoDataTableViewCell.swift; sourceTree = "<group>"; };
 		BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardNoDataTableViewCell.xib; sourceTree = "<group>"; };
+		BD5EF04826A070F000F9EB47 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardRequest.swift; sourceTree = "<group>"; };
 		BD6074B6269DF92700CA62F3 /* BoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardResponse.swift; sourceTree = "<group>"; };
 		BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardDataService.swift; sourceTree = "<group>"; };
@@ -915,6 +917,7 @@
 				39865B35268F7DF700961BF4 /* CALayer+Extension.swift */,
 				0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */,
 				40253C8F269DB7250045620F /* UIImage+Extension.swift */,
+				BD5EF04826A070F000F9EB47 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1241,6 +1244,7 @@
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
 				BD6074D1269ED71600CA62F3 /* TripPlanDataModel.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
+				BD5EF04926A070F000F9EB47 /* Date+Extension.swift in Sources */,
 				40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */,
 				39F21BA6269BDB4100673511 /* StyleQuestionDataModel.swift in Sources */,
 				4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */,
