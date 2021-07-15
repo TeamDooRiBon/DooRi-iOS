@@ -12,15 +12,15 @@
 import Foundation
 
 // MARK: - AddBoardResponse
-struct AddBoardResponse: Codable {
+struct BoardResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: [AddBoardData]?       // data는 실패하면 들어오지 않기 때문에 옵셔널 형태로 선언
+    let data: [BoardData]?       // data는 실패하면 들어오지 않기 때문에 옵셔널 형태로 선언
 }
 
 // MARK: - AddBoardData
-struct AddBoardData: Codable {
+struct BoardData: Codable {
     let id, name, content: String
 
     enum CodingKeys: String, CodingKey {
