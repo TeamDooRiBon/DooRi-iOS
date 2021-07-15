@@ -42,6 +42,9 @@
 		39EAC4B32692E0FA00114734 /* StartTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EAC4B12692E0FA00114734 /* StartTripViewController.xib */; };
 		39F21BA4269BD83400673511 /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */; };
 		39F21BA6269BDB4100673511 /* AnswerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F21BA5269BDB4100673511 /* AnswerDataModel.swift */; };
+		40076923269EF4C1003C15ED /* MemberNaigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076922269EF4C1003C15ED /* MemberNaigationViewController.swift */; };
+		40076925269EF7B8003C15ED /* BoardNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076924269EF7B8003C15ED /* BoardNavigationViewController.swift */; };
+		40076927269EF96A003C15ED /* PlanNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076926269EF96A003C15ED /* PlanNavigationViewController.swift */; };
 		40253C8C269DAF220045620F /* AddTripImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40253C8B269DAF220045620F /* AddTripImageService.swift */; };
 		40253C8E269DAFFF0045620F /* AddTripImageDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40253C8D269DAFFF0045620F /* AddTripImageDateModel.swift */; };
 		40253C90269DB7250045620F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40253C8F269DB7250045620F /* UIImage+Extension.swift */; };
@@ -72,6 +75,10 @@
 		40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */; };
 		40B5A090268EE2E500A89875 /* AddTripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */; };
 		40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5A091268EE35100A89875 /* AddTripViewController.swift */; };
+		40EBD31F269F44FF00DFC057 /* EditTripDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */; };
+		40EBD321269F455400DFC057 /* EditTripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD320269F455400DFC057 /* EditTripService.swift */; };
+		40EBD324269F5D9600DFC057 /* TripInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD323269F5D9600DFC057 /* TripInfoDataModel.swift */; };
+		40EBD327269F5DFB00DFC057 /* TripInformService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD326269F5DFB00DFC057 /* TripInformService.swift */; };
 		BD0AD60E269361D50033DAD8 /* TripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD60D269361D50033DAD8 /* TripStoryboard.storyboard */; };
 		BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */; };
 		BD0AD618269363D90033DAD8 /* PlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */; };
@@ -176,6 +183,9 @@
 		39EAC4B12692E0FA00114734 /* StartTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartTripViewController.xib; sourceTree = "<group>"; };
 		39F21BA3269BD83400673511 /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
 		39F21BA5269BDB4100673511 /* AnswerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDataModel.swift; sourceTree = "<group>"; };
+		40076922269EF4C1003C15ED /* MemberNaigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberNaigationViewController.swift; sourceTree = "<group>"; };
+		40076924269EF7B8003C15ED /* BoardNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardNavigationViewController.swift; sourceTree = "<group>"; };
+		40076926269EF96A003C15ED /* PlanNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanNavigationViewController.swift; sourceTree = "<group>"; };
 		40253C8B269DAF220045620F /* AddTripImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripImageService.swift; sourceTree = "<group>"; };
 		40253C8D269DAFFF0045620F /* AddTripImageDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripImageDateModel.swift; sourceTree = "<group>"; };
 		40253C8F269DB7250045620F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -206,6 +216,10 @@
 		40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewModel.swift; sourceTree = "<group>"; };
 		40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripStoryboard.storyboard; sourceTree = "<group>"; };
 		40B5A091268EE35100A89875 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripDataModel.swift; sourceTree = "<group>"; };
+		40EBD320269F455400DFC057 /* EditTripService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripService.swift; sourceTree = "<group>"; };
+		40EBD323269F5D9600DFC057 /* TripInfoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInfoDataModel.swift; sourceTree = "<group>"; };
+		40EBD326269F5DFB00DFC057 /* TripInformService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInformService.swift; sourceTree = "<group>"; };
 		4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRiBon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.release.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.release.xcconfig"; sourceTree = "<group>"; };
 		BD0AD60D269361D50033DAD8 /* TripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripStoryboard.storyboard; sourceTree = "<group>"; };
@@ -555,6 +569,7 @@
 			children = (
 				4096A976269D6D0000EBDE56 /* AddTripService.swift */,
 				40253C8B269DAF220045620F /* AddTripImageService.swift */,
+				40EBD320269F455400DFC057 /* EditTripService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -583,6 +598,7 @@
 				40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */,
 				4096A978269D6D1600EBDE56 /* AddTripDataModel.swift */,
 				40253C8D269DAFFF0045620F /* AddTripImageDateModel.swift */,
+				40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -600,9 +616,27 @@
 			path = AddTrip;
 			sourceTree = "<group>";
 		};
+		40EBD322269F5D7C00DFC057 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40EBD323269F5D9600DFC057 /* TripInfoDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		40EBD325269F5DED00DFC057 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				40EBD326269F5DFB00DFC057 /* TripInformService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		BD0AD610269362DB0033DAD8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				40EBD322269F5D7C00DFC057 /* Model */,
+				40EBD325269F5DED00DFC057 /* Service */,
 				39E35958269EFFD90077B946 /* WithMemberPopup */,
 				BD0AD60D269361D50033DAD8 /* TripStoryboard.storyboard */,
 				BD0AD62526936A8A0033DAD8 /* TripViewController.swift */,
@@ -622,6 +656,7 @@
 				BD5EEC9126986A4500D09B11 /* Cells */,
 				BD0AD619269363E30033DAD8 /* BoardStoryboard.storyboard */,
 				BD0AD6212693653D0033DAD8 /* BoardViewController.swift */,
+				40076924269EF7B8003C15ED /* BoardNavigationViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -634,6 +669,7 @@
 				399C7001269B27220017069C /* TakeLook */,
 				BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */,
 				399C7015269B28A40017069C /* MemberViewController.swift */,
+				40076922269EF4C1003C15ED /* MemberNaigationViewController.swift */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -648,6 +684,7 @@
 				BDCC36732695C5E9009AE274 /* Views */,
 				BDCC367A2695DA3B009AE274 /* Models */,
 				BD7B4C7A2697250000DCCA03 /* View */,
+				40076926269EF96A003C15ED /* PlanNavigationViewController.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -1156,6 +1193,7 @@
 				4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */,
 				40253C8C269DAF220045620F /* AddTripImageService.swift in Sources */,
 				4073BC6C26986FDA00C5C7B0 /* MemberOurTableViewModel.swift in Sources */,
+				40076927269EF96A003C15ED /* PlanNavigationViewController.swift in Sources */,
 				3976DFB8269D5BF400062059 /* GetMainDataService.swift in Sources */,
 				0A1BD3BC268E1C6C00702EC5 /* PagerTabSampleViewController.swift in Sources */,
 				399C7016269B28A40017069C /* MemberViewController.swift in Sources */,
@@ -1163,14 +1201,18 @@
 				BD1725D5269D77CE000FB89B /* JoinTripDataModel.swift in Sources */,
 				40253C90269DB7250045620F /* UIImage+Extension.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
+				40EBD324269F5D9600DFC057 /* TripInfoDataModel.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
 				39E35957269EFF290077B946 /* MemberProfileDataModel.swift in Sources */,
 				BD75C2F6268B58AD00C4F233 /* ViewEmpty.swift in Sources */,
 				40253C8E269DAFFF0045620F /* AddTripImageDateModel.swift in Sources */,
 				392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */,
 				39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */,
+				40EBD321269F455400DFC057 /* EditTripService.swift in Sources */,
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				4073BC6E26986FEC00C5C7B0 /* MemberOurTableViewCell.swift in Sources */,
+				40EBD31F269F44FF00DFC057 /* EditTripDataModel.swift in Sources */,
+				40EBD327269F5DFB00DFC057 /* TripInformService.swift in Sources */,
 				BD1725CB269CB39F000FB89B /* NetworkInfo.swift in Sources */,
 				BD5EEC8F269848D800D09B11 /* TripTopView.swift in Sources */,
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,
@@ -1181,6 +1223,7 @@
 				399C700A269B27840017069C /* QuestionCell.swift in Sources */,
 				39E3595A269F00730077B946 /* GetMemberProfileDataService.swift in Sources */,
 				393691FC269EB84D003348A7 /* WithPopupView.swift in Sources */,
+				40076923269EF4C1003C15ED /* MemberNaigationViewController.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
 				3976DFB6269D5AEC00062059 /* MainDataModel.swift in Sources */,
 				409E26D42699D91E001C5CED /* MemberHeaderView.swift in Sources */,
@@ -1196,6 +1239,7 @@
 				BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */,
 				BD6074DD269F6DE800CA62F3 /* ScheduleDataModel.swift in Sources */,
 				BD75C302268B5BDF00C4F233 /* FontEmpty.swift in Sources */,
+				40076925269EF7B8003C15ED /* BoardNavigationViewController.swift in Sources */,
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
 				402E5205269DD67500635B41 /* AddTripPlanService.swift in Sources */,
 				393691FF269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift in Sources */,

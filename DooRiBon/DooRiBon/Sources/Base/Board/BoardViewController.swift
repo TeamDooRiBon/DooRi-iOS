@@ -79,6 +79,7 @@ class BoardViewController: UIViewController {
     private var selectedTag: String = "goal"
     private var selectedTagIndex: Int = 0
     private var contents: String = ""
+    var tripData: Group?
     
     static var profileData: [Profile] = []
     private var thisID: String = ""
@@ -90,15 +91,43 @@ class BoardViewController: UIViewController {
         setupUI()
         setupTableView()
         setupData()
+        setupFirstData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTopView()
+        refreshTopView()
         guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
         getBoardData(groupId: self.thisID, tag: tag)
     }
     
+    // MARK:- Function
+    
+    func refreshTopView() {
+        TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
+            switch(response)
+            {
+            case .success(let data):
+                if let tripResponse = data as? TripInfoResponse {
+                    let tripInfo = tripResponse.data
+                    tripData?.startDate = tripInfo.startDate
+                    tripData?.endDate = tripInfo.endDate
+                    tripData?.travelName = tripInfo.travelName
+                    tripData?.destination = tripInfo.destination
+                    setupTopView()
+                }
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
+    }
+
     private func postTripBoard(contents: String, groupId: String, tag: String) {
         let input = AddBoardRequest(content: contents)
         AddBoardDataService.shared.postTripBoard(input,
@@ -148,10 +177,17 @@ class BoardViewController: UIViewController {
 extension BoardViewController {
     // MARK: - Setup
     /// TopView Setup
-    private func setupTopView() {
+    /// TopView Setup
+    private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
-        topView.setTopViewData(tripData: model)
-        self.thisID = model._id
+        tripData = model
+        setupTopView()
+    }
+    /// TopView Setup
+    private func setupTopView() {
+        topView.setTopViewData(tripData: tripData!)
+        print(tripData?._id)
+        self.thisID = tripData?._id ?? ""
     }
     
     private func setupUI() {
@@ -210,6 +246,13 @@ extension BoardViewController {
     
     @objc func settingButtonClicked(_ sender: UIButton) {
         print("setting button clicked")
+        let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
+        guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        nextVC.groupId = tripData?._id ?? ""
+        nextVC.hidesBottomBarWhenPushed = true
+        nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
+        nextVC.buttonData = "여행 정보 수정하기"
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
