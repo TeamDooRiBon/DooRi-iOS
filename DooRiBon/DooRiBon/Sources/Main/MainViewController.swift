@@ -50,7 +50,12 @@ class MainViewController: UIViewController {
     var comeTripList : [Group] = []
     var lastTripList : [Group] = []
     
-    var allTripData: MainDataModel?
+    var allTripData: MainDataModel? {
+        didSet {
+            comeTripCollectionView.reloadData()
+            lastTripTableView.reloadData()
+        }
+    }
     let formatter = DateFormatter()
     let calendar = Calendar.current
 
