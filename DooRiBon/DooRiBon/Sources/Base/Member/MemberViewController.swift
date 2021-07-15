@@ -12,6 +12,11 @@ class MemberViewController: UIViewController {
 
     @IBOutlet weak var pagerTab: PagerTab!
     @IBOutlet private var topView: TripTopView!
+    
+    // MARK: - Properties
+    var tripData: Group?
+    static var profileData: [Profile] = []
+    static var thisID: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,19 +35,54 @@ class MemberViewController: UIViewController {
         pagerTab.setup(self, viewControllers: viewControllers, style: style)
         // 상단영역 버튼 액션 연결
         setupButtonAction()
+        setupFirstData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTopView()
+        navigationController?.navigationBar.isHidden = true
+        
+        refreshTopView()
+    }
+    
+    func refreshTopView() {
+        TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
+            switch(response)
+            {
+            case .success(let data):
+                if let tripResponse = data as? TripInfoResponse {
+                    let tripInfo = tripResponse.data
+                    tripData?.startDate = tripInfo.startDate
+                    tripData?.endDate = tripInfo.endDate
+                    tripData?.travelName = tripInfo.travelName
+                    tripData?.destination = tripInfo.destination
+                    setupTopView()
+                }
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
     }
 }
 
 extension MemberViewController {
+    private func setupFirstData() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        tripData = model
+        setupTopView()
+    }
     /// TopView Setup
     private func setupTopView() {
+        topView.setTopViewData(tripData: tripData!)
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         topView.setTopViewData(tripData: model)
+        MemberViewController.thisID = model._id
     }
     
     // MARK: - Button Actions
@@ -65,13 +105,22 @@ extension MemberViewController {
     
     @objc func settingButtonClicked(_ sender: UIButton) {
         print("setting button clicked")
+        let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
+        guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        nextVC.groupId = tripData?._id ?? ""
+        nextVC.hidesBottomBarWhenPushed = true
+        nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
+        nextVC.buttonData = "여행 정보 수정하기"
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
+        
         WithPopupView.loadFromXib()
             .setTitle("함께하는 사람")
             .setDescription("총 5명")
             .setConfirmButton("참여코드 복사하기")
+            .setGroupId(id: MemberViewController.thisID)
             .present { event in
                  if event == .confirm {
                     ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")

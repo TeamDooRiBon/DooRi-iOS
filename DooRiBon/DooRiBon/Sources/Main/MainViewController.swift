@@ -212,8 +212,6 @@ class MainViewController: UIViewController {
     func dDayCalculate(from date: Date) -> Int {
         return calendar.dateComponents([.day], from: date, to: Date()).day! - 1
     }
-
-    
 }
 
 // MARK: - 익스텐션_컬렉션뷰

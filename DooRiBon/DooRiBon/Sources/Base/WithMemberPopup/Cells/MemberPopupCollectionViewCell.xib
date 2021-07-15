@@ -23,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="121" height="40"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d20-E8-d63">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileimage" translatesAutoresizingMaskIntoConstraints="NO" id="d20-E8-d63">
                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="CzZ-lX-2Tf"/>
@@ -31,7 +31,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VL-Xm-lfR">
-                        <rect key="frame" x="49" y="12" width="72" height="16.5"/>
+                        <rect key="frame" x="49" y="11" width="72" height="18"/>
                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
                         <color key="textColor" name="black3"/>
                         <nil key="highlightedColor"/>
@@ -56,6 +56,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="profileimage" width="63" height="63"/>
         <namedColor name="black3">
             <color red="0.27799999713897705" green="0.29800000786781311" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

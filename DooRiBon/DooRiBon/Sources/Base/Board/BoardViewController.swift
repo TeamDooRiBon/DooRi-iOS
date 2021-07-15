@@ -35,7 +35,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var topView: TripTopView!
     @IBOutlet var iconImageView: [UIImageView]!
     @IBOutlet var iconTitleLabel: [UILabel]!
-    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak var boardTableView: UITableView!
     
     // MARK: - Properties
     let iconName = ["Goal", "Aim", "Role", "Check"]
@@ -66,19 +66,23 @@ class BoardViewController: UIViewController {
     
     private var selectedData: DummyDataModel? {
         didSet {
-            tableView.reloadData()
+            boardTableView.reloadData()
         }
     }
     
-    private var currentBoardData: [AddBoardData]? {
+    private var currentBoardData: [BoardData]? {
         didSet {
-            tableView.reloadData()
+            boardTableView.reloadData()
         }
     }
     
     private var selectedTag: String = "goal"
     private var selectedTagIndex: Int = 0
     private var contents: String = ""
+    var tripData: Group?
+    
+    static var profileData: [Profile] = []
+    private var thisID: String = ""
     
     // MARK: - Life Cycle
     
@@ -87,19 +91,47 @@ class BoardViewController: UIViewController {
         setupUI()
         setupTableView()
         setupData()
+        setupFirstData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTopView()
+        refreshTopView()
         guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
-        getBoardData(tag: tag)
+        getBoardData(groupId: self.thisID, tag: tag)
     }
     
-    private func postTripBoard(contents: String, tag: String) {
+    // MARK:- Function
+    
+    func refreshTopView() {
+        TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
+            switch(response)
+            {
+            case .success(let data):
+                if let tripResponse = data as? TripInfoResponse {
+                    let tripInfo = tripResponse.data
+                    tripData?.startDate = tripInfo.startDate
+                    tripData?.endDate = tripInfo.endDate
+                    tripData?.travelName = tripInfo.travelName
+                    tripData?.destination = tripInfo.destination
+                    setupTopView()
+                }
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
+    }
+
+    private func postTripBoard(contents: String, groupId: String, tag: String) {
         let input = AddBoardRequest(content: contents)
         AddBoardDataService.shared.postTripBoard(input,
-                                                 groupId: "60ed24ad317c7b2480ee1ec6",
+                                                 groupId: groupId,
                                                  tag: tag) { response in
             switch(response)
             {
@@ -117,13 +149,15 @@ class BoardViewController: UIViewController {
         }
     }
     
-    private func getBoardData(tag: String) {
-        AddBoardDataService.shared.getTripBoard(groupId: "60ed24ad317c7b2480ee1ec6",
+    private func getBoardData(groupId: String, tag: String) {
+        AddBoardDataService.shared.getTripBoard(groupId: groupId,
                                                 tag: tag) { response in
+            
+            
             switch(response)
             {
             case .success(let data) :
-                if let data = data as? [AddBoardData] {
+                if let data = data as? [BoardData] {
                     self.currentBoardData = data
                 }
 
@@ -143,9 +177,16 @@ class BoardViewController: UIViewController {
 extension BoardViewController {
     // MARK: - Setup
     /// TopView Setup
-    private func setupTopView() {
+    /// TopView Setup
+    private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
-        topView.setTopViewData(tripData: model)
+        tripData = model
+        setupTopView()
+    }
+    /// TopView Setup
+    private func setupTopView() {
+        topView.setTopViewData(tripData: tripData!)
+        self.thisID = tripData?._id ?? ""
     }
     
     private func setupUI() {
@@ -156,6 +197,32 @@ extension BoardViewController {
     
     private func setupData() {
         selectedData = dummyData[0]
+    }
+    
+    private func deleteBoardData(groupId: String, tag: String, boardId: String) {
+        AddBoardDataService.shared.deleteTripBoard (groupId: groupId,
+                                                    tag: tag,
+                                                    boardId: boardId) { response in
+            
+            print(response)
+            switch(response)
+            {
+            case .success(let data) :
+                if let data = data as? [BoardData] {
+                    self.currentBoardData = data
+                    print(23232323,"성공")
+                }
+
+            case .requestErr(let message) :
+                print(message)
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 
     // MARK: - Button Actions
@@ -178,10 +245,28 @@ extension BoardViewController {
     
     @objc func settingButtonClicked(_ sender: UIButton) {
         print("setting button clicked")
+        let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
+        guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        nextVC.groupId = tripData?._id ?? ""
+        nextVC.hidesBottomBarWhenPushed = true
+        nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
+        nextVC.buttonData = "여행 정보 수정하기"
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
-        print("member button clicked")
+       
+        WithPopupView.loadFromXib()
+            .setTitle("함께하는 사람")
+            .setDescription("총 5명")
+            .setConfirmButton("참여코드 복사하기")
+            .setGroupId(id: self.thisID)
+            .present { event in
+                 if event == .confirm {
+                    ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
+                 }
+            }
+
     }
     
     @objc func codeButtonClicked(_ sender: UIButton) {
@@ -223,23 +308,23 @@ extension BoardViewController {
         selectedTagIndex = sender.tag
         
         guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
-        getBoardData(tag: tag)
+        getBoardData(groupId: self.thisID, tag: tag)
         
-        tableView.reloadData()
+        boardTableView.reloadData()
     }
     
     // MARK: - TableView Setup
     
     private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        boardTableView.delegate = self
+        boardTableView.dataSource = self
         
-        tableView.register(UINib(nibName: "BoardNoDataTableViewCell", bundle: nil), forCellReuseIdentifier: BoardNoDataTableViewCell.cellId)
-        tableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: BoardTableViewCell.cellId)
+        boardTableView.register(UINib(nibName: "BoardNoDataTableViewCell", bundle: nil), forCellReuseIdentifier: BoardNoDataTableViewCell.cellId)
+        boardTableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: BoardTableViewCell.cellId)
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
-        tableView.backgroundColor = .clear
+        boardTableView.rowHeight = UITableView.automaticDimension
+        boardTableView.estimatedRowHeight = 100
+        boardTableView.backgroundColor = .clear
     }
 }
 
@@ -248,7 +333,7 @@ extension BoardViewController {
 extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelegate, BoardPopupProtocol {
     func sendContentsData(contents: String) {
         self.contents = contents
-        tableView.reloadData()
+        boardTableView.reloadData()
     }
     
     func didSelectedAddTripButton() {
@@ -263,9 +348,9 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
             .setDescription(popupData[selectedTagIndex].description)
             .present { event in
                 if event == .confirm {
-                    self.postTripBoard(contents: self.contents, tag: description)
-                    self.getBoardData(tag: description)
-                    self.tableView.reloadData()
+                    self.postTripBoard(contents: self.contents, groupId: self.thisID, tag: description)
+                    self.getBoardData(groupId: self.thisID, tag: description)
+                    self.boardTableView.reloadData()
                 }
             }
     }
@@ -279,6 +364,33 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
         boardHeaderView.delegate = self
         boardHeaderView.boardTitle.text = selectedData?.titleName
         return boardHeaderView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let boardData = currentBoardData![indexPath.row]
+        BottomSheetView.loadFromXib()
+            .setBottomSheetType(.board)
+            .setHost(boardData.name)
+            .setInfomation(popupData[selectedTagIndex].title)
+            .setDescription(boardData.content)
+            .present { event in
+                if event == .edit {
+                    
+                } else {
+                    PopupView.loadFromXib()
+                        .setTitle("정말 삭제하시겠습니까?")
+                        .setDescription("한번 삭제한 항목은 다시 되돌릴 수 없습니다.\n그래도 삭제를 원하신다면 오른쪽 버튼을 눌러주세요")
+                        .setCancelButton()
+                        .setConfirmButton()
+                        .present { event in
+                            if event == .confirm {
+                                self.deleteBoardData(groupId: self.thisID, tag: self.selectedTag, boardId: boardData.id)
+                            } else {
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        }
+                }
+            }
     }
 }
 
@@ -295,6 +407,8 @@ extension BoardViewController: UITableViewDataSource {
         if let data = currentBoardData?[indexPath.row] {
             cell.setData(goalContents: data.content, userName: data.name)
         }
+        
+        cell.selectionStyle = .none
         
         return cell
     }

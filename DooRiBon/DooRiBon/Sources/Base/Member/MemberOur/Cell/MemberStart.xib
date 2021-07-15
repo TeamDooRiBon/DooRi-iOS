@@ -56,6 +56,9 @@
                             <real key="value" value="21"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="goToStyleTestButtonClicked:" destination="QWe-l4-Ecl" eventType="touchUpInside" id="KfW-HQ-GjU"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="G3g-ZW-vwb"/>

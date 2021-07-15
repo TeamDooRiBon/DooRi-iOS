@@ -21,10 +21,11 @@ class StyleQuestionViewController: UIViewController {
     
     var questionDataList: [StyleQuestionData] = []
     var questionAnswerWeightList: [StyleQuestionAnswerWeight] = []
-    var testResult: [StyleResultData] = []
+    var testResult: StyleResultData?
     private lazy var weightResult: [Int] = Array(repeating: 0, count: 8)
     private lazy var answers: [Int] = Array(repeating: -1, count: questionDataList.count)
     var selectedWeight: [Int] = []
+    static var thisID: String = ""
     
     
 // MARK: - Life Cycle
@@ -64,6 +65,11 @@ class StyleQuestionViewController: UIViewController {
               let currentNumber = answerCollectionView.indexPath(for: cell)?.item, currentNumber < questionDataList.count else {
             return
         }
+        if currentNumber == 9 {
+            print("도착")
+            testResultSave()
+            return
+        }
         // 4개 중 1개를 선택할때만 버튼을 작동시킴
         if (answers[currentNumber] != -1) {
             guard let cell = answerCollectionView.visibleCells.first,
@@ -84,7 +90,6 @@ class StyleQuestionViewController: UIViewController {
         // 마지막 버튼 이름 바꾸기
         if (currentNumber == 8) {
             nextButton.setTitle("결과 보러가기", for: .normal)
-//            testResultSave()
         }
     }
     
@@ -101,6 +106,7 @@ class StyleQuestionViewController: UIViewController {
             .present { event in
                 if event == .confirm {
                     // confirm action
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
     }
@@ -129,26 +135,34 @@ class StyleQuestionViewController: UIViewController {
         }
     }
     
-//    func testResultSave() {
-//        StyleResultService.shared.resultSave(groupID: "60ed24ad317c7b2480ee1ec6", score: weightResult, choice: answers) { result in
-//            switch result {
-//            case .success(_):
-//                if let result = data as? StyleResultResponse {
-//                    questionDataList = titleContent.data
-//                    answerCollectionView.reloadData()
-//                    updateQuestion(0)
-//                }
-//            case .requestErr(_):
-//                print("requestErr")
-//            case .pathErr:
-//                print("pathErr")
-//            case .serverErr:
-//                print("serverErr")
-//            case .networkFail:
-//                print("networkFail")
-//            }
-//        }
-//    }
+    func testResultSave() {
+        StyleResultService.shared.resultSave(groupID: "60ee5078b0e7cd69292948f3", score: weightResult, choice: answers) { [self] (response) in
+            switch (response) {
+            case .success(let data):
+                if let result = data as? StyleResultResponse {
+                    testResult = result.data
+                    goToResultView()
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    func goToResultView() {
+        let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+        guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+        nextVC.name = testResult?.member ?? ""
+        nextVC.imgURL = testResult?.iOSResultImage ?? ""
+        nextVC.style = testResult?.title ?? ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 
     // 질문 내용 변경
     func updateQuestion(_ currentNumber: Int) {
@@ -189,11 +203,15 @@ extension StyleQuestionViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let answerCell = collectionView.dequeueReusableCell(withReuseIdentifier: AnswerCollectionViewCell.identifier, for: indexPath) as? AnswerCollectionViewCell else { return UICollectionViewCell() }
         answerCell.delegate = self
+
+        print(questionAnswerWeightList[0].answer)
+        print(questionAnswerWeightList[1].answer)
+        print(questionAnswerWeightList[2].answer)
+        print(questionAnswerWeightList[3].answer)
         answerCell.setData(answer1: questionAnswerWeightList[0].answer,
                            answer2: questionAnswerWeightList[1].answer,
                            answer3: questionAnswerWeightList[2].answer,
                            answer4: questionAnswerWeightList[3].answer)
-        
         return answerCell
     }
     
