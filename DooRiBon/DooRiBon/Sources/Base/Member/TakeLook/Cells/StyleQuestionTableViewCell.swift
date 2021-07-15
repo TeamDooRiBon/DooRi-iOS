@@ -29,11 +29,10 @@ class StyleQuestionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setdata(number: String, question: String, count: String)
+    func setdata(number: String, question: String)
     {
         numberLabel.text = number
         questionLabel.text = question
-        peopleCountLabel.text = count
     }
 }
 

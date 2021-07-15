@@ -1,20 +1,20 @@
 //
-//  GetMemberProfileDataService.swift
+//  TakeLookService.swift
 //  DooRiBon
 //
-//  Created by 민 on 2021/07/14.
+//  Created by 민 on 2021/07/16.
 //
 
 import Foundation
 import Alamofire
 
-struct GetMemberProfileDataService
+struct TakeLookService
 {
-    static let shared = GetMemberProfileDataService()
+    static let shared = TakeLookService()
     
-    func getPersonInfo(groupId: String, completion : @escaping (NetworkResult<Any>) -> Void)
+    func getAnswerInfo(groupId: String, completion : @escaping (NetworkResult<Any>) -> Void)
     {
-        let url = APIConstants.styleQuestionURL + "/\(groupId)"
+        let url = APIConstants.tripURL + "/\(groupId)"
         let header : HTTPHeaders = NetworkInfo.headerWithToken
         
         let dataRequest = AF.request(url,
