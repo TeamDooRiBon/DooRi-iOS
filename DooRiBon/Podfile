@@ -12,4 +12,5 @@ target 'DooRiBon' do
    # Pods for FSCalendarPractice
   pod 'Kingfisher', '~> 6.0'
   pod 'SkeletonView'
+  pod 'lottie-ios'
 end
