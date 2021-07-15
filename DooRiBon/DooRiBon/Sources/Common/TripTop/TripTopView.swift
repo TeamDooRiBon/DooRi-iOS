@@ -35,6 +35,11 @@ class TripTopView: UIView {
         super.init(coder: aDecoder)
         self.commonInit()
     }
+    
+    @IBAction func mypageButtonClicked(_ sender: Any) {
+
+    }
+    
 
     private func commonInit(){
         let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! UIView

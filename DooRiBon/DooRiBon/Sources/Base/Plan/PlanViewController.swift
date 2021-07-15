@@ -129,6 +129,8 @@ extension PlanViewController {
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
+        guard let vc = UIStoryboard(name: "MyPageStoryboard", bundle: nil).instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func settingButtonClicked(_ sender: UIButton) {
