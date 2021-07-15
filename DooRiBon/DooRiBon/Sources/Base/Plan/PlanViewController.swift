@@ -104,7 +104,7 @@ class PlanViewController: UIViewController {
                     tripData?.travelName = tripInfo.travelName
                     tripData?.destination = tripInfo.destination
                     setupTopView()
-                    getDate()
+//                    getDate(start: tripInfo.startDate, end: tripInfo.endDate)
                 }
             case .requestErr(let message):
                 print("requestERR", message)
@@ -210,17 +210,19 @@ extension PlanViewController {
         PlanViewController.thisID = tripData?._id ?? ""
     }
     
-    private func getDate() {
+    private func getDate(start: Date, end: Date) {
 
         print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 2 - setup Date", self.tripData)
         
-        dummyData = []
+//        dummyData = []
         
-        guard let startDate = tripData?.startDate else { return }
-        guard let endDate = tripData?.endDate else { return }
+//        guard let startDate = tripData?.startDate else { return }
+//        guard let endDate = tripData?.endDate else { return }
         
-        let start = Formatter.date.string(from: startDate)
-        let end = Formatter.date.string(from: endDate)
+        let start = Formatter.date.string(from: start)
+        let end = Formatter.date.string(from: end)
+        
+        print(start, end, 123214124)
         
         dates = DateHelper.getDatesBetweenTwo(from: start, to: end)
         
