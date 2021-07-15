@@ -50,6 +50,8 @@ class AddTripPlanViewController: UIViewController {
     var buttonData: String = ""
     var groupID: String = ""
     var scheduleID: String = ""
+    var startDate = "2021-07-05 16:30"
+    var endDate = "2021-07-05 17:00"
     
     //MARK:- Life Cycle
     
@@ -272,28 +274,42 @@ class AddTripPlanViewController: UIViewController {
     
     @IBAction func addNewPlanButtonClicked(_ sender: Any) {
         if topLabelData == "" {
-            AddTripPlanService.shared.addTripPlan(groupID: "60ed24ad317c7b2480ee1ec6", title: "test", startTime: "2021-07-05 16:30", endTime: "2021-07-05 17:00", location: "숙소", memo: "사진 찍자") { result in
-                switch result {
-                case .success(_):
-                    print("success")
-                    self.navigationController?.popViewController(animated: true)
-                case .requestErr(_):
-                    print("requestErr")
-                case .pathErr:
-                    print("pathErr")
-                case .serverErr:
-                    print("serverErr")
-                case .networkFail:
-                    print("networkFail")
+            if let title = planTitleTextField.text, let location = planLocationTextField.text, let memo = planMemoTextField.text {
+                AddTripPlanService.shared.addTripPlan(groupID: groupID, title: title, startTime: startDate, endTime: endDate, location: location, memo: memo) { result in
+                    switch result {
+                    case .success(_):
+                        print("success")
+                        self.navigationController?.popViewController(animated: true)
+                    case .requestErr(_):
+                        print("requestErr")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
+            }
+        } else {
+            if let title = planTitleTextField.text, let location = planLocationTextField.text, let memo = planMemoTextField.text {
+                EditPlanService.shared.patchData(groupID: groupID, scheduleID: scheduleID, title: title, startTime: startDate, endTime: endDate, location: location, memo: memo) { result in
+                    switch result {
+                    case .success(_):
+                        print("success")
+                        self.navigationController?.popViewController(animated: true)
+                    case .requestErr(_):
+                        print("requestErr")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
                 }
             }
         }
-//        } else {
-//            if let title = planTitleTextField.text, let location = planLocationTextField.text, let memo = planMemoTextField.text
-//            EditPlanService.shared.patchData(groupID: groupID, scheduleID: scheduleID, title: <#T##String#>, startTime: <#T##Date#>, endTime: <#T##Date#>, location: <#T##String#>, memo: <#T##String#>, completion: <#T##(NetworkResult<Any>) -> Void#>)
-//        }
-        
-        
     }
     
 }

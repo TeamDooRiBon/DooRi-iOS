@@ -65,12 +65,13 @@ class PlanViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getSchduleData(date: "2021-07-15")
+        getSchduleData(date: "2021-07-05")
         refreshTopView()
     }
     
     // MARK: - Function
     func refreshTopView() {
+        
         TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
             switch(response)
             {
@@ -430,6 +431,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
         let addTripSB = UIStoryboard(name: "AddTripPlanStoryboard", bundle: nil)
         let addTripVC = addTripSB.instantiateViewController(identifier: "AddTripPlanViewController") as! AddTripPlanViewController
         addTripVC.hidesBottomBarWhenPushed = true
+        addTripVC.groupID = tripData?._id ?? ""
         navigationController?.pushViewController(addTripVC, animated: true)
     }
     

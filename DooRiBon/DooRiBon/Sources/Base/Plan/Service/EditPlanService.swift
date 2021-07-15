@@ -17,7 +17,7 @@ struct EditPlanService{
         return url
     }
     
-    private func makeParameter(title : String, startTime : Date, endTime : Date, location : String, memo : String) -> Parameters
+    private func makeParameter(title : String, startTime : String, endTime : String, location : String, memo : String) -> Parameters
     {
         return [
             "title" : title,
@@ -31,8 +31,8 @@ struct EditPlanService{
     func patchData(groupID : String,
                    scheduleID : String,
                    title : String,
-                   startTime : Date,
-                   endTime : Date,
+                   startTime : String,
+                   endTime : String,
                    location : String,
                    memo : String,
                    completion : @escaping (NetworkResult<Any>) -> Void)
