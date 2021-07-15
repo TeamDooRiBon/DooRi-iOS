@@ -198,7 +198,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="Vc2-ur-S1c"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YCS-k1-Rpy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YCS-k1-Rpy">
                                 <rect key="frame" x="0.0" y="275" width="375" height="454"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -228,7 +228,7 @@
                     <navigationItem key="navigationItem" id="6H8-YY-rO3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="YCS-k1-Rpy" id="XdP-c9-1GN"/>
+                        <outlet property="boardTableView" destination="YCS-k1-Rpy" id="XdP-c9-1GN"/>
                         <outlet property="topView" destination="gyK-uK-iJ4" id="iRZ-b2-dhh"/>
                         <outletCollection property="iconImageView" destination="5oc-D0-hsE" collectionClass="NSMutableArray" id="CmF-zv-47g"/>
                         <outletCollection property="iconImageView" destination="xpx-0U-fxz" collectionClass="NSMutableArray" id="uu6-18-dqX"/>

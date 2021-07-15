@@ -11,11 +11,11 @@ struct TripInfoResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: TripData
+    let data: TripinfoData
 }
 
 // MARK: - DataClass
-struct TripData: Codable {
+struct TripinfoData: Codable {
     let travelName: String
     let startDate: Date
     let endDate: Date
