@@ -322,6 +322,7 @@
 		0A1BD3B8268E192400702EC5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BD7B4C7A2697250000DCCA03 /* ToastView */,
 				BD6074D5269F27D500CA62F3 /* BottomSheet */,
 				BD5EEC8C2698483900D09B11 /* TripTop */,
 				0A88A00E269493C800A4EBD0 /* Popup */,
@@ -713,7 +714,6 @@
 				BD5CBC40269495DA00935E79 /* Cells */,
 				BDCC36732695C5E9009AE274 /* Views */,
 				BDCC367A2695DA3B009AE274 /* Models */,
-				BD7B4C7A2697250000DCCA03 /* View */,
 				40076926269EF96A003C15ED /* PlanNavigationViewController.swift */,
 			);
 			path = Plan;
@@ -1001,13 +1001,13 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		BD7B4C7A2697250000DCCA03 /* View */ = {
+		BD7B4C7A2697250000DCCA03 /* ToastView */ = {
 			isa = PBXGroup;
 			children = (
 				BD7B4C7D2697253C00DCCA03 /* ToastView.swift */,
 				BD7B4C7F2697254300DCCA03 /* ToastView.xib */,
 			);
-			path = View;
+			path = ToastView;
 			sourceTree = "<group>";
 		};
 		BDA5626726994E0E00616CBF /* Models */ = {
