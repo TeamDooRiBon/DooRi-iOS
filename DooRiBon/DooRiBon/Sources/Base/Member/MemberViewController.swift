@@ -49,24 +49,12 @@ class MemberViewController: UIViewController {
             {
             case .success(let data):
                 if let tripResponse = data as? TripInfoResponse {
-                    print("여기부터임")
                     let tripInfo = tripResponse.data
-//                    let f = DateFormatter()
-//                    f.dateFormat = "yyyy.MM.dd"
-//                    let start = f.date(from: tripInfo.startDate)
-//                    f.dateFormat = "MM.dd"
-//                    let end = f.date(from: tripInfo.endDate)
-                    print(tripInfo.startDate)
-                    print(tripInfo.endDate)
-                    tripData?.startDate = tripInfo.startDate ?? Date()
-                    tripData?.endDate = tripInfo.endDate ?? Date()
+                    tripData?.startDate = tripInfo.startDate
+                    tripData?.endDate = tripInfo.endDate
                     tripData?.travelName = tripInfo.travelName
                     tripData?.destination = tripInfo.destination
                     setupTopView()
-                    print(tripData?.startDate)
-                    print(tripData?.endDate)
-                    print(tripData?.travelName)
-                    print(tripData?.destination)
                 }
             case .requestErr(let message):
                 print("requestERR", message)

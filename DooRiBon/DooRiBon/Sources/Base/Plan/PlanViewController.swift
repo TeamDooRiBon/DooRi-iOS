@@ -53,11 +53,38 @@ class PlanViewController: UIViewController {
         setupCollectionView()
         setupTableView()
         setupData()
+        setupFirstData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTopView()
+        refreshTopView()
+    }
+    
+    // MARK: - Function
+    func refreshTopView() {
+        TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
+            switch(response)
+            {
+            case .success(let data):
+                if let tripResponse = data as? TripInfoResponse {
+                    let tripInfo = tripResponse.data
+                    tripData?.startDate = tripInfo.startDate
+                    tripData?.endDate = tripInfo.endDate
+                    tripData?.travelName = tripInfo.travelName
+                    tripData?.destination = tripInfo.destination
+                    setupTopView()
+                }
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
     }
     
     // MARK: - IBActions
@@ -66,6 +93,7 @@ class PlanViewController: UIViewController {
 // MARK: - Helpers
 
 extension PlanViewController {
+    
     // MARK: - Configure
     /// UI Setup
     private func configureUI() {
@@ -100,6 +128,7 @@ extension PlanViewController {
         print("setting button clicked")
         let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
         guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        nextVC.groupId = tripData?._id ?? ""
         nextVC.hidesBottomBarWhenPushed = true
         nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
         nextVC.buttonData = "여행 정보 수정하기"
@@ -115,9 +144,14 @@ extension PlanViewController {
     }
     
     /// TopView Setup
-    private func setupTopView() {
+    private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
-        topView.setTopViewData(tripData: model)
+        tripData = model
+        setupTopView()
+    }
+    /// TopView Setup
+    private func setupTopView() {
+        topView.setTopViewData(tripData: tripData!)
     }
     
     /// CollectionView Setup
