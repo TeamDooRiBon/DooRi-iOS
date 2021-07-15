@@ -125,6 +125,8 @@
 		BD6074DB269F2C4100CA62F3 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074DA269F2C4100CA62F3 /* BottomSheetView.swift */; };
 		BD6074DD269F6DE800CA62F3 /* ScheduleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074DC269F6DE800CA62F3 /* ScheduleDataModel.swift */; };
 		BD6074E1269F6ED700CA62F3 /* ScheduleDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074E0269F6ED700CA62F3 /* ScheduleDataService.swift */; };
+		BD6074EB26A04EFE00CA62F3 /* logo_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = BD6074EA26A04EFE00CA62F3 /* logo_animation.json */; };
+		BD6074ED26A0517700CA62F3 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074EC26A0517700CA62F3 /* SplashViewController.swift */; };
 		BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */; };
 		BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */; };
 		BD75C2D1268B4B3900C4F233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD75C2D0268B4B3900C4F233 /* Assets.xcassets */; };
@@ -274,6 +276,8 @@
 		BD6074DA269F2C4100CA62F3 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		BD6074DC269F6DE800CA62F3 /* ScheduleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDataModel.swift; sourceTree = "<group>"; };
 		BD6074E0269F6ED700CA62F3 /* ScheduleDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDataService.swift; sourceTree = "<group>"; };
+		BD6074EA26A04EFE00CA62F3 /* logo_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logo_animation.json; sourceTree = "<group>"; };
+		BD6074EC26A0517700CA62F3 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BD75C2C4268B4B3800C4F233 /* DooRiBon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRiBon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD75C2C7268B4B3800C4F233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD75C2C9268B4B3800C4F233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -813,6 +817,22 @@
 			path = BottomSheet;
 			sourceTree = "<group>";
 		};
+		BD6074E626A04E6C00CA62F3 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				BD6074EC26A0517700CA62F3 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		BD6074E926A04EED00CA62F3 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				BD6074EA26A04EFE00CA62F3 /* logo_animation.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		BD75C2BB268B4B3700C4F233 = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +872,7 @@
 				BD75C2E1268B510D00C4F233 /* Font */,
 				BD75C2E0268B501400C4F233 /* Extensions */,
 				BD75C2DF268B4E7200C4F233 /* CommonClass */,
+				BD6074E926A04EED00CA62F3 /* Animations */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -859,6 +880,7 @@
 		BD75C2DC268B4DFD00C4F233 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				BD6074E626A04E6C00CA62F3 /* Splash */,
 				BD0AD610269362DB0033DAD8 /* Base */,
 				BD55F43D26919BF8004E7114 /* JoinTrip */,
 				4091C6372692264F009EDB60 /* AddTripPlan */,
@@ -1105,6 +1127,7 @@
 				39FC9D91269F6611002E12A5 /* CheckTripStoryboard.storyboard in Resources */,
 				BD55F43F26919C17004E7114 /* JoinTripStoryboard.storyboard in Resources */,
 				BD0AD60E269361D50033DAD8 /* TripStoryboard.storyboard in Resources */,
+				BD6074EB26A04EFE00CA62F3 /* logo_animation.json in Resources */,
 				4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */,
 				BD5EEC90269848D800D09B11 /* TripTopView.xib in Resources */,
 				BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */,
@@ -1214,6 +1237,7 @@
 				4032098B269F2FB1003DCB8A /* StyleResultService.swift in Sources */,
 				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
+				BD6074ED26A0517700CA62F3 /* SplashViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
 				BD6074D1269ED71600CA62F3 /* TripPlanDataModel.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
@@ -1282,7 +1306,7 @@
 				BDA5626C2699962B00616CBF /* BoardTableViewCell.swift in Sources */,
 				4096A977269D6D0000EBDE56 /* AddTripService.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
-				BD6074B7269DF92700CA62F3 /* AddBoardResponse.swift in Sources */,
+				BD6074B7269DF92700CA62F3 /* BoardResponse.swift in Sources */,
 				39FC9D8F269F6604002E12A5 /* CheckTripViewController.swift in Sources */,
 				BD6074B7269DF92700CA62F3 /* BoardResponse.swift in Sources */,
 				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
