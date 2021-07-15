@@ -13,6 +13,7 @@ class AddTripPlanViewController: UIViewController {
     //MARK:- IBOutlet
     
     /// Label
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var addTimeLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
@@ -45,6 +46,12 @@ class AddTripPlanViewController: UIViewController {
     var startEndCheck = 1
     var timeSelectCheck = false
     let dateformatter = DateFormatter()
+    var topLabelData: String = ""
+    var buttonData: String = ""
+    var groupID: String = ""
+    var scheduleID: String = ""
+    var startDate = "2021-07-05 16:30"
+    var endDate = "2021-07-05 17:00"
     
     //MARK:- Life Cycle
     
@@ -61,9 +68,17 @@ class AddTripPlanViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        configureUI()
+        
     }
     
     //MARK:- Function
+    func configureUI() {
+        if topLabelData != "" {
+            topLabel.text = topLabelData
+            addNewPlanButton.setTitle(buttonData, for: .normal)
+        }
+    }
     
     func textFieldSet() {
         planTitleTextField.delegate = self
@@ -199,7 +214,7 @@ class AddTripPlanViewController: UIViewController {
             planLocationTextField.text = ""
         } else {
             notAddCheck = false
-            notCheckButton.setImage(UIImage(named: "btnNotAdd"), for: .normal)
+            notCheckButton.setImage(UIImage(named: "btnNotadd"), for: .normal)
             planLocationTextField.isEnabled = true
             planLocationTextField.backgroundColor = Colors.white9.color
             planLocationTextField.placeholder = "Ex. 인천공항 이동하기"
@@ -258,38 +273,41 @@ class AddTripPlanViewController: UIViewController {
     }
     
     @IBAction func addNewPlanButtonClicked(_ sender: Any) {
-//        if let title = planTitleTextField.text, let startTime = startTimeLabel.text, let endTime = endTimeLabel.text, let location = planLocationTextField.text, let memo = planMemoTextField.text {
-//            AddTripPlanService.shared.addTripPlan(groupID: "60ed24ad317c7b2480ee1ec6", title: title, startTime: startTime, endTime: endTime, location: location, memo: memo) { result in
-//                switch result {
-//                case .success(_):
-//                    print("success")
-//                    self.navigationController?.popViewController(animated: true)
-//                case .requestErr(_):
-//                    print("requestErr")
-//                case .pathErr:
-//                    print("pathErr")
-//                case .serverErr:
-//                    print("serverErr")
-//                case .networkFail:
-//                    print("networkFail")
-//                }
-//            }
-//        }
-        print(startTimeLabel.text)
-        print(endTimeLabel.text)
-        AddTripPlanService.shared.addTripPlan(groupID: "60ed24ad317c7b2480ee1ec6", title: "test", startTime: "2021-07-05 16:30", endTime: "2021-07-05 17:00", location: "숙소", memo: "사진 찍자") { result in
-            switch result {
-            case .success(_):
-                print("success")
-                self.navigationController?.popViewController(animated: true)
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
+        if topLabelData == "" {
+            if let title = planTitleTextField.text, let location = planLocationTextField.text, let memo = planMemoTextField.text {
+                AddTripPlanService.shared.addTripPlan(groupID: groupID, title: title, startTime: startDate, endTime: endDate, location: location, memo: memo) { result in
+                    switch result {
+                    case .success(_):
+                        print("success")
+                        self.navigationController?.popViewController(animated: true)
+                    case .requestErr(_):
+                        print("requestErr")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
+            }
+        } else {
+            if let title = planTitleTextField.text, let location = planLocationTextField.text, let memo = planMemoTextField.text {
+                EditPlanService.shared.patchData(groupID: groupID, scheduleID: scheduleID, title: title, startTime: startDate, endTime: endDate, location: location, memo: memo) { result in
+                    switch result {
+                    case .success(_):
+                        print("success")
+                        self.navigationController?.popViewController(animated: true)
+                    case .requestErr(_):
+                        print("requestErr")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
             }
         }
     }

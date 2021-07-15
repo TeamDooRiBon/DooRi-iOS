@@ -92,9 +92,7 @@ extension MemberViewController {
     /// TopView Setup
     private func setupTopView() {
         topView.setTopViewData(tripData: tripData!)
-        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
-        topView.setTopViewData(tripData: model)
-        MemberViewController.thisID = model._id
+        MemberViewController.thisID = tripData?._id ?? ""
     }
     
     // MARK: - Button Actions
