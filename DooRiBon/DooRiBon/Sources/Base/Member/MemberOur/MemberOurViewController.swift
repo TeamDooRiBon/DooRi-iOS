@@ -40,17 +40,17 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
     }
     
     func myStyleListSet() {
-        myStyleList.append(contentsOf: [
-            MemberOurTableViewModel(name: "한상진", type: "철두철미 계획가", styleOne: "계획도장깨기", styleTwo: "여행리더", styleThree: "어깨으쓱")
-        ])
+//        myStyleList.append(contentsOf: [
+//            MemberOurTableViewModel(name: "한상진", type: "철두철미 계획가", styleOne: "계획도장깨기", styleTwo: "여행리더", styleThree: "어깨으쓱")
+//        ])
     }
     
     func memberStyleListSet() {
-        memberStyleList.append(contentsOf: [
-            MemberOurTableViewModel(name: "유지인", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test"),
-            MemberOurTableViewModel(name: "김인우", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test"),
-            MemberOurTableViewModel(name: "박유진", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test")
-        ])
+//        memberStyleList.append(contentsOf: [
+//            MemberOurTableViewModel(name: "유지인", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test"),
+//            MemberOurTableViewModel(name: "김인우", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test"),
+//            MemberOurTableViewModel(name: "박유진", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test")
+//        ])
     }
     
 }
@@ -129,6 +129,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberStartTableViewCell", for: indexPath) as? MemberStartTableViewCell else { return UITableViewCell() }
+                cell.delegate = self
                 return cell
             }
         case 1:
@@ -148,5 +149,13 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+extension MemberOurViewController: goToTestViewProtocol {
+    func goToTestView() {
+        let styleQuestionStoryboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
+        guard let nextVC = styleQuestionStoryboard.instantiateViewController(identifier: "StyleQuestionViewController") as? StyleQuestionViewController else { return }
+        nextVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

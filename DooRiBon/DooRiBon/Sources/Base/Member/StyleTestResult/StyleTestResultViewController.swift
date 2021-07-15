@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class StyleTestResultViewController: UIViewController {
 
@@ -14,13 +13,18 @@ class StyleTestResultViewController: UIViewController {
     
     @IBOutlet weak var resultImageView: UIImageView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var styleLabel: UILabel!
+    var name: String = ""
+    var imgURL: String = ""
+    var style: String = ""
     
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         imageSet()
-        shadowSet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,8 +33,13 @@ class StyleTestResultViewController: UIViewController {
     
     //MARK:- Function
     
+    func configureUI() {
+        nameLabel.text = "\(name)님은"
+        styleLabel.text = style
+    }
+    
     func imageSet() {
-        guard let url = URL(string: "https://cdn.cocoacasts.com/cc00ceb0c6bff0d536f25454d50223875d5c79f1/above-the-clouds.jpg") else { return }
+        guard let url = URL(string: imgURL) else { return }
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url) {
                 DispatchQueue.main.async {
@@ -45,5 +54,12 @@ class StyleTestResultViewController: UIViewController {
     func shadowSet() {
         backButton.layer.applyShadow(color: Colors.black2.color, alpha: 0.08, x: 0, y: 1, blur: 10, spread: 2)
     }
+    
+    //MARK:- IBAction
+    
+    @IBAction func backButtonClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }
