@@ -19,13 +19,13 @@ class MemberViewController: UIViewController {
     
     private var myStyleDummyData: TripTendencyDataModel? {
         didSet {
-            
+            print(myStyleDummyData, "내꺼")
         }
     }
     
     private var memberStyleDummyData: [TripTendencyDataModel] = [] {
         didSet {
-            
+            print(memberStyleDummyData, "너꺼")
         }
     }
 
@@ -114,8 +114,7 @@ extension MemberViewController {
 
         GetMemberStyleDataService.shared.getMemberStyle(groupId: groupId)
                                                         { [weak self] (response) in
-            
-            print(response, 4545463)
+ 
             switch response {
             case .success(let data):
                 if let style = data as? DivisionMemberDataModel {
