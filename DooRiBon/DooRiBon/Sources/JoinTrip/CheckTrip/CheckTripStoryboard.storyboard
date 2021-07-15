@@ -61,26 +61,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRm-TL-nsg">
                                 <rect key="frame" x="44" y="173" width="287" height="348"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gzP-I1-EqV">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gzP-I1-EqV">
                                         <rect key="frame" x="0.0" y="0.0" width="287" height="222"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="222" id="hhj-bg-DvM"/>
+                                            <constraint firstAttribute="height" constant="222" id="OcY-Ov-GU5"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0q-EQ-54I">
-                                        <rect key="frame" x="17" y="230" width="252" height="20.333333333333343"/>
+                                        <rect key="frame" x="17" y="230" width="252" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="5hE-b4-gqM"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSU-ne-GvE">
-                                        <rect key="frame" x="17" y="254.33333333333334" width="30.666666666666671" height="15.333333333333343"/>
+                                        <rect key="frame" x="17" y="255" width="30.666666666666671" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="7zd-6G-oxg"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                         <color key="textColor" name="subBlue2"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nK0-7L-n08">
-                                        <rect key="frame" x="17" y="273.66666666666669" width="95" height="24"/>
+                                        <rect key="frame" x="17" y="280" width="95" height="24"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconAirplaneFill" translatesAutoresizingMaskIntoConstraints="NO" id="RuS-Ie-3Wv">
                                                 <rect key="frame" x="8" y="2" width="20" height="20"/>
@@ -121,7 +127,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0t-Nq-VBc">
-                                        <rect key="frame" x="17" y="303.66666666666669" width="140.66666666666666" height="24"/>
+                                        <rect key="frame" x="17" y="310" width="140.66666666666666" height="24"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUserMainMid" translatesAutoresizingMaskIntoConstraints="NO" id="yiZ-Qj-Grm">
                                                 <rect key="frame" x="8" y="3" width="18" height="18"/>
@@ -151,7 +157,6 @@
                                             <constraint firstAttribute="height" constant="24" id="8WC-SQ-0Ca"/>
                                             <constraint firstItem="yiZ-Qj-Grm" firstAttribute="top" secondItem="D0t-Nq-VBc" secondAttribute="top" constant="3" id="AhE-a2-now"/>
                                             <constraint firstAttribute="trailing" secondItem="U4U-6R-mEf" secondAttribute="trailing" constant="8" id="Pe9-FD-KLp"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="141" id="RDL-oS-GKd"/>
                                             <constraint firstItem="U4U-6R-mEf" firstAttribute="top" secondItem="D0t-Nq-VBc" secondAttribute="top" constant="3" id="SfU-Dl-7WK"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="141" id="UwV-Yy-0aB"/>
                                             <constraint firstAttribute="bottom" secondItem="U4U-6R-mEf" secondAttribute="bottom" constant="3" id="XHS-Qq-o2C"/>
@@ -192,7 +197,13 @@
                                     <constraint firstAttribute="trailing" secondItem="O0q-EQ-54I" secondAttribute="trailing" constant="18" id="taH-3W-p7M"/>
                                     <constraint firstAttribute="height" constant="348" id="tqT-tQ-hLW"/>
                                     <constraint firstItem="O0q-EQ-54I" firstAttribute="top" secondItem="gzP-I1-EqV" secondAttribute="bottom" constant="8" id="wgh-ui-YjZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="D0t-Nq-VBc" secondAttribute="bottom" constant="14" id="ynX-if-fuV"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="hXh-Ug-4Cj">
                                 <rect key="frame" x="18" y="684" width="339" height="52"/>
@@ -256,9 +267,10 @@
                     <connections>
                         <outlet property="checkTripDateLabel" destination="hSU-ne-GvE" id="Tu7-XI-Coc"/>
                         <outlet property="checkTripImage" destination="gzP-I1-EqV" id="Nfm-pY-bQU"/>
-                        <outlet property="checkTripLocationLabel" destination="U4U-6R-mEf" id="d3I-wr-R7G"/>
+                        <outlet property="checkTripLocationLabel" destination="sYU-ni-Pcl" id="iW4-gq-5w2"/>
                         <outlet property="checkTripTitleLabel" destination="O0q-EQ-54I" id="ude-sv-lI0"/>
                         <outlet property="makeTripPersonLabel" destination="U4U-6R-mEf" id="Elq-YJ-17a"/>
+                        <outlet property="shadowView" destination="bRm-TL-nsg" id="jCp-mx-bFD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

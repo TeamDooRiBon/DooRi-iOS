@@ -10,6 +10,8 @@ import Kingfisher
 
 class CheckTripViewController: UIViewController {
 
+    
+    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var checkTripImage: UIImageView!
     @IBOutlet weak var checkTripTitleLabel: UILabel!
     @IBOutlet weak var checkTripDateLabel: UILabel!
@@ -23,21 +25,29 @@ class CheckTripViewController: UIViewController {
         super.viewDidLoad()
         
         setTripData()
+        setShadowView()
         self.navigationController?.navigationBar.isHidden = true
     }
-    
-    
     
     func setTripData()
     {
         if let url = URL(string: self.checkTripData!.image)
         {
             self.checkTripImage.kf.setImage(with: url)
+            checkTripImage.layer.cornerRadius = 12
+            checkTripImage.layer.maskedCorners = [
+                .layerMinXMinYCorner, .layerMaxXMinYCorner
+            ]
         }
         self.checkTripTitleLabel.text = self.checkTripData?.travelName
-        self.checkTripDateLabel.text = self.checkTripData?.startDate
+        var str1 = self.checkTripData?.startDate.components(separatedBy: "-")
+        var str2 = self.checkTripData?.endDate.components(separatedBy: "-")
+        let start = str1![0] + ". " + str1![1] + ". " + str1![2]
+        let end = str2![1] + ". " + str2![2]
+        self.checkTripDateLabel.text = start + " - " + end
         self.checkTripLocationLabel.text = self.checkTripData?.destination
-        self.makeTripPersonLabel.text = self.checkTripData?.host
+        self.makeTripPersonLabel.text = "\(self.checkTripData?.host ?? "한상진")님이 만든 여행"
+        
         
 //        formatter.dateFormat = "yyyy.MM.dd"
 //        let start = formatter.string(from: self.checkTripData!.startDate)
@@ -50,6 +60,11 @@ class CheckTripViewController: UIViewController {
 //        } else {
 //            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님외 \(nowTripList[0].members.count - 1)명과 함께"
 //        }
+    }
+    
+    func setShadowView() {
+        shadowView.layer.applyShadow(color: .black, alpha: 0.07,
+                                     x: 0, y: 3, blur: 10)
     }
     
     @IBAction func reInputCodeButtonClicked(_ sender: Any) {
