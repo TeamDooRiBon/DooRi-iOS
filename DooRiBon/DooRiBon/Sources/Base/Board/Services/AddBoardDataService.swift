@@ -77,7 +77,7 @@ struct AddBoardDataService {
     
     private func judgeStatus(status: Int, data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(AddBoardResponse.self, from: data) else {return .pathErr}
+        guard let decodedData = try? decoder.decode(BoardResponse.self, from: data) else {return .pathErr}
         
         switch status {
         case 200: return .success(decodedData.data as Any)

@@ -102,7 +102,7 @@
 		BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */; };
 		BD5EEC9526986AB100D09B11 /* BoardNoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */; };
 		BD6074B5269DF8AD00CA62F3 /* AddBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */; };
-		BD6074B7269DF92700CA62F3 /* AddBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B6269DF92700CA62F3 /* AddBoardResponse.swift */; };
+		BD6074B7269DF92700CA62F3 /* BoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B6269DF92700CA62F3 /* BoardResponse.swift */; };
 		BD6074BA269DFA0200CA62F3 /* AddBoardDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */; };
 		BD6074BC269E015E00CA62F3 /* BoardSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6074BB269E015E00CA62F3 /* BoardSectionHeaderView.swift */; };
 		BD6074C0269E019C00CA62F3 /* BoardSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */; };
@@ -238,7 +238,7 @@
 		BD5EEC9226986AB100D09B11 /* BoardNoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardNoDataTableViewCell.swift; sourceTree = "<group>"; };
 		BD5EEC9326986AB100D09B11 /* BoardNoDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardNoDataTableViewCell.xib; sourceTree = "<group>"; };
 		BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardRequest.swift; sourceTree = "<group>"; };
-		BD6074B6269DF92700CA62F3 /* AddBoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardResponse.swift; sourceTree = "<group>"; };
+		BD6074B6269DF92700CA62F3 /* BoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardResponse.swift; sourceTree = "<group>"; };
 		BD6074B9269DFA0200CA62F3 /* AddBoardDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardDataService.swift; sourceTree = "<group>"; };
 		BD6074BB269E015E00CA62F3 /* BoardSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSectionHeaderView.swift; sourceTree = "<group>"; };
 		BD6074BF269E019C00CA62F3 /* BoardSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -930,7 +930,7 @@
 			children = (
 				BDA5626826994E2000616CBF /* DummyDataModel.swift */,
 				BD6074B4269DF8AD00CA62F3 /* AddBoardRequest.swift */,
-				BD6074B6269DF92700CA62F3 /* AddBoardResponse.swift */,
+				BD6074B6269DF92700CA62F3 /* BoardResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1207,7 +1207,7 @@
 				BDA5626C2699962B00616CBF /* BoardTableViewCell.swift in Sources */,
 				4096A977269D6D0000EBDE56 /* AddTripService.swift in Sources */,
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
-				BD6074B7269DF92700CA62F3 /* AddBoardResponse.swift in Sources */,
+				BD6074B7269DF92700CA62F3 /* BoardResponse.swift in Sources */,
 				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
 				40A0EA42269C4596009EDE74 /* NibConstants.swift in Sources */,
 				392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */,
