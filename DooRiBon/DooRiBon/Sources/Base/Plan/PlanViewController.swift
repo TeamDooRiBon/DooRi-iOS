@@ -101,11 +101,9 @@ extension PlanViewController {
     }
     
     @objc func profileButtonClicked(_ sender: UIButton) {
-        print("profile button clicked")
     }
     
     @objc func settingButtonClicked(_ sender: UIButton) {
-        print("setting button clicked")
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
@@ -163,13 +161,11 @@ extension PlanViewController {
     
     private func getSchduleData(date: String) {
         guard let groupId = tripData?._id else { return }
-        print(groupId)
         
         TripPlanDataService.shared.getTripPlan(groupId: groupId,
                                                date: date) { [weak self] (response) in
             switch response {
             case .success(let data):
-                print("success", data)
                 if let schedule = data as? [Schedule] {
                     self!.planDummyData = schedule
                 }
@@ -209,9 +205,43 @@ extension PlanViewController {
                                    memo: scheduleData.memo)
                         .present { event in
                             if event == .edit {
+                                
                             } else {
+                                PopupView.loadFromXib()
+                                    .setTitle("정말 삭제하시겠습니까?")
+                                    .setDescription("한번 삭제한 항목은 다시 되돌릴 수 없습니다.\n그래도 삭제를 원하신다면 오른쪽 버튼을 눌러주세요")
+                                    .setCancelButton()
+                                    .setConfirmButton()
+                                    .present { event in
+                                        if event == .confirm {
+                                            self.deleteSchedule(groupId: groupId, scheduleId: scheduleId)
+                                        } else {
+                                        }
+                                    }
                             }
                         }
+                }
+            case .requestErr(_):
+                print("requestErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .pathErr:
+                print("pathErr")
+            }
+        }
+    }
+    
+    private func deleteSchedule(groupId: String, scheduleId: String) {
+        ScheduleDataService.shared.deleteSchedule(groupId: groupId,
+                                               scheduleId: scheduleId) { response in
+            switch response {
+            
+            case .success(let data):
+                if let scheduleData = data as? [Schedule] {
+                    self.getSchduleData(date: "2021-07-15")
+                    self.contentsTableView.reloadData()
                 }
             case .requestErr(_):
                 print("requestErr")
@@ -338,8 +368,6 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout {
 
 extension PlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)번째 셀클릭")
-        print(111111, planDummyData[indexPath.row].id)
         getScheduleData(groupId: tripData?._id ?? "", scheduleId: planDummyData[indexPath.row].id)
     }
 }
