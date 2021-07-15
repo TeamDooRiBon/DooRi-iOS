@@ -12,7 +12,7 @@ struct StyleResultService{
     static let shared = StyleResultService()
     
     private func makeURL(groupID: String) -> String {
-        let url = APIConstants.addPlanURL.replacingOccurrences(of: ":groupId", with: groupID)
+        let url = APIConstants.styleResultSaveURL.replacingOccurrences(of: ":groupId", with: groupID)
         return url
     }
     

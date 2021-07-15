@@ -84,7 +84,7 @@ class StyleQuestionViewController: UIViewController {
         // 마지막 버튼 이름 바꾸기
         if (currentNumber == 8) {
             nextButton.setTitle("결과 보러가기", for: .normal)
-            testResultSave()
+//            testResultSave()
         }
     }
     
@@ -129,26 +129,26 @@ class StyleQuestionViewController: UIViewController {
         }
     }
     
-    func testResultSave() {
-        StyleResultService.shared.resultSave(groupID: "60ed24ad317c7b2480ee1ec6", score: weightResult, choice: answers) { result in
-            switch result {
-            case .success(_):
-                if let titleContent = data as? StyleQuestionResponse {
-                    questionDataList = titleContent.data
-                    answerCollectionView.reloadData()
-                    updateQuestion(0)
-                }
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
-    }
+//    func testResultSave() {
+//        StyleResultService.shared.resultSave(groupID: "60ed24ad317c7b2480ee1ec6", score: weightResult, choice: answers) { result in
+//            switch result {
+//            case .success(_):
+//                if let result = data as? StyleResultResponse {
+//                    questionDataList = titleContent.data
+//                    answerCollectionView.reloadData()
+//                    updateQuestion(0)
+//                }
+//            case .requestErr(_):
+//                print("requestErr")
+//            case .pathErr:
+//                print("pathErr")
+//            case .serverErr:
+//                print("serverErr")
+//            case .networkFail:
+//                print("networkFail")
+//            }
+//        }
+//    }
 
     // 질문 내용 변경
     func updateQuestion(_ currentNumber: Int) {
@@ -241,7 +241,8 @@ extension StyleQuestionViewController: AnswerCollectionViewCellDelegate {
               currentNumber < questionDataList.count else {
             return
         }
-        answers[currentNumber] = index
+        answers[currentNumber] = index + 1
+        print(answers)
         buttonChangeColor()
         selectedWeight = questionAnswerWeightList[index].weight
     }
