@@ -37,15 +37,23 @@ class AnswerCollectionViewCell: UICollectionViewCell {
         fourthAnswerView.isSelected = false
     }
 
-    func setData(answer1: String,
-                 answer2: String,
-                 answer3: String,
-                 answer4: String)
+    func setData(answers: [StyleQuestionAnswerWeight],
+                 answerNumber: Int?)
     {
-        firstAnswerView.answerLabel.text = answer1
-        secondAnswerView.answerLabel.text = answer2
-        thirdAnswerView.answerLabel.text = answer3
-        fourthAnswerView.answerLabel.text = answer4
+        firstAnswerView.answerLabel.text = answers[0].answer
+        secondAnswerView.answerLabel.text = answers[1].answer
+        thirdAnswerView.answerLabel.text = answers[2].answer
+        fourthAnswerView.answerLabel.text = answers[3].answer
+
+        if answerNumber != -1, let number = answerNumber {
+            let views: [AnswerView] = [
+                firstAnswerView,
+                secondAnswerView,
+                thirdAnswerView,
+                fourthAnswerView
+            ]
+            views[number - 1].isSelected = true
+        }
     }
 }
 
