@@ -35,7 +35,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var topView: TripTopView!
     @IBOutlet var iconImageView: [UIImageView]!
     @IBOutlet var iconTitleLabel: [UILabel]!
-    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak var boardTableView: UITableView!
     
     // MARK: - Properties
     let iconName = ["Goal", "Aim", "Role", "Check"]
@@ -66,13 +66,13 @@ class BoardViewController: UIViewController {
     
     private var selectedData: DummyDataModel? {
         didSet {
-            tableView.reloadData()
+            boardTableView.reloadData()
         }
     }
     
     private var currentBoardData: [BoardData]? {
         didSet {
-            tableView.reloadData()
+            boardTableView.reloadData()
         }
     }
     
@@ -163,6 +163,32 @@ extension BoardViewController {
     private func setupData() {
         selectedData = dummyData[0]
     }
+    
+    private func deleteBoardData(groupId: String, tag: String, boardId: String) {
+        AddBoardDataService.shared.deleteTripBoard (groupId: groupId,
+                                                    tag: tag,
+                                                    boardId: boardId) { response in
+            
+            print(response)
+            switch(response)
+            {
+            case .success(let data) :
+                if let data = data as? [BoardData] {
+                    self.currentBoardData = data
+                    print(23232323,"성공")
+                }
+
+            case .requestErr(let message) :
+                print(message)
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
 
     // MARK: - Button Actions
     
@@ -242,21 +268,21 @@ extension BoardViewController {
         guard let tag = Tag(rawValue: selectedTagIndex)?.description else { return }
         getBoardData(groupId: self.thisID, tag: tag)
         
-        tableView.reloadData()
+        boardTableView.reloadData()
     }
     
     // MARK: - TableView Setup
     
     private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        boardTableView.delegate = self
+        boardTableView.dataSource = self
         
-        tableView.register(UINib(nibName: "BoardNoDataTableViewCell", bundle: nil), forCellReuseIdentifier: BoardNoDataTableViewCell.cellId)
-        tableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: BoardTableViewCell.cellId)
+        boardTableView.register(UINib(nibName: "BoardNoDataTableViewCell", bundle: nil), forCellReuseIdentifier: BoardNoDataTableViewCell.cellId)
+        boardTableView.register(UINib(nibName: "BoardTableViewCell", bundle: nil), forCellReuseIdentifier: BoardTableViewCell.cellId)
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
-        tableView.backgroundColor = .clear
+        boardTableView.rowHeight = UITableView.automaticDimension
+        boardTableView.estimatedRowHeight = 100
+        boardTableView.backgroundColor = .clear
     }
 }
 
@@ -265,7 +291,7 @@ extension BoardViewController {
 extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelegate, BoardPopupProtocol {
     func sendContentsData(contents: String) {
         self.contents = contents
-        tableView.reloadData()
+        boardTableView.reloadData()
     }
     
     func didSelectedAddTripButton() {
@@ -282,7 +308,7 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
                 if event == .confirm {
                     self.postTripBoard(contents: self.contents, groupId: self.thisID, tag: description)
                     self.getBoardData(groupId: self.thisID, tag: description)
-                    self.tableView.reloadData()
+                    self.boardTableView.reloadData()
                 }
             }
     }
@@ -299,13 +325,28 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let boardData = currentBoardData![indexPath.row]
         BottomSheetView.loadFromXib()
             .setBottomSheetType(.board)
-            .setHost("누구누구님")
-            .setDescription("안녕하세여")
+            .setHost(boardData.name)
+            .setInfomation(popupData[selectedTagIndex].title)
+            .setDescription(boardData.content)
             .present { event in
                 if event == .edit {
+                    
                 } else {
+                    PopupView.loadFromXib()
+                        .setTitle("정말 삭제하시겠습니까?")
+                        .setDescription("한번 삭제한 항목은 다시 되돌릴 수 없습니다.\n그래도 삭제를 원하신다면 오른쪽 버튼을 눌러주세요")
+                        .setCancelButton()
+                        .setConfirmButton()
+                        .present { event in
+                            if event == .confirm {
+                                self.deleteBoardData(groupId: self.thisID, tag: self.selectedTag, boardId: boardData.id)
+                            } else {
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        }
                 }
             }
     }
@@ -324,6 +365,8 @@ extension BoardViewController: UITableViewDataSource {
         if let data = currentBoardData?[indexPath.row] {
             cell.setData(goalContents: data.content, userName: data.name)
         }
+        
+        cell.selectionStyle = .none
         
         return cell
     }
