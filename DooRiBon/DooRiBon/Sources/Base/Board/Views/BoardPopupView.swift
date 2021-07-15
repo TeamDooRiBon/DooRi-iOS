@@ -56,6 +56,12 @@ class BoardPopupView: UIView {
         return self
     }
     
+    func setTextView(_ text: String) -> Self {
+        contentsTextView.text = text
+        contentsTextView.textColor = Colors.black2.color
+        return self
+    }
+    
     func getTextField() -> String {
         contentsTextView.text
     }
@@ -64,6 +70,7 @@ class BoardPopupView: UIView {
         contentsTextView.delegate = self
         contentsTextView.text = "Ex. 인생사진 찍어오기!"
         contentsTextView.textColor = Colors.gray5.color
+        contentsTextView.textContainerInset = UIEdgeInsets(top: 12, left: 15, bottom: 19, right: 30);
         let tapDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.addGestureRecognizer(tapDismiss)
     }

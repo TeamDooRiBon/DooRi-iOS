@@ -103,6 +103,32 @@ struct AddBoardDataService {
         }
     }
     
+    // MARK: - Post Function
+    
+    func patchTripBoard(_ parameters: AddBoardRequest, groupId: String, tag: String, boardId: String, completion: @escaping (NetworkResult<Any>)->()) {
+        let url = makeDeleteURL(groupId: groupId, tag: tag, boardId: boardId)
+        let headers: HTTPHeaders = NetworkInfo.headerWithToken
+        
+        let dataRequest = AF.request(url,
+                                     method: .patch,
+                                     parameters: parameters,
+                                     encoder: JSONParameterEncoder(),
+                                     headers: headers)
+        
+        dataRequest.responseData { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeStatus(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
     
     // MARK: - Judge Status
     
