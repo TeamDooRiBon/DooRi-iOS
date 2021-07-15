@@ -8,6 +8,7 @@
 import UIKit
 
 class MemberStartTableViewCell: UITableViewCell {
+    var delegate: goToTestViewProtocol?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +20,10 @@ class MemberStartTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func goToStyleTestButtonClicked(_ sender: Any) {
+        self.delegate?.goToTestView()
+    }
+}
+protocol goToTestViewProtocol {
+    func goToTestView()
 }

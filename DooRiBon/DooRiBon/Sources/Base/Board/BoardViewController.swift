@@ -152,8 +152,6 @@ class BoardViewController: UIViewController {
     private func getBoardData(groupId: String, tag: String) {
         AddBoardDataService.shared.getTripBoard(groupId: groupId,
                                                 tag: tag) { response in
-            
-            
             switch(response)
             {
             case .success(let data) :
@@ -177,7 +175,6 @@ class BoardViewController: UIViewController {
 extension BoardViewController {
     // MARK: - Setup
     /// TopView Setup
-    /// TopView Setup
     private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         tripData = model
@@ -186,7 +183,6 @@ extension BoardViewController {
     /// TopView Setup
     private func setupTopView() {
         topView.setTopViewData(tripData: tripData!)
-        print(tripData?._id)
         self.thisID = tripData?._id ?? ""
     }
     
@@ -204,8 +200,6 @@ extension BoardViewController {
         AddBoardDataService.shared.deleteTripBoard (groupId: groupId,
                                                     tag: tag,
                                                     boardId: boardId) { response in
-            
-            print(response)
             switch(response)
             {
             case .success(let data) :
@@ -224,6 +218,33 @@ extension BoardViewController {
             }
         }
     }
+    
+    private func patchBoardData(contents: String, groupId: String, tag: String, boardId: String) {
+        let input = AddBoardRequest(content: contents)
+        AddBoardDataService.shared.patchTripBoard (input,
+                                                   groupId: groupId,
+                                                   tag: tag,
+                                                   boardId: boardId) { response in
+
+            switch(response)
+            {
+            case .success(let data) :
+                if let data = data as? [BoardData] {
+                    self.currentBoardData = data
+                }
+
+            case .requestErr(let message) :
+                print(message)
+            case .pathErr :
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
 
     // MARK: - Button Actions
     
@@ -375,7 +396,17 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
             .setDescription(boardData.content)
             .present { event in
                 if event == .edit {
-                    
+                    let boardPopupView = BoardPopupView.loadFromXib()
+                    boardPopupView.delegate = self
+                    boardPopupView
+                        .setTitle(self.popupData[self.selectedTagIndex].title)
+                        .setDescription(self.popupData[self.selectedTagIndex].description)
+                        .setTextView(boardData.content)
+                        .present { event in
+                            if event == .confirm {
+                                self.patchBoardData(contents: self.contents, groupId: self.thisID, tag: self.selectedTag, boardId: boardData.id)
+                            }
+                        }
                 } else {
                     PopupView.loadFromXib()
                         .setTitle("정말 삭제하시겠습니까?")

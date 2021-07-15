@@ -25,7 +25,6 @@ class MemberPopupCollectionViewCell: UICollectionViewCell {
                  memberName: String) {
         if let url = URL(string: imageName)
         {
-            print(url)
             memberProfileImage.kf.setImage(with: url)
         }
         memberLabel.text = memberName

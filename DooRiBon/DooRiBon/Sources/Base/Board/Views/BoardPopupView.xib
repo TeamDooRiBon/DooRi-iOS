@@ -25,22 +25,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dS-wc-uvl">
-                    <rect key="frame" x="27.666666666666657" y="244.33333333333334" width="320" height="323.33333333333326"/>
+                    <rect key="frame" x="27.666666666666657" y="244.33333333333337" width="320" height="323"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="0ll-iD-pWE">
-                            <rect key="frame" x="20" y="15.999999999999972" width="279" height="289.33333333333326"/>
+                            <rect key="frame" x="20" y="15.999999999999972" width="279" height="289"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="GL7-iC-U19">
-                                    <rect key="frame" x="0.0" y="0.0" width="279" height="48"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="279" height="47.666666666666664"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="여행 목표" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iiy-xq-Lyg">
-                                            <rect key="frame" x="0.0" y="0.0" width="279" height="26.666666666666668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="279" height="26.333333333333332"/>
                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="20"/>
                                             <color key="textColor" name="black1"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 여행의 목표를 함께 공유하세요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUu-xn-3Ly">
-                                            <rect key="frame" x="0.0" y="32.666666666666686" width="279" height="15.333333333333336"/>
+                                            <rect key="frame" x="0.0" y="32.333333333333371" width="279" height="15.333333333333336"/>
                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                             <color key="textColor" name="gray5"/>
                                             <nil key="highlightedColor"/>
@@ -48,14 +48,17 @@
                                     </subviews>
                                 </stackView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="khV-Zu-nPR">
-                                    <rect key="frame" x="0.0" y="67.000000000000014" width="279" height="155.33333333333337"/>
+                                    <rect key="frame" x="0.0" y="66.6666666666667" width="279" height="155.33333333333337"/>
                                     <color key="backgroundColor" name="gray7"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="155.33000000000001" id="PVY-Cf-mcS"/>
+                                    </constraints>
                                     <color key="textColor" systemColor="labelColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="idn-C4-3Vs">
-                                    <rect key="frame" x="0.0" y="241.33333333333337" width="279" height="48"/>
+                                    <rect key="frame" x="0.0" y="241" width="279" height="48"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELg-Hu-E7f">
                                             <rect key="frame" x="0.0" y="0.0" width="136" height="48"/>

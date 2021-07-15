@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         // 맨 처음 보여줄 뷰 컨트롤러 객체 생성 (루트 뷰 컨트롤러로 사용할 객체)
+//        let rootViewController = UIStoryboard(name: "CheckTripStoryboard", bundle: nil)
+//            .instantiateViewController(identifier: "CheckTripViewController")
         let rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil)
             .instantiateViewController(identifier: "MainViewController")
 
