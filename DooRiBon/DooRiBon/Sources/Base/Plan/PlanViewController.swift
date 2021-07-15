@@ -49,7 +49,6 @@ class PlanViewController: UIViewController {
     static var profileData: [Profile] = []
     static var thisID: String = ""
 
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
