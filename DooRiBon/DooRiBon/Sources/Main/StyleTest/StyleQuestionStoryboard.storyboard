@@ -256,8 +256,41 @@
             </objects>
             <point key="canvasLocation" x="98.400000000000006" y="57.635467980295566"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="iXa-sO-0KO">
+            <objects>
+                <viewController storyboardIdentifier="StyleQuestionLoadingViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="kXI-RY-rUT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CPH-ae-xzk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="testResultLoading" translatesAutoresizingMaskIntoConstraints="NO" id="Alk-ug-Sz9">
+                                <rect key="frame" x="83.666666666666686" y="338.66666666666669" width="208" height="111"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST 결과 확인 중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ0-mo-0UY">
+                                <rect key="frame" x="126" y="469.66666666666669" width="123.33333333333331" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                <color key="textColor" name="white9"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mzQ-Gd-Z09"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Alk-ug-Sz9" firstAttribute="centerX" secondItem="mzQ-Gd-Z09" secondAttribute="centerX" id="ZNZ-JV-CH5"/>
+                            <constraint firstItem="uZ0-mo-0UY" firstAttribute="top" secondItem="Alk-ug-Sz9" secondAttribute="bottom" constant="20" id="fcR-8j-vl9"/>
+                            <constraint firstItem="Alk-ug-Sz9" firstAttribute="centerY" secondItem="mzQ-Gd-Z09" secondAttribute="centerY" constant="-17" id="jg5-R8-EBR"/>
+                            <constraint firstItem="uZ0-mo-0UY" firstAttribute="centerX" secondItem="Alk-ug-Sz9" secondAttribute="centerX" id="kmd-U9-l8a"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9yy-AW-fA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="58"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="testResultLoading" width="208" height="111"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="backgroundBlue">
             <color red="0.92500001192092896" green="0.94900000095367432" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -276,6 +309,9 @@
         </namedColor>
         <namedColor name="pointOrange">
             <color red="1" green="0.48199999332427979" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white9">
+            <color red="0.99199998378753662" green="0.99599999189376831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

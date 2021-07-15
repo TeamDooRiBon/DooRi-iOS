@@ -129,12 +129,20 @@ class StyleQuestionViewController: UIViewController {
         guard !weightResult.isEmpty else {
             return
         }
-        StyleResultService.shared.resultSave(groupID: "60ee5078b0e7cd69292948f3", score: weightResult, choice: answers) { [self] (response) in
+        let styleQuestionStoryboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
+        let viewController = styleQuestionStoryboard.instantiateViewController(identifier: "StyleQuestionLoadingViewController")
+        present(viewController, animated: true, completion: nil)
+
+        StyleResultService.shared.resultSave(groupID: "60ee5078b0e7cd69292948f3", score: weightResult, choice: answers) { [weak self] (response) in
             switch (response) {
             case .success(let data):
                 if let result = data as? StyleResultResponse {
-                    testResult = result.data
-                    goToResultView()
+                    self?.testResult = result.data
+                    
+                    // FIXME: 사실은 present가 완료되는 것보다 dismiss가 먼저 불릴 수도 있기 때문에 굉장히 위험한 방식. 앱잼시에만 사용합니다.
+                    self?.dismiss(animated: true) {
+                        self?.goToResultView()
+                    }
                 }
             case .requestErr(_):
                 print("requestErr")
