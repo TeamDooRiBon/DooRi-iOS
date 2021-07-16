@@ -16,6 +16,8 @@
 		0A88A0122694941F00A4EBD0 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A88A0112694941E00A4EBD0 /* PopupView.xib */; };
 		0A88A0142694A61800A4EBD0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */; };
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
+		39194AF326A0AD1A00EF1CDC /* TakeLookDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39194AF226A0AD1A00EF1CDC /* TakeLookDataModel.swift */; };
+		39194AF626A0AD6000EF1CDC /* TakeLookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39194AF526A0AD6000EF1CDC /* TakeLookService.swift */; };
 		392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF94E269183F8008CA532 /* LastTripTableViewCell.swift */; };
 		392EF95126918450008CA532 /* ComeTripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EF95026918450008CA532 /* ComeTripCollectionViewCell.swift */; };
 		393691FA269EB838003348A7 /* WithPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393691F9269EB838003348A7 /* WithPopupView.xib */; };
@@ -174,6 +176,8 @@
 		0A88A0112694941E00A4EBD0 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
+		39194AF226A0AD1A00EF1CDC /* TakeLookDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeLookDataModel.swift; sourceTree = "<group>"; };
+		39194AF526A0AD6000EF1CDC /* TakeLookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeLookService.swift; sourceTree = "<group>"; };
 		392EF94E269183F8008CA532 /* LastTripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripTableViewCell.swift; sourceTree = "<group>"; };
 		392EF95026918450008CA532 /* ComeTripCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComeTripCollectionViewCell.swift; sourceTree = "<group>"; };
 		393691F9269EB838003348A7 /* WithPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithPopupView.xib; sourceTree = "<group>"; };
@@ -412,6 +416,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		39194AF426A0AD5700EF1CDC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				39194AF526A0AD6000EF1CDC /* TakeLookService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		394E7F9026A03FDC00E25057 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +459,7 @@
 		399C7001269B27220017069C /* TakeLook */ = {
 			isa = PBXGroup;
 			children = (
+				39194AF426A0AD5700EF1CDC /* Service */,
 				399C700E269B27A70017069C /* Models */,
 				399C700D269B279E0017069C /* Cells */,
 				399C7007269B27840017069C /* QuestionCell.swift */,
@@ -469,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				399C700F269B27C80017069C /* styleQuestionListDataModel.swift */,
+				39194AF226A0AD1A00EF1CDC /* TakeLookDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -757,7 +771,6 @@
 		BD0AD614269363480033DAD8 /* Plan */ = {
 			isa = PBXGroup;
 			children = (
-				BDCC367A2695DA3B009AE274 /* Models */,
 				BD6074D2269ED78F00CA62F3 /* Service */,
 				BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */,
 				BD0AD61F269365050033DAD8 /* PlanViewController.swift */,
@@ -1286,6 +1299,7 @@
 				BD75C2CA268B4B3800C4F233 /* SceneDelegate.swift in Sources */,
 				BD1725D7269D78F7000FB89B /* JoinTripDataService.swift in Sources */,
 				3975958D269B569D008E8360 /* StyleQuestionViewController.swift in Sources */,
+				39194AF626A0AD6000EF1CDC /* TakeLookService.swift in Sources */,
 				BD0AD6222693653D0033DAD8 /* BoardViewController.swift in Sources */,
 				0A278237269CAB410001591F /* AnswerView.swift in Sources */,
 				408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */,
@@ -1336,6 +1350,7 @@
 				39865B36268F7DF700961BF4 /* CALayer+Extension.swift in Sources */,
 				40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */,
 				399C7010269B27C80017069C /* styleQuestionListDataModel.swift in Sources */,
+				39194AF326A0AD1A00EF1CDC /* TakeLookDataModel.swift in Sources */,
 				39F21BA4269BD83400673511 /* AnswerCollectionViewCell.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				399C700A269B27840017069C /* QuestionCell.swift in Sources */,

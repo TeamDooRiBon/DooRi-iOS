@@ -1,18 +1,18 @@
 //
-//  GetMemberProfileDataService.swift
+//  TakeLookService.swift
 //  DooRiBon
 //
-//  Created by 민 on 2021/07/14.
+//  Created by 민 on 2021/07/16.
 //
 
 import Foundation
 import Alamofire
 
-struct GetMemberProfileDataService
+struct TakeLookService
 {
-    static let shared = GetMemberProfileDataService()
+    static let shared = TakeLookService()
     
-    func getPersonInfo(groupId: String, completion : @escaping (NetworkResult<Any>) -> Void)
+    func getAnswerInfo(groupId: String, completion : @escaping (NetworkResult<Any>) -> Void)
     {
         let url = APIConstants.styleQuestionURL + "/\(groupId)"
         let header : HTTPHeaders = NetworkInfo.headerWithToken
@@ -27,6 +27,7 @@ struct GetMemberProfileDataService
             
             switch dataResponse.result {
             case .success:
+                                
                 guard let statusCode = dataResponse.response?.statusCode else {return}
                 guard let value = dataResponse.value else {return}
                 let networkResult = self.judgeStatus(by: statusCode, value)
@@ -47,8 +48,8 @@ struct GetMemberProfileDataService
         else { return .pathErr }
         
         switch statusCode {
-
-        case 200: return .success(decodedData.data?.members as Any)
+        
+        case 200: return .success(decodedData.data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
