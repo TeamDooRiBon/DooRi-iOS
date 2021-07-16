@@ -144,7 +144,7 @@ class MainViewController: UIViewController {
                 if let comeTrip = comeData as? MainDataModel {
                     allTripData = comeTrip
                     comeTripCollectionView.reloadData()
-                    lastTripTableView.reloadData()
+//                    lastTripTableView.reloadData()
                     setDevideTripData()
                     setupSkeletionUI(.hide)
                 }
@@ -342,11 +342,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
-        
+        formatter.dateFormat = "yyyy. MM"
+        let date = formatter.string(from: lastTripList[indexPath.row].startDate)
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
                          location: lastTripList[indexPath.row].destination,
-                         member: lastTripList[indexPath.row].members[0])
+                         member: lastTripList[indexPath.row].members[0],
+                         tripMonth: date)
         tripCell.selectionStyle = .none
         return tripCell
     }

@@ -777,6 +777,7 @@
                                                                     <outlet property="lastLocationLabel" destination="sKu-Fa-RHr" id="8Rj-z2-ZTM"/>
                                                                     <outlet property="lastMemberLabel" destination="v8I-Tc-NWg" id="1Qp-hk-DcX"/>
                                                                     <outlet property="tripImageView" destination="CKh-cL-uhu" id="QNN-HV-aK7"/>
+                                                                    <outlet property="tripMonthLabel" destination="ThH-DA-PQ6" id="e10-v1-Bjj"/>
                                                                     <outlet property="tripTitleLabel" destination="Dmz-9h-RWa" id="DZv-NS-O10"/>
                                                                 </connections>
                                                             </tableViewCell>
