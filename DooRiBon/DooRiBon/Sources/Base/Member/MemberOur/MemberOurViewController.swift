@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MemberOurViewController: UIViewController, PageComponentProtocol {
     var pageTitle: String = "우리들"
@@ -25,8 +26,6 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFirstData()
-        myStyleListSet()
-        memberStyleListSet()
         tableViewSet()
     }
     
@@ -49,7 +48,6 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
         guard let groupId = tripData?._id else { return }
         GetMemberStyleDataService.shared.getMemberStyle(groupId: groupId)
         { [self] (response) in
-            
             switch response {
             case .success(let data):
                 if let style = data as? DivisionMemberDataModel {
@@ -69,20 +67,6 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
         }
     }
     
-    func myStyleListSet() {
-//        myStyleList.append(contentsOf: [
-//            MemberOurTableViewModel(name: "한상진", type: "철두철미 계획가", styleOne: "계획도장깨기", styleTwo: "여행리더", styleThree: "어깨으쓱")
-//        ])
-    }
-    
-    func memberStyleListSet() {
-//        memberStyleList.append(contentsOf: [
-//            MemberOurTableViewModel(name: "유지인", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test"),
-//            MemberOurTableViewModel(name: "김인우", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test"),
-//            MemberOurTableViewModel(name: "박유진", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test")
-//        ])
-    }
-    
 }
 
 //MARK:- Extension
@@ -93,17 +77,17 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if memberStyleData.count != 0 {
-            switch section {
-            case 0:
-                return 1
-            case 1:
-                return memberStyleData.count
-            default:
-                return 0
-            }
-        } else {
+        switch section {
+        case 0:
             return 1
+        case 1:
+            if memberStyleData.count == 0 {
+                return 1
+            } else {
+                return memberStyleData.count
+            }
+        default:
+            return 0
         }
     }
     
@@ -131,17 +115,21 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if myStyleData != nil {
-            return 113
-        } else {
-            switch indexPath.section {
-            case 0:
+        switch indexPath.section {
+        case 0:
+            if myStyleData != nil {
+                return 113
+            } else {
                 return 226
-            case 1:
-                return 123
-            default:
-                return 0
             }
+        case 1:
+            if memberStyleData.count != 0 {
+                return 113
+            } else {
+                return 120
+            }
+        default:
+            return 0
         }
     }
     
@@ -155,6 +143,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.memberStyleOne.text = myStyleData?.tag[0]
                 cell.memberStyleTwo.text = myStyleData?.tag[1]
                 cell.memberStyleThree.text = myStyleData?.tag[2]
+                cell.memberThumbNailImage.kf.setImage(with: URL(string: myStyleData?.thumbnail ?? ""))
                 cell.selectionStyle = .none
                 return cell
             } else {
@@ -170,6 +159,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.memberStyleOne.text = memberStyleData[indexPath.row].tag[0]
                 cell.memberStyleTwo.text = memberStyleData[indexPath.row].tag[1]
                 cell.memberStyleThree.text = memberStyleData[indexPath.row].tag[2]
+                cell.memberThumbNailImage.kf.setImage(with: URL(string: memberStyleData[indexPath.row].thumbnail))
                 cell.selectionStyle = .none
                 return cell
             } else {
@@ -180,12 +170,39 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if myStyleData != nil {
+                let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+                guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+                nextVC.name = myStyleData?.member.name ?? ""
+                nextVC.imgURL = myStyleData?.iOSResultImage ?? ""
+                nextVC.style = myStyleData?.title ?? ""
+                nextVC.hidesBottomBarWhenPushed = true
+                nextVC.popCount = 2
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        } else {
+            if memberStyleData.count != 0 {
+                let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+                guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+                nextVC.name = memberStyleData[indexPath.row].member.name
+                nextVC.imgURL = memberStyleData[indexPath.row].iOSResultImage
+                nextVC.style = memberStyleData[indexPath.row].title
+                nextVC.hidesBottomBarWhenPushed = true
+                nextVC.popCount = 2
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        }
+    }
 }
 extension MemberOurViewController: goToTestViewProtocol {
     func goToTestView() {
         let styleQuestionStoryboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
         guard let nextVC = styleQuestionStoryboard.instantiateViewController(identifier: "StyleQuestionViewController") as? StyleQuestionViewController else { return }
         nextVC.hidesBottomBarWhenPushed = true
+        nextVC.thisID = tripData?._id ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

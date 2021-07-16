@@ -27,7 +27,6 @@ struct GetMemberProfileDataService
             
             switch dataResponse.result {
             case .success:
-                                
                 guard let statusCode = dataResponse.response?.statusCode else {return}
                 guard let value = dataResponse.value else {return}
                 let networkResult = self.judgeStatus(by: statusCode, value)
@@ -48,8 +47,8 @@ struct GetMemberProfileDataService
         else { return .pathErr }
         
         switch statusCode {
-        
-        case 200: return .success(decodedData.data)
+
+        case 200: return .success(decodedData.data?.members as Any)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail

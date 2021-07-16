@@ -19,5 +19,7 @@ class MemberCodeCopyTableViewCell: UITableViewCell {
     func informLabelSet() {
         informLabel.text = "아직 진행된 TEST가 없어요\n일행에게 참여코드를 공유하여 여행 유형을 비교해보세요!"
     }
+    
+    
 
 }
