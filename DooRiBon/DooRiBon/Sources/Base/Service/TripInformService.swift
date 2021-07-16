@@ -27,9 +27,6 @@ struct TripInformService
                                      encoding: JSONEncoding.default,
                                      headers: header)
         dataRequest.responseData { dataResponse in
-            
-            dump(dataResponse)
-            
             switch dataResponse.result {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else {return}

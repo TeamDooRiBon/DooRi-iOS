@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import Kingfisher
 
 class LastTripTableViewCell: UITableViewCell {
@@ -28,11 +29,16 @@ class LastTripTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     func setdata(imageName: String, title: String, location: String, member: String)
     {
-        let url = URL(string: imageName)
         tripImageView.layer.cornerRadius = tripImageView.frame.height / 2
-        tripImageView.kf.setImage(with: url)
+        if let url = URL(string: imageName) {
+            tripImageView.kf.setImage(with: url)
+        }
         tripTitleLabel.text = title
         lastLocationLabel.text = location
         lastMemberLabel.text = member

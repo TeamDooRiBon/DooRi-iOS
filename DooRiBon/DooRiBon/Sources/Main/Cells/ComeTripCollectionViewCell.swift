@@ -6,7 +6,9 @@
 //
 
 import UIKit
+
 import Kingfisher
+import SkeletonView
 
 class ComeTripCollectionViewCell: UICollectionViewCell {
     static let identifier : String = "ComeTripCollectionViewCell"
@@ -20,9 +22,7 @@ class ComeTripCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
-    
     
     func setData(imageName: String, dday: String, title: String, date: String, location: String, members: String)
     {
@@ -35,4 +35,8 @@ class ComeTripCollectionViewCell: UICollectionViewCell {
         memberLabel.text = members
     }
     
+    func hideAnimation() {
+        [comeTripImageView, ddayLabel, comeTripTitleLabel, dateLabel, locationLabel, memberLabel]
+            .forEach { $0?.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5)) }
+    }
 }
