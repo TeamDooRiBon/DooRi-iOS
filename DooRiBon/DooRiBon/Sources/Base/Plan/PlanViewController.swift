@@ -45,7 +45,6 @@ class PlanViewController: UIViewController {
     @IBOutlet private var topView: TripTopView!
     @IBOutlet weak var currentYearLabel: UILabel!
     @IBOutlet weak var currentMonthLabel: UILabel!
-    @IBOutlet weak var shieldButton: UIButton!
     
     private var dates: [String] = []
     static var profileData: [Profile] = []
@@ -467,7 +466,6 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if dataStatus { // 데이터 있을 때 셀처리
-            shieldButton.isHidden = true
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PlanDataTableViewCell.cellId, for: indexPath) as? PlanDataTableViewCell else {
                 return UITableViewCell()
             }
@@ -490,7 +488,6 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoDataTableViewCell.cellId, for: indexPath) as? NoDataTableViewCell else {
                 return UITableViewCell()
             }
-            shieldButton.isHidden = false
             cell.selectionStyle = .none
             return cell
         }

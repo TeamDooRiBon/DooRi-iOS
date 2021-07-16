@@ -48,9 +48,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8To-Pa-Y2s">
-                                <rect key="frame" x="0.0" y="261" width="46" height="30"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lF5-i6-YmL" customClass="TripTopView" customModule="DooRiBon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                 <color key="backgroundColor" name="backgroundBlue"/>
@@ -138,18 +135,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8To-Pa-Y2s" firstAttribute="leading" secondItem="w1L-EH-7IJ" secondAttribute="leading" id="0bi-zb-PGu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="w1L-EH-7IJ" secondAttribute="trailing" id="3ia-kS-pST"/>
                             <constraint firstItem="lF5-i6-YmL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7Ml-w0-YLV"/>
                             <constraint firstItem="B9K-oA-KgM" firstAttribute="top" secondItem="lF5-i6-YmL" secondAttribute="bottom" id="Epu-O6-Tzm"/>
-                            <constraint firstItem="8To-Pa-Y2s" firstAttribute="width" secondItem="w1L-EH-7IJ" secondAttribute="width" multiplier="0.122667" id="GHz-Kc-O2X"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lF5-i6-YmL" secondAttribute="trailing" id="SCi-Ph-XKD"/>
                             <constraint firstItem="w1L-EH-7IJ" firstAttribute="top" secondItem="B9K-oA-KgM" secondAttribute="bottom" id="XUl-lk-sVz"/>
                             <constraint firstItem="lF5-i6-YmL" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="b8d-ET-K44"/>
-                            <constraint firstItem="8To-Pa-Y2s" firstAttribute="height" secondItem="w1L-EH-7IJ" secondAttribute="height" multiplier="0.0840336" id="bmO-lW-NVg"/>
                             <constraint firstItem="w1L-EH-7IJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="iDE-Ah-0UR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="w1L-EH-7IJ" secondAttribute="bottom" id="jSq-dL-T8q"/>
-                            <constraint firstItem="8To-Pa-Y2s" firstAttribute="top" secondItem="w1L-EH-7IJ" secondAttribute="top" id="pYh-nJ-DUu"/>
                             <constraint firstItem="B9K-oA-KgM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sdE-UB-koV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="B9K-oA-KgM" secondAttribute="trailing" id="xU3-EY-P6L"/>
                         </constraints>
@@ -164,7 +157,6 @@
                         <outlet property="contentsTableView" destination="w1L-EH-7IJ" id="W0V-9q-6oz"/>
                         <outlet property="currentMonthLabel" destination="7ZN-pz-hIT" id="ofU-MA-lh6"/>
                         <outlet property="currentYearLabel" destination="rit-r2-uHf" id="tNK-vD-FPQ"/>
-                        <outlet property="shieldButton" destination="8To-Pa-Y2s" id="BIb-4m-O7N"/>
                         <outlet property="topView" destination="lF5-i6-YmL" id="ZJ9-yp-APZ"/>
                     </connections>
                 </viewController>
