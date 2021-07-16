@@ -36,19 +36,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021. 07. 29 - 08. 02" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-LN-CXU">
-                    <rect key="frame" x="18" y="86" width="339" height="18.666666666666671"/>
+                    <rect key="frame" x="18" y="86" width="339" height="20.333333333333329"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="16"/>
                     <color key="textColor" name="pointBlue"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="떠나요 두리번 to 제주" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQX-er-1MN">
-                    <rect key="frame" x="18" y="108.66666666666667" width="199" height="27.000000000000014"/>
+                    <rect key="frame" x="18" y="110.33333333333333" width="209.33333333333334" height="28.999999999999986"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="23"/>
                     <color key="textColor" name="black1"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9s-Ck-9rc">
-                    <rect key="frame" x="224" y="112.66666666666667" width="20" height="20.000000000000014"/>
+                    <rect key="frame" x="234.33333333333334" y="114.33333333333333" width="20" height="19.999999999999986"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="OYe-c9-5Wn"/>
                         <constraint firstAttribute="width" constant="20" id="sPb-tN-Br5"/>
@@ -56,7 +56,7 @@
                     <state key="normal" image="iconSettings"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Klq-6B-6i3">
-                    <rect key="frame" x="18.000000000000007" y="143.66666666666666" width="102.66666666666669" height="28"/>
+                    <rect key="frame" x="18" y="147.33333333333334" width="106" height="28"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconAirplaneFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yln-Ru-tmy">
                             <rect key="frame" x="8" y="4" width="20" height="20"/>
@@ -66,7 +66,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제주도 제주시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iu7-21-mTy">
-                            <rect key="frame" x="29" y="7" width="65.666666666666671" height="14"/>
+                            <rect key="frame" x="29" y="6.3333333333333153" width="69" height="15.333333333333336"/>
                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                             <color key="textColor" name="gray4"/>
                             <nil key="highlightedColor"/>
@@ -88,17 +88,17 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhG-uV-akM">
-                    <rect key="frame" x="127.66666666666667" y="143.66666666666666" width="152.33333333333331" height="28"/>
+                    <rect key="frame" x="131" y="147.33333333333334" width="156.66666666666663" height="28"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUserMainMid" translatesAutoresizingMaskIntoConstraints="NO" id="PCm-C2-kyb">
-                            <rect key="frame" x="7.9999999999999858" y="5" width="18" height="18"/>
+                            <rect key="frame" x="8" y="5" width="18" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="dmo-rd-OiA"/>
                                 <constraint firstAttribute="width" constant="18" id="gLz-8e-nsu"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민영님 외 4명과 함께" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljy-zR-Dlw">
-                            <rect key="frame" x="29.999999999999993" y="7" width="110.33333333333331" height="14"/>
+                            <rect key="frame" x="30.000000000000007" y="6.3333333333333153" width="114.66666666666669" height="15.333333333333336"/>
                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                             <color key="textColor" name="gray4"/>
                             <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHB-75-SWd" userLabel="plusButton">
-                    <rect key="frame" x="269" y="140.33333333333334" width="35" height="35"/>
+                    <rect key="frame" x="276.66666666666669" y="144" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="VTF-zI-vEr"/>
                         <constraint firstAttribute="width" constant="35" id="gfn-8D-Wz5"/>
@@ -131,7 +131,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gku-5F-UaV">
-                    <rect key="frame" x="127.66666666666667" y="143.66666666666666" width="141.33333333333331" height="28"/>
+                    <rect key="frame" x="131" y="147.33333333333334" width="145.66666666666663" height="28"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-ab-z3R">
                     <rect key="frame" x="336" y="46" width="24" height="24"/>

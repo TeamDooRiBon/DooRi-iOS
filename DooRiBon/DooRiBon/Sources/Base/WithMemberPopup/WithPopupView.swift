@@ -53,6 +53,13 @@ class WithPopupView: UIView {
         
         memberCollectionView.register(NibConstants.MemberPopupNib, forCellWithReuseIdentifier: "MemberPopupCollectionViewCell")
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    func dismissAlertController() {
+        self.moveOut()
     }
     
     func setProfileData(id: String)
