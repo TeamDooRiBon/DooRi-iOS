@@ -222,9 +222,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gyK-uK-iJ4" secondAttribute="trailing" id="tQL-Lw-Jkz"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="보드" image="iconBoardInactiveIos" selectedImage="iconBoardActiveIos" id="qOq-cj-B3K">
-                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="보드" image="iconBoardInactiveIos" selectedImage="iconBoardActiveIos" id="qOq-cj-B3K"/>
                     <navigationItem key="navigationItem" id="6H8-YY-rO3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

@@ -26,7 +26,6 @@ class TakeLookViewController: UIViewController, PageComponentProtocol, HeaderVie
     private var countList: [TakeLookData] = [] {
         didSet {
             styleQuestionTableView.reloadData()
-
         }
     }
     
@@ -61,7 +60,6 @@ class TakeLookViewController: UIViewController, PageComponentProtocol, HeaderVie
             case .success(let countData):
                 if let data = countData as? [TakeLookData] {
                     self.countList = data
-                    print(self.countList, 213313)
                 }
             case .requestErr(let message):
                 print("requestERR", message)
@@ -196,8 +194,6 @@ extension TakeLookViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "QuestionCell") as? QuestionCell else { return UITableViewHeaderFooterView() }
         
-        headerView.backgroundColor = .white
-        
         headerView.sectionIndex = section   // 섹션의 인덱스 값을 담아두기
         headerView.numberLabel.text = numberList[section]
         headerView.questionTitleLabel.text = questionList[section]
@@ -207,8 +203,6 @@ extension TakeLookViewController: UITableViewDataSource
         
         return headerView
     }
-    
-    
 }
 extension TakeLookViewController {
     private func setupFirstData() {

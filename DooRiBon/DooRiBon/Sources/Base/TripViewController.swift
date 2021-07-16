@@ -67,7 +67,7 @@ class TripViewController: UITabBarController {
                                            NSAttributedString.Key.font: UIFont.SpoqaHanSansNeo(.regular, size: 12)], for: .selected)
         
         // 타이틀 위치 조정
-        appearance.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 8)
+//        appearance.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 8)
     }
 }
 
@@ -81,11 +81,11 @@ extension UITabBar {
     }
 }
 
-// MARK: - TabBar 높이 세팅 위한 클래스
-class CustomTabBar : UITabBar {
-    override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = 82
-        return sizeThatFits
-    }
-}
+//// MARK: - TabBar 높이 세팅 위한 클래스
+//class CustomTabBar : UITabBar {
+//    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+//        var sizeThatFits = super.sizeThatFits(size)
+//        sizeThatFits.height = 82
+//        return sizeThatFits
+//    }
+//}

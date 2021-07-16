@@ -58,6 +58,6 @@ class TripTopView: UIView {
         periodLabel.text = "\(start) - \(end)"
         tripTitleLabel.text = tripData.travelName
         destinationLabel.text = tripData.destination
-        memberDescriptionLabel.text = tripData.members[0]
+        memberDescriptionLabel.text = "\(tripData.members[0])님과 함께"
     }
 }

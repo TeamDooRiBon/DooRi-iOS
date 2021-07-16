@@ -15,7 +15,6 @@ struct StyleTestService {
     {
         let url = APIConstants.styleQuestionURL
         
-        let header : HTTPHeaders = NetworkInfo.header
         let dataRequest = AF.request(url, method: .get, encoding: JSONEncoding.default)
         dataRequest.responseData { dataResponse in
             
