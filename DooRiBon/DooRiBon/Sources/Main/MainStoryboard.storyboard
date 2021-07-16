@@ -86,6 +86,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value=""/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0p-Dw-FG6">
@@ -110,6 +111,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value=""/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="두리번과의 우정 여행" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZI-OE-Apb">
@@ -122,6 +124,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value=""/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrM-CO-Jmd">
@@ -279,6 +282,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value=""/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgb-GJ-dzU">
@@ -302,10 +306,10 @@
                                                         </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OhN-5e-I1y">
-                                                        <rect key="frame" x="18" y="64" width="340" height="140"/>
+                                                        <rect key="frame" x="0.0" y="64" width="375" height="160"/>
                                                         <color key="backgroundColor" name="white8"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="140" id="lUR-ea-Xvd"/>
+                                                            <constraint firstAttribute="height" constant="160" id="lUR-ea-Xvd"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GrP-kI-zLV">
                                                             <size key="itemSize" width="340" height="140"/>
@@ -315,7 +319,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ComeTripCollectionViewCell" id="EoW-j7-ehh" customClass="ComeTripCollectionViewCell" customModule="DooRiBon" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="340" height="140"/>
+                                                                <rect key="frame" x="17.666666666666668" y="0.0" width="340" height="140"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="a74-bP-cah">
                                                                     <rect key="frame" x="0.0" y="0.0" width="340" height="140"/>
@@ -519,7 +523,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNM-7x-QR4">
-                                                        <rect key="frame" x="18" y="216" width="340" height="4"/>
+                                                        <rect key="frame" x="18" y="226" width="340" height="4"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxW-8p-J4l">
                                                                 <rect key="frame" x="0.0" y="0.0" width="122" height="4"/>
@@ -552,15 +556,15 @@
                                                 <constraints>
                                                     <constraint firstItem="8t7-I6-vmk" firstAttribute="top" secondItem="Ru8-V5-fnM" secondAttribute="top" constant="22" id="DmN-41-69A"/>
                                                     <constraint firstItem="OhN-5e-I1y" firstAttribute="top" secondItem="8t7-I6-vmk" secondAttribute="bottom" constant="16" id="Fbl-gg-8B2"/>
-                                                    <constraint firstItem="OhN-5e-I1y" firstAttribute="leading" secondItem="Ru8-V5-fnM" secondAttribute="leading" constant="18" id="NTW-mK-zhi"/>
-                                                    <constraint firstAttribute="trailing" secondItem="OhN-5e-I1y" secondAttribute="trailing" constant="17" id="Ouy-tX-njs"/>
+                                                    <constraint firstItem="OhN-5e-I1y" firstAttribute="leading" secondItem="Ru8-V5-fnM" secondAttribute="leading" id="NTW-mK-zhi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OhN-5e-I1y" secondAttribute="trailing" id="Ouy-tX-njs"/>
                                                     <constraint firstAttribute="bottom" secondItem="jgb-GJ-dzU" secondAttribute="bottom" id="SOX-sX-HHQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="jgb-GJ-dzU" secondAttribute="trailing" constant="18" id="ZD4-AC-pIK"/>
                                                     <constraint firstAttribute="trailing" secondItem="PNM-7x-QR4" secondAttribute="trailing" constant="17" id="bQd-HA-EbY"/>
                                                     <constraint firstItem="jgb-GJ-dzU" firstAttribute="leading" secondItem="Ru8-V5-fnM" secondAttribute="leading" constant="18" id="edw-2a-gU6"/>
                                                     <constraint firstAttribute="trailing" secondItem="8t7-I6-vmk" secondAttribute="trailing" constant="150" id="hak-1Q-hpj"/>
                                                     <constraint firstItem="PNM-7x-QR4" firstAttribute="leading" secondItem="Ru8-V5-fnM" secondAttribute="leading" constant="18" id="ibe-sR-s7p"/>
-                                                    <constraint firstItem="PNM-7x-QR4" firstAttribute="top" secondItem="OhN-5e-I1y" secondAttribute="bottom" constant="12" id="pIq-l6-dNn"/>
+                                                    <constraint firstItem="PNM-7x-QR4" firstAttribute="top" secondItem="OhN-5e-I1y" secondAttribute="bottom" constant="2" id="pIq-l6-dNn"/>
                                                     <constraint firstAttribute="height" constant="291" id="uf3-vQ-0Gi"/>
                                                     <constraint firstItem="8t7-I6-vmk" firstAttribute="leading" secondItem="Ru8-V5-fnM" secondAttribute="leading" constant="17" id="wpj-yM-Bq8"/>
                                                 </constraints>
@@ -575,6 +579,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value=""/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTP-1f-cYk">
@@ -835,6 +840,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value=""/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C35-t1-y67">
