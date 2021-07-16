@@ -45,13 +45,17 @@ class AddTripPlanViewController: UIViewController {
     var notAddCheck = false
     var startEndCheck = 1
     var timeSelectCheck = false
-    let dateformatter = DateFormatter()
+    let dateViewDateformmatter = DateFormatter()
+    let pickerLabelDateformatter = DateFormatter()
+    let postDataDateformatter = DateFormatter()
     var topLabelData: String = ""
     var buttonData: String = ""
     var groupID: String = ""
     var scheduleID: String = ""
     var startDate = "2021-07-05 16:30"
     var endDate = "2021-07-05 17:00"
+    var startTime = "23:00"
+    var endTime = "23:30"
     var currentDate: String = ""
     
     //MARK:- Life Cycle
@@ -70,7 +74,7 @@ class AddTripPlanViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         configureUI()
-        print(startDate, 11111111111111)
+        print(startDate)
     }
     
     //MARK:- Function
@@ -78,6 +82,8 @@ class AddTripPlanViewController: UIViewController {
         if topLabelData != "" {
             topLabel.text = topLabelData
             addNewPlanButton.setTitle(buttonData, for: .normal)
+            startDateLabel.text = startDate
+            endDateLabel.text = startDate
         }
     }
     
@@ -112,9 +118,12 @@ class AddTripPlanViewController: UIViewController {
     }
     
     func dateformatSet() {
-        dateformatter.dateStyle = .none
-        dateformatter.timeStyle = .short
-        dateformatter.locale = Locale(identifier: "ko")
+        pickerLabelDateformatter.dateStyle = .none
+        pickerLabelDateformatter.timeStyle = .short
+        pickerLabelDateformatter.locale = Locale(identifier: "ko")
+        postDataDateformatter.dateFormat = "HH:mm"
+        dateViewDateformmatter.locale = Locale(identifier: "ko")
+        dateViewDateformmatter.dateFormat = "yyyy.MM.dd(E)"
     }
     
     func setAlphaView() {
@@ -186,11 +195,14 @@ class AddTripPlanViewController: UIViewController {
     }
     
     @objc func changed(){
-        let date = dateformatter.string(from: datePicker.date)
+        let labelDate = pickerLabelDateformatter.string(from: datePicker.date)
+        let postDate = postDataDateformatter.string(from: datePicker.date)
         if startEndCheck == 1 {
-            startTimeLabel.text = date
+            startTimeLabel.text = labelDate
+            startTime = postDate
         } else {
-            endTimeLabel.text = date
+            endTimeLabel.text = labelDate
+            endTime = postDate
         }
         checking()
     }
@@ -276,7 +288,7 @@ class AddTripPlanViewController: UIViewController {
     @IBAction func addNewPlanButtonClicked(_ sender: Any) {
         if topLabelData == "" {
             if let title = planTitleTextField.text, let location = planLocationTextField.text, let memo = planMemoTextField.text {
-                AddTripPlanService.shared.addTripPlan(groupID: groupID, title: title, startTime: startDate, endTime: endDate, location: location, memo: memo) { result in
+                AddTripPlanService.shared.addTripPlan(groupID: groupID, title: title, startTime: "\(startDate) \(startTime)", endTime: "\(startDate) \(endTime)", location: location, memo: memo) { result in
                     switch result {
                     case .success(_):
                         print("success")
@@ -294,10 +306,11 @@ class AddTripPlanViewController: UIViewController {
             }
         } else {
             if let title = planTitleTextField.text, let location = planLocationTextField.text, let memo = planMemoTextField.text {
-                EditPlanService.shared.patchData(groupID: groupID, scheduleID: scheduleID, title: title, startTime: startDate, endTime: endDate, location: location, memo: memo) { result in
+                EditPlanService.shared.patchData(groupID: groupID, scheduleID: scheduleID, title: title, startTime: "\(startDate) \(startTime)", endTime: "\(startDate) \(endTime)", location: location, memo: memo) { result in
                     switch result {
                     case .success(_):
                         print("success")
+                        print("일정 편집 성공")
                         self.navigationController?.popViewController(animated: true)
                     case .requestErr(_):
                         print("requestErr")

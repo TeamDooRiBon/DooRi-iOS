@@ -131,7 +131,7 @@ class StyleQuestionViewController: UIViewController {
         let styleQuestionStoryboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
         let viewController = styleQuestionStoryboard.instantiateViewController(identifier: "StyleQuestionLoadingViewController")
         present(viewController, animated: true, completion: nil)
-
+        
         StyleResultService.shared.resultSave(groupID: thisID, score: weightResult, choice: answers) { [weak self] (response) in
             switch (response) {
             case .success(let data):
@@ -165,8 +165,6 @@ class StyleQuestionViewController: UIViewController {
         let weightData = weightResults.reduce(Array(repeating: 0, count: weightResults.first?.count ?? 0)) { result, weight in
             result.enumerated().map { $0.element + weight[$0.offset] }
         }
-
-        print("가중치 합 : \(weightData)")
         return weightData
     }
     
@@ -216,10 +214,6 @@ extension StyleQuestionViewController: UICollectionViewDataSource
         answerCell.delegate = self
 
         let questionContentList = questionDataList[indexPath.item].content
-        print(questionContentList[0].answer)
-        print(questionContentList[1].answer)
-        print(questionContentList[2].answer)
-        print(questionContentList[3].answer)
         answerCell.setData(answers: questionContentList,
                            answerNumber: answers[indexPath.item])
         return answerCell
@@ -270,7 +264,6 @@ extension StyleQuestionViewController: AnswerCollectionViewCellDelegate {
             return
         }
         answers[currentNumber] = index + 1
-        print(answers)
 
         // 질문을 선택하면 컬러 변경
         buttonChangeColor(isEnabled: true, isLast: currentNumber == questionDataList.count - 1)
