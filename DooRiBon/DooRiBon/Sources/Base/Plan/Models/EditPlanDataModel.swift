@@ -10,11 +10,11 @@ struct EditPlanResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: [EditPlanData]
+    let data: [EditPlaData]
 }
 
 // MARK: - Datum
-struct EditPlanData: Codable {
+struct EditPlaData: Codable {
     let id, startTime, formatTime, title: String
     let memo: String
 

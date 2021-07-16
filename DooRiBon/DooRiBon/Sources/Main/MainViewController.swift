@@ -6,7 +6,9 @@
 //
 
 import UIKit
+
 import Kingfisher
+import SkeletonView
 
 class MainViewController: UIViewController {
     
@@ -23,17 +25,22 @@ class MainViewController: UIViewController {
     @IBOutlet weak var styleTripMenuLabel: UILabel!
     
     /// 뷰
+    @IBOutlet weak var mainContentView: UIView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var indicatorBar: UIView!
     @IBOutlet weak var styleTripView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nowTripImageView: UIImageView!
+    @IBOutlet weak var nowTripStateView: UIView!
+    @IBOutlet weak var nowTripLocationView: UIView!
+    @IBOutlet weak var nowTripMemberView: UIView!
     
     @IBOutlet weak var nowTripDateLabel: UILabel!
     @IBOutlet weak var nowTripTitleLabel: UILabel!
     @IBOutlet weak var nowTripLocationLabel: UILabel!
     @IBOutlet weak var nowTripMembersLabel: UILabel!
-    
+    @IBOutlet weak var nowTripStateLabel: UILabel!
+
     /// 제약
     @IBOutlet weak var lastTripViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var indicatorBarWidthConstraint: NSLayoutConstraint!
@@ -43,7 +50,12 @@ class MainViewController: UIViewController {
     var comeTripList : [Group] = []
     var lastTripList : [Group] = []
     
-    var allTripData: MainDataModel?
+    var allTripData: MainDataModel? {
+        didSet {
+            comeTripCollectionView.reloadData()
+            lastTripTableView.reloadData()
+        }
+    }
     let formatter = DateFormatter()
     let calendar = Calendar.current
 
@@ -117,6 +129,7 @@ class MainViewController: UIViewController {
     // 두근두근, 다가오는 여행 부분 데이터
     func setTripData()
     {
+        self.setupSkeletionUI(.show)
         GetMainDataService.shared.getPersonInfo{ [self] (response) in
             switch(response)
             {
@@ -127,6 +140,7 @@ class MainViewController: UIViewController {
                     lastTripTableView.reloadData()
                     setDevideTripData()
                 }
+                setupSkeletionUI(.hide)
             case .requestErr(let message):
                 print("requestERR", message)
             case .pathErr:
@@ -216,7 +230,7 @@ class MainViewController: UIViewController {
     }
     
     func dDayCalculate(from date: Date) -> Int {
-        return calendar.dateComponents([.day], from: date, to: Date()).day! - 1
+        return calendar.dateComponents([.day], from: date, to: Date()).day!
     }
 }
 
@@ -235,13 +249,21 @@ extension MainViewController: UICollectionViewDataSource
         formatter.dateFormat = "MM.dd"
         let end = formatter.string(from: comeTripList[indexPath.row].endDate)
         let dday = dDayCalculate(from: comeTripList[indexPath.row].startDate)
-        
-        comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
-                            dday: "D\(dday)",
-                            title: comeTripList[indexPath.row].travelName,
-                            date: "\(start) - \(end)",
-                            location: comeTripList[indexPath.row].destination,
-                            members: comeTripList[indexPath.row].members[0])
+        if (dday == 0) {
+            comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
+                                 dday: "D-Day!",
+                                 title: comeTripList[indexPath.row].travelName,
+                                 date: "\(start) - \(end)",
+                                 location: comeTripList[indexPath.row].destination,
+                                 members: comeTripList[indexPath.row].members[0])
+        } else {
+            comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
+                                 dday: "D\(dday)",
+                                 title: comeTripList[indexPath.row].travelName,
+                                 date: "\(start) - \(end)",
+                                 location: comeTripList[indexPath.row].destination,
+                                 members: comeTripList[indexPath.row].members[0])
+        }
 
         return comeTripCell
     }
@@ -305,14 +327,63 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
                          location: lastTripList[indexPath.row].destination,
                          member: lastTripList[indexPath.row].members[0])
         tripCell.selectionStyle = .none
-        
         return tripCell
+    }
+}
+
+// MARK: - UI (UI 관련 작업)
+
+extension MainViewController {
+    enum SkeletonState {
+        case show
+        case hide
+    }
+    
+    // Skeleton UI
+    private func setupSkeletionUI(_ type: SkeletonState) {
+        if type == .show {
+            nowTripImageView.showAnimatedSkeleton()
+            nowTripDateLabel.showAnimatedSkeleton()
+            nowTripTitleLabel.showAnimatedSkeleton()
+            nowTripLocationLabel.showAnimatedSkeleton()
+            nowTripMembersLabel.showAnimatedSkeleton()
+            comeTripCollectionView.showAnimatedSkeleton()
+            lastTripTableView.showAnimatedSkeleton()
+            mainTitleLabel.showAnimatedSkeleton()
+            comeTripMenuLabel.showAnimatedSkeleton()
+            lastTripMenuLabel.showAnimatedSkeleton()
+            styleTripMenuLabel.showAnimatedSkeleton()
+            backgroundView.showAnimatedSkeleton()
+            indicatorBar.showAnimatedSkeleton()
+            styleTripView.showAnimatedSkeleton()
+            nowTripStateView.showAnimatedSkeleton()
+            nowTripLocationView.showAnimatedSkeleton()
+            nowTripMemberView.showAnimatedSkeleton()
+        } else {
+            nowTripImageView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            nowTripDateLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            nowTripTitleLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            nowTripLocationLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            nowTripMembersLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            comeTripCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            lastTripTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            mainTitleLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            comeTripMenuLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            lastTripMenuLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            styleTripMenuLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            backgroundView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            indicatorBar.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            styleTripView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            nowTripStateView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            nowTripLocationView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            nowTripMemberView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+        }
+
     }
 }
