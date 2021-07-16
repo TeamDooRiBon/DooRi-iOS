@@ -67,10 +67,9 @@
                                                 <color key="textColor" name="subBlue1"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZN-pz-hIT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZN-pz-hIT">
                                                 <rect key="frame" x="37" y="27" width="14" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="14" id="F9a-92-Cbj"/>
                                                     <constraint firstAttribute="height" constant="32" id="VHi-4J-Aek"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="23"/>
@@ -80,10 +79,10 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="7ZN-pz-hIT" firstAttribute="centerX" secondItem="rit-r2-uHf" secondAttribute="centerX" id="8ir-iC-Goh"/>
                                             <constraint firstAttribute="bottom" secondItem="7ZN-pz-hIT" secondAttribute="bottom" constant="12" id="FGg-C0-ae8"/>
                                             <constraint firstItem="rit-r2-uHf" firstAttribute="top" secondItem="Cnf-GC-uwT" secondAttribute="top" constant="13" id="GH7-1D-XNy"/>
                                             <constraint firstAttribute="width" constant="79" id="x3P-I4-RlH"/>
-                                            <constraint firstItem="7ZN-pz-hIT" firstAttribute="leading" secondItem="Cnf-GC-uwT" secondAttribute="leading" constant="37" id="xZY-2e-YN9"/>
                                             <constraint firstItem="rit-r2-uHf" firstAttribute="leading" secondItem="Cnf-GC-uwT" secondAttribute="leading" constant="34" id="yNd-rm-t5X"/>
                                         </constraints>
                                     </view>
