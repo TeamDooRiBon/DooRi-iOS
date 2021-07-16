@@ -28,13 +28,13 @@
                     <color key="backgroundColor" name="white8"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-Gg-SxH">
-                    <rect key="frame" x="23" y="18" width="293" height="15.5"/>
+                    <rect key="frame" x="23" y="18" width="293" height="14"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                     <color key="textColor" name="gray5"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iR2-M8-Kq7">
-                    <rect key="frame" x="91" y="67.5" width="157" height="31"/>
+                    <rect key="frame" x="91" y="66" width="157" height="30"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
                     <state key="normal" title="참여코드 복사하기">
                         <color key="titleColor" name="pointBlue"/>

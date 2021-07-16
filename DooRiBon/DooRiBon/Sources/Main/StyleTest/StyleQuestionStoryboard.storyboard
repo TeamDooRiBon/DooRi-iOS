@@ -158,46 +158,6 @@
                                     <constraint firstAttribute="height" constant="2" id="ySy-7b-Zid"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWR-1z-gtJ">
-                                <rect key="frame" x="18" y="696" width="166" height="52"/>
-                                <color key="backgroundColor" name="gray7"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="JPj-BR-sjj"/>
-                                    <constraint firstAttribute="width" constant="166" id="KiG-YO-KOr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
-                                <state key="normal" title="이전 문항">
-                                    <color key="titleColor" name="gray4"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="previousButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8Yd-t6-0aN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjk-4q-hA3">
-                                <rect key="frame" x="191" y="696" width="166" height="52"/>
-                                <color key="backgroundColor" name="gray7"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="0Tq-bl-M1P"/>
-                                    <constraint firstAttribute="width" constant="166" id="Wah-d5-Cmp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
-                                <state key="normal" title="다음 문항">
-                                    <color key="titleColor" name="gray4"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="nextButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ljR-TB-ytb"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAe-4l-KzD">
                                 <rect key="frame" x="15" y="152" width="345" height="67"/>
                                 <subviews>
@@ -217,12 +177,57 @@
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="I4E-hb-TAU" secondAttribute="bottom" id="skc-Df-LYh"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="E1Y-JO-ujJ">
+                                <rect key="frame" x="18" y="696" width="339" height="52"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWR-1z-gtJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="52"/>
+                                        <color key="backgroundColor" name="backgroundBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="JPj-BR-sjj"/>
+                                            <constraint firstAttribute="width" constant="166" id="KiG-YO-KOr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
+                                        <state key="normal" title="이전 문항">
+                                            <color key="titleColor" name="backgroundBlue"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="previousButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8Yd-t6-0aN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjk-4q-hA3">
+                                        <rect key="frame" x="173" y="0.0" width="166" height="52"/>
+                                        <color key="backgroundColor" name="gray7"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="0Tq-bl-M1P"/>
+                                            <constraint firstAttribute="width" constant="166" id="Wah-d5-Cmp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
+                                        <state key="normal" title="다음 문항">
+                                            <color key="titleColor" name="gray4"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="nextButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ljR-TB-ytb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="backgroundBlue"/>
                         <constraints>
                             <constraint firstItem="j82-VU-h8G" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="6" id="6v0-EE-0Ve"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wWR-1z-gtJ" secondAttribute="bottom" constant="30" id="72u-rG-K5r"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="E1Y-JO-ujJ" secondAttribute="bottom" constant="30" id="7TE-iu-FTv"/>
                             <constraint firstItem="nhK-1x-pcV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="8eV-Z4-Jw2"/>
                             <constraint firstItem="nhK-1x-pcV" firstAttribute="top" secondItem="kAe-4l-KzD" secondAttribute="bottom" id="9As-Wl-5Pe"/>
                             <constraint firstItem="PE4-uY-oRE" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="73" id="9rk-9j-Pym"/>
@@ -230,15 +235,14 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="j82-VU-h8G" secondAttribute="trailing" constant="20" id="Fvg-7m-ybG"/>
                             <constraint firstItem="BOh-BM-TJw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="37" id="GY8-4U-C8F"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kAe-4l-KzD" secondAttribute="trailing" constant="15" id="QfC-dO-STp"/>
-                            <constraint firstItem="wWR-1z-gtJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="Qjw-dU-AY1"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Yjk-4q-hA3" secondAttribute="bottom" constant="30" id="T4Z-HQ-J3m"/>
+                            <constraint firstItem="E1Y-JO-ujJ" firstAttribute="top" secondItem="aTb-GL-FLQ" secondAttribute="bottom" constant="40" id="Ymv-Nr-fDI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aTb-GL-FLQ" secondAttribute="trailing" constant="19" id="aJv-TJ-HtD"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Yjk-4q-hA3" secondAttribute="trailing" constant="18" id="bgJ-Ys-MSv"/>
                             <constraint firstItem="PE4-uY-oRE" firstAttribute="centerX" secondItem="BOh-BM-TJw" secondAttribute="centerX" id="efR-Gm-rBC"/>
+                            <constraint firstItem="E1Y-JO-ujJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="f9R-5x-DTw"/>
                             <constraint firstItem="aTb-GL-FLQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="sIZ-cc-ekH"/>
-                            <constraint firstItem="wWR-1z-gtJ" firstAttribute="top" secondItem="aTb-GL-FLQ" secondAttribute="bottom" constant="40" id="uKF-iW-LnX"/>
                             <constraint firstItem="kAe-4l-KzD" firstAttribute="top" secondItem="BOh-BM-TJw" secondAttribute="bottom" constant="39" id="vNP-Zf-Zua"/>
                             <constraint firstItem="BOh-BM-TJw" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="xEe-id-C0L"/>
+                            <constraint firstItem="E1Y-JO-ujJ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="yvA-fd-HKx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nhK-1x-pcV" secondAttribute="trailing" constant="18" id="zWQ-9g-egl"/>
                         </constraints>
                     </view>
@@ -248,6 +252,7 @@
                         <outlet property="indicatorBar" destination="hD0-EF-Bob" id="uX6-mI-gjL"/>
                         <outlet property="indicatorBarWidth" destination="QCK-kX-JZc" id="Enb-I9-w2a"/>
                         <outlet property="nextButton" destination="Yjk-4q-hA3" id="BXo-DW-VPU"/>
+                        <outlet property="previousButton" destination="wWR-1z-gtJ" id="x07-pR-hlT"/>
                         <outlet property="questionLabel" destination="I4E-hb-TAU" id="azc-ox-Jhf"/>
                         <outlet property="questionNumberLabel" destination="BOh-BM-TJw" id="GXC-O6-duJ"/>
                     </connections>

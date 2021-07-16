@@ -10,5 +10,4 @@ import UIKit
 class MemberHeaderView: UIView {
 
     @IBOutlet weak var memberHeaderLabel: UILabel!
-    @IBOutlet weak var memberHeaderButton: UIButton!
 }

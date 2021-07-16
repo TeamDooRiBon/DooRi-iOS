@@ -13,6 +13,8 @@ class StyleQuestionViewController: UIViewController {
     // 라벨
     @IBOutlet weak var questionNumberLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
     // 뷰
@@ -54,6 +56,13 @@ class StyleQuestionViewController: UIViewController {
         answerCollectionView.scrollToItem(at: IndexPath(item: previousItem, section: 0), at: .left, animated: true)
         updateQuestion(previousItem)
         buttonChangeColor(isEnabled: true, isLast: false)
+        
+        if currentNumber == 1
+        {
+            previousButton.backgroundColor = Colors.backgroundBlue.color
+            previousButton.setTitleColor(Colors.backgroundBlue.color, for: .normal)
+        }
+        
     }
     
     // 다음 문항 버튼 클릭시
@@ -70,6 +79,13 @@ class StyleQuestionViewController: UIViewController {
 
         let nextItem = min(currentNumber + 1, questionDataList.count - 1)
 
+        // 이전 문항 버튼 없애기
+        if currentNumber == 0 
+        {
+            previousButton.backgroundColor = Colors.gray7.color
+            previousButton.setTitleColor(Colors.gray4.color, for: .normal)
+        }
+            
         // 다음 질문이 미선택시에만 color 변경
         if answers[nextItem] == -1 {
             // currentNumber가 질문리스트보다 적으면 nextButton을 터치할 수 있도록 하면서 컬러도 변경
