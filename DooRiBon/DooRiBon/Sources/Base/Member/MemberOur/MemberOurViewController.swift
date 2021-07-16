@@ -41,7 +41,7 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
         memberOurTableView.register(NibConstants.MemberStartViewNib, forCellReuseIdentifier: "MemberStartView")
         memberOurTableView.register(NibConstants.MemberStartNib, forCellReuseIdentifier: "MemberStartTableViewCell")
         memberOurTableView.register(NibConstants.MemberCodeCopyNib, forCellReuseIdentifier: "MemberCodeCopyTableViewCell")
-        memberOurTableView.backgroundColor = .clear
+//        memberOurTableView.backgroundColor = .clear
     }
     
     private func getStyleData() {

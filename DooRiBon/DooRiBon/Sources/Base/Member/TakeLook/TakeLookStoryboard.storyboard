@@ -111,7 +111,7 @@
                                                     <rect key="frame" x="313" y="16" width="43" height="17"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArU-bu-Cfh">
-                                                            <rect key="frame" x="12.5" y="0.0" width="18.5" height="17"/>
+                                                            <rect key="frame" x="13" y="0.0" width="17.5" height="17"/>
                                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                             <color key="textColor" name="white9"/>
                                                             <nil key="highlightedColor"/>

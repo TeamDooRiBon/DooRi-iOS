@@ -63,26 +63,22 @@ class MainViewController: UIViewController {
 
         setUI()
         shadowSet()
-        
+        collectionViewSet()
+        tableViewSet()
+        setTripData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             self.setTripData()
-            
-            self.setupSkeletionUI(.hide)
         })
     }
     
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        collectionViewSet()
-        tableViewSet()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.setupSkeletionUI(.show)
+        setupSkeletionUI(.show)
     }
     
     // MARK: - 액션
@@ -147,6 +143,7 @@ class MainViewController: UIViewController {
                     comeTripCollectionView.reloadData()
                     lastTripTableView.reloadData()
                     setDevideTripData()
+                    setupSkeletionUI(.hide)
                 }
                 
             case .requestErr(let message):
@@ -336,8 +333,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
-        
-        print(lastTripList[indexPath.row].image, "🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨")
         
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
