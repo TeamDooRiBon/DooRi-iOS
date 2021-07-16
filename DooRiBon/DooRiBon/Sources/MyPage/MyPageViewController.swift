@@ -26,6 +26,7 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setShadow()
         self.navigationController?.navigationBar.isHidden = true
         categoryTableView.register(MyPageCategoryTableViewCell.nib(), forCellReuseIdentifier: "MyPageCategoryTableViewCell")
         categoryTableView.delegate = self

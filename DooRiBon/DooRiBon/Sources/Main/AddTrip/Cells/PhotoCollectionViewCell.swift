@@ -47,6 +47,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
+        
     }
     
     //MARK:- Function

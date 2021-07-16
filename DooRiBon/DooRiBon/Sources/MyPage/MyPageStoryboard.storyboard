@@ -63,7 +63,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k31-9c-wCW">
-                                        <rect key="frame" x="20" y="93" width="29.5" height="18"/>
+                                        <rect key="frame" x="20" y="93" width="31.5" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="vgW-UU-Od1"/>
                                         </constraints>
@@ -108,7 +108,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 여행" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUf-l7-JyA">
-                                                        <rect key="frame" x="18" y="69" width="46" height="26"/>
+                                                        <rect key="frame" x="18" y="69" width="48" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="ZQb-rI-6lS"/>
                                                         </constraints>
@@ -117,7 +117,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYz-ez-YcP">
-                                                        <rect key="frame" x="18" y="95" width="39.5" height="26"/>
+                                                        <rect key="frame" x="18" y="95" width="42" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="cIm-V1-nwe"/>
                                                         </constraints>
@@ -135,6 +135,11 @@
                                                     <constraint firstItem="VYz-ez-YcP" firstAttribute="leading" secondItem="mZ2-iU-da8" secondAttribute="leading" constant="18" id="wE2-CK-YLM"/>
                                                     <constraint firstItem="hUf-l7-JyA" firstAttribute="top" secondItem="YY6-dK-kQ4" secondAttribute="bottom" constant="19" id="xgB-Yf-fpz"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yza-EM-3fw">
                                                 <rect key="frame" x="173" y="0.0" width="166" height="130"/>
@@ -147,7 +152,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 여행성향 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1F-77-G52">
-                                                        <rect key="frame" x="18" y="69" width="106" height="26"/>
+                                                        <rect key="frame" x="18" y="69" width="110.5" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="m8a-cG-7R4"/>
                                                         </constraints>
@@ -156,7 +161,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb3-sY-qPj">
-                                                        <rect key="frame" x="18" y="95" width="39.5" height="26"/>
+                                                        <rect key="frame" x="18" y="95" width="42" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="KFb-YR-5ft"/>
                                                         </constraints>
@@ -174,6 +179,11 @@
                                                     <constraint firstItem="r1F-77-G52" firstAttribute="leading" secondItem="Yza-EM-3fw" secondAttribute="leading" constant="18" id="hEP-3j-MSe"/>
                                                     <constraint firstItem="gsg-gb-oyg" firstAttribute="leading" secondItem="Yza-EM-3fw" secondAttribute="leading" constant="14" id="ocj-gY-HID"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -197,7 +207,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGf-9t-LKk">
                                 <rect key="frame" x="0.0" y="360" width="375" height="307"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-Yt-Yxt">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-Yt-Yxt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
