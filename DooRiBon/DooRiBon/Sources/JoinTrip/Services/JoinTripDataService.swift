@@ -54,7 +54,7 @@ struct JoinTripDataService {
         guard let decodedData = try? decoder.decode(JoinTripResponse.self, from: data) else {return .pathErr}
         
         switch status {
-        case 200: return .success(decodedData.data)
+        case 200: return .success(decodedData.data as Any)
         case 400..<500: return .requestErr(decodedData)
         case 500: return .serverErr
         default: return .networkFail
