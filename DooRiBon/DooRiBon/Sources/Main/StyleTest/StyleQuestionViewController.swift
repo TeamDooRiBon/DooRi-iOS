@@ -137,11 +137,9 @@ class StyleQuestionViewController: UIViewController {
         present(viewController, animated: true, completion: nil)
         
         if disMissCheck {
-            print("함수 진입")
-            MainStyleTestService.shared.getData(score: [10, 20, 30, 40, 50, 60, 70, 80]) { (response) in
+            MainStyleTestService.shared.getData(score: weightResult) { (response) in
                 switch (response) {
                 case .success(let data):
-                    print("들어옴")
                     if let result = data as? MainStyleTestResponse {
                         self.mainTestResult = result
                         
