@@ -65,22 +65,18 @@ class MainViewController: UIViewController {
         shadowSet()
         collectionViewSet()
         tableViewSet()
-        setTripData()
         registerNoti()
     }
     
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("view will appear")
-        
-        setupSkeletionUI(.show)
         self.setTripData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupSkeletionUI(.show)
     }
     
     // MARK: - 액션
@@ -398,6 +394,10 @@ extension MainViewController {
             // MARK: - 다가오는 여행
             backgroundView.showAnimatedSkeleton()
             styleTripView.showAnimatedSkeleton()
+
+            self.nowTripStateView.isHidden = true
+            self.nowTripLocationLabel.isHidden = true
+            self.nowTripMembersLabel.isHidden = true
         } else {
             comeTripCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
             lastTripTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
