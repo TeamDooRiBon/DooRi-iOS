@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1031"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBc-aY-KFV">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="958"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="970"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번들님의 새로운 여행 같이 시작해요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS0-u8-Ayq">
                                                 <rect key="frame" x="24" y="42" width="201" height="67"/>
@@ -46,7 +46,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 이름을 지어주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrb-fE-0PI">
-                                                <rect key="frame" x="25" y="134" width="147.5" height="26"/>
+                                                <rect key="frame" x="25" y="134" width="154.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="O45-7a-v11"/>
                                                 </constraints>
@@ -64,7 +64,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 일정을 등록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssb-Kb-yLb">
-                                                <rect key="frame" x="25" y="331" width="161.5" height="26"/>
+                                                <rect key="frame" x="25" y="331" width="169.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="ayW-zy-b9C"/>
                                                 </constraints>
@@ -73,7 +73,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq2-aQ-h2U">
-                                                <rect key="frame" x="25" y="364" width="45" height="18"/>
+                                                <rect key="frame" x="25" y="364" width="47" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="n4s-gi-UVO"/>
                                                 </constraints>
@@ -120,7 +120,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5K-m9-M3C">
-                                                <rect key="frame" x="237" y="332" width="113" height="24"/>
+                                                <rect key="frame" x="239" y="332" width="111" height="24"/>
                                                 <color key="backgroundColor" name="pointBlue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="zfz-X9-Hxa"/>
@@ -139,7 +139,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="끝나는 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcv-Rh-4Cl">
-                                                <rect key="frame" x="190" y="364" width="55.5" height="18"/>
+                                                <rect key="frame" x="190" y="364" width="58" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="hvg-FG-gs7"/>
                                                 </constraints>
@@ -228,10 +228,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zdk-FE-Rfx">
-                                                <rect key="frame" x="25" y="516" width="325" height="328"/>
+                                                <rect key="frame" x="25" y="516" width="325" height="340"/>
                                                 <color key="backgroundColor" name="white8"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="328" id="7iG-tC-LGs"/>
+                                                    <constraint firstAttribute="height" constant="340" id="7iG-tC-LGs"/>
                                                     <constraint firstAttribute="height" constant="328" id="zS2-jz-cgz"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xP9-em-xrr">
@@ -257,7 +257,7 @@
                                                 </variation>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ek5-dk-28i">
-                                                <rect key="frame" x="0.0" y="883" width="375" height="75"/>
+                                                <rect key="frame" x="0.0" y="895" width="375" height="75"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="bWx-YT-YEe"/>
