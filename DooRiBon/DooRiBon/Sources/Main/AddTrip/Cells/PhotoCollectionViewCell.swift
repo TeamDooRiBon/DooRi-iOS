@@ -24,6 +24,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         // Initialization code
         checkImage.isHidden = true
         shadeView.alpha = 0
+        setSkeletonUI()
     }
     
     //MARK:- override var
@@ -52,4 +53,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         mainPhoto.kf.setImage(with: imageUrl)
     }
 
+    private func setSkeletonUI() {
+        isSkeletonable = true
+        mainPhoto.isSkeletonable = true
+    }
 }
