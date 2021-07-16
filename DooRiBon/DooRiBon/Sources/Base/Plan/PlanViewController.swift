@@ -45,6 +45,7 @@ class PlanViewController: UIViewController {
     @IBOutlet private var topView: TripTopView!
     @IBOutlet weak var currentYearLabel: UILabel!
     @IBOutlet weak var currentMonthLabel: UILabel!
+    @IBOutlet weak var shieldButton: UIButton!
     
     private var dates: [String] = []
     static var profileData: [Profile] = []
@@ -154,10 +155,17 @@ extension PlanViewController {
     @objc func settingButtonClicked(_ sender: UIButton) {
         let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
         guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        let f = DateFormatter()
+        f.dateFormat = "yyyy. MM. dd. EEEE"
+        f.locale = Locale(identifier: "ko_KR")
         nextVC.groupId = tripData?._id ?? ""
         nextVC.hidesBottomBarWhenPushed = true
         nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
         nextVC.buttonData = "여행 정보 수정하기"
+        nextVC.initTitle = tripData?.travelName ?? ""
+        nextVC.initLocation = tripData?.destination ?? ""
+        nextVC.startDateParsing = f.string(from: tripData!.startDate)
+        nextVC.endDateParsing = f.string(from: tripData!.endDate)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -459,6 +467,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if dataStatus { // 데이터 있을 때 셀처리
+            shieldButton.isHidden = true
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PlanDataTableViewCell.cellId, for: indexPath) as? PlanDataTableViewCell else {
                 return UITableViewCell()
             }
@@ -481,6 +490,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoDataTableViewCell.cellId, for: indexPath) as? NoDataTableViewCell else {
                 return UITableViewCell()
             }
+            shieldButton.isHidden = false
             cell.selectionStyle = .none
             return cell
         }

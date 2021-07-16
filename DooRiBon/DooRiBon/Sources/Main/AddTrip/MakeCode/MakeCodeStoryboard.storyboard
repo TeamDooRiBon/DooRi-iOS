@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iB-vr-T1i">
-                                <rect key="frame" x="18" y="123.99999999999999" width="276" height="35.333333333333329"/>
+                                <rect key="frame" x="18" y="124.00000000000001" width="276" height="32.666666666666671"/>
                                 <string key="text">아래 여행 참여 코드를 공유하여 
 함께 여행을 준비해나가세요!</string>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CFh-RX-5we">
-                                <rect key="frame" x="64" y="194.33333333333334" width="247" height="48"/>
+                                <rect key="frame" x="64" y="191.66666666666666" width="247" height="48"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXs-TH-MVR">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="48"/>

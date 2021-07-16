@@ -1,31 +1,28 @@
 //
-//  GetMemberStyleDataService.swift
+//  AddMemberService.swift
 //  DooRiBon
 //
-//  Created by 민 on 2021/07/15.
+//  Created by 한상진 on 2021/07/17.
 //
 
 import Foundation
 import Alamofire
 
-struct GetMemberStyleDataService {
-    // MARK: - 싱글턴 변수
-    static let shared = GetMemberStyleDataService()
-    
-    // MARK: - URL Create
+struct AddMemberService{
+    static let shared = AddMemberService()
     
     private func makeURL(groupID: String) -> String {
-        let url = APIConstants.styleResultSaveURL.replacingOccurrences(of: ":groupId", with: groupID)
+        let url = APIConstants.addMemberURL.replacingOccurrences(of: ":groupId", with: groupID)
         return url
     }
     
-    func getMemberData(groupID : String,
+    func addMember(groupID : String,
                      completion : @escaping (NetworkResult<Any>) -> Void)
     {
         let url: String = makeURL(groupID: groupID)
         let header : HTTPHeaders = NetworkInfo.headerWithToken
         let dataRequest = AF.request(url,
-                                     method: .get,
+                                     method: .post,
                                      encoding: JSONEncoding.default,
                                      headers: header)
         dataRequest.responseData { dataResponse in
@@ -46,7 +43,7 @@ struct GetMemberStyleDataService {
     private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(MemberStyleDataResponse.self, from: data)
+        guard let decodedData = try? decoder.decode(AddMemberResponse.self, from: data)
         else { return .pathErr}
         switch statusCode {
         

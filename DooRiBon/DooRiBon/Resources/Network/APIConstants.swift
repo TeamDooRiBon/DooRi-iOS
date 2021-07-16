@@ -23,7 +23,7 @@ struct APIConstants {
 
     // MARK: - Keys
     
-    static let jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjBmMWRkYTA0N2IzOTIyMDJjY2RjMDQ0In0sImlhdCI6MTYyNjQ2MzY0OCwiZXhwIjoxNjI2ODIzNjQ4fQ.5RXJJ6do17TvZfr9iJLrac6XprE8QfS5UCac8kUAEHQ"
+    static let jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjBmMWRkODg0N2IzOTIyMDJjY2RjMDQxIn0sImlhdCI6MTYyNjQ2MzYyNCwiZXhwIjoxNjI2ODIzNjI0fQ.pc9r1-TLFDjXI4cORODxdDRu7bSAmpbEWlXWejC64Uo"
     
     // MARK: - URLs
     
@@ -37,6 +37,7 @@ struct APIConstants {
     static let addTripImageURL = baseURL + "/image" // 여행 생성 뷰 이미지 호출
     static let editTripURL = baseURL + "/travel/:groupId" // 여행 데이터 편집
     static let getTripInform = baseURL + "/travel/:groupId"
+    static let addMemberURL = baseURL + "/travel/:groupId"
 
     // MARK: - /auth/user URLs
     

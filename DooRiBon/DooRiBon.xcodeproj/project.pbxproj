@@ -96,6 +96,8 @@
 		40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */; };
 		40AE782B268F7FED0058806B /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */; };
 		40AE782E268F81E20058806B /* PhotoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */; };
+		40B0A83926A22E600010258E /* AddMemberDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B0A83826A22E600010258E /* AddMemberDataModel.swift */; };
+		40B0A83C26A22E710010258E /* AddMemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B0A83B26A22E710010258E /* AddMemberService.swift */; };
 		40B5A090268EE2E500A89875 /* AddTripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */; };
 		40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5A091268EE35100A89875 /* AddTripViewController.swift */; };
 		40EBD31F269F44FF00DFC057 /* EditTripDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */; };
@@ -266,6 +268,8 @@
 		40AE7828268F7FED0058806B /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		40AE7829268F7FED0058806B /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		40AE782D268F81E20058806B /* PhotoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewModel.swift; sourceTree = "<group>"; };
+		40B0A83826A22E600010258E /* AddMemberDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberDataModel.swift; sourceTree = "<group>"; };
+		40B0A83B26A22E710010258E /* AddMemberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberService.swift; sourceTree = "<group>"; };
 		40B5A08F268EE2E500A89875 /* AddTripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripStoryboard.storyboard; sourceTree = "<group>"; };
 		40B5A091268EE35100A89875 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripDataModel.swift; sourceTree = "<group>"; };
@@ -532,6 +536,8 @@
 		39E3595B269F2D5D0077B946 /* CheckTrip */ = {
 			isa = PBXGroup;
 			children = (
+				40B0A83A26A22E690010258E /* Service */,
+				40B0A83726A22E410010258E /* Model */,
 				39FC9D8E269F6604002E12A5 /* CheckTripViewController.swift */,
 				39FC9D90269F6611002E12A5 /* CheckTripStoryboard.storyboard */,
 				39FC9D92269F6641002E12A5 /* JoinCompleteViewController.swift */,
@@ -724,6 +730,22 @@
 				40EBD31E269F44FF00DFC057 /* EditTripDataModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		40B0A83726A22E410010258E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40B0A83826A22E600010258E /* AddMemberDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		40B0A83A26A22E690010258E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				40B0A83B26A22E710010258E /* AddMemberService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		40B5A08C268EE1ED00A89875 /* AddTrip */ = {
@@ -1359,6 +1381,7 @@
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
 				BD6074D1269ED71600CA62F3 /* TripPlanDataModel.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
+				40B0A83C26A22E710010258E /* AddMemberService.swift in Sources */,
 				BD5EF04926A070F000F9EB47 /* Date+Extension.swift in Sources */,
 				40AE782A268F7FED0058806B /* PhotoCollectionViewCell.swift in Sources */,
 				39F21BA6269BDB4100673511 /* StyleQuestionDataModel.swift in Sources */,
@@ -1402,6 +1425,7 @@
 				399C7010269B27C80017069C /* styleQuestionListDataModel.swift in Sources */,
 				39194AF326A0AD1A00EF1CDC /* TakeLookDataModel.swift in Sources */,
 				39F21BA4269BD83400673511 /* AnswerCollectionViewCell.swift in Sources */,
+				40B0A83926A22E600010258E /* AddMemberDataModel.swift in Sources */,
 				BD75C2FA268B58E000C4F233 /* APIConstants.swift in Sources */,
 				399C700A269B27840017069C /* QuestionCell.swift in Sources */,
 				39E3595A269F00730077B946 /* GetMemberProfileDataService.swift in Sources */,
