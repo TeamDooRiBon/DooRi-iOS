@@ -17,6 +17,7 @@ class LastTripTableViewCell: UITableViewCell {
     @IBOutlet weak var tripTitleLabel: UILabel!
     @IBOutlet weak var lastLocationLabel: UILabel!
     @IBOutlet weak var lastMemberLabel: UILabel!
+    @IBOutlet weak var tripMonthLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +34,7 @@ class LastTripTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func setdata(imageName: String, title: String, location: String, member: String)
+    func setdata(imageName: String, title: String, location: String, member: String, tripMonth: String)
     {
         tripImageView.layer.cornerRadius = tripImageView.frame.height / 2
         if let url = URL(string: imageName) {
@@ -42,6 +43,7 @@ class LastTripTableViewCell: UITableViewCell {
         tripTitleLabel.text = title
         lastLocationLabel.text = location
         lastMemberLabel.text = member
+        tripMonthLabel.text = tripMonth
     }
 
 }
