@@ -30,6 +30,9 @@ class MakeCodeViewController: UIViewController {
     
     
     @IBAction func latterButtonClicked(_ sender: Any) {
+        func goToMain() {
+            self.performSegue(withIdentifier: "unwindVC1", sender: self)
+        }
     }
     
     @IBAction func copyCodeButtonClicked(_ sender: Any) {
@@ -42,10 +45,11 @@ class MakeCodeViewController: UIViewController {
         self.present(naviVC, animated: true)
         UIPasteboard.general.string = inviteCode
         
-        UIView.animate(withDuration: 1.5, animations: { [self] in
-            naviVC.dismiss(animated: true, completion: nil)
-            view.layoutIfNeeded()
-        })
+        self.dismiss(animated: true, completion: goToMain)
+    }
+    
+    func goToMain() {
+        self.performSegue(withIdentifier: "unwindVC1", sender: self)
     }
     
     // code 담아주는 함수
