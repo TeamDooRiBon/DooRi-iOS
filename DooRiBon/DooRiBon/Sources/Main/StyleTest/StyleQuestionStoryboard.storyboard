@@ -59,10 +59,10 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nhK-1x-pcV">
-                                <rect key="frame" x="18" y="224" width="339" height="260"/>
+                                <rect key="frame" x="18" y="219" width="339" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="LqI-tc-82Z"/>
+                                    <constraint firstAttribute="height" constant="300" id="LqI-tc-82Z"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HMf-j3-qfG">
                                     <size key="itemSize" width="202" height="232"/>
@@ -72,7 +72,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnswerCollectionViewCell" id="DCL-5S-RsK" customClass="AnswerCollectionViewCell" customModule="DooRiBon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="339" height="240"/>
+                                        <rect key="frame" x="0.0" y="30" width="339" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Eve-oA-lTw">
                                             <rect key="frame" x="0.0" y="0.0" width="339" height="240"/>
@@ -199,10 +199,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAe-4l-KzD">
-                                <rect key="frame" x="15" y="152" width="345" height="72"/>
+                                <rect key="frame" x="15" y="152" width="345" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 여행에서 돈을 쓸 때 나는" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4E-hb-TAU">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="23.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="25.333333333333332"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -210,7 +210,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="80q-TE-gGq"/>
+                                    <constraint firstAttribute="height" constant="67" id="80q-TE-gGq"/>
                                     <constraint firstItem="I4E-hb-TAU" firstAttribute="top" secondItem="kAe-4l-KzD" secondAttribute="top" id="EeR-bi-gpH"/>
                                     <constraint firstItem="I4E-hb-TAU" firstAttribute="leading" secondItem="kAe-4l-KzD" secondAttribute="leading" id="TRy-Nn-057"/>
                                     <constraint firstAttribute="trailing" secondItem="I4E-hb-TAU" secondAttribute="trailing" id="fue-iC-5gD"/>
@@ -268,7 +268,7 @@
                                 <rect key="frame" x="83.666666666666686" y="338.66666666666669" width="208" height="111"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST 결과 확인 중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ0-mo-0UY">
-                                <rect key="frame" x="127" y="469.66666666666669" width="121.33333333333331" height="18.666666666666686"/>
+                                <rect key="frame" x="126" y="469.66666666666669" width="123.33333333333331" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                 <color key="textColor" name="white9"/>
                                 <nil key="highlightedColor"/>
