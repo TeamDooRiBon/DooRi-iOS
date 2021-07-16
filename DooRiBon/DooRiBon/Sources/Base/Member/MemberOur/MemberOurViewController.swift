@@ -164,6 +164,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCodeCopyTableViewCell", for: indexPath) as? MemberCodeCopyTableViewCell else { return UITableViewCell() }
+                cell.groupID = tripData?._id ?? ""
                 return cell
             }
         default:

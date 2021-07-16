@@ -13,6 +13,8 @@ class ToastView: UIView {
     @IBOutlet weak private var containerView: UIView!
     @IBOutlet weak private var toastMessageLabel: UILabel!
     
+    private var inviteCode: String = ""
+    
     // MARK: - Init
     
     override func awakeFromNib() {
@@ -36,6 +38,14 @@ class ToastView: UIView {
     private func show(message: String) {
         toastMessageLabel.text = message
         present()
+    }
+    
+    private func storeCode(_ code: String) {
+        inviteCode = code
+    }
+    
+    private func getInviteCode() {
+        
     }
     
     /// 화면에 띄우는 메서드

@@ -39,7 +39,7 @@
                                                 <rect key="frame" x="117" y="543" width="141" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미지 결과 저장하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jme-JE-rJW">
-                                                        <rect key="frame" x="0.0" y="5" width="100.5" height="14"/>
+                                                        <rect key="frame" x="0.0" y="4.5" width="105" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                         <color key="textColor" name="gray5"/>
                                                         <nil key="highlightedColor"/>
@@ -80,13 +80,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aad-lh-i4u">
-                                                <rect key="frame" x="18" y="81" width="39.5" height="19"/>
+                                                <rect key="frame" x="18" y="81" width="43.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
                                                 <color key="textColor" name="white9"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYJ-bt-rXC">
-                                                <rect key="frame" x="18" y="105" width="81" height="38.5"/>
+                                                <rect key="frame" x="18" y="106.5" width="89.5" height="41.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="82" id="4zF-W7-Q1m"/>
                                                     <constraint firstAttribute="width" constant="126" id="JL7-dB-XNG"/>
@@ -126,7 +126,7 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUt-pM-i5b">
-                                <rect key="frame" x="107" y="620" width="161" height="42"/>
+                                <rect key="frame" x="107" y="585" width="161" height="42"/>
                                 <color key="backgroundColor" name="white9"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="2Bm-TH-X7g"/>
@@ -155,7 +155,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="x3Z-1m-Gzx" secondAttribute="trailing" id="TsN-Yw-Nwt"/>
                             <constraint firstItem="x3Z-1m-Gzx" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="XE0-eV-xnK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WUt-pM-i5b" secondAttribute="bottom" id="hi2-fD-MK1"/>
-                            <constraint firstAttribute="bottom" secondItem="WUt-pM-i5b" secondAttribute="bottom" constant="5" id="j7r-BZ-mf8"/>
+                            <constraint firstAttribute="bottom" secondItem="WUt-pM-i5b" secondAttribute="bottom" constant="40" id="j7r-BZ-mf8"/>
                             <constraint firstAttribute="bottom" secondItem="x3Z-1m-Gzx" secondAttribute="bottom" id="tvY-vx-hZx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WUt-pM-i5b" secondAttribute="trailing" constant="107" id="xOM-v4-lJX"/>
                             <constraint firstItem="WUt-pM-i5b" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="40" id="xdW-dW-204"/>
