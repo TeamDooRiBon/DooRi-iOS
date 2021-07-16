@@ -195,12 +195,11 @@ extension JoinTripViewController {
         JoinTripDataService.shared.getTripInfoWithInviteCode(inviteCode: inviteCode) { [self] (response) in
             switch(response)
             {
-            case .success(let data) :
-                print(data)
+            case .success(let data):
                 self.rightCodeCheck(data as! JoinTripData)
-            case .requestErr(let message) :
+            case .requestErr(let message):
                 print(message)
-            case .pathErr :
+            case .pathErr:
                 print("pathERR")
             case .serverErr:
                 print("serverERR")
