@@ -52,6 +52,7 @@ class AddTripPlanViewController: UIViewController {
     var scheduleID: String = ""
     var startDate = "2021-07-05 16:30"
     var endDate = "2021-07-05 17:00"
+    var currentDate: String = ""
     
     //MARK:- Life Cycle
     
