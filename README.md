@@ -1,4 +1,4 @@
-<img width="800px" alt="스크린샷 2021-07-16 오전 12 51 07" src="https://user-images.githubusercontent.com/69389288/125818111-54d73816-fb89-43a8-8648-0e44fc837aa5.png">
+<img width="800px" src="https://user-images.githubusercontent.com/20807197/125838695-6697af66-35af-4a90-ad84-2a91e87cc69e.png">
 
 ## 작은 움직임이 만드는 우리다운 여행, DOORIBON 👀
 
@@ -13,6 +13,8 @@
 <br />
 
 ##  **DooRiBon** iOS Developers, 역할분담
+
+<img width="800px" alt="스크린샷 2021-07-16 오전 12 51 07" src="https://user-images.githubusercontent.com/69389288/125818111-54d73816-fb89-43a8-8648-0e44fc837aa5.png">
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
