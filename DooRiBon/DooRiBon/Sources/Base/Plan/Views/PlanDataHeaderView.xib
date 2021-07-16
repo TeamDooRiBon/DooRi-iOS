@@ -71,6 +71,10 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dayNumberLabel" destination="bb2-QR-vAx" id="55g-US-rOp"/>
+                <outlet property="detailDateLabel" destination="2VI-Hk-zZ1" id="dCJ-vB-isk"/>
+            </connections>
             <point key="canvasLocation" x="294" y="41"/>
         </view>
     </objects>
