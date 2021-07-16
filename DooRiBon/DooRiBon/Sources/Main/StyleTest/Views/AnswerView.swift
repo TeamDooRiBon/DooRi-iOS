@@ -66,7 +66,7 @@ class AnswerView: UIView {
     }
 
     @objc private func pressedAnswerView(_ gesture: UITapGestureRecognizer) {
-        isSelected.toggle()
+        isSelected = true
         delegate?.answerView(self, didSelected: isSelected)
     }
 }

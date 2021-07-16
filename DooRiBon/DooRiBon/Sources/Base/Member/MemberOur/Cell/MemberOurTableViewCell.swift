@@ -15,6 +15,7 @@ class MemberOurTableViewCell: UITableViewCell {
     @IBOutlet weak var memberStyleTwo: UILabel!
     @IBOutlet weak var memberStyleThree: UILabel!
     @IBOutlet weak var memberName: UILabel!
+    @IBOutlet weak var memberThumbNailImage: UIImageView!
     
     
     override func awakeFromNib() {

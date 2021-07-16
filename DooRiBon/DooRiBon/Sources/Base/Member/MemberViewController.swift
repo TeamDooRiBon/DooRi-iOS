@@ -14,24 +14,10 @@ class MemberViewController: UIViewController {
     
     // MARK: - Properties
     var tripData: Group?
-    static var profileData: [Profile] = []
     static var thisID: String = ""
-    
-    private var myStyleDummyData: TripTendencyDataModel? {
-        didSet {
-            print(myStyleDummyData, "내꺼")
-        }
-    }
-    
-    private var memberStyleDummyData: [TripTendencyDataModel] = [] {
-        didSet {
-            print(memberStyleDummyData, "너꺼")
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         guard let vc1 = UIStoryboard(name: "MemberOurStoryboard", bundle: nil).instantiateViewController(identifier: "MemberOurViewController") as? MemberOurViewController else { return }
         guard let vc2 = UIStoryboard(name: "TakeLookStoryboard", bundle: nil).instantiateViewController(identifier: "TakeLookViewController") as? TakeLookViewController else { return }
         
@@ -53,7 +39,6 @@ class MemberViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         
-        getStyleData()
         refreshTopView()
     }
     
@@ -106,30 +91,6 @@ extension MemberViewController {
     }
     
     // MARK: - 서버 통신 (특정 날짜 일정 조회 API)
-    
-    private func getStyleData() {
-        guard let groupId = tripData?._id else { return }
-
-        GetMemberStyleDataService.shared.getMemberStyle(groupId: groupId)
-                                                        { [weak self] (response) in
- 
-            switch response {
-            case .success(let data):
-                if let style = data as? DivisionMemberDataModel {
-                    self!.myStyleDummyData = style.myResult
-                    self!.memberStyleDummyData = style.othersResult
-                }
-            case .requestErr(_):
-                print("requestErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
-            case .pathErr:
-                print("pathErr")
-            }
-        }
-    }
     
     @objc func backButtonClicked(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

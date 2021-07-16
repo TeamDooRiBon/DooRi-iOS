@@ -9,5 +9,4 @@ import Foundation
 struct StyleQuestionListDataModel {
     var number: String
     var question: String
-    var count: String
 }

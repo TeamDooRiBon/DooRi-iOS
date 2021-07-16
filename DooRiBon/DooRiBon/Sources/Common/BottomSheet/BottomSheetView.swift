@@ -20,11 +20,11 @@ class BottomSheetView: UIView {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     @IBOutlet weak var memoLabel: UILabel!
-    @IBOutlet weak var bottomSheetViewTopConstraint: NSLayoutConstraint!
     
     private var eventHandler: ((_ type: EventType) -> Void)?
     
     private var defaultHeight: CGFloat = 300
+    private var isPresented: Bool = false
 
     enum BottomSheetType {
         case plan
@@ -40,10 +40,29 @@ class BottomSheetView: UIView {
         super.awakeFromNib()
         setupUI()
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if containerView.frame.origin.y == frame.maxY, !isPresented {
+            layoutIfNeeded()
+            containerView.snp.updateConstraints {
+                $0.top.equalTo(snp.bottom).inset(containerView.frame.height)
+            }
+            UIView.animate(withDuration: 0.3) {
+                self.layoutIfNeeded()
+            } completion: { _ in
+                self.isPresented = true
+            }
+        }
+    }
     
     private func setupUI() {
         containerView.layer.cornerRadius = 28
         containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+
+        containerView.snp.makeConstraints {
+            $0.top.equalTo(snp.bottom)
+        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
         self.addGestureRecognizer(tapGesture)
@@ -107,13 +126,18 @@ class BottomSheetView: UIView {
 
     private func closeView(_ type: EventType) {
         eventHandler?(type)
-        if type == .edit { moveOut() }
+        moveOut()
     }
 
     private func moveOut() {
-        UIView.animate(withDuration: 0.15) {
+        containerView.snp.updateConstraints {
+            $0.top.equalTo(snp.bottom)
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+        UIView.animate(withDuration: 0.2) {
             self.alpha = 0
-            self.containerView.alpha = 0
         } completion: { _ in
             self.removeFromSuperview()
         }
@@ -121,40 +145,8 @@ class BottomSheetView: UIView {
 
     private func moveIn() {
         self.alpha = 0.0
-        self.containerView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
-        self.containerView.alpha = 0.0
-
         UIView.animate(withDuration: 0.2) {
             self.alpha = 1.0
-        } completion: { _ in
-            UIView.animate(withDuration: 0.05) {
-                self.containerView.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-                self.containerView.alpha = 1.0
-            } completion: { _ in
-                UIView.animate(withDuration: 0.15) {
-                    self.containerView.transform = CGAffineTransform.identity
-                }
-            }
         }
     }
-    
-//    private func slideIn() {
-//        print("slideIn")
-//        let safeAreaHeight: CGFloat = safeAreaLayoutGuide.layoutFrame.height
-//        let bottomPadding: CGFloat = safeAreaInsets.bottom
-//
-////        bottomSheetViewTopConstraint.constant = (safeAreaHeight + bottomPadding) - defaultHeight
-//        containerView.snp.updateConstraints {
-//            $0.top.equalToSuperview().offset(bottomSheetViewTopConstraint.constant)
-//        }
-//
-//        self.alpha = 0.0
-//        self.containerView.alpha = 0.0
-//
-//        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
-//            self.layoutIfNeeded()
-//        } ,completion: { _ in
-//
-//        })
-//    }
 }

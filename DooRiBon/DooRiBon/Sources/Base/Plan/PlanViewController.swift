@@ -22,19 +22,19 @@ class PlanViewController: UIViewController {
 
     // MARK: - Dummy Data
     
-    private var dummyData: [Int] = [] {
+    private var dateData: [Int] = [] {
         didSet {
             calendarView.reloadData()
         }
     }
-    private var planDummyData: [Schedule] = [] {
+    private var planData: [Schedule] = [] {
         didSet {
             contentsTableView.reloadData()
         }
     }
-    private var selectedDate: Int?            // 오늘 날짜를 디폴트 값으로 시작
+    private var selectedDate: String?            // 오늘 날짜를 디폴트 값으로 시작
     private var dataStatus: Bool {
-        !planDummyData.isEmpty
+        !planData.isEmpty
     }
     
     // MARK: - IBOutlets
@@ -46,32 +46,38 @@ class PlanViewController: UIViewController {
     @IBOutlet weak var currentYearLabel: UILabel!
     @IBOutlet weak var currentMonthLabel: UILabel!
     
+    private var dates: [String] = []
     static var profileData: [Profile] = []
     static var thisID: String = ""
     var schedule: ScheduleData?
+    var currentDate: String?
 
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureUI()
         setupButtonAction()
         setupCollectionView()
         setupTableView()
-        setupData()
         setupFirstData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getSchduleData(date: "2021-07-05")
+
         refreshTopView()
+        getPlanData(date: currentDate!)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     // MARK: - Function
+    
     func refreshTopView() {
-        
         TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
             switch(response)
             {
@@ -104,10 +110,10 @@ class PlanViewController: UIViewController {
         nextVC.buttonData = "일정 편집하기"
         nextVC.groupID = groupID
         nextVC.scheduleID = scheduleID
+        guard let currentDate = self.currentDate else { return }
+        nextVC.startDate = currentDate
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    
-    // MARK: - IBActions
 }
 
 // MARK: - Helpers
@@ -115,7 +121,7 @@ class PlanViewController: UIViewController {
 extension PlanViewController {
     
     // MARK: - Configure
-    /// UI Setup
+
     private func configureUI() {
         navigationController?.navigationBar.isHidden = true
         calendarAreaView.layer.applyShadow(color: .black,
@@ -156,7 +162,6 @@ extension PlanViewController {
     }
     
     @objc func memberButtonClicked(_ sender: UIButton) {
-       
         WithPopupView.loadFromXib()
             .setTitle("함께하는 사람")
             .setDescription("총 5명")
@@ -177,42 +182,36 @@ extension PlanViewController {
     /// TopView Setup
     private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        getDate(startDate: model.startDate, endDate: model.endDate)
         tripData = model
-        setupTopView()
     }
+    
     /// TopView Setup
     private func setupTopView() {
-        setupDateData()
         topView.setTopViewData(tripData: tripData!)
         PlanViewController.thisID = tripData?._id ?? ""
     }
     
-    private func setupDateData() {
-        guard let startDate = tripData?.startDate else { return }
-        guard let endDate = tripData?.endDate else { return }
+    private func getDate(startDate: Date, endDate: Date) {
+        // 날짜 형태 반드시 통일해주기
+        Formatter.date.dateFormat = "yyyy-MM-dd"
         
-        formatter.dateFormat = "YYYY"
-        let startYear = formatter.string(from: startDate)
-        currentYearLabel.text = startYear
-        formatter.dateFormat = "M"
-        let startMonth = formatter.string(from: startDate)
-        currentMonthLabel.text = startMonth
-        formatter.dateFormat = "dd"
-        let start = formatter.string(from: startDate)
-        formatter.dateFormat = "dd"
-        let end = formatter.string(from: endDate)
-        
-        let startTime: Int = Int(start)!
-        let endTime: Int = Int(end)!
+        let start = Formatter.date.string(from: startDate)
+        let end = Formatter.date.string(from: endDate)
 
-        for i in startTime..<endTime {
-            dummyData.append(i)
+        dates = DateHelper.getDatesBetweenTwo(from: start, to: end)
+        
+        currentDate = DateHelper.isTodayInDates(dates: dates)
+        
+        let _ = dates.map {
+            dateData.append(DateHelper.getOnlyDate(date: $0))
         }
     }
+
     
     // MARK: - 서버 통신 (특정 날짜 일정 조회 API)
     
-    private func getSchduleData(date: String) {
+    private func getPlanData(date: String) {
         guard let groupId = tripData?._id else { return }
         
         TripPlanDataService.shared.getTripPlan(groupId: groupId,
@@ -220,7 +219,7 @@ extension PlanViewController {
             switch response {
             case .success(let data):
                 if let schedule = data as? [Schedule] {
-                    self!.planDummyData = schedule
+                    self!.planData = schedule
                 }
             case .requestErr(_):
                 print("requestErr")
@@ -294,8 +293,8 @@ extension PlanViewController {
             switch response {
             
             case .success(let data):
-                if let scheduleData = data as? [Schedule] {
-                    self.getSchduleData(date: "2021-07-15")
+                if data is [Schedule] {
+                    self.getPlanData(date: self.currentDate!)
                     self.contentsTableView.reloadData()
                 }
             case .requestErr(_):
@@ -329,12 +328,7 @@ extension PlanViewController {
         contentsTableView.backgroundColor = .clear
         contentsTableView.rowHeight = UITableView.automaticDimension
     }
-    
-    /// Dummy Setup
-    private func setupData() {
-        selectedDate = getTodayInfo()
-    }
-    
+
     /// Get Today - 오늘 날짜 얻어오는 함수
     private func getTodayInfo() -> Int {
         let nowDate = Date() // 현재의 Date (ex: 2020-08-13 09:14:48 +0000)
@@ -364,19 +358,25 @@ extension PlanViewController {
         
         return convertStr
     }
+    
+    private func setCalendar(date: String) {
+        currentYearLabel.text = DateHelper.getOnlyYear(date: date)
+        currentMonthLabel.text = DateHelper.getOnlyMonth(date: date)
+    }
 }
 
 // MARK: - Collection View Data Delegate
 extension PlanViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedDate = dummyData[indexPath.row]
+        self.selectedDate = dates[indexPath.row]
+        setCalendar(date: dates[indexPath.row])
     }
 }
 
 // MARK: - Collection View Data Source
 extension PlanViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyData.count
+        return dateData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -384,10 +384,10 @@ extension PlanViewController: UICollectionViewDataSource {
         
         /// 데이터 표시
         cell.dayNumberLabel.text = "D\(indexPath.row + 1)"
-        cell.dateLabel.text = String(describing: dummyData[indexPath.row])
+        cell.dateLabel.text = String(describing: dateData[indexPath.row])
         
         /// 선택된 날짜일때만 isSelected 변경
-        if dummyData[indexPath.row] == selectedDate {
+        if dates[indexPath.row] == currentDate {
             cell.isSelected = true
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         } else {
@@ -423,17 +423,19 @@ extension PlanViewController: UICollectionViewDelegateFlowLayout {
 
 extension PlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        getScheduleData(groupId: tripData?._id ?? "", scheduleId: planDummyData[indexPath.row].id)
+        getScheduleData(groupId: tripData?._id ?? "", scheduleId: planData[indexPath.row].id)
     }
 }
 
 extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
     // 델리게이트 메서드
     func didSelectedAddTripButton() {
+        guard let currentDate = self.currentDate else { return }
         let addTripSB = UIStoryboard(name: "AddTripPlanStoryboard", bundle: nil)
         let addTripVC = addTripSB.instantiateViewController(identifier: "AddTripPlanViewController") as! AddTripPlanViewController
         addTripVC.hidesBottomBarWhenPushed = true
         addTripVC.groupID = tripData?._id ?? ""
+        addTripVC.startDate = currentDate
         navigationController?.pushViewController(addTripVC, animated: true)
     }
     
@@ -449,7 +451,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if dataStatus { // 데이터 있을 때 셀 개수 처리
-            return planDummyData.count
+            return planData.count
         } else { // 데이터 있을 때 셀 개수 처리
             return 1
         }
@@ -461,18 +463,18 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
                 return UITableViewCell()
             }
             if indexPath.row == 0 {
-                cell.bottomLineView.isHidden = planDummyData.count == 1
+                cell.bottomLineView.isHidden = planData.count == 1
                 cell.topLineView.isHidden = true
-            } else if indexPath.row == planDummyData.count - 1 {
+            } else if indexPath.row == planData.count - 1 {
                 cell.bottomLineView.isHidden = true
             }
             
-            let time = strToDate(type: .HH, date: planDummyData[indexPath.row].formatTime)
+            let time = strToDate(type: .HH, date: planData[indexPath.row].formatTime)
             
             cell.selectionStyle = .none
             cell.timeLabel.text = time
-            cell.planTitleLabel.text = planDummyData[indexPath.row].title
-            cell.planDescriptionLabel.text = planDummyData[indexPath.row].memo
+            cell.planTitleLabel.text = planData[indexPath.row].title
+            cell.planDescriptionLabel.text = planData[indexPath.row].memo
             
             return cell
         } else { // 데이터 없을 때 셀처리

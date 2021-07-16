@@ -65,7 +65,7 @@ struct EditPlanService{
     private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(EditPlanData.self, from: data)
+        guard let decodedData = try? decoder.decode(EditPlanResponse.self, from: data)
         else { return .pathErr}
         
         switch statusCode {

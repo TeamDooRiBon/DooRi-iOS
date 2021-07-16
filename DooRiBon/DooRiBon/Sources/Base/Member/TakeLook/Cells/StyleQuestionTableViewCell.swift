@@ -15,12 +15,14 @@ class StyleQuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var peopleCountLabel: UILabel!
+    @IBOutlet weak var orangeView: UIView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
         blueView.layer.cornerRadius = blueView.frame.height / 2
+        orangeView.layer.cornerRadius = orangeView.frame.height / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,11 +31,10 @@ class StyleQuestionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setdata(number: String, question: String, count: String)
+    func setdata(number: String, question: String)
     {
         numberLabel.text = number
         questionLabel.text = question
-        peopleCountLabel.text = count
     }
 }
 
