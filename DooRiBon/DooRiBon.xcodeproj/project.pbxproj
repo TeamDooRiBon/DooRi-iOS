@@ -1387,7 +1387,6 @@
 				BD75C300268B5BA800C4F233 /* UIFont+Extension.swift in Sources */,
 				BD6074B7269DF92700CA62F3 /* BoardResponse.swift in Sources */,
 				39FC9D8F269F6604002E12A5 /* CheckTripViewController.swift in Sources */,
-				BD6074B7269DF92700CA62F3 /* BoardResponse.swift in Sources */,
 				BD5EEC9426986AB100D09B11 /* BoardNoDataTableViewCell.swift in Sources */,
 				4029D7AD26A0401C00C4F5A0 /* EditPlanService.swift in Sources */,
 				40A0EA42269C4596009EDE74 /* NibConstants.swift in Sources */,
@@ -1541,7 +1540,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dooriboncorp.DooRiBon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codershigh.dooribon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1561,7 +1560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dooriboncorp.DooRiBon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codershigh.dooribon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

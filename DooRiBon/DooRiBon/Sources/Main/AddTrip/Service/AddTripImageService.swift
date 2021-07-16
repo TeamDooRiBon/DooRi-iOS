@@ -15,7 +15,6 @@ struct AddTripImageService {
     {
         let url = APIConstants.addTripImageURL
         
-        let header : HTTPHeaders = ["Content-Type": "application/json"]
         let dataRequest = AF.request(url, method: .get, encoding: JSONEncoding.default)
         dataRequest.responseData { dataResponse in
             

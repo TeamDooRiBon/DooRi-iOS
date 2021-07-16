@@ -24,6 +24,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var lastTripMenuLabel: UILabel!
     @IBOutlet weak var styleTripMenuLabel: UILabel!
     
+    // 버튼
+    @IBOutlet weak var startNewTripButton: UIButton!
+    
     /// 뷰
     @IBOutlet weak var mainContentView: UIView!
     @IBOutlet weak var backgroundView: UIView!
@@ -50,12 +53,7 @@ class MainViewController: UIViewController {
     var comeTripList : [Group] = []
     var lastTripList : [Group] = []
     
-    var allTripData: MainDataModel? {
-        didSet {
-            comeTripCollectionView.reloadData()
-            lastTripTableView.reloadData()
-        }
-    }
+    var allTripData: MainDataModel?
     let formatter = DateFormatter()
     let calendar = Calendar.current
 
@@ -65,15 +63,26 @@ class MainViewController: UIViewController {
 
         setUI()
         shadowSet()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            self.setTripData()
+            
+            self.setupSkeletionUI(.hide)
+        })
     }
     
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setTripData()
         collectionViewSet()
         tableViewSet()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.setupSkeletionUI(.show)
     }
     
     // MARK: - 액션
@@ -129,7 +138,6 @@ class MainViewController: UIViewController {
     // 두근두근, 다가오는 여행 부분 데이터
     func setTripData()
     {
-        self.setupSkeletionUI(.show)
         GetMainDataService.shared.getPersonInfo{ [self] (response) in
             switch(response)
             {
@@ -140,7 +148,7 @@ class MainViewController: UIViewController {
                     lastTripTableView.reloadData()
                     setDevideTripData()
                 }
-                setupSkeletionUI(.hide)
+                
             case .requestErr(let message):
                 print("requestERR", message)
             case .pathErr:
@@ -213,9 +221,12 @@ class MainViewController: UIViewController {
         lastTripTableView.delegate = self
         lastTripTableView.dataSource = self
         // automaticDimension
-        lastTripTableView.estimatedRowHeight = 133
+        lastTripTableView.estimatedRowHeight = 150
         lastTripTableView.rowHeight = UITableView.automaticDimension
 
+        let footerView = UIView()
+        footerView.frame.size.height = 1
+        lastTripTableView.tableFooterView = footerView
     }
     
     // 쉐도우
@@ -264,7 +275,8 @@ extension MainViewController: UICollectionViewDataSource
                                  location: comeTripList[indexPath.row].destination,
                                  members: comeTripList[indexPath.row].members[0])
         }
-
+        
+        comeTripCell.hideAnimation()
         return comeTripCell
     }
     
@@ -285,17 +297,13 @@ extension MainViewController: UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = UIScreen.main.bounds.width      // 현재 사용하는 기기의 width를 가져와서 저장
-        let cellWidth = width * (340/375)            // 제플린에서의 비율만큼 곱해서 width를 결정
-        let cellHeight = cellWidth * (140/340)        // 제플린에서의 비율만큼 곱해서 height를 결정
-        
-        return CGSize(width: cellWidth, height: cellHeight)     // 정해진 가로/세로를 CGSize형으로 return
+
+        return CGSize.init(width: comeTripCollectionView.bounds.width, height: comeTripCollectionView.bounds.height)   // 정해진 가로/세로를 CGSize형으로 return
     }
     
     // ContentInset 메서드: Cell에서 Content 외부에 존재하는 Inset의 크기를 결정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.zero    //  Inset을 사용하지 않는다는 뜻x
+        return UIEdgeInsets.zero
     }
     
     // minimumLineSpacing 메서드: Cell 들의 위, 아래 간격 지정
@@ -305,7 +313,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
     
     // minimumInteritemSpacing 메서드: Cell 들의 좌,우 간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 35
+        return 0
     }
 }
 
@@ -328,6 +336,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
+        
+        print(lastTripList[indexPath.row].image, "🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨")
+        
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
                          location: lastTripList[indexPath.row].destination,
@@ -347,43 +358,44 @@ extension MainViewController {
     
     // Skeleton UI
     private func setupSkeletionUI(_ type: SkeletonState) {
+        SkeletonAppearance.default.tintColor = Colors.backgroundBlue.color
+        
         if type == .show {
-            nowTripImageView.showAnimatedSkeleton()
-            nowTripDateLabel.showAnimatedSkeleton()
-            nowTripTitleLabel.showAnimatedSkeleton()
-            nowTripLocationLabel.showAnimatedSkeleton()
-            nowTripMembersLabel.showAnimatedSkeleton()
-            comeTripCollectionView.showAnimatedSkeleton()
-            lastTripTableView.showAnimatedSkeleton()
-            mainTitleLabel.showAnimatedSkeleton()
-            comeTripMenuLabel.showAnimatedSkeleton()
-            lastTripMenuLabel.showAnimatedSkeleton()
-            styleTripMenuLabel.showAnimatedSkeleton()
+            // MARK: - 진행중인 여행
+            
+            self.comeTripCollectionView.showAnimatedSkeleton()
+            self.lastTripTableView.showAnimatedSkeleton()
+            
+            [nowTripImageView, nowTripStateView, nowTripDateLabel,
+             nowTripTitleLabel, nowTripLocationView, nowTripMemberView].forEach { $0?.showAnimatedSkeleton() }
+            
+            // MARK: - 각 카테고리 라벨
+            [mainTitleLabel, comeTripMenuLabel, lastTripMenuLabel, styleTripMenuLabel].forEach { $0?.showAnimatedSkeleton() }
+            
+            // MARK: - 다가오는 여행
             backgroundView.showAnimatedSkeleton()
-            indicatorBar.showAnimatedSkeleton()
             styleTripView.showAnimatedSkeleton()
-            nowTripStateView.showAnimatedSkeleton()
-            nowTripLocationView.showAnimatedSkeleton()
-            nowTripMemberView.showAnimatedSkeleton()
+
+            nowTripLocationLabel.isHidden = true
+            nowTripMembersLabel.isHidden = true
         } else {
-            nowTripImageView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            nowTripDateLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            nowTripTitleLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            nowTripLocationLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            nowTripMembersLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
             comeTripCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
             lastTripTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            mainTitleLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            comeTripMenuLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            lastTripMenuLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            styleTripMenuLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            backgroundView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            indicatorBar.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            styleTripView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            nowTripStateView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            nowTripLocationView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-            nowTripMemberView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
-        }
+            
+            [nowTripImageView, nowTripStateView, nowTripDateLabel,
+             nowTripTitleLabel, nowTripLocationView, nowTripMemberView].forEach {
+                $0?.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+             }
+            
+            [mainTitleLabel, comeTripMenuLabel, lastTripMenuLabel, styleTripMenuLabel].forEach {
+                $0?.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+             }
 
+            backgroundView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            styleTripView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            
+            nowTripLocationLabel.isHidden = false
+            nowTripMembersLabel.isHidden = false
+        }
     }
 }

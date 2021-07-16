@@ -48,7 +48,7 @@ struct GetMemberProfileDataService
         
         switch statusCode {
 
-        case 200: return .success(decodedData.data?.members as Any)
+        case 200: return .success(decodedData.data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
