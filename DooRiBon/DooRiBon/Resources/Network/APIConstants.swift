@@ -23,7 +23,7 @@ struct APIConstants {
 
     // MARK: - Keys
     
-    static let jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjBlZDU1ZGFjZmJhYzhkMjFkMGRiMGFhIn0sImlhdCI6MTYyNjQ1NDU3OSwiZXhwIjoxNjI2ODE0NTc5fQ.mVCd6x1_p64hRwCZDh2rtO3Ib5IIyHZT8WGjYZE-xYs"
+    static let jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjBmMWRkYTA0N2IzOTIyMDJjY2RjMDQ0In0sImlhdCI6MTYyNjQ2MzY0OCwiZXhwIjoxNjI2ODIzNjQ4fQ.5RXJJ6do17TvZfr9iJLrac6XprE8QfS5UCac8kUAEHQ"
     
     // MARK: - URLs
     
