@@ -97,12 +97,10 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.memberHeaderLabel.text = "나의 여행 유형"
             headerView.memberHeaderLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 16)
             headerView.memberHeaderLabel.textColor = Colors.black2.color
-            headerView.memberHeaderButton.isHidden = myStyleData == nil
         case 1:
             headerView.memberHeaderLabel.text = "함께하는 멤버들의 여행 유형"
             headerView.memberHeaderLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 16)
             headerView.memberHeaderLabel.textColor = Colors.black2.color
-            headerView.memberHeaderButton.isHidden = true
         default:
             return UIView()
         }

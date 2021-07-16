@@ -28,6 +28,7 @@ class StyleTestResultViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         imageSet()
+        shadowSet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +58,7 @@ class StyleTestResultViewController: UIViewController {
     }
     
     func shadowSet() {
-        backButton.layer.applyShadow(color: Colors.gray_black2.color, alpha: 0.08, x: 0, y: 1, blur: 10, spread: 2)
+        backButton.layer.applyShadow(color: Colors.black2.color, alpha: 0.08, x: 0, y: 1, blur: 10, spread: 2)
     }
     
     func backTwoWhenNavigationControllerUsed(){
