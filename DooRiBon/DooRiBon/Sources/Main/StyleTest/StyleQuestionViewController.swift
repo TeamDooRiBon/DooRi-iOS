@@ -23,7 +23,7 @@ class StyleQuestionViewController: UIViewController {
     var questionDataList: [StyleQuestionData] = []
     var testResult: StyleResultData?
     private lazy var answers: [Int] = Array(repeating: -1, count: questionDataList.count)
-    static var thisID: String = ""
+    var thisID: String = ""
     
     
 // MARK: - Life Cycle
@@ -64,7 +64,6 @@ class StyleQuestionViewController: UIViewController {
         }
 
         guard currentNumber < questionDataList.count - 1 else {
-            print("도착")
             testResultSave()
             return
         }
@@ -133,7 +132,7 @@ class StyleQuestionViewController: UIViewController {
         let viewController = styleQuestionStoryboard.instantiateViewController(identifier: "StyleQuestionLoadingViewController")
         present(viewController, animated: true, completion: nil)
 
-        StyleResultService.shared.resultSave(groupID: "60ee5078b0e7cd69292948f3", score: weightResult, choice: answers) { [weak self] (response) in
+        StyleResultService.shared.resultSave(groupID: thisID, score: weightResult, choice: answers) { [weak self] (response) in
             switch (response) {
             case .success(let data):
                 if let result = data as? StyleResultResponse {
