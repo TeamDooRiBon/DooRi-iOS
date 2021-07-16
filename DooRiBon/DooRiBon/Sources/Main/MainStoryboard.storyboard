@@ -794,7 +794,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <action selector="goStyleTestButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Fgi-AF-E1n"/>
+                                                                    <action selector="goStyleTestButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8ou-ig-KbC"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행마다 다른 내 성향, 이번에는 어떤 여행 하고 싶으세요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ro-LA-BFJ">

@@ -18,7 +18,8 @@ class StyleTestResultViewController: UIViewController {
     var name: String = ""
     var imgURL: String = ""
     var style: String = ""
-    var popCount: Int = 3
+    var buttonText: String = "여행 그룹으로 이동"
+    var mainOrMember = false
     
     //MARK:- Life Cycle
     
@@ -38,7 +39,7 @@ class StyleTestResultViewController: UIViewController {
         nameLabel.text = "\(name)님은"
         let title = style.replacingOccurrences(of: " ", with: "\n")
         styleLabel.text = title
-        print(title)
+        backButton.setTitle(buttonText, for: .normal)
     }
     
     func imageSet() {
@@ -55,12 +56,12 @@ class StyleTestResultViewController: UIViewController {
     }
     
     func shadowSet() {
-        backButton.layer.applyShadow(color: Colors.black2.color, alpha: 0.08, x: 0, y: 1, blur: 10, spread: 2)
+        backButton.layer.applyShadow(color: Colors.gray_black2.color, alpha: 0.08, x: 0, y: 1, blur: 10, spread: 2)
     }
     
     func backTwoWhenNavigationControllerUsed(){
         let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-        self.navigationController?.popToViewController(viewControllers[viewControllers.count - popCount ], animated: true)
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 3 ], animated: true)
         
         
     }
@@ -68,8 +69,10 @@ class StyleTestResultViewController: UIViewController {
     //MARK:- IBAction
     
     @IBAction func backButtonClicked(_ sender: Any) {
-        backTwoWhenNavigationControllerUsed()
+        if mainOrMember {
+            performSegue(withIdentifier: "unwindVC1", sender: self)
+        } else {
+            backTwoWhenNavigationControllerUsed()
+        }
     }
-    
-    
 }

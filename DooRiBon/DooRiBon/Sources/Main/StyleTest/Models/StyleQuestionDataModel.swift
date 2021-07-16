@@ -11,7 +11,7 @@ struct StyleQuestionResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: [StyleQuestionData]
+    let data: [StyleQuestionData]?
 }
 
 // MARK: - Datum

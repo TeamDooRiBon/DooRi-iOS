@@ -55,6 +55,7 @@ struct APIConstants {
     static let styleURL = baseURL + "/tendency"
     static let styleQuestionURL = baseURL + "/tendency/question"
     static let styleResultSaveURL = baseURL + "/tendency/:groupId"
+    static let styleTestMainURL = baseURL + "/tendency/result/main"
     
     // MARK: - /image
     
