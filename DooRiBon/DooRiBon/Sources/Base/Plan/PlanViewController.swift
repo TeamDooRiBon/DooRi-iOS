@@ -369,7 +369,7 @@ extension PlanViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedDate = dates[indexPath.row]
         setCalendar(date: dates[indexPath.row])
-
+        currentDate = dates[indexPath.row]
     }
 }
 
