@@ -25,6 +25,7 @@ class TripTopView: UIView {
     let calendar = Calendar.current
     private var startDate: Date?
     private var endDate: Date?
+    private var tripData: Group?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,8 +37,8 @@ class TripTopView: UIView {
         self.commonInit()
     }
     
-    @IBAction func mypageButtonClicked(_ sender: Any) {
-
+    @IBAction private func copyCodeButtonClicked(_ sender: Any) {
+        GetInviteCode.getInviteCode(groupID: tripData?._id ?? "")
     }
     
 
@@ -48,6 +49,7 @@ class TripTopView: UIView {
     }
     
     func setTopViewData(tripData: Group) {
+        self.tripData = tripData
         startDate = tripData.startDate
         endDate = tripData.endDate
         formatter.dateFormat = "yyyy.MM.dd"

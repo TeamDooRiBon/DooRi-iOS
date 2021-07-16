@@ -66,19 +66,21 @@ class MainViewController: UIViewController {
         collectionViewSet()
         tableViewSet()
         setTripData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            self.setTripData()
-        })
+        registerNoti()
     }
     
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        print("view will appear")
+        
+        setupSkeletionUI(.show)
+        self.setTripData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupSkeletionUI(.show)
     }
     
     // MARK: - 액션
@@ -119,6 +121,14 @@ class MainViewController: UIViewController {
     @IBAction func mypageButtonClicked(_ sender: Any) {
         guard let vc = UIStoryboard(name: "MyPageStoryboard", bundle: nil).instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func registerNoti() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didRecieveTestNotification(_:)), name: NSNotification.Name("dismissTabBar"), object: nil)
+    }
+    
+    @objc private func didRecieveTestNotification(_ notification: Notification) {
+        setTripData()
     }
     
     
@@ -405,3 +415,4 @@ extension MainViewController {
         }
     }
 }
+

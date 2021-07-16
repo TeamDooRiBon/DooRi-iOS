@@ -101,6 +101,7 @@
 		40EBD321269F455400DFC057 /* EditTripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD320269F455400DFC057 /* EditTripService.swift */; };
 		40EBD324269F5D9600DFC057 /* TripInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD323269F5D9600DFC057 /* TripInfoDataModel.swift */; };
 		40EBD327269F5DFB00DFC057 /* TripInformService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD326269F5DFB00DFC057 /* TripInformService.swift */; };
+		BD06238326A1CB4C007E892D /* HorizontalCalendarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06238226A1CB4C007E892D /* HorizontalCalendarProtocol.swift */; };
 		BD0AD60E269361D50033DAD8 /* TripStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD60D269361D50033DAD8 /* TripStoryboard.storyboard */; };
 		BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */; };
 		BD0AD618269363D90033DAD8 /* PlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */; };
@@ -160,6 +161,7 @@
 		BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75C303268B5C7300C4F233 /* UIView+Extension.swift */; };
 		BD7B4C7E2697253C00DCCA03 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B4C7D2697253C00DCCA03 /* ToastView.swift */; };
 		BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7B4C7F2697254300DCCA03 /* ToastView.xib */; };
+		BD952BF726A1BBEC00FE8BE5 /* GetInviteCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD952BF626A1BBEC00FE8BE5 /* GetInviteCode.swift */; };
 		BDA5626926994E2100616CBF /* DummyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5626826994E2000616CBF /* DummyDataModel.swift */; };
 		BDA5626C2699962B00616CBF /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5626A2699962B00616CBF /* BoardTableViewCell.swift */; };
 		BDA5626D2699962B00616CBF /* BoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDA5626B2699962B00616CBF /* BoardTableViewCell.xib */; };
@@ -270,6 +272,7 @@
 		40EBD326269F5DFB00DFC057 /* TripInformService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInformService.swift; sourceTree = "<group>"; };
 		4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRiBon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865B67CA1EA48E50F6BF455F /* Pods-DooRiBon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.release.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.release.xcconfig"; sourceTree = "<group>"; };
+		BD06238226A1CB4C007E892D /* HorizontalCalendarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCalendarProtocol.swift; sourceTree = "<group>"; };
 		BD0AD60D269361D50033DAD8 /* TripStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripStoryboard.storyboard; sourceTree = "<group>"; };
 		BD0AD615269363D10033DAD8 /* MemberStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberStoryboard.storyboard; sourceTree = "<group>"; };
 		BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlanStoryboard.storyboard; sourceTree = "<group>"; };
@@ -331,6 +334,7 @@
 		BD75C303268B5C7300C4F233 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BD7B4C7D2697253C00DCCA03 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		BD7B4C7F2697254300DCCA03 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		BD952BF626A1BBEC00FE8BE5 /* GetInviteCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInviteCode.swift; sourceTree = "<group>"; };
 		BDA5626826994E2000616CBF /* DummyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataModel.swift; sourceTree = "<group>"; };
 		BDA5626A2699962B00616CBF /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 		BDA5626B2699962B00616CBF /* BoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardTableViewCell.xib; sourceTree = "<group>"; };
@@ -750,6 +754,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		BD06238126A1CB34007E892D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				BD06238226A1CB4C007E892D /* HorizontalCalendarProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		BD0AD610269362DB0033DAD8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +809,7 @@
 		BD0AD614269363480033DAD8 /* Plan */ = {
 			isa = PBXGroup;
 			children = (
+				BD06238126A1CB34007E892D /* Protocol */,
 				BD6074D2269ED78F00CA62F3 /* Service */,
 				BD0AD617269363D90033DAD8 /* PlanStoryboard.storyboard */,
 				BD0AD61F269365050033DAD8 /* PlanViewController.swift */,
@@ -995,6 +1008,7 @@
 			children = (
 				BD75C2E8268B575E00C4F233 /* Device.swift */,
 				BD5EF04A26A072A600F9EB47 /* DateHelper.swift */,
+				BD952BF626A1BBEC00FE8BE5 /* GetInviteCode.swift */,
 			);
 			path = CommonClass;
 			sourceTree = "<group>";
@@ -1368,6 +1382,7 @@
 				40253C8E269DAFFF0045620F /* AddTripImageDateModel.swift in Sources */,
 				39FC9D94269F6641002E12A5 /* JoinCompleteViewController.swift in Sources */,
 				392EF94F269183F8008CA532 /* LastTripTableViewCell.swift in Sources */,
+				BD06238326A1CB4C007E892D /* HorizontalCalendarProtocol.swift in Sources */,
 				39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */,
 				40EBD321269F455400DFC057 /* EditTripService.swift in Sources */,
 				3956196B26A04E75007C48EB /* MyPageCategoryTableViewCell.swift in Sources */,
@@ -1408,6 +1423,7 @@
 				BD5B425E2695ABBE0002A290 /* PlanDataTableViewCell.swift in Sources */,
 				402E5205269DD67500635B41 /* AddTripPlanService.swift in Sources */,
 				393691FF269EBFF6003348A7 /* MemberPopupCollectionViewCell.swift in Sources */,
+				BD952BF726A1BBEC00FE8BE5 /* GetInviteCode.swift in Sources */,
 				BD6074B5269DF8AD00CA62F3 /* AddBoardRequest.swift in Sources */,
 				0A1BD3BA268E193E00702EC5 /* PagerTab.swift in Sources */,
 				BD4EF4912691CB8300A6362D /* CodeTextField.swift in Sources */,

@@ -49,9 +49,6 @@ class DateHelper {
     }
     
     static func isTodayInDates(dates: [String]) -> String {
-        
-        print(dates, "🚀🚀🚀🚀🚀🚀🚀🚀🚀")
-        
         Formatter.date.dateFormat = "yyyy-MM-dd"
         let date = Formatter.date.string(from: Date())
         let state = dates.contains(date)
