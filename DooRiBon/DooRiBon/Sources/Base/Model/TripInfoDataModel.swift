@@ -19,6 +19,7 @@ struct TripinfoData: Codable {
     let travelName: String
     let startDate: Date
     let endDate: Date
+    let inviteCode: String
     let destination: String
     let members: [Member]
 }

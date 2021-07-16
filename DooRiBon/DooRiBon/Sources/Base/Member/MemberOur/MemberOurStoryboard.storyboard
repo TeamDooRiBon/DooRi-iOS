@@ -61,7 +61,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TZ-Ko-xxC">
-                                                            <rect key="frame" x="14" y="11" width="33" height="18"/>
+                                                            <rect key="frame" x="14" y="11" width="29.5" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
                                                             <color key="textColor" name="black3"/>
                                                             <nil key="highlightedColor"/>
@@ -76,10 +76,10 @@
                                                             <rect key="frame" x="14" y="72" width="20" height="20"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRt-Tl-24X">
-                                                            <rect key="frame" x="15" y="41" width="44" height="22"/>
+                                                            <rect key="frame" x="15" y="39.5" width="42.5" height="22"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="style1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9V-81-VkT">
-                                                                    <rect key="frame" x="8" y="4" width="28" height="14"/>
+                                                                    <rect key="frame" x="8" y="4" width="26.5" height="14"/>
                                                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
                                                                     <color key="textColor" name="gray10"/>
                                                                     <nil key="highlightedColor"/>
@@ -106,10 +106,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llg-KB-Si3">
-                                                            <rect key="frame" x="64" y="41" width="44" height="21"/>
+                                                            <rect key="frame" x="62.5" y="39.5" width="42.5" height="21"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="style2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkQ-Ws-NCV">
-                                                                    <rect key="frame" x="8" y="4" width="28" height="13"/>
+                                                                    <rect key="frame" x="8" y="4" width="26.5" height="13"/>
                                                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
                                                                     <color key="textColor" name="gray10"/>
                                                                     <nil key="highlightedColor"/>
@@ -135,10 +135,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUf-dS-PIQ">
-                                                            <rect key="frame" x="113" y="41" width="44" height="21"/>
+                                                            <rect key="frame" x="110" y="39.5" width="42.5" height="21"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="style3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEI-ga-sQY">
-                                                                    <rect key="frame" x="8" y="4" width="28" height="13"/>
+                                                                    <rect key="frame" x="8" y="4" width="26.5" height="13"/>
                                                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
                                                                     <color key="textColor" name="gray10"/>
                                                                     <nil key="highlightedColor"/>

@@ -50,6 +50,9 @@
                             <real key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="codeCopyButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="frF-2m-QnD"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
