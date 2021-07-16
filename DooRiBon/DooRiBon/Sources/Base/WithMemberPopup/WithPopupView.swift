@@ -4,7 +4,6 @@
 //
 //  Created by 민 on 2021/07/14.
 //
-
 import UIKit
 
 class WithPopupView: UIView {
@@ -31,19 +30,19 @@ class WithPopupView: UIView {
         button.addTarget(self, action: #selector(confirmAction(_:)), for: .touchUpInside)
         return button
     }()
-
+    
     private var eventHandler: ((_ type: EventType) -> Void)?
-
+    
     enum ButtonArrangeType {
         case vertical
         case horizontal
     }
-
+    
     enum EventType {
         case confirm
         case cancel
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.isHidden = true
@@ -55,7 +54,7 @@ class WithPopupView: UIView {
         memberCollectionView.register(NibConstants.MemberPopupNib, forCellWithReuseIdentifier: "MemberPopupCollectionViewCell")
         
     }
-        
+    
     func setProfileData(id: String)
     {
         GetMemberProfileDataService.shared.getPersonInfo(groupId: id) { (response) in
@@ -82,7 +81,7 @@ class WithPopupView: UIView {
         setProfileData(id: id)
         return self
     }
-
+    
     func present(_ eventHandler: @escaping ((_ type: EventType) -> Void)) {
         self.eventHandler = eventHandler
         DispatchQueue.main.async {
@@ -92,13 +91,13 @@ class WithPopupView: UIView {
             self.moveIn()
         }
     }
-
+    
     func setTitle(_ text: String) -> Self {
         titleLabel.isHidden = false
         titleLabel.text = text
         return self
     }
-
+    
     func setDescription(_ text: String) -> Self {
         descriptionLabel.isHidden = false
         let style = NSMutableParagraphStyle()
@@ -108,12 +107,12 @@ class WithPopupView: UIView {
         descriptionLabel.attributedText = content
         return self
     }
-
+    
     func setButtonsArrange(_ type: ButtonArrangeType) -> Self {
         buttonsStackView.axis = type == .horizontal ? .horizontal : .vertical
         return self
     }
-
+    
     func setConfirmButton(_ text: String = "확인") -> Self {
         confirmButton.setTitle(text, for: .normal)
         buttonsStackView.addArrangedSubview(confirmButton)
@@ -126,16 +125,16 @@ class WithPopupView: UIView {
     func changeLabel() {
         descriptionLabel.text = "총 \(profileList.count)명"
     }
-
+    
     @objc private func confirmAction(_ sender: UIButton) {
         closeView(.confirm)
     }
-
+    
     private func closeView(_ type: EventType) {
         eventHandler?(type)
         moveOut()
     }
-
+    
     private func moveOut() {
         UIView.animate(withDuration: 0.15) {
             self.alpha = 0
@@ -144,12 +143,12 @@ class WithPopupView: UIView {
             self.removeFromSuperview()
         }
     }
-
+    
     private func moveIn() {
         self.alpha = 0.0
         self.containerView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
         self.containerView.alpha = 0.0
-
+        
         UIView.animate(withDuration: 0.2) {
             self.alpha = 1.0
         } completion: { _ in
@@ -176,7 +175,7 @@ extension WithPopupView: UICollectionViewDataSource
         
         memberCell.setData(imageName: profileList[indexPath.row].profileImage,
                            memberName: profileList[indexPath.row].name)
-
+        
         return memberCell
     }
     
@@ -213,6 +212,5 @@ extension WithPopupView: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-
+    
 }
-

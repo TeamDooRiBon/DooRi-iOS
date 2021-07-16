@@ -4,7 +4,6 @@
 //
 //  Created by 민 on 2021/07/14.
 //
-
 import Foundation
 import Alamofire
 
@@ -14,7 +13,7 @@ struct GetMemberProfileDataService
     
     func getPersonInfo(groupId: String, completion : @escaping (NetworkResult<Any>) -> Void)
     {
-        let url = APIConstants.styleQuestionURL + "/\(groupId)"
+        let url = APIConstants.tripURL + "/\(groupId)"
         let header : HTTPHeaders = NetworkInfo.headerWithToken
         
         let dataRequest = AF.request(url,
@@ -27,6 +26,7 @@ struct GetMemberProfileDataService
             
             switch dataResponse.result {
             case .success:
+                                
                 guard let statusCode = dataResponse.response?.statusCode else {return}
                 guard let value = dataResponse.value else {return}
                 let networkResult = self.judgeStatus(by: statusCode, value)
@@ -43,12 +43,12 @@ struct GetMemberProfileDataService
     private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(TakeLookResponse.self, from: data)
+        guard let decodedData = try? decoder.decode(MemberProfileDataModel.self, from: data)
         else { return .pathErr }
         
         switch statusCode {
-
-        case 200: return .success(decodedData.data)
+        
+        case 200: return .success(decodedData.data.members)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
