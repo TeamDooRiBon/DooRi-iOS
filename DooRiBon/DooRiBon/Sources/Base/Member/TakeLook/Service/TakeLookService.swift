@@ -14,7 +14,7 @@ struct TakeLookService
     
     func getAnswerInfo(groupId: String, completion : @escaping (NetworkResult<Any>) -> Void)
     {
-        let url = APIConstants.tripURL + "/\(groupId)"
+        let url = APIConstants.styleQuestionURL + "/\(groupId)"
         let header : HTTPHeaders = NetworkInfo.headerWithToken
         
         let dataRequest = AF.request(url,

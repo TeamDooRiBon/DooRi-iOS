@@ -8,7 +8,7 @@
 import UIKit
 
 class TakeLookViewController: UIViewController, PageComponentProtocol, HeaderViewDelegate {
-    
+    var tripData: Group?
     var pageTitle: String = "살펴보기"
     var isOpen = [false, false, false, false, false, false, false, false, false, false]
     let numberList: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
@@ -23,10 +23,10 @@ class TakeLookViewController: UIViewController, PageComponentProtocol, HeaderVie
                                   "방문한 장소가 마음에 들 때 나는?",
                                   "방문할 장소를 선택할 때 나는?"]
     
-    private var countList: [TakeLookContent] = [] {
+    private var countList: [TakeLookData] = [] {
         didSet {
             styleQuestionTableView.reloadData()
-            
+
         }
     }
     
@@ -46,20 +46,22 @@ class TakeLookViewController: UIViewController, PageComponentProtocol, HeaderVie
         styleQuestionTableView.dataSource = self
         
         styleQuestionTableView.register(UINib(nibName: "QuestionCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "QuestionCell")
-        
-        print(self.countList)
-        
+        setupFirstData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setChoiceData()
     }
     
-    func setChoiceData(id: String)
+    func setChoiceData()
     {
-        TakeLookService.shared.getAnswerInfo(groupId: id) { (response) in
+        guard let groupId = tripData?._id else { return }
+        TakeLookService.shared.getAnswerInfo(groupId: groupId) { (response) in
             switch(response)
             {
             case .success(let countData):
-                if let data = countData as? [] {
+                if let data = countData as? [TakeLookData] {
                     self.countList = data
-                    
+                    print(self.countList, 213313)
                 }
             case .requestErr(let message):
                 print("requestERR", message)
@@ -162,6 +164,7 @@ extension TakeLookViewController: UITableViewDelegate
 }
 
 extension TakeLookViewController: UITableViewDataSource
+    
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         optionList[section].count
@@ -174,6 +177,10 @@ extension TakeLookViewController: UITableViewDataSource
         let datas = optionList[indexPath.section]
         let data = datas[indexPath.row]
         optionCell.setdata(number: data.number, question: data.question)
+        
+
+        let number = countList[indexPath.section].content[indexPath.row].count
+        optionCell.peopleCountLabel.text = "\(number)명"
         
         return optionCell
     }
@@ -202,4 +209,10 @@ extension TakeLookViewController: UITableViewDataSource
     }
     
     
+}
+extension TakeLookViewController {
+    private func setupFirstData() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        tripData = model
+    }
 }
