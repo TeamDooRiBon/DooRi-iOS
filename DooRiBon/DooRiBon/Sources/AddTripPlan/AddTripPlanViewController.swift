@@ -45,7 +45,6 @@ class AddTripPlanViewController: UIViewController {
     var notAddCheck = false
     var startEndCheck = 1
     var timeSelectCheck = false
-    let dateViewDateformmatter = DateFormatter()
     let pickerLabelDateformatter = DateFormatter()
     let postDataDateformatter = DateFormatter()
     var topLabelData: String = ""
@@ -122,8 +121,6 @@ class AddTripPlanViewController: UIViewController {
         pickerLabelDateformatter.timeStyle = .short
         pickerLabelDateformatter.locale = Locale(identifier: "ko")
         postDataDateformatter.dateFormat = "HH:mm"
-        dateViewDateformmatter.locale = Locale(identifier: "ko")
-        dateViewDateformmatter.dateFormat = "yyyy.MM.dd(E)"
     }
     
     func setAlphaView() {
