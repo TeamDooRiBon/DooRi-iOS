@@ -20,6 +20,7 @@ class StyleTestResultViewController: UIViewController {
     var style: String = ""
     var buttonText: String = "여행 그룹으로 이동"
     var mainOrMember = false
+    var fromOurView = false
     
     //MARK:- Life Cycle
     
@@ -62,17 +63,21 @@ class StyleTestResultViewController: UIViewController {
     func backTwoWhenNavigationControllerUsed(){
         let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
         self.navigationController?.popToViewController(viewControllers[viewControllers.count - 3 ], animated: true)
-        
-        
     }
     
     //MARK:- IBAction
     
     @IBAction func backButtonClicked(_ sender: Any) {
-        if mainOrMember {
-            performSegue(withIdentifier: "unwindVC1", sender: self)
+        if fromOurView {
+            let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 2], animated: true)
         } else {
-            backTwoWhenNavigationControllerUsed()
+            if mainOrMember {
+                performSegue(withIdentifier: "unwindVC1", sender: self)
+            }
+            else {
+                backTwoWhenNavigationControllerUsed()
+            }
         }
     }
 }

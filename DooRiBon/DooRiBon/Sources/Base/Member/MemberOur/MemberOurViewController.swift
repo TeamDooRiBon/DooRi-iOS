@@ -41,7 +41,6 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
         memberOurTableView.register(NibConstants.MemberStartViewNib, forCellReuseIdentifier: "MemberStartView")
         memberOurTableView.register(NibConstants.MemberStartNib, forCellReuseIdentifier: "MemberStartTableViewCell")
         memberOurTableView.register(NibConstants.MemberCodeCopyNib, forCellReuseIdentifier: "MemberCodeCopyTableViewCell")
-//        memberOurTableView.backgroundColor = .clear
     }
     
     private func getStyleData() {
@@ -180,6 +179,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 nextVC.name = myStyleData?.member.name ?? ""
                 nextVC.imgURL = myStyleData?.iOSResultImage ?? ""
                 nextVC.style = myStyleData?.title ?? ""
+                nextVC.fromOurView = true
                 nextVC.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
@@ -190,6 +190,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 nextVC.name = memberStyleData[indexPath.row].member.name
                 nextVC.imgURL = memberStyleData[indexPath.row].iOSResultImage
                 nextVC.style = memberStyleData[indexPath.row].title
+                nextVC.fromOurView = true
                 nextVC.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
