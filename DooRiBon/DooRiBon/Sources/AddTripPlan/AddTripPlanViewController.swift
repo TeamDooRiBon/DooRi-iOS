@@ -56,6 +56,8 @@ class AddTripPlanViewController: UIViewController {
     var startTime = "23:00"
     var endTime = "23:30"
     var currentDate: String = ""
+    var day: String = ""
+    var dateComponent = DateComponents()
     
     //MARK:- Life Cycle
     
@@ -66,23 +68,43 @@ class AddTripPlanViewController: UIViewController {
         notificationSet()
         datePickerBackgroundViewSet()
         dateformatSet()
+        dateSet()
         setAlphaView()
+        keyboardNoti()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         configureUI()
-        print(startDate)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     //MARK:- Function
+    func dateSet() {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "ko_KR")
+        f.dateFormat = "yyyy.MM.dd"
+        let today = f.date(from: self.startDate)
+        var cal = Calendar(identifier: .gregorian)         // 그레고리 캘린더 선언
+        cal.locale = Locale(identifier: "ko_KR")
+        let dateComponents = cal.dateComponents([.weekday], from: today!)
+        guard let weekIndex = dateComponents.weekday else { return }
+        let dayOfWeek = cal.weekdaySymbols[weekIndex-1]
+        let strList = startDate.components(separatedBy: "-")
+        day = "\(strList[0]).\(strList[1]).\(strList[2])(\(dayOfWeek.first!))"
+        print(day)
+        startDateLabel.text = day
+        endDateLabel.text = day
+    }
+    
     func configureUI() {
         if topLabelData != "" {
             topLabel.text = topLabelData
             addNewPlanButton.setTitle(buttonData, for: .normal)
-            startDateLabel.text = startDate
-            endDateLabel.text = startDate
         }
     }
     
@@ -307,7 +329,6 @@ class AddTripPlanViewController: UIViewController {
                     switch result {
                     case .success(_):
                         print("success")
-                        print("일정 편집 성공")
                         self.navigationController?.popViewController(animated: true)
                     case .requestErr(_):
                         print("requestErr")
