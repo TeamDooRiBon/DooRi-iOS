@@ -172,6 +172,12 @@ class MainViewController: UIViewController {
         }
         if (allTripData?.data![2].when == "endTravels") {
             lastTripList = (allTripData?.data![2].group)!
+            let range = lastTripList.count - 3
+            if lastTripList.count > 3 {
+                for _ in 0...range-1 {
+                    lastTripList.popLast()
+                }
+            }
             if lastTripList.count == 1 {
                 lastTripViewHeightConstraint.constant = 200
             } else {
