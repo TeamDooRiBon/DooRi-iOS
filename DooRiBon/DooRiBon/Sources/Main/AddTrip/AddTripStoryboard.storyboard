@@ -423,6 +423,7 @@
                     <size key="freeformSize" width="375" height="1031"/>
                     <connections>
                         <outlet property="bottomView" destination="ek5-dk-28i" id="G3w-8D-dFW"/>
+                        <outlet property="collectionViewHeightConstraint" destination="7iG-tC-LGs" id="hMR-gU-m8Y"/>
                         <outlet property="endDateLabel" destination="X72-D0-O1m" id="I60-f5-lDM"/>
                         <outlet property="endDateView" destination="7zo-4U-PtA" id="AJS-dV-zN5"/>
                         <outlet property="mainView" destination="gBc-aY-KFV" id="3Oo-qd-QGc"/>

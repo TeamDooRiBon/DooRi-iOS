@@ -32,7 +32,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         didSet {
             if isSelected && !selectCheck {
                 checkImage.isHidden = false
-                shadeView.alpha = 0.7
+                shadeView.alpha = 1
                 selectCheck = true
             } else if isSelected && selectCheck {
                 checkImage.isHidden = true
@@ -44,10 +44,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
                 selectCheck = false
             }
         }
-    }
-    
-    override func prepareForReuse() {
-        
     }
     
     //MARK:- Function

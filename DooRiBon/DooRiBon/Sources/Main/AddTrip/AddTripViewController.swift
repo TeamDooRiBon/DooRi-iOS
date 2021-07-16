@@ -31,6 +31,8 @@ class AddTripViewController: UIViewController {
     @IBOutlet weak var endDateView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var mainView: UIView!
+
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
     //MARK:- Variable
     
@@ -54,11 +56,18 @@ class AddTripViewController: UIViewController {
         bottomShadowSet()
         notificationSet()
         keyboardSet()
+        photoCollectionView.isScrollEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionViewHeightConstraint.constant = photoCollectionView.collectionViewLayout.collectionViewContentSize.height
+        view.layoutIfNeeded()
     }
     
     //MARK:- IBAction
