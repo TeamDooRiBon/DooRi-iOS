@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MemberTableCellDelegate: AnyObject {
+    func didDetailLookButtonTapppd(for cell: MemberOurTableViewCell)
+}
+
 class MemberOurTableViewCell: UITableViewCell {
 
     @IBOutlet weak var memberOurBackgroundView: UIView!
@@ -17,11 +21,12 @@ class MemberOurTableViewCell: UITableViewCell {
     @IBOutlet weak var memberName: UILabel!
     @IBOutlet weak var memberThumbNailImage: UIImageView!
     
+    var delegate: MemberTableCellDelegate?
+    var indexPath: IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         cellShadowSet()
-        // Initialization code
     }
     
     private func cellShadowSet() {
@@ -29,4 +34,7 @@ class MemberOurTableViewCell: UITableViewCell {
         memberOurBackgroundView.layer.applyShadow(color: .black, alpha: 0.07, x: 0, y: 3, blur: 10, spread: 0)
     }
 
+    @IBAction func detailLookButtonTapped(_ sender: Any) {
+        delegate?.didDetailLookButtonTapppd(for: self)
+    }
 }
