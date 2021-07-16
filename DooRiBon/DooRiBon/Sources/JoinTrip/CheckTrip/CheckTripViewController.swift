@@ -53,6 +53,9 @@ class CheckTripViewController: UIViewController {
         shadowView.layer.applyShadow(color: .black, alpha: 0.07,
                                      x: 0, y: 3, blur: 10)
     }
+    func goToMain() {
+        self.performSegue(withIdentifier: "unwindVC1", sender: self)
+    }
     
     @IBAction func reInputCodeButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -65,9 +68,6 @@ class CheckTripViewController: UIViewController {
         naviVC.modalTransitionStyle = .crossDissolve
         naviVC.navigationBar.isHidden = true
         self.present(naviVC, animated: true)
-        
+        self.dismiss(animated: true, completion: goToMain)
     }
-    
-    
-   
 }

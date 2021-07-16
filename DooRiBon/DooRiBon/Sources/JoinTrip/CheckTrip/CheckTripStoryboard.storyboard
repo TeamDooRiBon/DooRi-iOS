@@ -271,9 +271,11 @@
                         <outlet property="checkTripTitleLabel" destination="O0q-EQ-54I" id="ude-sv-lI0"/>
                         <outlet property="makeTripPersonLabel" destination="U4U-6R-mEf" id="Elq-YJ-17a"/>
                         <outlet property="shadowView" destination="bRm-TL-nsg" id="jCp-mx-bFD"/>
+                        <segue destination="1bt-MX-GaD" kind="unwind" identifier="unwindVC1" unwindAction="unwindVC1WithSegue:" id="ssr-jd-clu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1bt-MX-GaD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1016.8" y="31.773399014778327"/>
         </scene>

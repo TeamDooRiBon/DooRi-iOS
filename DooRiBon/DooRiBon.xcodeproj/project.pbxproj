@@ -41,6 +41,10 @@
 		399C7012269B27E60017069C /* StyleQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7011269B27E60017069C /* StyleQuestionTableViewCell.swift */; };
 		399C7014269B284C0017069C /* TakeLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399C7013269B284C0017069C /* TakeLookStoryboard.storyboard */; };
 		399C7016269B28A40017069C /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C7015269B28A40017069C /* MemberViewController.swift */; };
+		39DCCB5326A15CA900E8D489 /* MakeCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DCCB5226A15CA900E8D489 /* MakeCodeViewController.swift */; };
+		39DCCB5526A15CB400E8D489 /* MakeCodeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39DCCB5426A15CB400E8D489 /* MakeCodeStoryboard.storyboard */; };
+		39DCCB5C26A15E7100E8D489 /* CopyCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DCCB5A26A15E7100E8D489 /* CopyCompleteViewController.swift */; };
+		39DCCB5D26A15E7100E8D489 /* CopyCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39DCCB5B26A15E7100E8D489 /* CopyCompleteViewController.xib */; };
 		39E35957269EFF290077B946 /* MemberProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E35956269EFF290077B946 /* MemberProfileDataModel.swift */; };
 		39E3595A269F00730077B946 /* GetMemberProfileDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E35959269F00730077B946 /* GetMemberProfileDataService.swift */; };
 		39EAC4B22692E0FA00114734 /* StartTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EAC4B02692E0FA00114734 /* StartTripViewController.swift */; };
@@ -204,6 +208,10 @@
 		399C7013269B284C0017069C /* TakeLookStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TakeLookStoryboard.storyboard; sourceTree = "<group>"; };
 		399C7015269B28A40017069C /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		39D4B5722695FB1100AAA5DB /* TakeLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeLookViewController.swift; path = /PagerTab/PagerTab/TakeLookViewController.swift; sourceTree = "<absolute>"; };
+		39DCCB5226A15CA900E8D489 /* MakeCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCodeViewController.swift; sourceTree = "<group>"; };
+		39DCCB5426A15CB400E8D489 /* MakeCodeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MakeCodeStoryboard.storyboard; sourceTree = "<group>"; };
+		39DCCB5A26A15E7100E8D489 /* CopyCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCompleteViewController.swift; sourceTree = "<group>"; };
+		39DCCB5B26A15E7100E8D489 /* CopyCompleteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyCompleteViewController.xib; sourceTree = "<group>"; };
 		39E35956269EFF290077B946 /* MemberProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileDataModel.swift; sourceTree = "<group>"; };
 		39E35959269F00730077B946 /* GetMemberProfileDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMemberProfileDataService.swift; sourceTree = "<group>"; };
 		39EAC4B02692E0FA00114734 /* StartTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripViewController.swift; sourceTree = "<group>"; };
@@ -492,6 +500,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		39DCCB5126A15C7400E8D489 /* MakeCode */ = {
+			isa = PBXGroup;
+			children = (
+				39DCCB5226A15CA900E8D489 /* MakeCodeViewController.swift */,
+				39DCCB5426A15CB400E8D489 /* MakeCodeStoryboard.storyboard */,
+				39DCCB5A26A15E7100E8D489 /* CopyCompleteViewController.swift */,
+				39DCCB5B26A15E7100E8D489 /* CopyCompleteViewController.xib */,
+			);
+			path = MakeCode;
+			sourceTree = "<group>";
+		};
 		39E35958269EFFD90077B946 /* WithMemberPopup */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +723,7 @@
 		40B5A08C268EE1ED00A89875 /* AddTrip */ = {
 			isa = PBXGroup;
 			children = (
+				39DCCB5126A15C7400E8D489 /* MakeCode */,
 				4096A975269D699400EBDE56 /* Service */,
 				4095558A2695715200130ACB /* AddDate */,
 				40AE782C268F81B90058806B /* Models */,
@@ -1196,6 +1216,7 @@
 				BDF1C11A268E287900C82CF6 /* Colors.xcassets in Resources */,
 				409E26D22699D90E001C5CED /* MemberHeaderView.xib in Resources */,
 				393691FA269EB838003348A7 /* WithPopupView.xib in Resources */,
+				39DCCB5D26A15E7100E8D489 /* CopyCompleteViewController.xib in Resources */,
 				BD0AD616269363D10033DAD8 /* MemberStoryboard.storyboard in Resources */,
 				BD7B4C802697254300DCCA03 /* ToastView.xib in Resources */,
 				394E7F9626A0410300E25057 /* MyPageStoryboard.storyboard in Resources */,
@@ -1226,6 +1247,7 @@
 				407E640E269A1769007C8081 /* MemberCodeCopy.xib in Resources */,
 				BD39D500268DE80D004714B6 /* SpoqaHanSansNeo-Light.ttf in Resources */,
 				39369200269EBFF6003348A7 /* MemberPopupCollectionViewCell.xib in Resources */,
+				39DCCB5526A15CB400E8D489 /* MakeCodeStoryboard.storyboard in Resources */,
 				0A1BD3C0268E1E3D00702EC5 /* PagerTabSampleViewControllerStoryboard.storyboard in Resources */,
 				BD172597269C14BE000FB89B /* BoardPopupView.xib in Resources */,
 				BD6074D9269F2C3900CA62F3 /* BottomSheetView.xib in Resources */,
@@ -1316,6 +1338,7 @@
 				40299CBD269B66E400A4C9B6 /* StyleTestResultViewController.swift in Sources */,
 				4095558E2695719A00130ACB /* AddDateViewController.swift in Sources */,
 				BD6074ED26A0517700CA62F3 /* SplashViewController.swift in Sources */,
+				39DCCB5C26A15E7100E8D489 /* CopyCompleteViewController.swift in Sources */,
 				BD0AD620269365050033DAD8 /* PlanViewController.swift in Sources */,
 				BD6074D1269ED71600CA62F3 /* TripPlanDataModel.swift in Sources */,
 				BD75C304268B5C7300C4F233 /* UIView+Extension.swift in Sources */,
@@ -1349,6 +1372,7 @@
 				40EBD321269F455400DFC057 /* EditTripService.swift in Sources */,
 				3956196B26A04E75007C48EB /* MyPageCategoryTableViewCell.swift in Sources */,
 				BD5EF04B26A072A600F9EB47 /* DateHelper.swift in Sources */,
+				39DCCB5326A15CA900E8D489 /* MakeCodeViewController.swift in Sources */,
 				BDF1C11F268E318C00C82CF6 /* ColorConstants.swift in Sources */,
 				4073BC6E26986FEC00C5C7B0 /* MemberOurTableViewCell.swift in Sources */,
 				40EBD31F269F44FF00DFC057 /* EditTripDataModel.swift in Sources */,

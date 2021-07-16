@@ -42,6 +42,7 @@ class AddTripViewController: UIViewController {
     var topLabelData: String = ""
     var buttonData: String = ""
     var groupId: String = ""
+    static var code: String = ""
     
     //MARK:- Life Cycle
     
@@ -117,13 +118,22 @@ class AddTripViewController: UIViewController {
     }
     
     @IBAction func startNewTripButtonClicked(_ sender: Any) {
+        // 새로운 여행 시작하기
         if topLabelData == "" {
             if let travelName = tripNameTextField.text, let destination = tripLocationTextField.text, let startDate = startDateParsing, let endDate = endDateParsing, let selectedIndex = selectedIndex {
                 AddTripService.shared.postData(travelName: travelName, destination: destination, startDate: startDate, endDate: endDate, imageIndex: selectedIndex) {result in
                     switch result {
-                    case .success(_):
+                    case .success(let data):
+                        if let test = data as? AddTripResponse {
+                            AddTripViewController.code = test.data?.inviteCode ?? ""
+                        }
                         print("success")
-                        self.navigationController?.popViewController(animated: true)
+                        let codeStoryboard = UIStoryboard(name: "MakeCodeStoryboard", bundle: nil)
+                        if let nextVC = codeStoryboard.instantiateViewController(identifier: "MakeCodeViewController") as? MakeCodeViewController {
+                            nextVC.modalPresentationStyle = .overCurrentContext
+                            nextVC.modalTransitionStyle = .crossDissolve
+                            self.present(nextVC, animated: true)
+                        }
                     case .requestErr(_):
                         print("requestErr")
                         return
@@ -139,7 +149,9 @@ class AddTripViewController: UIViewController {
                     }
                 }
             }
-        } else {
+        }
+        // 여행 편집하기
+        else {
             if let travelName = tripNameTextField.text, let destination = tripLocationTextField.text, let startDate = startDateParsing, let endDate = endDateParsing, let selectedIndex = selectedIndex {
                 EditTripService.shared.patchData(groupID: groupId, travelName: travelName, destination: destination, startDate: startDate, endDate: endDate, imageIndex: selectedIndex) {result in
                     switch result {
