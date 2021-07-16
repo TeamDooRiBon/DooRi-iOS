@@ -40,8 +40,7 @@ struct TripPlanDataService {
                 guard let data = response.value else { return }
                 completion(judgeStatus(status: statusCode, data: data))
                 
-            case .failure(let err):
-                print(err)
+            case .failure(_):
                 completion(.networkFail)
             }
         }

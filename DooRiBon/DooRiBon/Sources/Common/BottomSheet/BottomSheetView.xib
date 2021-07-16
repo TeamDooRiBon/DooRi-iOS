@@ -198,12 +198,10 @@
             <constraints>
                 <constraint firstItem="3Uc-5t-aQo" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="VLI-MJ-nVh"/>
                 <constraint firstItem="3Uc-5t-aQo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XLA-CK-oiu"/>
-                <constraint firstAttribute="bottom" secondItem="3Uc-5t-aQo" secondAttribute="bottom" id="cNx-i8-rGx"/>
-                <constraint firstItem="3Uc-5t-aQo" firstAttribute="top" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="629" id="vDV-Eu-l9c"/>
+                <constraint firstAttribute="bottom" secondItem="3Uc-5t-aQo" secondAttribute="bottom" priority="1" id="cNx-i8-rGx"/>
             </constraints>
             <connections>
                 <outlet property="boardDescriptionLabel" destination="kcz-R5-iVZ" id="kah-lL-PV0"/>
-                <outlet property="bottomSheetViewTopConstraint" destination="vDV-Eu-l9c" id="fRd-hZ-4kT"/>
                 <outlet property="containerView" destination="3Uc-5t-aQo" id="VeA-4e-Mcd"/>
                 <outlet property="destinationLabel" destination="FDf-nF-FsO" id="zSk-1F-Ike"/>
                 <outlet property="destinationStackView" destination="7vY-k9-CNo" id="ISI-ui-FSe"/>
