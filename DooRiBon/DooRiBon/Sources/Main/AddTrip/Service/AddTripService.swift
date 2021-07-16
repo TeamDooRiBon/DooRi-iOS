@@ -44,7 +44,6 @@ struct AddTripService{
                 guard let statusCode = dataResponse.response?.statusCode else {return}
                 guard let value = dataResponse.value else {return}
                 let networkResult = self.judgeStatus(by: statusCode, value)
-                print(statusCode)
                 print(networkResult)
                 completion(networkResult)
                 
