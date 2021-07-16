@@ -78,6 +78,8 @@ class MainViewController: UIViewController {
     
     // MARK: - 액션
     
+    @IBAction func unwindVC1 (segue : UIStoryboardSegue) {}
+    
     @IBAction func nowTripClicked(_ sender: Any) {
         let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
         if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
@@ -104,6 +106,7 @@ class MainViewController: UIViewController {
         let testStortboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
         if let testVC = testStortboard.instantiateViewController(identifier: "StyleQuestionViewController") as? StyleQuestionViewController {
             testVC.modalPresentationStyle = .overFullScreen
+            testVC.disMissCheck = true
             self.present(testVC, animated: true, completion: nil)
         }
     }

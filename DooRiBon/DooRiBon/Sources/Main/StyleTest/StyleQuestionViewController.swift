@@ -22,9 +22,10 @@ class StyleQuestionViewController: UIViewController {
     
     var questionDataList: [StyleQuestionData] = []
     var testResult: StyleResultData?
+    var mainTestResult: MainStyleTestResponse?
     private lazy var answers: [Int] = Array(repeating: -1, count: questionDataList.count)
     var thisID: String = ""
-    
+    var disMissCheck = false
     
 // MARK: - Life Cycle
     
@@ -33,7 +34,6 @@ class StyleQuestionViewController: UIViewController {
         answerCollectionView.delegate = self
         answerCollectionView.dataSource = self
         answerCollectionView.isScrollEnabled = false
-
         buttonChangeColor(isEnabled: false, isLast: false)
     }
     
@@ -85,15 +85,19 @@ class StyleQuestionViewController: UIViewController {
         PopupView.loadFromXib()
             .setTitle("정말 나가시겠습니까?")
             .setDescription("""
-                            지금까지의 응답 정보는 저장되지 않습니다.
-                            테스트 중단을 원하신다면 오른쪽 버튼을 눌러주세요
-                            """)
+                                    지금까지의 응답 정보는 저장되지 않습니다.
+                                    테스트 중단을 원하신다면 오른쪽 버튼을 눌러주세요
+                                    """)
             .setCancelButton("계속할게요")
             .setConfirmButton("나갈게요")
             .present { event in
                 if event == .confirm {
                     // confirm action
-                    self.navigationController?.popViewController(animated: true)
+                    if self.disMissCheck {
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }
     }
@@ -106,7 +110,7 @@ class StyleQuestionViewController: UIViewController {
             {
             case .success(let data):
                 if let titleContent = data as? StyleQuestionResponse {
-                    questionDataList = titleContent.data
+                    questionDataList = titleContent.data!
                     answerCollectionView.reloadData()
                     updateQuestion(0)
                     indicatorBarWidth.constant = backgroundView.frame.width / CGFloat(questionDataList.count)
@@ -132,25 +136,51 @@ class StyleQuestionViewController: UIViewController {
         let viewController = styleQuestionStoryboard.instantiateViewController(identifier: "StyleQuestionLoadingViewController")
         present(viewController, animated: true, completion: nil)
         
-        StyleResultService.shared.resultSave(groupID: thisID, score: weightResult, choice: answers) { [weak self] (response) in
-            switch (response) {
-            case .success(let data):
-                if let result = data as? StyleResultResponse {
-                    self?.testResult = result.data
-                    
-                    // FIXME: 사실은 present가 완료되는 것보다 dismiss가 먼저 불릴 수도 있기 때문에 굉장히 위험한 방식. 앱잼시에만 사용합니다.
-                    self?.dismiss(animated: true) {
-                        self?.goToResultView()
+        if disMissCheck {
+            print("함수 진입")
+            MainStyleTestService.shared.getData(score: [10, 20, 30, 40, 50, 60, 70, 80]) { (response) in
+                switch (response) {
+                case .success(let data):
+                    print("들어옴")
+                    if let result = data as? MainStyleTestResponse {
+                        self.mainTestResult = result
+                        
+                        // FIXME: 사실은 present가 완료되는 것보다 dismiss가 먼저 불릴 수도 있기 때문에 굉장히 위험한 방식. 앱잼시에만 사용합니다.
+                        self.dismiss(animated: true) {
+                            self.goToResultView(mainOrMember: true)
+                        }
                     }
+                case .requestErr(_):
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
                 }
-            case .requestErr(_):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkFail")
+            }
+        } else {
+            StyleResultService.shared.resultSave(groupID: thisID, score: weightResult, choice: answers) { [weak self] (response) in
+                switch (response) {
+                case .success(let data):
+                    if let result = data as? StyleResultResponse {
+                        self?.testResult = result.data
+                        
+                        // FIXME: 사실은 present가 완료되는 것보다 dismiss가 먼저 불릴 수도 있기 때문에 굉장히 위험한 방식. 앱잼시에만 사용합니다.
+                        self?.dismiss(animated: true) {
+                            self?.goToResultView(mainOrMember: false)
+                        }
+                    }
+                case .requestErr(_):
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
             }
         }
     }
@@ -168,13 +198,25 @@ class StyleQuestionViewController: UIViewController {
         return weightData
     }
     
-    func goToResultView() {
-        let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
-        guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
-        nextVC.name = testResult?.member ?? ""
-        nextVC.imgURL = testResult?.iOSResultImage ?? ""
-        nextVC.style = testResult?.title ?? ""
-        self.navigationController?.pushViewController(nextVC, animated: true)
+    func goToResultView(mainOrMember : Bool) {
+        if mainOrMember {
+            let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+            guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+            nextVC.name = mainTestResult?.data?.member ?? ""
+            nextVC.imgURL = mainTestResult?.data?.iOSResultImage ?? ""
+            nextVC.style = mainTestResult?.data?.title ?? ""
+            nextVC.buttonText = "메인으로 이동"
+            nextVC.mainOrMember = true
+            nextVC.modalPresentationStyle = .overFullScreen
+            self.present(nextVC, animated: true, completion: nil)
+        } else {
+            let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+            guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+            nextVC.name = testResult?.member ?? ""
+            nextVC.imgURL = testResult?.iOSResultImage ?? ""
+            nextVC.style = testResult?.title ?? ""
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
 
     // 질문 내용 변경
