@@ -22,30 +22,8 @@ class MemberCodeCopyTableViewCell: UITableViewCell {
     }
     
     @IBAction func codeCopyButtonClicked(_ sender: Any) {
-        getInviteCode()
+        GetInviteCode.getInviteCode(groupID: groupID)
         ToastView
             .show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
-    }
-    
-    func getInviteCode() {
-        TripInformService.shared.getTripInfo(groupID: groupID) { [self] (response) in
-            switch(response)
-            {
-            case .success(let data):
-                if let trip = data as? TripInfoResponse {
-                    inviteCode = trip.data.inviteCode
-                    UIPasteboard.general.string = inviteCode
-                }
-                print(inviteCode)
-            case .requestErr(let message):
-                print("requestERR", message)
-            case .pathErr:
-                print("pathERR")
-            case .serverErr:
-                print("serverERR")
-            case .networkFail:
-                print("networkERR")
-            }
-        }
     }
 }

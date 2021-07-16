@@ -71,10 +71,10 @@ class PlanViewController: UIViewController {
         getPlanData(date: currentDate!)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
     }
-    
+
     // MARK: - Function
     
     func refreshTopView() {
@@ -172,7 +172,6 @@ extension PlanViewController {
                     ToastView.show("참여코드 복사 완료! 원하는 곳에 붙여넣기 하세요.")
                  }
             }
-
     }
     
     @objc func codeButtonClicked(_ sender: UIButton) {
@@ -370,6 +369,7 @@ extension PlanViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedDate = dates[indexPath.row]
         setCalendar(date: dates[indexPath.row])
+
     }
 }
 

@@ -42,6 +42,10 @@ class MemberViewController: UIViewController {
         refreshTopView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     func refreshTopView() {
         TripInformService.shared.getTripInfo(groupID: tripData?._id ?? "") { [self] (response) in
             switch(response)

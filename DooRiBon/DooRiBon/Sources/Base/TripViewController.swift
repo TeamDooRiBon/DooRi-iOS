@@ -41,6 +41,14 @@ class TripViewController: UITabBarController {
         super.viewWillAppear(animated)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        setNoti()
+    }
+    
+    private func setNoti() {
+        NotificationCenter.default.post(name: NSNotification.Name("dismissTabBar"), object: nil, userInfo: nil)
+    }
 
     // MARK: - Configure
 
@@ -80,12 +88,3 @@ extension UITabBar {
         UITabBar.appearance().backgroundColor = UIColor.white
     }
 }
-
-//// MARK: - TabBar 높이 세팅 위한 클래스
-//class CustomTabBar : UITabBar {
-//    override open func sizeThatFits(_ size: CGSize) -> CGSize {
-//        var sizeThatFits = super.sizeThatFits(size)
-//        sizeThatFits.height = 82
-//        return sizeThatFits
-//    }
-//}
