@@ -799,7 +799,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFn-w8-t83">
-                                                <rect key="frame" x="0.0" y="1730" width="375" height="209"/>
+                                                <rect key="frame" x="0.0" y="1730" width="375" height="80"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dooribonLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-gn-38h">
                                                         <rect key="frame" x="142.66666666666666" y="25" width="90" height="42"/>
@@ -828,7 +828,7 @@
                                                 <rect key="frame" x="0.0" y="1167" width="375" height="523"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번들님은 어떤 여행을 좋아하세요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnP-lS-p1V">
-                                                        <rect key="frame" x="18" y="40" width="274" height="45.333333333333343"/>
+                                                        <rect key="frame" x="18" y="0.0" width="274" height="45.333333333333336"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -837,7 +837,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C35-t1-y67">
-                                                        <rect key="frame" x="20" y="115.33333333333326" width="338" height="408"/>
+                                                        <rect key="frame" x="20" y="75.333333333333258" width="338" height="408"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainhomeIllust031" translatesAutoresizingMaskIntoConstraints="NO" id="kqc-Lw-BtJ">
                                                                 <rect key="frame" x="13" y="16" width="312" height="237"/>
@@ -900,7 +900,7 @@
                                                 <constraints>
                                                     <constraint firstItem="DnP-lS-p1V" firstAttribute="leading" secondItem="noh-QX-vRN" secondAttribute="leading" constant="18" id="3k4-aF-tmA"/>
                                                     <constraint firstAttribute="height" constant="523" id="Amc-Fu-yUT"/>
-                                                    <constraint firstItem="DnP-lS-p1V" firstAttribute="top" secondItem="noh-QX-vRN" secondAttribute="top" constant="40" id="Chp-P7-jpp"/>
+                                                    <constraint firstItem="DnP-lS-p1V" firstAttribute="top" secondItem="noh-QX-vRN" secondAttribute="top" id="Chp-P7-jpp"/>
                                                     <constraint firstItem="C35-t1-y67" firstAttribute="top" secondItem="DnP-lS-p1V" secondAttribute="bottom" constant="30" id="VHV-GI-gwW"/>
                                                     <constraint firstAttribute="trailing" secondItem="C35-t1-y67" secondAttribute="trailing" constant="17" id="fjX-7f-Mbe"/>
                                                     <constraint firstItem="C35-t1-y67" firstAttribute="leading" secondItem="noh-QX-vRN" secondAttribute="leading" constant="20" id="npi-8n-xEh"/>
@@ -917,8 +917,10 @@
                                             <constraint firstAttribute="trailing" secondItem="WPo-bQ-5xx" secondAttribute="trailing" id="OOV-ky-Fhr"/>
                                             <constraint firstItem="noh-QX-vRN" firstAttribute="leading" secondItem="JYu-94-62j" secondAttribute="leading" id="QNc-eb-NIt"/>
                                             <constraint firstItem="WPo-bQ-5xx" firstAttribute="top" secondItem="Ru8-V5-fnM" secondAttribute="bottom" id="Xgk-fi-QZQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="jFn-w8-t83" secondAttribute="bottom" constant="129" id="cIy-9E-hhM"/>
                                             <constraint firstItem="Su3-7g-8tG" firstAttribute="leading" secondItem="JYu-94-62j" secondAttribute="leading" id="d6N-OG-yzx"/>
                                             <constraint firstItem="jFn-w8-t83" firstAttribute="leading" secondItem="JYu-94-62j" secondAttribute="leading" id="doK-dc-hUz"/>
+                                            <constraint firstItem="jFn-w8-t83" firstAttribute="top" secondItem="noh-QX-vRN" secondAttribute="bottom" constant="40" id="eL9-Od-Yw9"/>
                                             <constraint firstItem="Ru8-V5-fnM" firstAttribute="leading" secondItem="JYu-94-62j" secondAttribute="leading" id="gR5-fW-Mvv"/>
                                             <constraint firstAttribute="trailing" secondItem="jFn-w8-t83" secondAttribute="trailing" id="iGZ-FZ-DlP"/>
                                             <constraint firstAttribute="bottom" secondItem="jFn-w8-t83" secondAttribute="bottom" id="lC9-Wi-2z2"/>
@@ -931,6 +933,13 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="3sC-8p-RxF"/>
+                                                <exclude reference="lC9-Wi-2z2"/>
+                                                <exclude reference="lcT-in-8eg"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" name="white8"/>

@@ -181,7 +181,7 @@ class MainViewController: UIViewController {
             if lastTripList.count == 1 {
                 lastTripViewHeightConstraint.constant = 200
             } else {
-                lastTripViewHeightConstraint.constant = CGFloat(170 * lastTripList.count)
+                lastTripViewHeightConstraint.constant = CGFloat(160 * lastTripList.count)
             }
             lastTripTableView.reloadData()
         }
