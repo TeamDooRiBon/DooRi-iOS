@@ -10,6 +10,8 @@ import UIKit
 class AddTripViewController: UIViewController {
     
     //MARK:- IBOutlet
+    /// Scroll View
+    @IBOutlet weak var scrollView: UIScrollView!
     
     /// Label
     @IBOutlet weak var topLabel: UILabel!
@@ -51,6 +53,9 @@ class AddTripViewController: UIViewController {
         photoListSet()
         bottomShadowSet()
         notificationSet()
+        registerForKeyboardNotifications()
+        
+        scrollView.keyboardDismissMode = .onDrag
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,8 +76,6 @@ class AddTripViewController: UIViewController {
     @IBAction func backButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
     
     //MARK:- Function
     
@@ -126,7 +129,6 @@ class AddTripViewController: UIViewController {
                         if let test = data as? AddTripResponse {
                             AddTripViewController.code = test.data?.inviteCode ?? ""
                         }
-                        print("success")
                         let codeStoryboard = UIStoryboard(name: "MakeCodeStoryboard", bundle: nil)
                         if let nextVC = codeStoryboard.instantiateViewController(identifier: "MakeCodeViewController") as? MakeCodeViewController {
                             nextVC.modalPresentationStyle = .overCurrentContext
@@ -247,4 +249,31 @@ extension AddTripViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 7
     }
+}
+
+extension AddTripViewController {
+    func registerForKeyboardNotifications() {
+        // 옵저버 등록
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    func unregisterForKeyboardNotifications() {
+        // 옵저버 등록 해제
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIResponder.keyboardWillShowNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIResponder.keyboardWillHideNotification,
+                                                  object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ noti: NSNotification){}
+    @objc func keyboardWillHide(_ notification: Notification) {}
 }

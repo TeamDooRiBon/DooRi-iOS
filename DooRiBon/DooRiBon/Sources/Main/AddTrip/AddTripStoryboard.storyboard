@@ -425,8 +425,9 @@
                         <outlet property="bottomView" destination="ek5-dk-28i" id="G3w-8D-dFW"/>
                         <outlet property="endDateLabel" destination="X72-D0-O1m" id="I60-f5-lDM"/>
                         <outlet property="endDateView" destination="7zo-4U-PtA" id="AJS-dV-zN5"/>
-                        <outlet property="mainView" destination="gBc-aY-KFV" id="5n2-ko-jdW"/>
+                        <outlet property="mainView" destination="gBc-aY-KFV" id="3Oo-qd-QGc"/>
                         <outlet property="photoCollectionView" destination="Zdk-FE-Rfx" id="4aO-tw-lJa"/>
+                        <outlet property="scrollView" destination="hWc-ek-RPb" id="4eN-5B-RgL"/>
                         <outlet property="startDateLabel" destination="HWm-el-DvW" id="t6l-UI-H9r"/>
                         <outlet property="startDateView" destination="dXO-hi-ITK" id="rwH-dK-ZYv"/>
                         <outlet property="startNewTripButton" destination="bu3-50-laf" id="lDK-Sf-O65"/>
