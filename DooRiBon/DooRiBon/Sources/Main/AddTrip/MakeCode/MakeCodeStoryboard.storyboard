@@ -35,6 +35,9 @@
                                     <constraint firstAttribute="height" constant="24" id="y6R-M6-F2A"/>
                                 </constraints>
                                 <state key="normal" image="backIcon"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="8ci-Es-aLq" eventType="touchUpInside" id="YOr-QB-ruR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 여행 시작✈️" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4y-Va-rCq">
                                 <rect key="frame" x="18" y="89" width="317" height="30"/>

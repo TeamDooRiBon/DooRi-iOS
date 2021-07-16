@@ -24,6 +24,11 @@ class MakeCodeViewController: UIViewController {
         setChangeCodeLabel()
     }
     
+    @IBAction func backButtonClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func latterButtonClicked(_ sender: Any) {
     }
     
@@ -33,10 +38,14 @@ class MakeCodeViewController: UIViewController {
         naviVC.modalPresentationStyle = .overCurrentContext
         naviVC.modalTransitionStyle = .crossDissolve
         naviVC.navigationBar.isHidden = true
-        
+    
+        self.present(naviVC, animated: true)
         UIPasteboard.general.string = inviteCode
         
-        self.present(naviVC, animated: true)
+        UIView.animate(withDuration: 1.5, animations: { [self] in
+            naviVC.dismiss(animated: true, completion: nil)
+            view.layoutIfNeeded()
+        })
     }
     
     // code 담아주는 함수
@@ -56,6 +65,8 @@ class MakeCodeViewController: UIViewController {
         fifthCodeLabel.text = String(divCode[4])
         sixthCodeLabel.text = String(divCode[5])
     }
+    
+    
 }
 
 // 인덱스로 해당 위치의 문자를 구하는 익스텐션

@@ -66,6 +66,11 @@ class CheckTripViewController: UIViewController {
         naviVC.navigationBar.isHidden = true
         self.present(naviVC, animated: true)
         
+        UIView.animate(withDuration: 1.5, animations: { [self] in
+            naviVC.dismiss(animated: true, completion: nil)
+            view.layoutIfNeeded()
+        })
+        
     }
     
     
