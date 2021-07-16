@@ -64,9 +64,10 @@ class WithPopupView: UIView {
             case .success(let profileData):
                 if let data = profileData as? [Profile] {
                     self.profileList = data
+                    print(self.profileList)
                 }
-            case .requestErr(_):
-                print("requestERR")
+            case .requestErr(let message):
+                print("requestERR", message)
             case .pathErr:
                 print("pathERR")
             case .serverErr:

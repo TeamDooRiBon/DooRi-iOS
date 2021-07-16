@@ -116,7 +116,7 @@ extension MemberViewController {
         
         WithPopupView.loadFromXib()
             .setTitle("함께하는 사람")
-            .setDescription("총 5명")
+            .setDescription("총 0명")
             .setConfirmButton("참여코드 복사하기")
             .setGroupId(id: MemberViewController.thisID)
             .present { event in
