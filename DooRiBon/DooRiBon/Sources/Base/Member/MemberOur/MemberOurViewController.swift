@@ -180,7 +180,6 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 nextVC.imgURL = myStyleData?.iOSResultImage ?? ""
                 nextVC.style = myStyleData?.title ?? ""
                 nextVC.hidesBottomBarWhenPushed = true
-                nextVC.popCount = 2
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
         } else {
@@ -191,7 +190,6 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 nextVC.imgURL = memberStyleData[indexPath.row].iOSResultImage
                 nextVC.style = memberStyleData[indexPath.row].title
                 nextVC.hidesBottomBarWhenPushed = true
-                nextVC.popCount = 2
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
         }

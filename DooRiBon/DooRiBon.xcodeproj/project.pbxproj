@@ -71,6 +71,8 @@
 		402E5205269DD67500635B41 /* AddTripPlanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E5204269DD67500635B41 /* AddTripPlanService.swift */; };
 		40320989269F2F76003DCB8A /* StyleResultDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40320988269F2F76003DCB8A /* StyleResultDataModel.swift */; };
 		4032098B269F2FB1003DCB8A /* StyleResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032098A269F2FB1003DCB8A /* StyleResultService.swift */; };
+		4038127126A15E380013B266 /* MainStyleTestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4038127026A15E380013B266 /* MainStyleTestDataModel.swift */; };
+		4038127326A15E6E0013B266 /* MainStyleTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4038127226A15E6E0013B266 /* MainStyleTestService.swift */; };
 		4057E82E269F0DAA00DE024D /* StyleTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4057E82D269F0DAA00DE024D /* StyleTestService.swift */; };
 		4073BC6526986A9B00C5C7B0 /* MemberOurStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */; };
 		4073BC6726986B9600C5C7B0 /* MemberOurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */; };
@@ -236,6 +238,8 @@
 		402E5204269DD67500635B41 /* AddTripPlanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanService.swift; sourceTree = "<group>"; };
 		40320988269F2F76003DCB8A /* StyleResultDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleResultDataModel.swift; sourceTree = "<group>"; };
 		4032098A269F2FB1003DCB8A /* StyleResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleResultService.swift; sourceTree = "<group>"; };
+		4038127026A15E380013B266 /* MainStyleTestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStyleTestDataModel.swift; sourceTree = "<group>"; };
+		4038127226A15E6E0013B266 /* MainStyleTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStyleTestService.swift; sourceTree = "<group>"; };
 		4057E82D269F0DAA00DE024D /* StyleTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTestService.swift; sourceTree = "<group>"; };
 		4073BC6426986A9B00C5C7B0 /* MemberOurStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberOurStoryboard.storyboard; sourceTree = "<group>"; };
 		4073BC6626986B9600C5C7B0 /* MemberOurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurViewController.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 			children = (
 				39F21BA5269BDB4100673511 /* StyleQuestionDataModel.swift */,
 				40320988269F2F76003DCB8A /* StyleResultDataModel.swift */,
+				4038127026A15E380013B266 /* MainStyleTestDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 			children = (
 				4057E82D269F0DAA00DE024D /* StyleTestService.swift */,
 				4032098A269F2FB1003DCB8A /* StyleResultService.swift */,
+				4038127226A15E6E0013B266 /* MainStyleTestService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1312,6 +1318,7 @@
 				4097AC94269B0F9F00E34CCC /* MemberCodeCopyTableViewCell.swift in Sources */,
 				40B5A092268EE35100A89875 /* AddTripViewController.swift in Sources */,
 				BD6074DB269F2C4100CA62F3 /* BottomSheetView.swift in Sources */,
+				4038127126A15E380013B266 /* MainStyleTestDataModel.swift in Sources */,
 				BDCC367F2695DEAA009AE274 /* NoDataTableViewCell.swift in Sources */,
 				BD75C2C8268B4B3800C4F233 /* AppDelegate.swift in Sources */,
 				BD6074D4269ED7B900CA62F3 /* TripPlanDataService.swift in Sources */,
@@ -1352,6 +1359,7 @@
 				40253C90269DB7250045620F /* UIImage+Extension.swift in Sources */,
 				BD75C2F8268B58B500C4F233 /* ProtocolEmpty.swift in Sources */,
 				40320989269F2F76003DCB8A /* StyleResultDataModel.swift in Sources */,
+				4038127326A15E6E0013B266 /* MainStyleTestService.swift in Sources */,
 				40EBD324269F5D9600DFC057 /* TripInfoDataModel.swift in Sources */,
 				BDCC367C2695DA66009AE274 /* PlanDataModel.swift in Sources */,
 				39E35957269EFF290077B946 /* MemberProfileDataModel.swift in Sources */,
