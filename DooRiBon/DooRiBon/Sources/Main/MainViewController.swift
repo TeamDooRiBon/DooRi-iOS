@@ -232,12 +232,16 @@ class MainViewController: UIViewController {
     // 쉐도우
     func shadowSet()
     {
-        comeTripCollectionView.layer.applyShadow(color: .black, alpha: 0.06, x: 3, y: 3, blur: 10, spread: 0)
         styleTripView.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: 4, blur: 6, spread: 0)
     }
     
     func setUI() {
         self.navigationController?.navigationBar.isHidden = true
+
+        // for skeleton
+        self.nowTripStateView.isHidden = true
+        self.nowTripLocationLabel.isHidden = true
+        self.nowTripMembersLabel.isHidden = true
     }
     
     func dDayCalculate(from date: Date) -> Int {
@@ -275,7 +279,8 @@ extension MainViewController: UICollectionViewDataSource
                                  location: comeTripList[indexPath.row].destination,
                                  members: comeTripList[indexPath.row].members[0])
         }
-        
+
+        comeTripCell.layer.applyShadow(color: .black, alpha: 0.06, x: 3, y: 3, blur: 10, spread: 0)
         comeTripCell.hideAnimation()
         return comeTripCell
     }
@@ -298,17 +303,19 @@ extension MainViewController: UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize.init(width: comeTripCollectionView.bounds.width, height: comeTripCollectionView.bounds.height)   // 정해진 가로/세로를 CGSize형으로 return
+        return CGSize.init(
+            width: comeTripCollectionView.bounds.width - 18 * 2,
+            height: comeTripCollectionView.bounds.height - 10)   // 정해진 가로/세로를 CGSize형으로 return
     }
     
     // ContentInset 메서드: Cell에서 Content 외부에 존재하는 Inset의 크기를 결정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.zero
+        return UIEdgeInsets(top: 0, left: 18, bottom: 10, right: 18)
     }
     
     // minimumLineSpacing 메서드: Cell 들의 위, 아래 간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 18 * 2
     }
     
     // minimumInteritemSpacing 메서드: Cell 들의 좌,우 간격 지정
@@ -373,9 +380,6 @@ extension MainViewController {
             // MARK: - 다가오는 여행
             backgroundView.showAnimatedSkeleton()
             styleTripView.showAnimatedSkeleton()
-
-            nowTripLocationLabel.isHidden = true
-            nowTripMembersLabel.isHidden = true
         } else {
             comeTripCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
             lastTripTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
@@ -394,6 +398,12 @@ extension MainViewController {
             
             nowTripLocationLabel.isHidden = false
             nowTripMembersLabel.isHidden = false
+            nowTripStateView.isHidden = false
+
+            mainTitleLabel.text = "번들님은\n지금 여행 중이에요!✈️"
+            comeTripMenuLabel.text = "두근두근, 다가오는 여행"
+            lastTripMenuLabel.text = "추억 속 지난 여행"
+            styleTripMenuLabel.text = "번들님은\n어떤 여행을 좋아하세요?"
         }
     }
 }
