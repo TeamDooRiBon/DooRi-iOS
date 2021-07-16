@@ -70,12 +70,17 @@ class AddTripPlanViewController: UIViewController {
         dateformatSet()
         dateSet()
         setAlphaView()
+        keyboardNoti()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         configureUI()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     //MARK:- Function
