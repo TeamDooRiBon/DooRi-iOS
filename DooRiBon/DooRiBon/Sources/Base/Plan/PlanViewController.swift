@@ -68,6 +68,7 @@ class PlanViewController: UIViewController {
         super.viewWillAppear(animated)
 
         refreshTopView()
+        getPlanData(date: currentDate!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -109,6 +110,8 @@ class PlanViewController: UIViewController {
         nextVC.buttonData = "일정 편집하기"
         nextVC.groupID = groupID
         nextVC.scheduleID = scheduleID
+        guard let currentDate = self.currentDate else { return }
+        nextVC.startDate = currentDate
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
@@ -291,7 +294,7 @@ extension PlanViewController {
             
             case .success(let data):
                 if data is [Schedule] {
-                    self.getPlanData(date: "2021-07-15")
+                    self.getPlanData(date: self.currentDate!)
                     self.contentsTableView.reloadData()
                 }
             case .requestErr(_):
