@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var nowTripStateView: UIView!
     @IBOutlet weak var nowTripLocationView: UIView!
     @IBOutlet weak var nowTripMemberView: UIView!
+    @IBOutlet weak var gradientImageView: UIImageView!
     
     @IBOutlet weak var nowTripDateLabel: UILabel!
     @IBOutlet weak var nowTripTitleLabel: UILabel!
@@ -45,7 +46,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var nowTripStateLabel: UILabel!
 
     /// 제약
-    @IBOutlet weak var lastTripViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lastTripTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var indicatorBarWidthConstraint: NSLayoutConstraint!
     
     // MARK: - 배열
@@ -77,6 +78,17 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupSkeletionUI(.show)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.lastTripTableViewHeightConstraint.constant = self.lastTripTableView.contentSize.height
+        self.view.layoutIfNeeded()
+
+        self.indicatorBarWidthConstraint.constant = self.backgroundView.frame.width/CGFloat(max(1, self.comeTripList.count))
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - 액션
@@ -129,7 +141,8 @@ class MainViewController: UIViewController {
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/CGFloat(comeTripList.count)
+        guard scrollView === comeTripCollectionView, scrollView.contentOffset.x > 0 else { return }
+        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/scrollView.frame.width * self.indicatorBar.frame.width
     }
     
     
@@ -169,26 +182,17 @@ class MainViewController: UIViewController {
     
     func setDevideTripData()
     {
-        if (allTripData?.data![0].when == "nowTravels") {
-            nowTripList = (allTripData?.data![0].group)!
+        if allTripData?.data?[0].when == "nowTravels",
+            let list = allTripData?.data?[0].group {
+            nowTripList = list
         }
-        if (allTripData?.data![1].when == "comeTravels") {
-            comeTripList = (allTripData?.data![1].group)!
-            self.indicatorBarWidthConstraint.constant = self.backgroundView.frame.width/CGFloat(self.comeTripList.count)
+        if allTripData?.data?[1].when == "comeTravels",
+            let list = allTripData?.data?[1].group {
+            comeTripList = list
         }
-        if (allTripData?.data![2].when == "endTravels") {
-            lastTripList = (allTripData?.data![2].group)!
-            let range = lastTripList.count - 3
-            if lastTripList.count > 3 {
-                for _ in 0...range-1 {
-                    lastTripList.popLast()
-                }
-            }
-            if lastTripList.count == 1 {
-                lastTripViewHeightConstraint.constant = 230
-            } else {
-                lastTripViewHeightConstraint.constant = CGFloat(160 * lastTripList.count)
-            }
+        if allTripData?.data?[2].when == "endTravels",
+            let list = allTripData?.data?[2].group {
+            lastTripList = list
             lastTripTableView.reloadData()
         }
         setNowTripList()
@@ -203,17 +207,17 @@ class MainViewController: UIViewController {
         nowTripDateLabel.text = "\(start) - \(end)"
         self.nowTripTitleLabel.text = nowTripList[0].travelName
         self.nowTripLocationLabel.text = nowTripList[0].destination
-        if nowTripList[0].members.count == 1 {
-            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님과 함께"
-        } else {
-            nowTripMembersLabel.text = "\(nowTripList[0].members[0])님외 \(nowTripList[0].members.count - 1)명과 함께"
-        }
+        self.nowTripMembersLabel.text = nowTripList.first?.members.memberText
         let url = URL(string: nowTripList[0].image)
         nowTripImageView.layer.cornerRadius = 30
         nowTripImageView.layer.maskedCorners = [
             .layerMinXMinYCorner, .layerMaxXMinYCorner
         ]
-        nowTripImageView.kf.setImage(with: url)
+        nowTripImageView.kf.setImage(with: url) { [weak self] error in
+            UIView.animate(withDuration: 0.3) {
+                self?.gradientImageView.alpha = 1
+            }
+        }
     }
     
     // 컬렉션 뷰 부분
@@ -282,14 +286,14 @@ extension MainViewController: UICollectionViewDataSource
                                  title: comeTripList[indexPath.row].travelName,
                                  date: "\(start) - \(end)",
                                  location: comeTripList[indexPath.row].destination,
-                                 members: comeTripList[indexPath.row].members[0])
+                                 members: comeTripList[indexPath.row].members.memberText)
         } else {
             comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
                                  dday: "D\(dday)",
                                  title: comeTripList[indexPath.row].travelName,
                                  date: "\(start) - \(end)",
                                  location: comeTripList[indexPath.row].destination,
-                                 members: comeTripList[indexPath.row].members[0])
+                                 members: comeTripList[indexPath.row].members.memberText)
         }
 
         comeTripCell.layer.applyShadow(color: .black, alpha: 0.06, x: 3, y: 3, blur: 10, spread: 0)
@@ -350,7 +354,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lastTripList.count
+        return min(lastTripList.count, 3)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -360,7 +364,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
         tripCell.setdata(imageName: lastTripList[indexPath.row].image,
                          title: lastTripList[indexPath.row].travelName,
                          location: lastTripList[indexPath.row].destination,
-                         member: lastTripList[indexPath.row].members[0],
+                         member: lastTripList[indexPath.row].members.memberText,
                          tripMonth: date)
         tripCell.selectionStyle = .none
         return tripCell
@@ -398,6 +402,7 @@ extension MainViewController {
             self.nowTripStateView.isHidden = true
             self.nowTripLocationLabel.isHidden = true
             self.nowTripMembersLabel.isHidden = true
+            self.gradientImageView.alpha = 0
         } else {
             comeTripCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
             lastTripTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
@@ -426,3 +431,10 @@ extension MainViewController {
     }
 }
 
+fileprivate extension Array where Element == String {
+    var memberText: String {
+        var memberText = first ?? ""
+        memberText += count == 1 ? "님과 함께" : "님 외 \(count - 1)명과 함께"
+        return memberText
+    }
+}
