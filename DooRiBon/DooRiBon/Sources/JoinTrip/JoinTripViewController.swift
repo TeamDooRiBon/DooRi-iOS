@@ -192,16 +192,20 @@ extension JoinTripViewController {
     
     // MARK: - Service
     private func getTripData(inviteCode: String) {
-        JoinTripDataService.shared.getTripInfoWithInviteCode(inviteCode: inviteCode) { [self] (response) in
+        startLoading()
+        JoinTripDataService.shared.getTripInfoWithInviteCode(inviteCode: inviteCode) { [weak self] (response) in
             switch(response)
             {
             case .success(let data):
-                self.rightCodeCheck(data as! JoinTripData)
+                self?.rightCodeCheck(data as! JoinTripData)
             case .requestErr(let message):
                 print(message)
+                self?.endLoading()
             case .pathErr:
+                self?.endLoading()
                 PopupView.loadFromXib()
                     .setTitle("잘못된 참여코드입니다.")
+                    .setDescription("다시 입력 해주세요.")
                     .setConfirmButton()
                     .present { event in
                         if event == .confirm {
@@ -209,8 +213,10 @@ extension JoinTripViewController {
                         }
                     }
             case .serverErr:
+                self?.endLoading()
                 PopupView.loadFromXib()
                     .setTitle("잘못된 참여코드입니다.")
+                    .setDescription("다시 입력 해주세요.")
                     .setConfirmButton()
                     .present { event in
                         if event == .confirm {
@@ -218,6 +224,7 @@ extension JoinTripViewController {
                         }
                     }
             case .networkFail:
+                self?.endLoading()
                 PopupView.loadFromXib()
                     .setTitle("네트워크 에러입니다.")
                     .setConfirmButton()

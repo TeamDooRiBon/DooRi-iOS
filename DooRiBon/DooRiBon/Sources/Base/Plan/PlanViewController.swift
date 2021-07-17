@@ -229,22 +229,28 @@ extension PlanViewController {
     
     private func getPlanData(date: String) {
         guard let groupId = tripData?._id else { return }
-        
+
+        startLoading()
         TripPlanDataService.shared.getTripPlan(groupId: groupId,
                                                date: date) { [weak self] (response) in
             switch response {
             case .success(let data):
                 if let schedule = data as? [Schedule] {
+                    self?.endLoading()
                     self!.planData = schedule
                 }
             case .requestErr(_):
                 print("requestErr")
+                self?.endLoading()
             case .serverErr:
                 print("serverErr")
+                self?.endLoading()
             case .networkFail:
                 print("networkFail")
+                self?.endLoading()
             case .pathErr:
                 print("pathErr")
+                self?.endLoading()
             }
         }
     }

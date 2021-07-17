@@ -15,6 +15,7 @@
 		0A88A010269493E000A4EBD0 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88A00F269493E000A4EBD0 /* PopupView.swift */; };
 		0A88A0122694941F00A4EBD0 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A88A0112694941E00A4EBD0 /* PopupView.xib */; };
 		0A88A0142694A61800A4EBD0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */; };
+		0A8B72C626A2A8F6005679FE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B72C526A2A8F6005679FE /* LoadingView.swift */; };
 		0BBB0E3F1275A841053DEF43 /* Pods_DooRiBon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD67503EA76B9E8E80971F1 /* Pods_DooRiBon.framework */; };
 		39194AF326A0AD1A00EF1CDC /* TakeLookDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39194AF226A0AD1A00EF1CDC /* TakeLookDataModel.swift */; };
 		39194AF626A0AD6000EF1CDC /* TakeLookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39194AF526A0AD6000EF1CDC /* TakeLookService.swift */; };
@@ -185,6 +186,7 @@
 		0A88A00F269493E000A4EBD0 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		0A88A0112694941E00A4EBD0 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		0A8B72C526A2A8F6005679FE /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		37539EC5FA070D675C5829FF /* Pods-DooRiBon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRiBon.debug.xcconfig"; path = "Target Support Files/Pods-DooRiBon/Pods-DooRiBon.debug.xcconfig"; sourceTree = "<group>"; };
 		39194AF226A0AD1A00EF1CDC /* TakeLookDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeLookDataModel.swift; sourceTree = "<group>"; };
 		39194AF526A0AD6000EF1CDC /* TakeLookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeLookService.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				BD5EEC8C2698483900D09B11 /* TripTop */,
 				0A88A00E269493C800A4EBD0 /* Popup */,
 				0A1BD3BD268E1C7000702EC5 /* PagerTab */,
+				0A8B72C526A2A8F6005679FE /* LoadingView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1439,6 +1442,7 @@
 				BD6074E1269F6ED700CA62F3 /* ScheduleDataService.swift in Sources */,
 				BD6074BC269E015E00CA62F3 /* BoardSectionHeaderView.swift in Sources */,
 				39369205269EC6FB003348A7 /* MemberPopupDataModel.swift in Sources */,
+				0A8B72C626A2A8F6005679FE /* LoadingView.swift in Sources */,
 				BD1725C9269CA04F000FB89B /* NetworkResult.swift in Sources */,
 				4057E82E269F0DAA00DE024D /* StyleTestService.swift in Sources */,
 				BD6074DD269F6DE800CA62F3 /* ScheduleDataModel.swift in Sources */,
