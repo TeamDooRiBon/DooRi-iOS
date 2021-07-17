@@ -10,6 +10,7 @@ import UIKit
 struct BoardPopupData {
     var title: String
     var description: String
+    var illust: String
 }
 
 // 태그
@@ -58,10 +59,13 @@ class BoardViewController: UIViewController {
                        description: "이번 여행에서 꼭 확인해야\n하는 것들을 미리 공유해요")
     ]
     let popupData = [
-        BoardPopupData(title: "여행 목표", description: "이번 여행의 목표를 함께 공유하세요!"),
-        BoardPopupData(title: "꼭 알아줘", description: "이번 여행에 함께하는 사람들에게\n나에 대해 꼭 알리고 싶은 것을 작성해주세요!"),
-        BoardPopupData(title: "역할 분담", description: "이번 여행에서 나는 이런 역할을 담당할게!"),
-        BoardPopupData(title: "체크리스트", description: "준비는 철저하게! 필요한 것을 미리 체크하세요"),
+        BoardPopupData(title: "여행 목표", description: "이번 여행의 목표를 함께 공유하세요!", illust: "iconBoardGoalActiveImg"),
+        BoardPopupData(title: "꼭 알아줘", description: """
+                                                    이번 여행에 함께하는 사람들에게
+                                                    나에 대해 꼭 알리고 싶은 것을 작성해주세요!
+                                                    """, illust: "iconBoardAimActiveImg"),
+        BoardPopupData(title: "역할 분담", description: "이번 여행에서 나는 이런 역할을 담당할게!", illust: "iconBoardRoleActiveImg"),
+        BoardPopupData(title: "체크리스트", description: "준비는 철저하게! 필요한 것을 미리 체크하세요", illust: "iconBoardCheckActiveImg"),
     ]
     
     private var selectedData: DummyDataModel? {
@@ -368,6 +372,8 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
         boardPopupView
             .setTitle(popupData[selectedTagIndex].title)
             .setDescription(popupData[selectedTagIndex].description)
+            .setIllust(popupData[selectedTagIndex].illust)
+            
             .present { event in
                 if event == .confirm {
                     self.postTripBoard(contents: self.contents, groupId: self.thisID, tag: description)
@@ -402,6 +408,7 @@ extension BoardViewController: UITableViewDelegate, BoardSectionHeaderViewDelega
                     boardPopupView
                         .setTitle(self.popupData[self.selectedTagIndex].title)
                         .setDescription(self.popupData[self.selectedTagIndex].description)
+                        .setIllust(self.popupData[self.selectedTagIndex].illust)
                         .setTextView(boardData.content)
                         .present { event in
                             if event == .confirm {

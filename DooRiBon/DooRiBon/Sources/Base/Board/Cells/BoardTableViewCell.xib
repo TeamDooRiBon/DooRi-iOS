@@ -31,13 +31,13 @@
                         <rect key="frame" x="18" y="4" width="284" height="73"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="제주도 한라산 등산하기! 아침에 일찍 일어나서 꼭 갈거야 한라산.... " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo5-cM-2cL">
-                                <rect key="frame" x="16" y="14" width="195" height="35.333333333333336"/>
+                                <rect key="frame" x="16" y="14" width="205" height="32.666666666666664"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
                                 <color key="textColor" name="black2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김민영" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plW-no-bRs">
-                                <rect key="frame" x="234.33333333333334" y="14" width="27.666666666666657" height="12.666666666666664"/>
+                                <rect key="frame" x="236" y="14" width="26" height="12.666666666666664"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
                                 <color key="textColor" name="gray5"/>
                                 <nil key="highlightedColor"/>

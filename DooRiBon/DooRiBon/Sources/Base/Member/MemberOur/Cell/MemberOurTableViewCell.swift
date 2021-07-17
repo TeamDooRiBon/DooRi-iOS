@@ -20,6 +20,8 @@ class MemberOurTableViewCell: UITableViewCell {
     @IBOutlet weak var memberStyleThree: UILabel!
     @IBOutlet weak var memberName: UILabel!
     @IBOutlet weak var memberThumbNailImage: UIImageView!
+    @IBOutlet weak var shadowView: UIView!
+    
     
     var delegate: MemberTableCellDelegate?
     var indexPath: IndexPath?

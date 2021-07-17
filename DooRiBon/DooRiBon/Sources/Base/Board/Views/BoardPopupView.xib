@@ -25,25 +25,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3dS-wc-uvl">
-                    <rect key="frame" x="27.666666666666657" y="244.33333333333337" width="320" height="342.33333333333326"/>
+                    <rect key="frame" x="28" y="243.33333333333337" width="319" height="324.33333333333326"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="0ll-iD-pWE">
-                            <rect key="frame" x="20" y="16" width="279" height="290.33333333333331"/>
+                            <rect key="frame" x="20" y="16" width="278" height="290.33333333333331"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-Qo-6R4">
-                                    <rect key="frame" x="0.0" y="0.0" width="279" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="278" height="49"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="GL7-iC-U19">
-                                            <rect key="frame" x="0.0" y="0.0" width="233" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="232" height="49"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="여행 목표" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iiy-xq-Lyg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="233" height="27.666666666666668"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="232" height="27.666666666666668"/>
                                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="20"/>
                                                     <color key="textColor" name="black1"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 여행의 목표를 함께 공유하세요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUu-xn-3Ly">
-                                                    <rect key="frame" x="0.0" y="33.666666666666629" width="233" height="15.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="33.666666666666629" width="232" height="15.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                     <color key="textColor" name="gray5"/>
                                                     <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                                             </subviews>
                                         </stackView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hue-xO-plj">
-                                            <rect key="frame" x="233" y="0.0" width="46" height="49"/>
+                                            <rect key="frame" x="232" y="0.0" width="46" height="49"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="46" id="hxs-AD-i2P"/>
                                                 <constraint firstAttribute="height" constant="49" id="una-is-qDR"/>
@@ -64,7 +64,7 @@
                                     </constraints>
                                 </stackView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="khV-Zu-nPR">
-                                    <rect key="frame" x="0.0" y="67.999999999999957" width="279" height="155.33333333333337"/>
+                                    <rect key="frame" x="0.0" y="67.999999999999957" width="278" height="155.33333333333337"/>
                                     <color key="backgroundColor" name="gray7"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="155.33000000000001" id="PVY-Cf-mcS"/>
@@ -74,10 +74,10 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="idn-C4-3Vs">
-                                    <rect key="frame" x="0.0" y="242.33333333333331" width="279" height="48"/>
+                                    <rect key="frame" x="0.0" y="242.33333333333331" width="278" height="48"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELg-Hu-E7f">
-                                            <rect key="frame" x="0.0" y="0.0" width="136" height="48"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="135.66666666666666" height="48"/>
                                             <color key="backgroundColor" name="gray7"/>
                                             <state key="normal" title="취소">
                                                 <color key="titleColor" name="gray4"/>
@@ -92,7 +92,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l43-Pv-eVY">
-                                            <rect key="frame" x="143" y="0.0" width="136" height="48"/>
+                                            <rect key="frame" x="142.66666666666663" y="0.0" width="135.33333333333337" height="48"/>
                                             <color key="backgroundColor" name="pointOrange"/>
                                             <state key="normal" title="확인">
                                                 <color key="titleColor" name="white9"/>
@@ -129,7 +129,6 @@
                         <constraint firstItem="0ll-iD-pWE" firstAttribute="top" secondItem="3dS-wc-uvl" secondAttribute="top" constant="16" id="3HN-AP-242"/>
                         <constraint firstAttribute="trailing" secondItem="0ll-iD-pWE" secondAttribute="trailing" constant="21" id="CI9-Of-3lZ"/>
                         <constraint firstAttribute="bottom" secondItem="0ll-iD-pWE" secondAttribute="bottom" constant="18" id="RQD-8T-4UF"/>
-                        <constraint firstAttribute="width" constant="320" id="SNG-oJ-nig"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="323" id="fKA-1t-s1I"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -145,6 +144,7 @@
                 <constraint firstItem="3dS-wc-uvl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PkJ-kJ-lWH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3dS-wc-uvl" secondAttribute="bottom" constant="210.33333333333337" id="dkO-05-kYY"/>
                 <constraint firstItem="3dS-wc-uvl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ta6-Rq-vEv"/>
+                <constraint firstItem="3dS-wc-uvl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="28" id="zRn-fc-0Qg"/>
             </constraints>
             <connections>
                 <outlet property="cancelButton" destination="ELg-Hu-E7f" id="acM-m0-m5h"/>
@@ -152,6 +152,7 @@
                 <outlet property="containerView" destination="3dS-wc-uvl" id="7Fy-Fn-lgN"/>
                 <outlet property="contentsTextView" destination="khV-Zu-nPR" id="JVe-GZ-fzS"/>
                 <outlet property="descriptionLabel" destination="JUu-xn-3Ly" id="TVJ-ih-1Pp"/>
+                <outlet property="illustImage" destination="Hue-xO-plj" id="ByP-ul-ds1"/>
                 <outlet property="titleLabel" destination="Iiy-xq-Lyg" id="yZP-Qw-V4h"/>
             </connections>
             <point key="canvasLocation" x="138.40000000000001" y="136.69950738916256"/>
