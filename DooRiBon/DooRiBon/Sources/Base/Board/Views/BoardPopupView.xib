@@ -152,6 +152,7 @@
                 <outlet property="containerView" destination="3dS-wc-uvl" id="7Fy-Fn-lgN"/>
                 <outlet property="contentsTextView" destination="khV-Zu-nPR" id="JVe-GZ-fzS"/>
                 <outlet property="descriptionLabel" destination="JUu-xn-3Ly" id="TVJ-ih-1Pp"/>
+                <outlet property="illustImage" destination="Hue-xO-plj" id="ByP-ul-ds1"/>
                 <outlet property="titleLabel" destination="Iiy-xq-Lyg" id="yZP-Qw-V4h"/>
             </connections>
             <point key="canvasLocation" x="138.40000000000001" y="136.69950738916256"/>

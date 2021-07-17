@@ -15,6 +15,7 @@ class BoardPopupView: UIView {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet weak var illustImage: UIImageView!
     @IBOutlet private weak var contentsTextView: UITextView!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var confirmButton: UIButton!

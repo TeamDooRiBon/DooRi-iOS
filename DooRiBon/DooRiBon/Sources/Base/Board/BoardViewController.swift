@@ -59,7 +59,10 @@ class BoardViewController: UIViewController {
     ]
     let popupData = [
         BoardPopupData(title: "여행 목표", description: "이번 여행의 목표를 함께 공유하세요!"),
-        BoardPopupData(title: "꼭 알아줘", description: "이번 여행에 함께하는 사람들에게\n나에 대해 꼭 알리고 싶은 것을 작성해주세요!"),
+        BoardPopupData(title: "꼭 알아줘", description: """
+                                                    이번 여행에 함께하는 사람들에게
+                                                    나에 대해 꼭 알리고 싶은 것을 작성해주세요!
+                                                    """),
         BoardPopupData(title: "역할 분담", description: "이번 여행에서 나는 이런 역할을 담당할게!"),
         BoardPopupData(title: "체크리스트", description: "준비는 철저하게! 필요한 것을 미리 체크하세요"),
     ]

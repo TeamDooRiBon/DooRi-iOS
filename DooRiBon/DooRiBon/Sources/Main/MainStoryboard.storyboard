@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="84" width="375" height="1855"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYu-94-62j">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1939"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1855"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Su3-7g-8tG">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="405"/>
@@ -128,7 +128,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrM-CO-Jmd">
-                                                        <rect key="frame" x="17.999999999999993" y="363" width="92.333333333333314" height="24"/>
+                                                        <rect key="frame" x="18" y="363" width="95" height="24"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconAirplaneFillWhite" translatesAutoresizingMaskIntoConstraints="NO" id="uCC-0G-kXq">
                                                                 <rect key="frame" x="8" y="2" width="20" height="20"/>
@@ -141,7 +141,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강원도 속초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fg-2T-xcS">
-                                                                <rect key="frame" x="29.000000000000004" y="3" width="55.333333333333343" height="18"/>
+                                                                <rect key="frame" x="29" y="3" width="58" height="18"/>
                                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                                 <color key="textColor" name="white9"/>
                                                                 <nil key="highlightedColor"/>
@@ -170,7 +170,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPJ-yc-IZw">
-                                                        <rect key="frame" x="118.33333333333331" y="363" width="100" height="24"/>
+                                                        <rect key="frame" x="121" y="363" width="100" height="24"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUserMainTop" translatesAutoresizingMaskIntoConstraints="NO" id="oY9-5q-u4r">
                                                                 <rect key="frame" x="8" y="3" width="18" height="18"/>
@@ -183,7 +183,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00님과 함께" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd6-x1-dsy">
-                                                                <rect key="frame" x="29.000000000000014" y="3" width="63" height="18"/>
+                                                                <rect key="frame" x="29" y="3" width="63" height="18"/>
                                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                                 <color key="textColor" name="white9"/>
                                                                 <nil key="highlightedColor"/>
@@ -371,7 +371,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sja-dv-ExH">
-                                                                            <rect key="frame" x="149" y="75" width="92.333333333333314" height="24"/>
+                                                                            <rect key="frame" x="149" y="75" width="95" height="24"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconAirplaneFill" translatesAutoresizingMaskIntoConstraints="NO" id="81R-bK-vnp">
                                                                                     <rect key="frame" x="8" y="2" width="20" height="20"/>
@@ -384,7 +384,7 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강원도 속초" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwY-Qg-rCU">
-                                                                                    <rect key="frame" x="29.000000000000004" y="3" width="55.333333333333343" height="18"/>
+                                                                                    <rect key="frame" x="29" y="3" width="58" height="18"/>
                                                                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                                                     <color key="textColor" name="gray4"/>
                                                                                     <nil key="highlightedColor"/>
@@ -417,7 +417,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ts-Dp-lKq">
-                                                                            <rect key="frame" x="149" y="104" width="68.333333333333314" height="24"/>
+                                                                            <rect key="frame" x="149" y="104" width="70.333333333333314" height="24"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUserMainMid" translatesAutoresizingMaskIntoConstraints="NO" id="rZD-8z-ObU">
                                                                                     <rect key="frame" x="8" y="3" width="18" height="18"/>
@@ -430,7 +430,7 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미몽님" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-TP-KkW">
-                                                                                    <rect key="frame" x="29" y="3" width="31.333333333333329" height="18"/>
+                                                                                    <rect key="frame" x="29.000000000000004" y="3" width="33.333333333333343" height="18"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="104" id="aga-77-hpe"/>
                                                                                     </constraints>
@@ -573,7 +573,7 @@
                                                 <rect key="frame" x="0.0" y="696" width="375" height="471"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추억 속 지난 여행" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4P-fF-cjq">
-                                                        <rect key="frame" x="19.999999999999993" y="31" width="124.33333333333331" height="21"/>
+                                                        <rect key="frame" x="20" y="31" width="128.33333333333334" height="22.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -634,7 +634,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </button>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTA-4j-VJN">
-                                                                            <rect key="frame" x="167" y="61" width="92.333333333333314" height="24"/>
+                                                                            <rect key="frame" x="167" y="61" width="95" height="24"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconAirplaneFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJV-kq-2Bn">
                                                                                     <rect key="frame" x="8" y="2" width="20" height="20"/>
@@ -647,7 +647,7 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강원도 속초" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKu-Fa-RHr">
-                                                                                    <rect key="frame" x="29.000000000000004" y="3" width="55.333333333333343" height="18"/>
+                                                                                    <rect key="frame" x="29" y="3" width="58" height="18"/>
                                                                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                                                     <color key="textColor" name="gray4"/>
                                                                                     <nil key="highlightedColor"/>
@@ -680,7 +680,7 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37w-6D-o7i">
-                                                                            <rect key="frame" x="167" y="91" width="137" height="24"/>
+                                                                            <rect key="frame" x="167" y="91" width="140.66666666666663" height="24"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUserMainMid" translatesAutoresizingMaskIntoConstraints="NO" id="Wrf-ki-ndz">
                                                                                     <rect key="frame" x="8" y="3" width="18" height="18"/>
@@ -693,7 +693,7 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미몽님 외 3명과 함께" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8I-Tc-NWg">
-                                                                                    <rect key="frame" x="29" y="3" width="100" height="18"/>
+                                                                                    <rect key="frame" x="29.000000000000007" y="3" width="103.66666666666669" height="18"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="104" id="bIv-D4-vSm"/>
                                                                                     </constraints>
@@ -741,7 +741,7 @@
                                                                             </variation>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThH-DA-PQ6">
-                                                                            <rect key="frame" x="68" y="58.333333333333336" width="37" height="17.666666666666664"/>
+                                                                            <rect key="frame" x="67" y="57.666666666666657" width="39" height="19"/>
                                                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
                                                                             <color key="textColor" name="white9"/>
                                                                             <nil key="highlightedColor"/>
@@ -805,7 +805,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFn-w8-t83">
-                                                <rect key="frame" x="0.0" y="1730" width="375" height="80"/>
+                                                <rect key="frame" x="0.0" y="1730" width="375" height="125"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dooribonLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-gn-38h">
                                                         <rect key="frame" x="142.66666666666666" y="25" width="90" height="42"/>
@@ -815,7 +815,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작은 움직임이 만드는 우리다운 여행" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUU-Xc-iU6">
-                                                        <rect key="frame" x="71" y="78" width="233" height="14"/>
+                                                        <rect key="frame" x="71" y="78" width="233" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                         <color key="textColor" name="gray6"/>
                                                         <nil key="highlightedColor"/>
@@ -828,13 +828,14 @@
                                                     <constraint firstItem="PUU-Xc-iU6" firstAttribute="centerX" secondItem="Q6a-gn-38h" secondAttribute="centerX" id="Dog-44-fTi"/>
                                                     <constraint firstItem="Q6a-gn-38h" firstAttribute="top" secondItem="jFn-w8-t83" secondAttribute="top" constant="25" id="Tmg-vk-ZV9"/>
                                                     <constraint firstItem="PUU-Xc-iU6" firstAttribute="leading" secondItem="jFn-w8-t83" secondAttribute="leading" constant="71" id="UJQ-eQ-qmW"/>
+                                                    <constraint firstAttribute="height" constant="125" id="pek-d9-ILh"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noh-QX-vRN">
                                                 <rect key="frame" x="0.0" y="1167" width="375" height="523"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번들님은 어떤 여행을 좋아하세요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnP-lS-p1V">
-                                                        <rect key="frame" x="18" y="0.0" width="274" height="42"/>
+                                                        <rect key="frame" x="18" y="40" width="274" height="45.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -844,7 +845,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C35-t1-y67">
-                                                        <rect key="frame" x="20" y="72" width="338" height="408"/>
+                                                        <rect key="frame" x="20" y="115.33333333333326" width="338" height="408"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainhomeIllust031" translatesAutoresizingMaskIntoConstraints="NO" id="kqc-Lw-BtJ">
                                                                 <rect key="frame" x="13" y="16" width="312" height="237"/>
@@ -907,7 +908,7 @@
                                                 <constraints>
                                                     <constraint firstItem="DnP-lS-p1V" firstAttribute="leading" secondItem="noh-QX-vRN" secondAttribute="leading" constant="18" id="3k4-aF-tmA"/>
                                                     <constraint firstAttribute="height" constant="523" id="Amc-Fu-yUT"/>
-                                                    <constraint firstItem="DnP-lS-p1V" firstAttribute="top" secondItem="noh-QX-vRN" secondAttribute="top" id="Chp-P7-jpp"/>
+                                                    <constraint firstItem="DnP-lS-p1V" firstAttribute="top" secondItem="noh-QX-vRN" secondAttribute="top" constant="40" id="Chp-P7-jpp"/>
                                                     <constraint firstItem="C35-t1-y67" firstAttribute="top" secondItem="DnP-lS-p1V" secondAttribute="bottom" constant="30" id="VHV-GI-gwW"/>
                                                     <constraint firstAttribute="trailing" secondItem="C35-t1-y67" secondAttribute="trailing" constant="17" id="fjX-7f-Mbe"/>
                                                     <constraint firstItem="C35-t1-y67" firstAttribute="leading" secondItem="noh-QX-vRN" secondAttribute="leading" constant="20" id="npi-8n-xEh"/>
@@ -923,8 +924,8 @@
                                             <constraint firstItem="noh-QX-vRN" firstAttribute="top" secondItem="WPo-bQ-5xx" secondAttribute="bottom" id="M5j-8d-6tp"/>
                                             <constraint firstAttribute="trailing" secondItem="WPo-bQ-5xx" secondAttribute="trailing" id="OOV-ky-Fhr"/>
                                             <constraint firstItem="noh-QX-vRN" firstAttribute="leading" secondItem="JYu-94-62j" secondAttribute="leading" id="QNc-eb-NIt"/>
+                                            <constraint firstAttribute="bottom" secondItem="jFn-w8-t83" secondAttribute="bottom" id="XgE-zx-JGh"/>
                                             <constraint firstItem="WPo-bQ-5xx" firstAttribute="top" secondItem="Ru8-V5-fnM" secondAttribute="bottom" id="Xgk-fi-QZQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="jFn-w8-t83" secondAttribute="bottom" constant="129" id="cIy-9E-hhM"/>
                                             <constraint firstItem="Su3-7g-8tG" firstAttribute="leading" secondItem="JYu-94-62j" secondAttribute="leading" id="d6N-OG-yzx"/>
                                             <constraint firstItem="jFn-w8-t83" firstAttribute="leading" secondItem="JYu-94-62j" secondAttribute="leading" id="doK-dc-hUz"/>
                                             <constraint firstItem="jFn-w8-t83" firstAttribute="top" secondItem="noh-QX-vRN" secondAttribute="bottom" constant="40" id="eL9-Od-Yw9"/>
