@@ -44,24 +44,30 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
     }
     
     private func getStyleData() {
+        startLoading()
         guard let groupId = tripData?._id else { return }
         GetMemberStyleDataService.shared.getMemberData(groupID: groupId)
-        { [self] (response) in
+        { [weak self] (response) in
             switch response {
             case .success(let data):
                 if let totalData = data as? MemberStyleDataResponse {
-                    myStyleData = totalData.data?.myResult
-                    memberStyleData = totalData.data!.othersResult
-                    memberOurTableView.reloadData()
+                    self?.myStyleData = totalData.data?.myResult
+                    self?.memberStyleData = totalData.data?.othersResult ?? []
+                    self?.memberOurTableView.reloadData()
+                    self?.endLoading()
                 }
             case .requestErr(_):
                 print("requestErr")
+                self?.endLoading()
             case .serverErr:
                 print("serverErr")
+                self?.endLoading()
             case .networkFail:
                 print("networkFail")
+                self?.endLoading()
             case .pathErr:
                 print("pathErr")
+                self?.endLoading()
             }
         }
     }

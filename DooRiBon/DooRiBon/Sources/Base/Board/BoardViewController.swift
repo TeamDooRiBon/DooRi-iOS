@@ -154,23 +154,29 @@ class BoardViewController: UIViewController {
     }
     
     private func getBoardData(groupId: String, tag: String) {
+        startLoading()
         AddBoardDataService.shared.getTripBoard(groupId: groupId,
-                                                tag: tag) { response in
+                                                tag: tag) { [weak self] response in
             switch(response)
             {
             case .success(let data) :
                 if let data = data as? [BoardData] {
-                    self.currentBoardData = data
+                    self?.endLoading()
+                    self?.currentBoardData = data
                 }
 
             case .requestErr(let message) :
                 print(message)
+                self?.endLoading()
             case .pathErr :
                 print("pathERR")
+                self?.endLoading()
             case .serverErr:
                 print("serverERR")
+                self?.endLoading()
             case .networkFail:
                 print("networkFail")
+                self?.endLoading()
             }
         }
     }
