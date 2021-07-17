@@ -241,7 +241,7 @@ class StyleQuestionViewController: UIViewController {
 
     // 인디케이터 바
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x / CGFloat(questionDataList.count)
+        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/scrollView.frame.width * self.indicatorBar.frame.width
     }
     
     // 다음 문항 버튼 색상 변경
