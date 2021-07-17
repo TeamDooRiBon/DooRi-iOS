@@ -378,6 +378,7 @@ extension PlanViewController: UICollectionViewDelegate {
         setCalendar(date: dates[indexPath.row])
         currentDate = dates[indexPath.row]
         selectedIndex = indexPath.row
+        contentsTableView.reloadData()
     }
 }
 
@@ -453,7 +454,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
         
         headerView.dayNumberLabel.text = "Day \(selectedIndex! + 1)"
         headerView.detailDateLabel.text = "\(dateSet(date: self.currentDate!))"
-        contentsTableView.reloadData()
+
         return headerView
     }
     
@@ -474,8 +475,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PlanDataTableViewCell.cellId, for: indexPath) as? PlanDataTableViewCell else {
                 return UITableViewCell()
             }
-            tableView.allowsSelection = true
-            
+
             if indexPath.row == 0 {
                 cell.bottomLineView.isHidden = planData.count == 1
                 cell.topLineView.isHidden = true
@@ -495,7 +495,6 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoDataTableViewCell.cellId, for: indexPath) as? NoDataTableViewCell else {
                 return UITableViewCell()
             }
-            tableView.allowsSelection = false
             cell.selectionStyle = .none
             return cell
         }
