@@ -200,11 +200,32 @@ extension JoinTripViewController {
             case .requestErr(let message):
                 print(message)
             case .pathErr:
-                print("pathERR")
+                PopupView.loadFromXib()
+                    .setTitle("잘못된 참여코드입니다.")
+                    .setConfirmButton()
+                    .present { event in
+                        if event == .confirm {
+
+                        }
+                    }
             case .serverErr:
-                print("serverERR")
+                PopupView.loadFromXib()
+                    .setTitle("잘못된 참여코드입니다.")
+                    .setConfirmButton()
+                    .present { event in
+                        if event == .confirm {
+
+                        }
+                    }
             case .networkFail:
-                print("networkFail")
+                PopupView.loadFromXib()
+                    .setTitle("네트워크 에러입니다.")
+                    .setConfirmButton()
+                    .present { event in
+                        if event == .confirm {
+
+                        }
+                    }
             }
         }
     }
