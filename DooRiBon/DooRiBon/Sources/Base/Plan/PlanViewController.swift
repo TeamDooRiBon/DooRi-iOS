@@ -112,6 +112,9 @@ class PlanViewController: UIViewController {
         nextVC.scheduleID = scheduleID
         guard let currentDate = self.currentDate else { return }
         nextVC.startDate = currentDate
+        nextVC.initTitle = schedule?.tilte ?? ""
+        nextVC.initLocation = schedule?.location ?? ""
+        nextVC.initMemo = schedule?.memo ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

@@ -58,6 +58,9 @@ class AddTripPlanViewController: UIViewController {
     var currentDate: String = ""
     var day: String = ""
     var dateComponent = DateComponents()
+    var initTitle: String = ""
+    var initLocation: String = ""
+    var initMemo: String = ""
     
     //MARK:- Life Cycle
     
@@ -71,6 +74,7 @@ class AddTripPlanViewController: UIViewController {
         dateSet()
         setAlphaView()
         keyboardNoti()
+        initData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -187,6 +191,12 @@ class AddTripPlanViewController: UIViewController {
             make.top.equalTo(datePickerBackgroundView.snp.top).offset(30)
             make.bottom.equalTo(datePickerBackgroundView).offset(-25)
         }
+    }
+    
+    func initData() {
+        planTitleTextField.text = initTitle
+        planLocationTextField.text = initLocation
+        planMemoTextField.text = initMemo
     }
     
     @objc func checking() {
