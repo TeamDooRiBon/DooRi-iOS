@@ -57,6 +57,13 @@ class BoardPopupView: UIView {
         return self
     }
     
+    func setIllust(_ text: String) -> Self {
+        if let illust = UIImage(named: text) {
+            illustImage.image = illust
+        }
+        return self
+    }
+    
     func setTextView(_ text: String) -> Self {
         contentsTextView.text = text
         contentsTextView.textColor = Colors.black2.color
@@ -66,6 +73,7 @@ class BoardPopupView: UIView {
     func getTextField() -> String {
         contentsTextView.text
     }
+
     
     func placeholderSetting() {
         contentsTextView.delegate = self
