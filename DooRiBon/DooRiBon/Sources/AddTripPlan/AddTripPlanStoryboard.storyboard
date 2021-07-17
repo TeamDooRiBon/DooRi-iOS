@@ -32,9 +32,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsP-hc-dVD">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scheduleIllust" translatesAutoresizingMaskIntoConstraints="NO" id="aB2-nU-Nad">
-                                        <rect key="frame" x="231" y="0.0" width="183" height="164"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRp-92-hFO">
                                         <rect key="frame" x="12" y="46" width="24" height="24"/>
                                         <state key="normal" image="backIconWhite"/>
@@ -49,11 +46,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="subBlue1"/>
+                                <color key="backgroundColor" name="pointBlue"/>
                                 <constraints>
-                                    <constraint firstItem="aB2-nU-Nad" firstAttribute="top" secondItem="BsP-hc-dVD" secondAttribute="top" id="5hY-SY-BD1"/>
                                     <constraint firstItem="XJW-fB-4kB" firstAttribute="top" secondItem="aRp-92-hFO" secondAttribute="bottom" constant="11" id="BPK-iG-sqs"/>
-                                    <constraint firstAttribute="trailing" secondItem="aB2-nU-Nad" secondAttribute="trailing" id="Dbl-Wa-vRe"/>
                                     <constraint firstItem="aRp-92-hFO" firstAttribute="top" secondItem="BsP-hc-dVD" secondAttribute="top" constant="46" id="Ub7-jB-Zer"/>
                                     <constraint firstItem="XJW-fB-4kB" firstAttribute="leading" secondItem="BsP-hc-dVD" secondAttribute="leading" constant="25" id="c4Y-aO-0pP"/>
                                     <constraint firstItem="aRp-92-hFO" firstAttribute="leading" secondItem="BsP-hc-dVD" secondAttribute="leading" constant="12" id="qJV-n4-OAm"/>
@@ -337,7 +332,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="subBlue1"/>
+                        <color key="backgroundColor" name="pointBlue"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="tof-Gv-JM5" secondAttribute="bottom" id="3d7-Tc-CRB"/>
                             <constraint firstItem="EcT-K7-6LJ" firstAttribute="top" secondItem="BsP-hc-dVD" secondAttribute="bottom" id="5CK-AW-eGe"/>
@@ -388,7 +383,6 @@
     <resources>
         <image name="backIconWhite" width="24" height="24"/>
         <image name="btnNotadd" width="23" height="23"/>
-        <image name="scheduleIllust" width="183" height="164"/>
         <image name="timeEndBoxline" width="167.5" height="69"/>
         <image name="timeStartBoxline" width="173.5" height="69"/>
         <namedColor name="black1">
@@ -412,8 +406,8 @@
         <namedColor name="gray7">
             <color red="0.91399997472763062" green="0.92199999094009399" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="subBlue1">
-            <color red="0.60399997234344482" green="0.70599997043609619" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="pointBlue">
+            <color red="0.41999998688697815" green="0.56099998950958252" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="subBlue2">
             <color red="0.48600000143051147" green="0.53700000047683716" blue="0.67799997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

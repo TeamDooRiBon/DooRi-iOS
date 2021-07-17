@@ -7,27 +7,26 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct MemberStyleDataModel: Codable {
+// MARK: - Main
+struct MemberStyleDataResponse: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: DivisionMemberDataModel?
+    let data: MeAndOtherDivision?
 }
 
 // MARK: - DataClass
-struct DivisionMemberDataModel: Codable {
-    let myResult: TripTendencyDataModel
-    let othersResult: [TripTendencyDataModel]
+struct MeAndOtherDivision: Codable {
+    let myResult: MemberTestResultData?
+    let othersResult: [MemberTestResultData]
 }
 
 // MARK: - Result
-struct TripTendencyDataModel: Codable {
+struct MemberTestResultData: Codable {
     let tag: [String]
     let id: String
-    let member: ProfileDataModel
-    let title: String
-    let iOSResultImage, aOSResultImage, thumbnail: String
+    let member: MemberDetailData?
+    let title, iOSResultImage, aOSResultImage, thumbnail: String
 
     enum CodingKeys: String, CodingKey {
         case tag
@@ -37,7 +36,7 @@ struct TripTendencyDataModel: Codable {
 }
 
 // MARK: - Member
-struct ProfileDataModel: Codable {
+struct MemberDetailData: Codable {
     let id, name: String
     let profileImage: String
 

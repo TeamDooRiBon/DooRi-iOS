@@ -58,6 +58,9 @@ class AddTripPlanViewController: UIViewController {
     var currentDate: String = ""
     var day: String = ""
     var dateComponent = DateComponents()
+    var initTitle: String = ""
+    var initLocation: String = ""
+    var initMemo: String = ""
     
     //MARK:- Life Cycle
     
@@ -70,6 +73,7 @@ class AddTripPlanViewController: UIViewController {
         dateformatSet()
         dateSet()
         setAlphaView()
+        initData()
         keyboardNoti()
     }
     
@@ -189,6 +193,32 @@ class AddTripPlanViewController: UIViewController {
         }
     }
     
+    func initData() {
+        planTitleTextField.text = initTitle
+        planLocationTextField.text = initLocation
+        planMemoTextField.text = initMemo
+    }
+    
+    func keyboardNoti() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // MARK: - 키보드 높이 세팅
+    @objc func keyboardWillShow(_ sender: Notification) {
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        
+        if height > 800 && height < 815 {
+            self.view.frame.origin.y = -100
+        } else if height < 800 {
+            self.view.frame.origin.y = -160
+        }
+    }
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
+    }
+    
     @objc func checking() {
         if !notAddCheck {
             if planTitleTextField.text != "" && planLocationTextField.text != "" && timeSelectCheck {
@@ -255,6 +285,7 @@ class AddTripPlanViewController: UIViewController {
     }
     
     @IBAction func startTimeButtonClicked(_ sender: Any) {
+        view.endEditing(true)
         datePickerBackgroundView.isHidden = false
         alphaView.insertSubview(dateView, belowSubview: alphaView)
         UIView.animate(withDuration: 0.5, animations: { [self] in
@@ -280,6 +311,7 @@ class AddTripPlanViewController: UIViewController {
     }
     
     @IBAction func endTimeButtonClicked(_ sender: Any) {
+        view.endEditing(true)
         datePickerBackgroundView.isHidden = false
         alphaView.insertSubview(dateView, belowSubview: alphaView)
         UIView.animate(withDuration: 0.5, animations: { [self] in

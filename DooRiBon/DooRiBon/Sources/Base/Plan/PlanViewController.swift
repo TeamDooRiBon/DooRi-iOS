@@ -118,6 +118,9 @@ class PlanViewController: UIViewController {
         nextVC.scheduleID = scheduleID
         guard let currentDate = self.currentDate else { return }
         nextVC.startDate = currentDate
+        nextVC.initTitle = schedule?.tilte ?? ""
+        nextVC.initLocation = schedule?.location ?? ""
+        nextVC.initMemo = schedule?.memo ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
@@ -160,10 +163,17 @@ extension PlanViewController {
     @objc func settingButtonClicked(_ sender: UIButton) {
         let editTripStoryboard = UIStoryboard(name: "AddTripStoryboard", bundle: nil)
         guard let nextVC = editTripStoryboard.instantiateViewController(identifier: "AddTripViewController") as? AddTripViewController else { return }
+        let f = DateFormatter()
+        f.dateFormat = "yyyy. MM. dd. EEEE"
+        f.locale = Locale(identifier: "ko_KR")
         nextVC.groupId = tripData?._id ?? ""
         nextVC.hidesBottomBarWhenPushed = true
         nextVC.topLabelData = "여행정보를\n수정하시겠어요?"
         nextVC.buttonData = "여행 정보 수정하기"
+        nextVC.initTitle = tripData?.travelName ?? ""
+        nextVC.initLocation = tripData?.destination ?? ""
+        nextVC.startDateParsing = f.string(from: tripData!.startDate)
+        nextVC.endDateParsing = f.string(from: tripData!.endDate)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

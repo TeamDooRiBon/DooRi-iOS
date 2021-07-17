@@ -49,11 +49,16 @@ class AddTripViewController: UIViewController {
     var groupId: String = ""
     static var code: String = ""
     
+    var initTitle: String = ""
+    var initLocation: String = ""
+    
+    
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        initData()
         photoListSet()
         bottomShadowSet()
         notificationSet()
@@ -139,6 +144,13 @@ class AddTripViewController: UIViewController {
     
     func bottomShadowSet() {
         bottomView.layer.applyShadow(color: .black, alpha: 0.04, x: 0, y: -3, blur: 10, spread: 0)
+    }
+    
+    func initData() {
+        tripNameTextField.text = initTitle
+        tripLocationTextField.text = initLocation
+        startDateLabel.text = startDateParsing
+        endDateLabel.text = endDateParsing
     }
     
     @IBAction func startNewTripButtonClicked(_ sender: Any) {

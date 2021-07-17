@@ -18,8 +18,8 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
     //MARK:- Variable
     
     var tripData: Group?
-    private var myStyleData: TripTendencyDataModel?
-    private var memberStyleData: [TripTendencyDataModel] = []
+    private var myStyleData: MemberTestResultData?
+    private var memberStyleData: [MemberTestResultData] = []
     
     //MARK:- Life Cycle
     
@@ -45,13 +45,13 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
     
     private func getStyleData() {
         guard let groupId = tripData?._id else { return }
-        GetMemberStyleDataService.shared.getMemberStyle(groupId: groupId)
+        GetMemberStyleDataService.shared.getMemberData(groupID: groupId)
         { [self] (response) in
             switch response {
             case .success(let data):
-                if let style = data as? DivisionMemberDataModel {
-                    myStyleData = style.myResult
-                    memberStyleData = style.othersResult
+                if let totalData = data as? MemberStyleDataResponse {
+                    myStyleData = totalData.data?.myResult
+                    memberStyleData = totalData.data!.othersResult
                     memberOurTableView.reloadData()
                 }
             case .requestErr(_):
@@ -77,7 +77,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource, M
             if myStyleData != nil {
                 let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
                 guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
-                nextVC.name = myStyleData?.member.name ?? ""
+                nextVC.name = myStyleData?.member?.name ?? ""
                 nextVC.imgURL = myStyleData?.iOSResultImage ?? ""
                 nextVC.style = myStyleData?.title ?? ""
                 nextVC.fromOurView = true
@@ -88,7 +88,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource, M
             if memberStyleData.count != 0 {
                 let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
                 guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
-                nextVC.name = memberStyleData[indexPath?.row ?? 0].member.name
+                nextVC.name = memberStyleData[indexPath?.row ?? 0].member?.name ?? ""
                 nextVC.imgURL = memberStyleData[indexPath?.row ?? 0].iOSResultImage
                 nextVC.style = memberStyleData[indexPath?.row ?? 0].title
                 nextVC.fromOurView = true
@@ -163,7 +163,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource, M
             if myStyleData != nil {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberOurTableViewCell", for: indexPath) as? MemberOurTableViewCell else { return UITableViewCell() }
                 cell.memberType.text = myStyleData?.title
-                cell.memberName.text = myStyleData?.member.name
+                cell.memberName.text = myStyleData?.member?.name
                 cell.memberStyleOne.text = myStyleData?.tag[0]
                 cell.memberStyleTwo.text = myStyleData?.tag[1]
                 cell.memberStyleThree.text = myStyleData?.tag[2]
@@ -181,7 +181,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource, M
             if memberStyleData.count != 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberOurTableViewCell", for: indexPath) as? MemberOurTableViewCell else { return UITableViewCell() }
                 cell.memberType.text = memberStyleData[indexPath.row].title
-                cell.memberName.text = memberStyleData[indexPath.row].member.name
+                cell.memberName.text = memberStyleData[indexPath.row].member?.name
                 cell.memberStyleOne.text = memberStyleData[indexPath.row].tag[0]
                 cell.memberStyleTwo.text = memberStyleData[indexPath.row].tag[1]
                 cell.memberStyleThree.text = memberStyleData[indexPath.row].tag[2]
@@ -205,7 +205,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource, M
             if myStyleData != nil {
                 let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
                 guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
-                nextVC.name = myStyleData?.member.name ?? ""
+                nextVC.name = myStyleData?.member?.name ?? ""
                 nextVC.imgURL = myStyleData?.iOSResultImage ?? ""
                 nextVC.style = myStyleData?.title ?? ""
                 nextVC.fromOurView = true
@@ -216,7 +216,7 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource, M
             if memberStyleData.count != 0 {
                 let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
                 guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
-                nextVC.name = memberStyleData[indexPath.row].member.name
+                nextVC.name = memberStyleData[indexPath.row].member?.name ?? ""
                 nextVC.imgURL = memberStyleData[indexPath.row].iOSResultImage
                 nextVC.style = memberStyleData[indexPath.row].title
                 nextVC.fromOurView = true

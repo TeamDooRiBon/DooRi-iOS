@@ -57,6 +57,24 @@ class CheckTripViewController: UIViewController {
         self.performSegue(withIdentifier: "unwindVC1", sender: self)
     }
     
+    func addMember() {
+        AddMemberService.shared.addMember(groupID: checkTripData?.groupID ?? "") { (response) in
+            switch(response)
+            {
+            case .success(let comeData):
+                print("success")
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
+    }
+    
     @IBAction func reInputCodeButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -68,6 +86,7 @@ class CheckTripViewController: UIViewController {
         naviVC.modalTransitionStyle = .crossDissolve
         naviVC.navigationBar.isHidden = true
         self.present(naviVC, animated: true)
+        addMember()
         self.dismiss(animated: true, completion: goToMain)
     }
 }
