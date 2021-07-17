@@ -28,133 +28,134 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjl-EG-1DC">
-                    <rect key="frame" x="18" y="226" width="338" height="102"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6s6-Tp-fsz">
+                    <rect key="frame" x="18" y="226.5" width="339" height="214"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 여행 추가할게요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEE-oj-YSQ">
-                            <rect key="frame" x="22" y="27" width="174" height="26"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjl-EG-1DC">
+                            <rect key="frame" x="0.0" y="0.0" width="339" height="102"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 여행 추가할게요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEE-oj-YSQ">
+                                    <rect key="frame" x="22" y="27" width="174" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26" id="P9s-aN-gUn"/>
+                                        <constraint firstAttribute="width" constant="174" id="Upe-LZ-JOw"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                    <color key="textColor" name="black1"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더 나은 여행을 위해 두리번과 함께하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-OU-MG6">
+                                    <rect key="frame" x="22" y="55" width="204" height="18"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="18" id="b9p-76-Ahi"/>
+                                        <constraint firstAttribute="width" constant="204" id="rEW-Oa-yY5"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                                    <color key="textColor" name="gray5"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnStart" translatesAutoresizingMaskIntoConstraints="NO" id="SCz-AP-c9R">
+                                    <rect key="frame" x="266" y="38" width="57" height="27"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="27" id="8ST-03-z2f"/>
+                                        <constraint firstAttribute="width" constant="57" id="Zdg-5V-DL8"/>
+                                    </constraints>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzh-LV-yeP">
+                                    <rect key="frame" x="0.0" y="0.0" width="339" height="102"/>
+                                    <connections>
+                                        <action selector="startButtonClicked:" destination="-1" eventType="touchUpInside" id="wyN-0q-IN0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="26" id="P9s-aN-gUn"/>
-                                <constraint firstAttribute="width" constant="174" id="Upe-LZ-JOw"/>
+                                <constraint firstAttribute="bottom" secondItem="Dzh-LV-yeP" secondAttribute="bottom" id="BVf-FJ-E1t"/>
+                                <constraint firstAttribute="bottom" secondItem="NFR-OU-MG6" secondAttribute="bottom" constant="29" id="Wm0-Kh-fyq"/>
+                                <constraint firstAttribute="trailing" secondItem="SCz-AP-c9R" secondAttribute="trailing" constant="16" id="dpz-Yq-D6v"/>
+                                <constraint firstItem="Dzh-LV-yeP" firstAttribute="leading" secondItem="Cjl-EG-1DC" secondAttribute="leading" id="dzZ-kI-8NS"/>
+                                <constraint firstItem="cEE-oj-YSQ" firstAttribute="top" secondItem="Cjl-EG-1DC" secondAttribute="top" constant="27" id="e32-wo-5i7"/>
+                                <constraint firstItem="SCz-AP-c9R" firstAttribute="top" secondItem="Cjl-EG-1DC" secondAttribute="top" constant="38" id="gtA-cE-DqK"/>
+                                <constraint firstItem="cEE-oj-YSQ" firstAttribute="leading" secondItem="Cjl-EG-1DC" secondAttribute="leading" constant="22" id="kTG-bV-yGi"/>
+                                <constraint firstItem="NFR-OU-MG6" firstAttribute="top" secondItem="cEE-oj-YSQ" secondAttribute="bottom" constant="2" id="m5a-rw-RAq"/>
+                                <constraint firstAttribute="trailing" secondItem="Dzh-LV-yeP" secondAttribute="trailing" id="osj-8n-kss"/>
+                                <constraint firstItem="NFR-OU-MG6" firstAttribute="leading" secondItem="Cjl-EG-1DC" secondAttribute="leading" constant="22" id="oz1-ph-w19"/>
+                                <constraint firstAttribute="height" constant="102" id="vDS-e4-y2t"/>
+                                <constraint firstItem="Dzh-LV-yeP" firstAttribute="top" secondItem="Cjl-EG-1DC" secondAttribute="top" id="vhC-kq-cAz"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
-                            <color key="textColor" name="black1"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더 나은 여행을 위해 두리번과 함께하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-OU-MG6">
-                            <rect key="frame" x="22" y="55" width="204" height="18"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9d-Mi-xJD">
+                            <rect key="frame" x="0.0" y="112" width="339" height="102"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다른 여행에 참여할게요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9s-mu-xhy">
+                                    <rect key="frame" x="22" y="27" width="174" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26" id="D6g-UO-yze"/>
+                                        <constraint firstAttribute="width" constant="174" id="afp-no-dkY"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                    <color key="textColor" name="black1"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동행과 함께 여행을 준비하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-bq-KaM">
+                                    <rect key="frame" x="22" y="55" width="204" height="18"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="18" id="HAk-Wj-V8k"/>
+                                        <constraint firstAttribute="width" constant="204" id="cW5-gn-OP3"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
+                                    <color key="textColor" name="gray5"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnGo" translatesAutoresizingMaskIntoConstraints="NO" id="owt-Xn-hC6">
+                                    <rect key="frame" x="266" y="38" width="57" height="27"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="57" id="ZsY-I9-vop"/>
+                                        <constraint firstAttribute="height" constant="27" id="l0S-BM-chv"/>
+                                    </constraints>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drc-h6-FT0">
+                                    <rect key="frame" x="0.0" y="0.0" width="339" height="102"/>
+                                    <connections>
+                                        <action selector="joinButtonClicked:" destination="-1" eventType="touchUpInside" id="iKt-2I-trG"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="18" id="b9p-76-Ahi"/>
-                                <constraint firstAttribute="width" constant="204" id="rEW-Oa-yY5"/>
+                                <constraint firstItem="o9s-mu-xhy" firstAttribute="top" secondItem="e9d-Mi-xJD" secondAttribute="top" constant="27" id="01m-wf-fvk"/>
+                                <constraint firstItem="drc-h6-FT0" firstAttribute="leading" secondItem="e9d-Mi-xJD" secondAttribute="leading" id="0kd-4B-fLJ"/>
+                                <constraint firstItem="drc-h6-FT0" firstAttribute="top" secondItem="e9d-Mi-xJD" secondAttribute="top" id="1vI-EJ-oyC"/>
+                                <constraint firstAttribute="height" constant="102" id="2iF-MD-YEs"/>
+                                <constraint firstItem="owt-Xn-hC6" firstAttribute="top" secondItem="e9d-Mi-xJD" secondAttribute="top" constant="38" id="7Ye-nR-2Np"/>
+                                <constraint firstAttribute="trailing" secondItem="drc-h6-FT0" secondAttribute="trailing" id="8wu-c8-WA6"/>
+                                <constraint firstItem="o9s-mu-xhy" firstAttribute="leading" secondItem="e9d-Mi-xJD" secondAttribute="leading" constant="22" id="BWZ-Zh-Wkd"/>
+                                <constraint firstItem="dWR-bq-KaM" firstAttribute="top" secondItem="o9s-mu-xhy" secondAttribute="bottom" constant="2" id="J6M-DV-Pq1"/>
+                                <constraint firstItem="dWR-bq-KaM" firstAttribute="leading" secondItem="e9d-Mi-xJD" secondAttribute="leading" constant="22" id="VSn-QH-mUy"/>
+                                <constraint firstAttribute="bottom" secondItem="drc-h6-FT0" secondAttribute="bottom" id="Zcn-Yy-FAh"/>
+                                <constraint firstAttribute="trailing" secondItem="owt-Xn-hC6" secondAttribute="trailing" constant="16" id="aWs-7e-qiL"/>
+                                <constraint firstAttribute="bottom" secondItem="dWR-bq-KaM" secondAttribute="bottom" constant="29" id="mjw-ui-PDV"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
-                            <color key="textColor" name="gray5"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnStart" translatesAutoresizingMaskIntoConstraints="NO" id="SCz-AP-c9R">
-                            <rect key="frame" x="265" y="38" width="57" height="27"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="27" id="8ST-03-z2f"/>
-                                <constraint firstAttribute="width" constant="57" id="Zdg-5V-DL8"/>
-                            </constraints>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzh-LV-yeP">
-                            <rect key="frame" x="0.0" y="0.0" width="338" height="102"/>
-                            <connections>
-                                <action selector="startButtonClicked:" destination="-1" eventType="touchUpInside" id="wyN-0q-IN0"/>
-                            </connections>
-                        </button>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Dzh-LV-yeP" secondAttribute="bottom" id="BVf-FJ-E1t"/>
-                        <constraint firstAttribute="bottom" secondItem="NFR-OU-MG6" secondAttribute="bottom" constant="29" id="Wm0-Kh-fyq"/>
-                        <constraint firstAttribute="trailing" secondItem="SCz-AP-c9R" secondAttribute="trailing" constant="16" id="dpz-Yq-D6v"/>
-                        <constraint firstItem="Dzh-LV-yeP" firstAttribute="leading" secondItem="Cjl-EG-1DC" secondAttribute="leading" id="dzZ-kI-8NS"/>
-                        <constraint firstItem="cEE-oj-YSQ" firstAttribute="top" secondItem="Cjl-EG-1DC" secondAttribute="top" constant="27" id="e32-wo-5i7"/>
-                        <constraint firstItem="SCz-AP-c9R" firstAttribute="top" secondItem="Cjl-EG-1DC" secondAttribute="top" constant="38" id="gtA-cE-DqK"/>
-                        <constraint firstItem="cEE-oj-YSQ" firstAttribute="leading" secondItem="Cjl-EG-1DC" secondAttribute="leading" constant="22" id="kTG-bV-yGi"/>
-                        <constraint firstItem="NFR-OU-MG6" firstAttribute="top" secondItem="cEE-oj-YSQ" secondAttribute="bottom" constant="2" id="m5a-rw-RAq"/>
-                        <constraint firstAttribute="trailing" secondItem="Dzh-LV-yeP" secondAttribute="trailing" id="osj-8n-kss"/>
-                        <constraint firstItem="NFR-OU-MG6" firstAttribute="leading" secondItem="Cjl-EG-1DC" secondAttribute="leading" constant="22" id="oz1-ph-w19"/>
-                        <constraint firstAttribute="height" constant="102" id="vDS-e4-y2t"/>
-                        <constraint firstItem="Dzh-LV-yeP" firstAttribute="top" secondItem="Cjl-EG-1DC" secondAttribute="top" id="vhC-kq-cAz"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9d-Mi-xJD">
-                    <rect key="frame" x="18" y="338" width="338" height="102"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다른 여행에 참여할게요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9s-mu-xhy">
-                            <rect key="frame" x="22" y="27" width="174" height="26"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="26" id="D6g-UO-yze"/>
-                                <constraint firstAttribute="width" constant="174" id="afp-no-dkY"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
-                            <color key="textColor" name="black1"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동행과 함께 여행을 준비하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-bq-KaM">
-                            <rect key="frame" x="22" y="55" width="204" height="18"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="18" id="HAk-Wj-V8k"/>
-                                <constraint firstAttribute="width" constant="204" id="cW5-gn-OP3"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
-                            <color key="textColor" name="gray5"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnGo" translatesAutoresizingMaskIntoConstraints="NO" id="owt-Xn-hC6">
-                            <rect key="frame" x="265" y="38" width="57" height="27"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="57" id="ZsY-I9-vop"/>
-                                <constraint firstAttribute="height" constant="27" id="l0S-BM-chv"/>
-                            </constraints>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drc-h6-FT0">
-                            <rect key="frame" x="0.0" y="0.0" width="338" height="102"/>
-                            <connections>
-                                <action selector="joinButtonClicked:" destination="-1" eventType="touchUpInside" id="iKt-2I-trG"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstItem="o9s-mu-xhy" firstAttribute="top" secondItem="e9d-Mi-xJD" secondAttribute="top" constant="27" id="01m-wf-fvk"/>
-                        <constraint firstItem="drc-h6-FT0" firstAttribute="leading" secondItem="e9d-Mi-xJD" secondAttribute="leading" id="0kd-4B-fLJ"/>
-                        <constraint firstItem="drc-h6-FT0" firstAttribute="top" secondItem="e9d-Mi-xJD" secondAttribute="top" id="1vI-EJ-oyC"/>
-                        <constraint firstAttribute="height" constant="102" id="2iF-MD-YEs"/>
-                        <constraint firstItem="owt-Xn-hC6" firstAttribute="top" secondItem="e9d-Mi-xJD" secondAttribute="top" constant="38" id="7Ye-nR-2Np"/>
-                        <constraint firstAttribute="trailing" secondItem="drc-h6-FT0" secondAttribute="trailing" id="8wu-c8-WA6"/>
-                        <constraint firstItem="o9s-mu-xhy" firstAttribute="leading" secondItem="e9d-Mi-xJD" secondAttribute="leading" constant="22" id="BWZ-Zh-Wkd"/>
-                        <constraint firstItem="dWR-bq-KaM" firstAttribute="top" secondItem="o9s-mu-xhy" secondAttribute="bottom" constant="2" id="J6M-DV-Pq1"/>
-                        <constraint firstItem="dWR-bq-KaM" firstAttribute="leading" secondItem="e9d-Mi-xJD" secondAttribute="leading" constant="22" id="VSn-QH-mUy"/>
-                        <constraint firstAttribute="bottom" secondItem="drc-h6-FT0" secondAttribute="bottom" id="Zcn-Yy-FAh"/>
-                        <constraint firstAttribute="trailing" secondItem="owt-Xn-hC6" secondAttribute="trailing" constant="16" id="aWs-7e-qiL"/>
-                        <constraint firstAttribute="bottom" secondItem="dWR-bq-KaM" secondAttribute="bottom" constant="29" id="mjw-ui-PDV"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </view>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.12549019607843137" green="0.125" blue="0.125" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="e9d-Mi-xJD" firstAttribute="top" secondItem="Cjl-EG-1DC" secondAttribute="bottom" constant="10" id="1LV-z8-qBo"/>
-                <constraint firstItem="e9d-Mi-xJD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="2vd-L1-zJR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e9d-Mi-xJD" secondAttribute="trailing" constant="19" id="I8I-Rn-Uqi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cjl-EG-1DC" secondAttribute="trailing" constant="19" id="Kvr-Rj-8pM"/>
-                <constraint firstItem="Cjl-EG-1DC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="Ylu-3a-1B7"/>
-                <constraint firstItem="e9d-Mi-xJD" firstAttribute="centerX" secondItem="Cjl-EG-1DC" secondAttribute="centerX" id="cHe-bL-PfG"/>
-                <constraint firstItem="Cjl-EG-1DC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="226" id="nmt-BH-Y2z"/>
+                <constraint firstItem="6s6-Tp-fsz" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="3SY-uj-sxB"/>
+                <constraint firstItem="6s6-Tp-fsz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="aiY-8S-Lqq"/>
+                <constraint firstItem="6s6-Tp-fsz" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="q9f-ug-ys2"/>
             </constraints>
             <point key="canvasLocation" x="44" y="75.112443778110944"/>
         </view>
