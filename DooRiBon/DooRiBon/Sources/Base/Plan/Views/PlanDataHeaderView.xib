@@ -36,7 +36,7 @@
                     <color key="textColor" name="gray5"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4b-fU-Tu6">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4b-fU-Tu6">
                     <rect key="frame" x="309" y="17.5" width="87" height="22"/>
                     <color key="backgroundColor" name="pointOrange"/>
                     <constraints>
@@ -54,12 +54,15 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="addTripButtonClicked:" destination="-1" eventType="touchUpInside" id="iEP-q7-08f"/>
+                        <action selector="addTripButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="JsK-Cq-ujO"/>
                     </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <accessibility key="accessibilityConfiguration">
+                <accessibilityTraits key="traits" notEnabled="YES"/>
+            </accessibility>
             <constraints>
                 <constraint firstItem="bb2-QR-vAx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="5y3-Pl-928"/>
                 <constraint firstItem="t4b-fU-Tu6" firstAttribute="centerY" secondItem="2VI-Hk-zZ1" secondAttribute="centerY" id="Idi-OZ-Kdk"/>
@@ -71,6 +74,10 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dayNumberLabel" destination="bb2-QR-vAx" id="Xc0-d3-Ar8"/>
+                <outlet property="detailDateLabel" destination="2VI-Hk-zZ1" id="ucM-4d-jV7"/>
+            </connections>
             <point key="canvasLocation" x="294" y="41"/>
         </view>
     </objects>

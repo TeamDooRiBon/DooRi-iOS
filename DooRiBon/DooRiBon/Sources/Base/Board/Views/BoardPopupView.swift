@@ -15,6 +15,7 @@ class BoardPopupView: UIView {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet weak var illustImage: UIImageView!
     @IBOutlet private weak var contentsTextView: UITextView!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var confirmButton: UIButton!
@@ -56,6 +57,13 @@ class BoardPopupView: UIView {
         return self
     }
     
+    func setIllust(_ text: String) -> Self {
+        if let illust = UIImage(named: text) {
+            illustImage.image = illust
+        }
+        return self
+    }
+    
     func setTextView(_ text: String) -> Self {
         contentsTextView.text = text
         contentsTextView.textColor = Colors.black2.color
@@ -65,6 +73,7 @@ class BoardPopupView: UIView {
     func getTextField() -> String {
         contentsTextView.text
     }
+
     
     func placeholderSetting() {
         contentsTextView.delegate = self

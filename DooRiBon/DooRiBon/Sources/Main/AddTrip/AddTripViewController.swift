@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SkeletonView
+
 class AddTripViewController: UIViewController {
     
     //MARK:- IBOutlet
@@ -31,6 +33,8 @@ class AddTripViewController: UIViewController {
     @IBOutlet weak var endDateView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var mainView: UIView!
+
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
     //MARK:- Variable
     
@@ -59,11 +63,19 @@ class AddTripViewController: UIViewController {
         bottomShadowSet()
         notificationSet()
         keyboardSet()
+        photoCollectionView.isScrollEnabled = false
+        setSkeletonUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionViewHeightConstraint.constant = photoCollectionView.collectionViewLayout.collectionViewContentSize.height
+        view.layoutIfNeeded()
     }
     
     //MARK:- IBAction
@@ -270,5 +282,32 @@ extension AddTripViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 7
+    }
+}
+
+// MARK: - 선택 이미지 로드 시간이 길어서, 로드 완료될때까지는 스켈레톤 UI로 대체
+extension AddTripViewController {
+    private func setSkeletonUI() {
+        photoCollectionView.isSkeletonable = true
+        let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
+        photoCollectionView.showAnimatedSkeleton(usingColor: Colors.backgroundBlue.color,
+                                                 animation: animation,
+                                                 transition: .crossDissolve(0.5) )
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.photoCollectionView.stopSkeletonAnimation()
+            self.photoCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+        }
+    }
+}
+
+// MARK: - 스켈레톤 델리게이트
+extension AddTripViewController: SkeletonCollectionViewDelegate, SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "photoCell"
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        photoUrlList.count
     }
 }

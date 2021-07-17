@@ -24,6 +24,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         // Initialization code
         checkImage.isHidden = true
         shadeView.alpha = 0
+        setSkeletonUI()
     }
     
     //MARK:- override var
@@ -32,7 +33,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         didSet {
             if isSelected && !selectCheck {
                 checkImage.isHidden = false
-                shadeView.alpha = 0.7
+                shadeView.alpha = 1
                 selectCheck = true
             } else if isSelected && selectCheck {
                 checkImage.isHidden = true
@@ -46,14 +47,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    override func prepareForReuse() {
-        
-    }
-    
     //MARK:- Function
     
     func imageSet(imageUrl: URL) {
         mainPhoto.kf.setImage(with: imageUrl)
     }
 
+    private func setSkeletonUI() {
+        isSkeletonable = true
+        mainPhoto.isSkeletonable = true
+    }
 }

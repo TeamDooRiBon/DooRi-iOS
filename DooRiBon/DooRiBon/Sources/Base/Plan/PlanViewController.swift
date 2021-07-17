@@ -50,7 +50,12 @@ class PlanViewController: UIViewController {
     static var profileData: [Profile] = []
     static var thisID: String = ""
     var schedule: ScheduleData?
-    var currentDate: String?
+    var currentDate: String? {
+        didSet {
+            getPlanData(date: currentDate!)
+        }
+    }
+    var selectedIndex: Int?
 
     // MARK: - Life Cycle
     
@@ -69,6 +74,7 @@ class PlanViewController: UIViewController {
 
         refreshTopView()
         getPlanData(date: currentDate!)
+        setCalendar(date: currentDate!)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -211,6 +217,7 @@ extension PlanViewController {
         dates = DateHelper.getDatesBetweenTwo(from: start, to: end)
         
         currentDate = DateHelper.isTodayInDates(dates: dates)
+        self.selectedIndex = dates.firstIndex(of: currentDate!)
         
         let _ = dates.map {
             dateData.append(DateHelper.getOnlyDate(date: $0))
@@ -380,6 +387,8 @@ extension PlanViewController: UICollectionViewDelegate {
         self.selectedDate = dates[indexPath.row]
         setCalendar(date: dates[indexPath.row])
         currentDate = dates[indexPath.row]
+        selectedIndex = indexPath.row
+        contentsTableView.reloadData()
     }
 }
 
@@ -452,6 +461,10 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = PlanDataHeaderView.loadFromXib()
         headerView.delegate = self
+        
+        headerView.dayNumberLabel.text = "Day \(selectedIndex! + 1)"
+        headerView.detailDateLabel.text = "\(dateSet(date: self.currentDate!))"
+
         return headerView
     }
     
@@ -472,6 +485,7 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PlanDataTableViewCell.cellId, for: indexPath) as? PlanDataTableViewCell else {
                 return UITableViewCell()
             }
+
             if indexPath.row == 0 {
                 cell.bottomLineView.isHidden = planData.count == 1
                 cell.topLineView.isHidden = true
@@ -494,5 +508,21 @@ extension PlanViewController: UITableViewDataSource, PlanHeaderViewDelegate {
             cell.selectionStyle = .none
             return cell
         }
+    }
+}
+
+extension PlanViewController {
+    private func dateSet(date: String) -> String{
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "ko_KR")
+        f.dateFormat = "yyyy-MM-dd"
+        let today = f.date(from: date)
+        var cal = Calendar(identifier: .gregorian)         // 그레고리 캘린더 선언
+        cal.locale = Locale(identifier: "ko_KR")
+        let dateComponents = cal.dateComponents([.weekday], from: today!)
+        guard let weekIndex = dateComponents.weekday else { return ""}
+        let dayOfWeek = cal.weekdaySymbols[weekIndex-1]
+        let strList = date.components(separatedBy: "-")
+        return "\(strList[0]) .\(strList[1]) .\(strList[2]) \(dayOfWeek.first!)요일"
     }
 }

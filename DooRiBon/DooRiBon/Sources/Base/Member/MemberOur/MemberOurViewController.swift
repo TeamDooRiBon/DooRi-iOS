@@ -70,7 +70,34 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
 
 //MARK:- Extension
 
-extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
+extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource, MemberTableCellDelegate {
+    func didDetailLookButtonTapppd(for cell: MemberOurTableViewCell) {
+        let indexPath = cell.indexPath
+        if indexPath?.section == 0 {
+            if myStyleData != nil {
+                let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+                guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+                nextVC.name = myStyleData?.member?.name ?? ""
+                nextVC.imgURL = myStyleData?.iOSResultImage ?? ""
+                nextVC.style = myStyleData?.title ?? ""
+                nextVC.fromOurView = true
+                nextVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        } else {
+            if memberStyleData.count != 0 {
+                let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+                guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+                nextVC.name = memberStyleData[indexPath?.row ?? 0].member?.name ?? ""
+                nextVC.imgURL = memberStyleData[indexPath?.row ?? 0].iOSResultImage
+                nextVC.style = memberStyleData[indexPath?.row ?? 0].title
+                nextVC.fromOurView = true
+                nextVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        }
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -142,6 +169,8 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.memberStyleThree.text = myStyleData?.tag[2]
                 cell.memberThumbNailImage.kf.setImage(with: URL(string: myStyleData?.thumbnail ?? ""))
                 cell.selectionStyle = .none
+                cell.delegate = self
+                cell.indexPath = indexPath
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberStartTableViewCell", for: indexPath) as? MemberStartTableViewCell else { return UITableViewCell() }
@@ -158,6 +187,8 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.memberStyleThree.text = memberStyleData[indexPath.row].tag[2]
                 cell.memberThumbNailImage.kf.setImage(with: URL(string: memberStyleData[indexPath.row].thumbnail))
                 cell.selectionStyle = .none
+                cell.delegate = self
+                cell.indexPath = indexPath
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCodeCopyTableViewCell", for: indexPath) as? MemberCodeCopyTableViewCell else { return UITableViewCell() }
@@ -205,6 +236,11 @@ extension MemberOurViewController: goToTestViewProtocol {
     }
 }
 extension MemberOurViewController {
+    enum UserState {
+        case my
+        case you
+    }
+    
     private func setupFirstData() {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         tripData = model

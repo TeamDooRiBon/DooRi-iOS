@@ -80,7 +80,6 @@
 		4073BC6E26986FEC00C5C7B0 /* MemberOurTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6D26986FEC00C5C7B0 /* MemberOurTableViewCell.swift */; };
 		407E640A269A139E007C8081 /* MemberStart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407E6409269A139E007C8081 /* MemberStart.xib */; };
 		407E640E269A1769007C8081 /* MemberCodeCopy.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407E640D269A1769007C8081 /* MemberCodeCopy.xib */; };
-		4081FE1926A1FD3C00BA3B38 /* UIVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4081FE1826A1FD3C00BA3B38 /* UIVC+Extension.swift */; };
 		408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D1ADE26957D8F00BBC454 /* CalendarCell.swift */; };
 		4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */; };
 		4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */; };
@@ -252,7 +251,6 @@
 		4073BC6D26986FEC00C5C7B0 /* MemberOurTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurTableViewCell.swift; sourceTree = "<group>"; };
 		407E6409269A139E007C8081 /* MemberStart.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberStart.xib; sourceTree = "<group>"; };
 		407E640D269A1769007C8081 /* MemberCodeCopy.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCodeCopy.xib; sourceTree = "<group>"; };
-		4081FE1826A1FD3C00BA3B38 /* UIVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Extension.swift"; sourceTree = "<group>"; };
 		408D1ADE26957D8F00BBC454 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripPlanStoryboard.storyboard; sourceTree = "<group>"; };
 		4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanViewController.swift; sourceTree = "<group>"; };
@@ -1046,7 +1044,6 @@
 				0A88A0132694A61800A4EBD0 /* UIApplication+Extension.swift */,
 				40253C8F269DB7250045620F /* UIImage+Extension.swift */,
 				BD5EF04826A070F000F9EB47 /* Date+Extension.swift */,
-				4081FE1826A1FD3C00BA3B38 /* UIVC+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1430,7 +1427,6 @@
 				399C700A269B27840017069C /* QuestionCell.swift in Sources */,
 				39E3595A269F00730077B946 /* GetMemberProfileDataService.swift in Sources */,
 				393691FC269EB84D003348A7 /* WithPopupView.swift in Sources */,
-				4081FE1926A1FD3C00BA3B38 /* UIVC+Extension.swift in Sources */,
 				40076923269EF4C1003C15ED /* MemberNaigationViewController.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
 				3976DFB6269D5AEC00062059 /* MainDataModel.swift in Sources */,
