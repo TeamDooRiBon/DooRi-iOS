@@ -43,8 +43,7 @@ class BottomSheetView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        if containerView.frame.origin.y == frame.maxY, !isPresented {
-            layoutIfNeeded()
+        if !isPresented {
             containerView.snp.updateConstraints {
                 $0.top.equalTo(snp.bottom).inset(containerView.frame.height)
             }
