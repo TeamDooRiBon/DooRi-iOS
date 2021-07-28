@@ -40,6 +40,7 @@ struct APIConstants {
     static let addMemberURL = baseURL + "/travel/:groupId"
 
     // MARK: - /auth/user URLs
+    static let loginURL = baseURL + "/auth/user"
     
     // MARK: - /schedule
     static let getSpecificDateURL = baseURL + "/schedule/daily/:groupId/:date"
