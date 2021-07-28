@@ -26,6 +26,8 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        checkAutoLogin()
+        print("유저 토큰 : \(UserDefaults.standard.string(forKey: "jwtToken"))")
     }
     
     //MARK:- Function
@@ -38,51 +40,22 @@ class LoginViewController: UIViewController {
         bottomContentView.layer.applyShadow(color: Colors.gray_black2.color, alpha: 0.08, x: 0, y: -4, blur: 10, spread: 0)
     }
     
+    func checkAutoLogin() {
+        if let access = UserDefaults.standard.string(forKey: "jwtToken") {
+            goToMain()
+        }
+    }
     
-    //MARK:- IBACtion
+    func goToMain() {
+        let mainSB = UIStoryboard(name: "MainStoryboard", bundle: nil)
+        if let mainVC = mainSB.instantiateViewController(identifier: "MainViewController") as? MainViewController {
+            mainVC.modalPresentationStyle = .overFullScreen
+            self.present(mainVC, animated: true, completion: nil)
+        }
+    }
     
-//    @IBAction func getUserInform(_ sender: Any) {
-//        UserApi.shared.me() {(user, error) in
-//            if let error = error {
-//                print(error)
-//            }
-//            else {
-//                print("me() success.")
-//                if let user = user {
-//                    print(user)
-//                }
-//            }
-//        }
-//    }
-//
-//    @IBAction func tokenInform(_ sender: Any) {
-//        UserApi.shared.accessTokenInfo(completion: {(accessTokenInfo, error) in
-//            if let error = error {
-//                print(error)
-//            } else {
-//                print("accessTokenInfo() success.")
-//                print("토큰 정보 : \(accessTokenInfo)")
-//            }
-//        })
-//    }
-//
-//    @IBAction func testBtn(_ sender: Any) {
-//        if (AuthApi.hasToken()) {
-//            UserApi.shared.accessTokenInfo { (_, error) in
-//                if let error = error {
-//                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true {
-//                        print("로그인 필요")
-//                    } else {
-//                        print("기타 에러")
-//                    }
-//                } else {
-//                    print("토큰 유효성 체크 성공(필요 시 토큰 갱신됨)")
-//                }
-//            }
-//        } else {
-//            print("로그인 필요")
-//        }
-//    }
+    
+    //MARK:- IBAction
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         if (UserApi.isKakaoTalkLoginAvailable()) {
@@ -91,8 +64,24 @@ class LoginViewController: UIViewController {
                     print(error)
                 } else {
                     print("loginWithKakaoTalk() success.")
-                    if let data = oauthToken {
-                        print(data)
+                    if let kakaoData = oauthToken {
+                        LoginService.shared.kakaoLogin(accessToken: kakaoData.accessToken, refreshToken: kakaoData.refreshToken) { result in
+                            switch result {
+                            case .success(let loginData):
+                                print("success")
+                                if let userData = loginData as? LoginResponse {
+                                    UserDefaults.standard.set(userData.data.token, forKey: "jwtToken")
+                                }
+                            case .requestErr(_):
+                                print("requestErr")
+                            case .pathErr:
+                                print("pathErr")
+                            case .serverErr:
+                                print("serverErr")
+                            case .networkFail:
+                                print("networkFail")
+                            }
+                        }
                     }
                 }
             }

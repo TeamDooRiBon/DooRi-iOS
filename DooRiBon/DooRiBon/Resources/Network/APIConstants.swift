@@ -8,6 +8,7 @@
 // MARK: 해당 파일 안에는 API 관련 상수들을 추가해주세요!!
 // - 싱글턴으로 변수를 생성해주세요.
 // - ex. static let baseURL = "https://www.example.com"
+import UIKit
 struct APIConstants {
     // MARK: - Headers
     
@@ -23,7 +24,7 @@ struct APIConstants {
 
     // MARK: - Keys
     
-    static let jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjBmMWRkYTA0N2IzOTIyMDJjY2RjMDQ0In0sImlhdCI6MTYyNjg0NTY5NywiZXhwIjoxNjI3MjA1Njk3fQ.grPcs4IC2IsTkfrCsWUIykGbeohlj7GOtHcGhN4oP1I"
+    static let jwtToken = UserDefaults.standard.string(forKey: "jwtToken")
     
     // MARK: - URLs
     

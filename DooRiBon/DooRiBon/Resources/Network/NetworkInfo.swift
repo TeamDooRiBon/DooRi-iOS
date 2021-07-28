@@ -24,7 +24,7 @@ struct NetworkInfo {
     static var headerWithToken: HTTPHeaders {
         [
             NetworkHeaderKey.contentType.rawValue: APIConstants.applicationJSON,
-            NetworkHeaderKey.auth.rawValue: token
+            NetworkHeaderKey.auth.rawValue: token ?? ""
         ]
     }
 }
