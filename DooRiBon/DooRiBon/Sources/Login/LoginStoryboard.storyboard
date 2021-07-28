@@ -82,7 +82,7 @@
                                 <rect key="frame" x="123" y="186" width="171" height="119.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작은 움직임이 만드는 우리다운 여행" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LD-9T-N59">
-                                <rect key="frame" x="84" y="568" width="246" height="18"/>
+                                <rect key="frame" x="104" y="568" width="206" height="18"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
                                 <color key="textColor" name="white9"/>
                                 <nil key="highlightedColor"/>
@@ -116,6 +116,7 @@
                             <constraint firstAttribute="bottom" secondItem="s7d-ko-47o" secondAttribute="bottom" id="NJz-Xf-bVW"/>
                             <constraint firstItem="a50-CU-ykj" firstAttribute="top" secondItem="Cwc-An-9jw" secondAttribute="bottom" constant="10" id="T9O-Yx-gg3"/>
                             <constraint firstItem="4LD-9T-N59" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="84" id="Wzw-gl-hFZ"/>
+                            <constraint firstItem="4LD-9T-N59" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dc2-Yc-d9y"/>
                             <constraint firstItem="s7d-ko-47o" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="e08-BG-fyy"/>
                             <constraint firstItem="4LD-9T-N59" firstAttribute="top" secondItem="zLL-lM-cBm" secondAttribute="bottom" priority="250" constant="179" id="eZP-Kn-dBB"/>
                             <constraint firstItem="a50-CU-ykj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="fIO-O2-qhz"/>
@@ -127,6 +128,12 @@
                             <constraint firstItem="Cwc-An-9jw" firstAttribute="top" secondItem="4LD-9T-N59" secondAttribute="bottom" constant="30" id="vfB-1z-uQf"/>
                             <constraint firstItem="uHA-T7-GHT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zXx-FP-YGf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="l4t-x7-l4v"/>
+                                <exclude reference="Wzw-gl-hFZ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="bottomContentView" destination="a50-CU-ykj" id="WYR-Tg-Gp1"/>

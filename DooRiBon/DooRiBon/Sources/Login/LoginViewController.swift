@@ -99,7 +99,7 @@ class LoginViewController: UIViewController {
         } else {
             PopupView.loadFromXib()
                 .setTitle("카카오톡이 설치되어있지 않습니다.")
-                .setDescription("카카오 로그인은 카카오톡이 필요합니다.")
+                .setDescription("카카오톡 로그인은 카카오톡이 필요합니다.")
                 .setConfirmButton()
                 .present { _ in
                     self.dismiss(animated: true, completion: nil)
