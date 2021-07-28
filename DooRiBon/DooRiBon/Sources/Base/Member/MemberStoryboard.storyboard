@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0kD-uJ-eQH">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,55 +17,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppL-7M-lBW">
-                                <rect key="frame" x="0.0" y="44" width="375" height="37"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="Olz-Z5-Ivh"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPl-b9-03C" customClass="PagerTab" customModule="DooRiBon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="190" width="375" height="539"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-Px-0Nt">
-                                <rect key="frame" x="0.0" y="81" width="375" height="109"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ld-ms-rFm" customClass="TripTopView" customModule="DooRiBon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="109" id="eix-6w-QIU"/>
+                                    <constraint firstAttribute="height" constant="190" id="MdH-mx-s57"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pKD-2S-Oes"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2NQ-Px-0Nt" firstAttribute="leading" secondItem="pKD-2S-Oes" secondAttribute="leading" id="0WX-7U-Grx"/>
+                            <constraint firstItem="5ld-ms-rFm" firstAttribute="top" secondItem="Lal-YW-PVx" secondAttribute="top" id="03E-TW-hK5"/>
                             <constraint firstItem="pKD-2S-Oes" firstAttribute="bottom" secondItem="lPl-b9-03C" secondAttribute="bottom" id="4Ch-ic-aaj"/>
-                            <constraint firstItem="pKD-2S-Oes" firstAttribute="trailing" secondItem="2NQ-Px-0Nt" secondAttribute="trailing" id="AJd-TB-k0C"/>
+                            <constraint firstItem="pKD-2S-Oes" firstAttribute="trailing" secondItem="5ld-ms-rFm" secondAttribute="trailing" id="A7D-rK-iqX"/>
                             <constraint firstItem="lPl-b9-03C" firstAttribute="leading" secondItem="pKD-2S-Oes" secondAttribute="leading" id="Afh-nG-9nm"/>
-                            <constraint firstItem="pKD-2S-Oes" firstAttribute="trailing" secondItem="ppL-7M-lBW" secondAttribute="trailing" id="BFd-YU-eHz"/>
                             <constraint firstItem="pKD-2S-Oes" firstAttribute="trailing" secondItem="lPl-b9-03C" secondAttribute="trailing" id="Eg1-lT-O6c"/>
-                            <constraint firstItem="ppL-7M-lBW" firstAttribute="top" secondItem="pKD-2S-Oes" secondAttribute="top" id="JNK-gF-wyb"/>
-                            <constraint firstItem="2NQ-Px-0Nt" firstAttribute="top" secondItem="ppL-7M-lBW" secondAttribute="bottom" id="cBA-IP-kIx"/>
-                            <constraint firstItem="ppL-7M-lBW" firstAttribute="leading" secondItem="pKD-2S-Oes" secondAttribute="leading" id="eOO-gJ-bbZ"/>
-                            <constraint firstItem="lPl-b9-03C" firstAttribute="top" secondItem="2NQ-Px-0Nt" secondAttribute="bottom" id="qeI-ml-fFP"/>
+                            <constraint firstItem="lPl-b9-03C" firstAttribute="top" secondItem="5ld-ms-rFm" secondAttribute="bottom" id="Hg2-vr-s9B"/>
+                            <constraint firstItem="5ld-ms-rFm" firstAttribute="leading" secondItem="pKD-2S-Oes" secondAttribute="leading" id="gJV-n6-AA3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="멤버" image="iconPeopleInactiveIos" selectedImage="iconPeopleActiveIos" id="9SQ-1c-JHc">
-                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="그룹" image="iconPeopleInactiveIos" selectedImage="iconMembersActive" id="9SQ-1c-JHc"/>
+                    <navigationItem key="navigationItem" id="jcf-2a-Q0S"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="pagerTab" destination="lPl-b9-03C" id="5oA-Vo-P6F"/>
+                        <outlet property="topView" destination="5ld-ms-rFm" id="pWh-qw-qCK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-rt-0DT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="138.91625615763547"/>
+            <point key="canvasLocation" x="1594.4000000000001" y="138.91625615763547"/>
+        </scene>
+        <!--Member Naigation View Controller-->
+        <scene sceneID="lJh-xa-jvw">
+            <objects>
+                <navigationController storyboardIdentifier="MemberNaigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="0kD-uJ-eQH" customClass="MemberNaigationViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QOk-3e-yOP">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yNh-y9-x4p" kind="relationship" relationship="rootViewController" id="MT9-dD-Wyr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jgc-5O-AlV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="732" y="139"/>
         </scene>
     </scenes>
     <resources>
-        <image name="iconPeopleActiveIos" width="24.333333969116211" height="24"/>
+        <image name="iconMembersActive" width="30" height="30"/>
         <image name="iconPeopleInactiveIos" width="24.333333969116211" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -7,52 +7,102 @@
 
 import UIKit
 
+import Kingfisher
+import SkeletonView
+
 class MainViewController: UIViewController {
     
     // MARK: - 아울렛
     
-    // 컬렉션, 테이블뷰
+    /// 컬렉션, 테이블뷰
     @IBOutlet weak var comeTripCollectionView: UICollectionView!
     @IBOutlet weak var lastTripTableView: UITableView!
     
-    // 라벨
+    /// 라벨
     @IBOutlet weak var mainTitleLabel: UILabel!
-    @IBOutlet weak var nowTripDateLabel: UILabel!
-    @IBOutlet weak var nowTripTitleLabel: UILabel!
     @IBOutlet weak var comeTripMenuLabel: UILabel!
     @IBOutlet weak var lastTripMenuLabel: UILabel!
     @IBOutlet weak var styleTripMenuLabel: UILabel!
     
-    // 뷰
+    // 버튼
+    @IBOutlet weak var startNewTripButton: UIButton!
+    
+    /// 뷰
+    @IBOutlet weak var mainContentView: UIView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var indicatorBar: UIView!
     @IBOutlet weak var styleTripView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var nowTripImageView: UIImageView!
+    @IBOutlet weak var nowTripStateView: UIView!
+    @IBOutlet weak var nowTripLocationView: UIView!
+    @IBOutlet weak var nowTripMemberView: UIView!
+    @IBOutlet weak var gradientImageView: UIImageView!
+    
+    @IBOutlet weak var nowTripDateLabel: UILabel!
+    @IBOutlet weak var nowTripTitleLabel: UILabel!
+    @IBOutlet weak var nowTripLocationLabel: UILabel!
+    @IBOutlet weak var nowTripMembersLabel: UILabel!
+    @IBOutlet weak var nowTripStateLabel: UILabel!
+
+    /// 제약
+    @IBOutlet weak var lastTripTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var indicatorBarWidthConstraint: NSLayoutConstraint!
     
     // MARK: - 배열
-    var comeTripList : [ComeTripListDataModel] = []
-    var lastTripList : [LastTripListDataModel] = []
+    var nowTripList: [Group] = []
+    var comeTripList : [Group] = []
+    var lastTripList : [Group] = []
     
-    var currentIndex : Int = 0
-    var textCount: Int = 0
-    
+    var allTripData: MainDataModel?
+    let formatter = DateFormatter()
+    let calendar = Calendar.current
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUI()
-        setComeTripList()
-        setLastTripList()
-//        scrollViewDidEndDecelerating(comeTripCollectionView)
-        
+        shadowSet()
         collectionViewSet()
         tableViewSet()
-        shadowSet()
-        
+        registerNoti()
+    }
+    
+    // MARK: - viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setTripData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupSkeletionUI(.show)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.lastTripTableViewHeightConstraint.constant = self.lastTripTableView.contentSize.height
+        self.view.layoutIfNeeded()
+
+        self.indicatorBarWidthConstraint.constant = self.backgroundView.frame.width/CGFloat(max(1, self.comeTripList.count))
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - 액션
+    
+    @IBAction func unwindVC1 (segue : UIStoryboardSegue) {}
+    
+    @IBAction func nowTripClicked(_ sender: Any) {
+        let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
+        if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
+            tripVC.modalPresentationStyle = .overFullScreen
+            tripVC.tripData = nowTripList[0]
+            present(tripVC, animated: true, completion: nil)
+        }
+    }
     
     // 새로운 여행 시작하기 : 팝업 StartTrip 뷰컨으로 이동 -> 팝업과 뒷 화면을 연결해야함
     @IBAction func StartTripButtonClicked(_ sender: Any) {
@@ -67,38 +117,107 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func goStyleTestButtonClicked(_ sender: Any) {
+        let testStortboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
+        if let testVC = testStortboard.instantiateViewController(identifier: "StyleQuestionViewController") as? StyleQuestionViewController {
+            testVC.modalPresentationStyle = .overFullScreen
+            testVC.disMissCheck = true
+            self.present(testVC, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func mypageButtonClicked(_ sender: Any) {
+        guard let vc = UIStoryboard(name: "MyPageStoryboard", bundle: nil).instantiateViewController(identifier: "MyPageViewController") as? MyPageViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func registerNoti() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didRecieveTestNotification(_:)), name: NSNotification.Name("dismissTabBar"), object: nil)
+    }
+    
+    @objc private func didRecieveTestNotification(_ notification: Notification) {
+        setTripData()
+    }
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/3
+        guard scrollView === comeTripCollectionView, scrollView.contentOffset.x > 0 else { return }
+        self.indicatorBar.frame.origin.x = scrollView.contentOffset.x/scrollView.frame.width * self.indicatorBar.frame.width
     }
     
     
     // MARK: - 함수
     // StartTrip 팝업을 dismiss하는 함수
-    @objc func dismissAlertController(){
+    @objc func dismissAlertController() {
         self.dismiss(animated: true, completion: nil)
     }
     
     
     // 두근두근, 다가오는 여행 부분 데이터
-    func setComeTripList()
+    func setTripData()
     {
-        comeTripList.append(contentsOf: [
-        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-4", tripTitle: "티미티미 파리 여행",
-                              date: "2020.05.21 - 05.23"),
-        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-3", tripTitle: "티미티미 파리 여행",
-                              date: "2020.05.21 - 05.23"),
-        ComeTripListDataModel(comeTripImageName: "rectangle322", dday: "D-2", tripTitle: "티미티미 파리 여행",
-                              date: "2020.05.21 - 05.23")
-        ])
+        GetMainDataService.shared.getPersonInfo{ [self] (response) in
+            switch(response)
+            {
+            case .success(let comeData):
+                if let comeTrip = comeData as? MainDataModel {
+                    allTripData = comeTrip
+                    comeTripCollectionView.reloadData()
+//                    lastTripTableView.reloadData()
+                    setDevideTripData()
+                    setupSkeletionUI(.hide)
+                }
+                
+            case .requestErr(let message):
+                print("requestERR", message)
+            case .pathErr:
+                print("pathERR")
+            case .serverErr:
+                print("serverERR")
+            case .networkFail:
+                print("networkERR")
+            }
+        }
     }
     
-    // 추억 속 지난 여행 부분 데이터
-    func setLastTripList()
+    func setDevideTripData()
     {
-        lastTripList.append(contentsOf: [
-        LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
-        LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),
-        LastTripListDataModel(tripImageName: "imgLast3", title: "티미들과 파리 여행!"),])
+        if allTripData?.data?[0].when == "nowTravels",
+            let list = allTripData?.data?[0].group {
+            nowTripList = list
+        }
+        if allTripData?.data?[1].when == "comeTravels",
+            let list = allTripData?.data?[1].group {
+            comeTripList = list
+        }
+        if allTripData?.data?[2].when == "endTravels",
+            let list = allTripData?.data?[2].group {
+            lastTripList = list
+            lastTripTableView.reloadData()
+        }
+        setNowTripList()
+    }
+    
+    // 번들님은 지금 여행 중이에요! 부분 데이터
+    func setNowTripList()
+    {
+        formatter.dateFormat = "yyyy.MM.dd"
+        let start = formatter.string(from: nowTripList[0].startDate)
+        let end = formatter.string(from: nowTripList[0].endDate)
+        nowTripDateLabel.text = "\(start) - \(end)"
+        self.nowTripTitleLabel.text = nowTripList[0].travelName
+        self.nowTripLocationLabel.text = nowTripList[0].destination
+        self.nowTripMembersLabel.text = nowTripList.first?.members.memberText
+        let url = URL(string: nowTripList[0].image)
+        nowTripImageView.layer.cornerRadius = 30
+        nowTripImageView.layer.maskedCorners = [
+            .layerMinXMinYCorner, .layerMaxXMinYCorner
+        ]
+        nowTripImageView.kf.setImage(with: url) { [weak self] error in
+            UIView.animate(withDuration: 0.3) {
+                self?.gradientImageView.alpha = 1
+            }
+        }
     }
     
     // 컬렉션 뷰 부분
@@ -118,19 +237,31 @@ class MainViewController: UIViewController {
         lastTripTableView.delegate = self
         lastTripTableView.dataSource = self
         // automaticDimension
-        lastTripTableView.estimatedRowHeight = 133
+        lastTripTableView.estimatedRowHeight = 150
         lastTripTableView.rowHeight = UITableView.automaticDimension
+
+        let footerView = UIView()
+        footerView.frame.size.height = 1
+        lastTripTableView.tableFooterView = footerView
     }
     
     // 쉐도우
     func shadowSet()
     {
-        comeTripCollectionView.layer.applyShadow(color: .black, alpha: 0.06, x: 3, y: 3, blur: 10, spread: 0)
         styleTripView.layer.applyShadow(color: .black, alpha: 0.1, x: 0, y: 4, blur: 6, spread: 0)
     }
     
     func setUI() {
         self.navigationController?.navigationBar.isHidden = true
+
+        // for skeleton
+        self.nowTripStateView.isHidden = true
+        self.nowTripLocationLabel.isHidden = true
+        self.nowTripMembersLabel.isHidden = true
+    }
+    
+    func dDayCalculate(from date: Date) -> Int {
+        return calendar.dateComponents([.day], from: date, to: Date()).day!
     }
 }
 
@@ -144,10 +275,29 @@ extension MainViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let comeTripCell = collectionView.dequeueReusableCell(withReuseIdentifier: ComeTripCollectionViewCell.identifier, for: indexPath) as? ComeTripCollectionViewCell else {return UICollectionViewCell()}
         
-        comeTripCell.setData(imageName: comeTripList[indexPath.row].comeTripImageName,
-                             dday: comeTripList[indexPath.row].dday,
-                             title: comeTripList[indexPath.row].tripTitle,
-                             date: comeTripList[indexPath.row].date)
+        formatter.dateFormat = "yyyy.MM.dd"
+        let start = formatter.string(from: comeTripList[indexPath.row].startDate)
+        formatter.dateFormat = "MM.dd"
+        let end = formatter.string(from: comeTripList[indexPath.row].endDate)
+        let dday = dDayCalculate(from: comeTripList[indexPath.row].startDate)
+        if (dday == 0) {
+            comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
+                                 dday: "D-Day!",
+                                 title: comeTripList[indexPath.row].travelName,
+                                 date: "\(start) - \(end)",
+                                 location: comeTripList[indexPath.row].destination,
+                                 members: comeTripList[indexPath.row].members.memberText)
+        } else {
+            comeTripCell.setData(imageName: comeTripList[indexPath.row].image,
+                                 dday: "D\(dday)",
+                                 title: comeTripList[indexPath.row].travelName,
+                                 date: "\(start) - \(end)",
+                                 location: comeTripList[indexPath.row].destination,
+                                 members: comeTripList[indexPath.row].members.memberText)
+        }
+
+        comeTripCell.layer.applyShadow(color: .black, alpha: 0.06, x: 3, y: 3, blur: 10, spread: 0)
+        comeTripCell.hideAnimation()
         return comeTripCell
     }
     
@@ -155,58 +305,136 @@ extension MainViewController: UICollectionViewDataSource
 
 extension MainViewController: UICollectionViewDelegate
 {
-   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
+        if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
+            tripVC.modalPresentationStyle = .overFullScreen
+            tripVC.tripData = comeTripList[indexPath.row]
+            present(tripVC, animated: true, completion: nil)
+        }
+    }
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = UIScreen.main.bounds.width      // 현재 사용하는 기기의 width를 가져와서 저장
-        
-        let cellWidth = width * (340/375)            // 제플린에서의 비율만큼 곱해서 width를 결정
-        let cellHeight = cellWidth * (140/340)        // 제플린에서의 비율만큼 곱해서 height를 결정
-        
-        return CGSize(width: cellWidth, height: cellHeight)     // 정해진 가로/세로를 CGSize형으로 return
+
+        return CGSize.init(
+            width: comeTripCollectionView.bounds.width - 18 * 2,
+            height: comeTripCollectionView.bounds.height - 10)   // 정해진 가로/세로를 CGSize형으로 return
     }
     
     // ContentInset 메서드: Cell에서 Content 외부에 존재하는 Inset의 크기를 결정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.zero    //  Inset을 사용하지 않는다는 뜻
+        return UIEdgeInsets(top: 0, left: 18, bottom: 10, right: 18)
     }
     
     // minimumLineSpacing 메서드: Cell 들의 위, 아래 간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 18 * 2
     }
     
     // minimumInteritemSpacing 메서드: Cell 들의 좌,우 간격 지정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 35
+        return 0
     }
 }
 
 // MARK: - 익스텐션_테이블뷰
 
-extension MainViewController: UITableViewDelegate
+extension MainViewController: UITableViewDataSource, UITableViewDelegate
 {
-
-}
-
-extension MainViewController: UITableViewDataSource
-{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tripStortboard = UIStoryboard(name: "TripStoryboard", bundle: nil)
+        if let tripVC = tripStortboard.instantiateViewController(identifier: "TripViewController") as? TripViewController {
+            tripVC.modalPresentationStyle = .overFullScreen
+            tripVC.tripData = lastTripList[indexPath.row]
+            present(tripVC, animated: true, completion: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lastTripList.count
+        return min(lastTripList.count, 3)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let tripCell = tableView.dequeueReusableCell(withIdentifier: LastTripTableViewCell.identifier, for: indexPath) as? LastTripTableViewCell else {return UITableViewCell() }
-        
-        tripCell.setdata(imageName: lastTripList[indexPath.row].tripImageName,
-                         title: lastTripList[indexPath.row].title)
-        
+        formatter.dateFormat = "yyyy. MM"
+        let date = formatter.string(from: lastTripList[indexPath.row].startDate)
+        tripCell.setdata(imageName: lastTripList[indexPath.row].image,
+                         title: lastTripList[indexPath.row].travelName,
+                         location: lastTripList[indexPath.row].destination,
+                         member: lastTripList[indexPath.row].members.memberText,
+                         tripMonth: date)
+        tripCell.selectionStyle = .none
         return tripCell
     }
 }
 
+// MARK: - UI (UI 관련 작업)
+
+extension MainViewController {
+    enum SkeletonState {
+        case show
+        case hide
+    }
+    
+    // Skeleton UI
+    private func setupSkeletionUI(_ type: SkeletonState) {
+        SkeletonAppearance.default.tintColor = Colors.backgroundBlue.color
+        
+        if type == .show {
+            // MARK: - 진행중인 여행
+            
+            self.comeTripCollectionView.showAnimatedSkeleton()
+            self.lastTripTableView.showAnimatedSkeleton()
+            
+            [nowTripImageView, nowTripStateView, nowTripDateLabel,
+             nowTripTitleLabel, nowTripLocationView, nowTripMemberView].forEach { $0?.showAnimatedSkeleton() }
+            
+            // MARK: - 각 카테고리 라벨
+            [mainTitleLabel, comeTripMenuLabel, lastTripMenuLabel, styleTripMenuLabel].forEach { $0?.showAnimatedSkeleton() }
+            
+            // MARK: - 다가오는 여행
+            backgroundView.showAnimatedSkeleton()
+            styleTripView.showAnimatedSkeleton()
+
+            self.nowTripStateView.isHidden = true
+            self.nowTripLocationLabel.isHidden = true
+            self.nowTripMembersLabel.isHidden = true
+            self.gradientImageView.alpha = 0
+        } else {
+            comeTripCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            lastTripTableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            
+            [nowTripImageView, nowTripStateView, nowTripDateLabel,
+             nowTripTitleLabel, nowTripLocationView, nowTripMemberView].forEach {
+                $0?.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+             }
+            
+            [mainTitleLabel, comeTripMenuLabel, lastTripMenuLabel, styleTripMenuLabel].forEach {
+                $0?.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+             }
+
+            backgroundView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            styleTripView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.5))
+            
+            nowTripLocationLabel.isHidden = false
+            nowTripMembersLabel.isHidden = false
+            nowTripStateView.isHidden = false
+
+            mainTitleLabel.text = "번들님은\n지금 여행 중이에요!✈️"
+            comeTripMenuLabel.text = "두근두근, 다가오는 여행"
+            lastTripMenuLabel.text = "추억 속 지난 여행"
+            styleTripMenuLabel.text = "번들님은\n어떤 여행을 좋아하세요?"
+        }
+    }
+}
+
+fileprivate extension Array where Element == String {
+    var memberText: String {
+        var memberText = first ?? ""
+        memberText += count == 1 ? "님과 함께" : "님 외 \(count - 1)명과 함께"
+        return memberText
+    }
+}

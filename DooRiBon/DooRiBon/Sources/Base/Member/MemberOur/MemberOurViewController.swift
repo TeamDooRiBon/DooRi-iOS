@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MemberOurViewController: UIViewController, PageComponentProtocol {
     var pageTitle: String = "우리들"
@@ -16,16 +17,20 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
     
     //MARK:- Variable
     
-    var memberStyleList: [MemberOurTableViewModel] = []
-    var myStyleList: [MemberOurTableViewModel] = []
+    var tripData: Group?
+    private var myStyleData: MemberTestResultData?
+    private var memberStyleData: [MemberTestResultData] = []
     
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myStyleListSet()
-        memberStyleListSet()
+        setupFirstData()
         tableViewSet()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getStyleData()
     }
     
     //MARK:- Function
@@ -36,44 +41,85 @@ class MemberOurViewController: UIViewController, PageComponentProtocol {
         memberOurTableView.register(NibConstants.MemberStartViewNib, forCellReuseIdentifier: "MemberStartView")
         memberOurTableView.register(NibConstants.MemberStartNib, forCellReuseIdentifier: "MemberStartTableViewCell")
         memberOurTableView.register(NibConstants.MemberCodeCopyNib, forCellReuseIdentifier: "MemberCodeCopyTableViewCell")
-        memberOurTableView.backgroundColor = .clear
     }
     
-    func myStyleListSet() {
-        myStyleList.append(contentsOf: [
-            MemberOurTableViewModel(name: "한상진", type: "철두철미 계획가", styleOne: "계획도장깨기", styleTwo: "여행리더", styleThree: "어깨으쓱")
-        ])
-    }
-    
-    func memberStyleListSet() {
-        memberStyleList.append(contentsOf: [
-            MemberOurTableViewModel(name: "유지인", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test"),
-            MemberOurTableViewModel(name: "김인우", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test"),
-            MemberOurTableViewModel(name: "박유진", type: "test", styleOne: "test", styleTwo: "test", styleThree: "test")
-        ])
+    private func getStyleData() {
+        startLoading()
+        guard let groupId = tripData?._id else { return }
+        GetMemberStyleDataService.shared.getMemberData(groupID: groupId)
+        { [weak self] (response) in
+            switch response {
+            case .success(let data):
+                if let totalData = data as? MemberStyleDataResponse {
+                    self?.myStyleData = totalData.data?.myResult
+                    self?.memberStyleData = totalData.data?.othersResult ?? []
+                    self?.memberOurTableView.reloadData()
+                    self?.endLoading()
+                }
+            case .requestErr(_):
+                print("requestErr")
+                self?.endLoading()
+            case .serverErr:
+                print("serverErr")
+                self?.endLoading()
+            case .networkFail:
+                print("networkFail")
+                self?.endLoading()
+            case .pathErr:
+                print("pathErr")
+                self?.endLoading()
+            }
+        }
     }
     
 }
 
 //MARK:- Extension
 
-extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
+extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource, MemberTableCellDelegate {
+    func didDetailLookButtonTapppd(for cell: MemberOurTableViewCell) {
+        let indexPath = cell.indexPath
+        if indexPath?.section == 0 {
+            if myStyleData != nil {
+                let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+                guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+                nextVC.name = myStyleData?.member?.name ?? ""
+                nextVC.imgURL = myStyleData?.iOSResultImage ?? ""
+                nextVC.style = myStyleData?.title ?? ""
+                nextVC.fromOurView = true
+                nextVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        } else {
+            if memberStyleData.count != 0 {
+                let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+                guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+                nextVC.name = memberStyleData[indexPath?.row ?? 0].member?.name ?? ""
+                nextVC.imgURL = memberStyleData[indexPath?.row ?? 0].iOSResultImage
+                nextVC.style = memberStyleData[indexPath?.row ?? 0].title
+                nextVC.fromOurView = true
+                nextVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        }
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if memberStyleList.count != 0 {
-            switch section {
-            case 0:
-                return myStyleList.count
-            case 1:
-                return memberStyleList.count
-            default:
-                return 0
-            }
-        } else {
+        switch section {
+        case 0:
             return 1
+        case 1:
+            if memberStyleData.count == 0 {
+                return 1
+            } else {
+                return memberStyleData.count
+            }
+        default:
+            return 0
         }
     }
     
@@ -84,12 +130,10 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.memberHeaderLabel.text = "나의 여행 유형"
             headerView.memberHeaderLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 16)
             headerView.memberHeaderLabel.textColor = Colors.black2.color
-            headerView.memberHeaderButton.isHidden = myStyleList.count == 0
         case 1:
             headerView.memberHeaderLabel.text = "함께하는 멤버들의 여행 유형"
             headerView.memberHeaderLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 16)
             headerView.memberHeaderLabel.textColor = Colors.black2.color
-            headerView.memberHeaderButton.isHidden = true
         default:
             return UIView()
         }
@@ -101,52 +145,110 @@ extension MemberOurViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if myStyleList.count != 0 {
-            return 113
-        } else {
-            switch indexPath.section {
-            case 0:
+        switch indexPath.section {
+        case 0:
+            if myStyleData != nil {
+                return 113
+            } else {
                 return 226
-            case 1:
-                return 123
-            default:
-                return 0
             }
+        case 1:
+            if memberStyleData.count != 0 {
+                return 113
+            } else {
+                return 120
+            }
+        default:
+            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            if myStyleList.count != 0 {
+            if myStyleData != nil {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberOurTableViewCell", for: indexPath) as? MemberOurTableViewCell else { return UITableViewCell() }
-                cell.memberType.text = myStyleList[indexPath.row].memberType
-                cell.memberName.text = myStyleList[indexPath.row].memberName
-                cell.memberStyleOne.text = myStyleList[indexPath.row].memberStyleOne
-                cell.memberStyleTwo.text = myStyleList[indexPath.row].memberStyleTwo
-                cell.memberStyleThree.text = myStyleList[indexPath.row].memberStyleThree
+                cell.memberType.text = myStyleData?.title
+                cell.memberName.text = myStyleData?.member?.name
+                cell.memberStyleOne.text = myStyleData?.tag[0]
+                cell.memberStyleTwo.text = myStyleData?.tag[1]
+                cell.memberStyleThree.text = myStyleData?.tag[2]
+                cell.memberThumbNailImage.kf.setImage(with: URL(string: myStyleData?.thumbnail ?? ""))
                 cell.selectionStyle = .none
+                cell.delegate = self
+                cell.indexPath = indexPath
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberStartTableViewCell", for: indexPath) as? MemberStartTableViewCell else { return UITableViewCell() }
+                cell.delegate = self
                 return cell
             }
         case 1:
-            if memberStyleList.count != 0 {
+            if memberStyleData.count != 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberOurTableViewCell", for: indexPath) as? MemberOurTableViewCell else { return UITableViewCell() }
-                cell.memberType.text = memberStyleList[indexPath.row].memberType
-                cell.memberName.text = memberStyleList[indexPath.row].memberName
-                cell.memberStyleOne.text = memberStyleList[indexPath.row].memberStyleOne
-                cell.memberStyleTwo.text = memberStyleList[indexPath.row].memberStyleTwo
-                cell.memberStyleThree.text = memberStyleList[indexPath.row].memberStyleThree
+                cell.memberType.text = memberStyleData[indexPath.row].title
+                cell.memberName.text = memberStyleData[indexPath.row].member?.name
+                cell.memberStyleOne.text = memberStyleData[indexPath.row].tag[0]
+                cell.memberStyleTwo.text = memberStyleData[indexPath.row].tag[1]
+                cell.memberStyleThree.text = memberStyleData[indexPath.row].tag[2]
+                cell.memberThumbNailImage.kf.setImage(with: URL(string: memberStyleData[indexPath.row].thumbnail))
                 cell.selectionStyle = .none
+                cell.delegate = self
+                cell.indexPath = indexPath
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCodeCopyTableViewCell", for: indexPath) as? MemberCodeCopyTableViewCell else { return UITableViewCell() }
+                cell.groupID = tripData?._id ?? ""
                 return cell
             }
         default:
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if myStyleData != nil {
+                let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+                guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+                nextVC.name = myStyleData?.member?.name ?? ""
+                nextVC.imgURL = myStyleData?.iOSResultImage ?? ""
+                nextVC.style = myStyleData?.title ?? ""
+                nextVC.fromOurView = true
+                nextVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        } else {
+            if memberStyleData.count != 0 {
+                let testReusltStoryboard = UIStoryboard(name: "StyleTestResultStoryboard", bundle: nil)
+                guard let nextVC = testReusltStoryboard.instantiateViewController(identifier: "StyleTestResultViewController") as? StyleTestResultViewController else { return }
+                nextVC.name = memberStyleData[indexPath.row].member?.name ?? ""
+                nextVC.imgURL = memberStyleData[indexPath.row].iOSResultImage
+                nextVC.style = memberStyleData[indexPath.row].title
+                nextVC.fromOurView = true
+                nextVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        }
+    }
+}
+extension MemberOurViewController: goToTestViewProtocol {
+    func goToTestView() {
+        let styleQuestionStoryboard = UIStoryboard(name: "StyleQuestionStoryboard", bundle: nil)
+        guard let nextVC = styleQuestionStoryboard.instantiateViewController(identifier: "StyleQuestionViewController") as? StyleQuestionViewController else { return }
+        nextVC.hidesBottomBarWhenPushed = true
+        nextVC.thisID = tripData?._id ?? ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+}
+extension MemberOurViewController {
+    enum UserState {
+        case my
+        case you
+    }
+    
+    private func setupFirstData() {
+        guard let model = (self.tabBarController as! TripViewController).tripData else { return }
+        tripData = model
     }
 }

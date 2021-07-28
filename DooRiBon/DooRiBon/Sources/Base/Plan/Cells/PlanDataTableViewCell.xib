@@ -49,7 +49,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXa-pn-Jzv">
-                        <rect key="frame" x="41" y="14" width="45" height="12"/>
+                        <rect key="frame" x="41" y="14" width="45" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="45" id="Qnt-9X-erh"/>
                         </constraints>
@@ -70,7 +70,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2304 버스 정류장 찾아보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJN-yM-OX4">
-                                <rect key="frame" x="16" y="31" width="168" height="12"/>
+                                <rect key="frame" x="16" y="31" width="168" height="13"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
                                 <color key="textColor" name="gray5"/>
                                 <nil key="highlightedColor"/>

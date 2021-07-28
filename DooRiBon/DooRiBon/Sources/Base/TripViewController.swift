@@ -27,6 +27,7 @@ class TripViewController: UITabBarController {
     // MARK: - Properties
     
     let appearance = UITabBarItem.appearance()
+    var tripData: Group?
 
     // MARK: - Life Cycles
     
@@ -36,6 +37,18 @@ class TripViewController: UITabBarController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        setNoti()
+    }
+    
+    private func setNoti() {
+        NotificationCenter.default.post(name: NSNotification.Name("dismissTabBar"), object: nil, userInfo: nil)
+    }
 
     // MARK: - Configure
 
@@ -49,7 +62,7 @@ class TripViewController: UITabBarController {
         tabBar.layer.applyShadow(color: Colors.black2.color, alpha: 0.08, x: 0, y: -4, blur: 10)
 
         // 탭바 속 아이템 간격 조정
-        tabBar.itemWidth = 60
+        tabBar.itemWidth = 88
         tabBar.itemPositioning = .centered
         
         let selectedColor   = Colors.pointBlue.color
@@ -62,7 +75,7 @@ class TripViewController: UITabBarController {
                                            NSAttributedString.Key.font: UIFont.SpoqaHanSansNeo(.regular, size: 12)], for: .selected)
         
         // 타이틀 위치 조정
-        appearance.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 8)
+//        appearance.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 8)
     }
 }
 
@@ -73,14 +86,5 @@ extension UITabBar {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().backgroundColor = UIColor.white
-    }
-}
-
-// MARK: - TabBar 높이 세팅 위한 클래스
-class CustomTabBar : UITabBar {
-    override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = 82
-        return sizeThatFits
     }
 }

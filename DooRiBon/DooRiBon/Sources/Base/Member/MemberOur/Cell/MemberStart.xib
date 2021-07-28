@@ -24,7 +24,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="339" height="226"/>
                     <color key="backgroundColor" name="white8"/>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTestStart" translatesAutoresizingMaskIntoConstraints="NO" id="hb3-Cc-jT3">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTestStart" translatesAutoresizingMaskIntoConstraints="NO" id="hb3-Cc-jT3">
                     <rect key="frame" x="0.0" y="0.0" width="339" height="226"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -56,6 +56,9 @@
                             <real key="value" value="21"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="goToStyleTestButtonClicked:" destination="QWe-l4-Ecl" eventType="touchUpInside" id="KfW-HQ-GjU"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="G3g-ZW-vwb"/>
@@ -63,12 +66,12 @@
             <constraints>
                 <constraint firstItem="Jib-ZP-3Nc" firstAttribute="bottom" secondItem="G3g-ZW-vwb" secondAttribute="bottom" id="0Fq-ZU-JyJ"/>
                 <constraint firstItem="G3g-ZW-vwb" firstAttribute="trailing" secondItem="70X-cf-Wgw" secondAttribute="trailing" constant="74" id="BpF-uQ-ENm"/>
-                <constraint firstItem="hb3-Cc-jT3" firstAttribute="leading" secondItem="G3g-ZW-vwb" secondAttribute="leading" id="CJ2-fR-Fiq"/>
+                <constraint firstItem="hb3-Cc-jT3" firstAttribute="leading" secondItem="QWe-l4-Ecl" secondAttribute="leading" id="CJ2-fR-Fiq"/>
                 <constraint firstItem="Jib-ZP-3Nc" firstAttribute="top" secondItem="QWe-l4-Ecl" secondAttribute="top" id="Fez-5G-Smf"/>
-                <constraint firstItem="G3g-ZW-vwb" firstAttribute="trailing" secondItem="hb3-Cc-jT3" secondAttribute="trailing" id="GtA-VF-zoH"/>
+                <constraint firstAttribute="trailing" secondItem="hb3-Cc-jT3" secondAttribute="trailing" id="GtA-VF-zoH"/>
                 <constraint firstItem="Kuv-wA-d94" firstAttribute="leading" secondItem="G3g-ZW-vwb" secondAttribute="leading" constant="42" id="J4O-cv-07x"/>
                 <constraint firstItem="G3g-ZW-vwb" firstAttribute="trailing" secondItem="Kuv-wA-d94" secondAttribute="trailing" constant="42" id="O3b-zA-pdg"/>
-                <constraint firstItem="G3g-ZW-vwb" firstAttribute="bottom" secondItem="hb3-Cc-jT3" secondAttribute="bottom" id="QUs-7e-e7n"/>
+                <constraint firstAttribute="bottom" secondItem="hb3-Cc-jT3" secondAttribute="bottom" id="QUs-7e-e7n"/>
                 <constraint firstItem="hb3-Cc-jT3" firstAttribute="top" secondItem="QWe-l4-Ecl" secondAttribute="top" id="X06-gl-PvI"/>
                 <constraint firstItem="Jib-ZP-3Nc" firstAttribute="leading" secondItem="G3g-ZW-vwb" secondAttribute="leading" id="bbs-zd-GjV"/>
                 <constraint firstItem="Jib-ZP-3Nc" firstAttribute="trailing" secondItem="G3g-ZW-vwb" secondAttribute="trailing" id="eff-oo-SXW"/>

@@ -108,10 +108,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ced-s3-2ud">
-                                                    <rect key="frame" x="316" y="16" width="40" height="17"/>
+                                                    <rect key="frame" x="313" y="16" width="43" height="17"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArU-bu-Cfh">
-                                                            <rect key="frame" x="10" y="0.0" width="20" height="17"/>
+                                                            <rect key="frame" x="13" y="0.0" width="17.5" height="17"/>
                                                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                                             <color key="textColor" name="white9"/>
                                                             <nil key="highlightedColor"/>
@@ -119,16 +119,16 @@
                                                     </subviews>
                                                     <color key="backgroundColor" name="pointOrange"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="ArU-bu-Cfh" secondAttribute="trailing" constant="10" id="DLW-jA-UEj"/>
+                                                        <constraint firstItem="ArU-bu-Cfh" firstAttribute="centerY" secondItem="ced-s3-2ud" secondAttribute="centerY" id="6GT-DC-ZAm"/>
                                                         <constraint firstAttribute="height" constant="18" id="HYf-cM-U5P"/>
-                                                        <constraint firstAttribute="width" constant="40" id="QA7-ch-9Mr"/>
+                                                        <constraint firstAttribute="width" constant="43" id="IFo-2h-eug"/>
                                                         <constraint firstAttribute="bottom" secondItem="ArU-bu-Cfh" secondAttribute="bottom" id="XPt-Te-qjR"/>
                                                         <constraint firstItem="ArU-bu-Cfh" firstAttribute="top" secondItem="ced-s3-2ud" secondAttribute="top" id="b4q-ha-k2g"/>
-                                                        <constraint firstItem="ArU-bu-Cfh" firstAttribute="leading" secondItem="ced-s3-2ud" secondAttribute="leading" constant="10" id="yAI-ra-ccb"/>
+                                                        <constraint firstItem="ArU-bu-Cfh" firstAttribute="centerX" secondItem="ced-s3-2ud" secondAttribute="centerX" id="u7k-DM-m7G"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
+                                                            <real key="value" value="0.0"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -153,6 +153,7 @@
                                         <connections>
                                             <outlet property="blueView" destination="LM7-bE-4y8" id="XNf-W2-AMh"/>
                                             <outlet property="numberLabel" destination="8JO-Sm-sbs" id="jXv-my-qYx"/>
+                                            <outlet property="orangeView" destination="ced-s3-2ud" id="cke-VA-PEl"/>
                                             <outlet property="peopleCountLabel" destination="ArU-bu-Cfh" id="3Za-4U-DGd"/>
                                             <outlet property="questionLabel" destination="kFv-SP-vdq" id="t7B-Hw-XrY"/>
                                         </connections>

@@ -29,6 +29,8 @@ class AddDateViewController: UIViewController {
     var endString = ""
     var startDateLabelData = ""
     var endDateLabelData = ""
+    var startParsing = ""
+    var endParsing = ""
     
     //MARK:- Life Cycle
     
@@ -62,7 +64,7 @@ class AddDateViewController: UIViewController {
     }
     
     @IBAction func selectButtonClicked(_ sender: Any) {
-        self.delegate?.startEndDateLabelSet(start: startDateLabelData, end: endDateLabelData)
+        self.delegate?.startEndDateLabelSet(start: startDateLabelData, end: endDateLabelData, startParsing: startParsing, endParsing: endParsing)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -109,7 +111,7 @@ class AddDateViewController: UIViewController {
 //MARK:- Protocol
 
 protocol dateLabelProtocol {
-    func startEndDateLabelSet(start: String, end: String)
+    func startEndDateLabelSet(start: String, end: String, startParsing: String, endParsing: String)
 }
 
 //MARK:- Extension
@@ -143,7 +145,9 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
             guard let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day, let weekIndex = dateComponents.weekday else { return }
             let dayOfWeek = dooriCalendar.weekdaySymbols[weekIndex-1]
             startString = String(format: "%d. %02d. %02d", year, month, day)
+            print(startString)
             startDateLabelData = "\(startString) \(dayOfWeek)"
+            startParsing = String(format: "%d. %02d. %02d", year, month, day+1)
             self.selectButton.setTitle(startString, for: .normal)
             self.selectButton.setTitleColor(Colors.gray4.color, for: .normal)
             self.selectButton.backgroundColor = Colors.gray7.color
@@ -162,6 +166,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
                 let dateComponents = dooriCalendar.dateComponents([.year, .month, .day, .weekday], from: date)
                 guard let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day else { return }
                 startString = String(format: "%d. %02d. %02d", year, month, day)
+                startParsing = String(format: "%d. %02d. %02d", year, month, day+1)
                 self.selectButton.setTitle("\(startString)", for: .normal)
                 self.configureVisibleCells()
                 return
@@ -178,6 +183,7 @@ extension AddDateViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
             let dayOfWeek = dooriCalendar.weekdaySymbols[weekIndex-1]
             endString = String(format: "%d. %02d. %02d", year, month, day)
             endDateLabelData = "\(endString) \(dayOfWeek)"
+            endParsing = String(format: "%d. %02d. %02d", year, month, day+1)
             self.selectButton.setTitle("\(startString) - \(endString) 등록하기", for: .normal)
             self.selectButton.setTitleColor(Colors.pointOrange.color, for: .normal)
             self.selectButton.backgroundColor = Colors.white9.color

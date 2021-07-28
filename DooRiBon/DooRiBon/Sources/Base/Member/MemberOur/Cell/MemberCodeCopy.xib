@@ -50,6 +50,9 @@
                             <real key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="codeCopyButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="frF-2m-QnD"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -64,9 +67,15 @@
                 <constraint firstItem="3Qe-mQ-ksL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JrA-Le-c6R"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3Qe-mQ-ksL" secondAttribute="trailing" id="QiP-5N-ZQE"/>
                 <constraint firstItem="3Qe-mQ-ksL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nNO-dg-a7G"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="iR2-M8-Kq7" secondAttribute="bottom" constant="31.5" id="tYG-4R-yiR"/>
                 <constraint firstItem="RLY-Gg-SxH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="23" id="xGh-jU-65g"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="tYG-4R-yiR"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="informLabel" destination="RLY-Gg-SxH" id="v4q-8x-gNv"/>
             </connections>

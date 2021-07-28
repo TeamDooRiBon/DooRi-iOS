@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S7L-3Y-fNE">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -12,7 +12,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="TripViewController" automaticallyAdjustsScrollViewInsets="NO" id="S7L-3Y-fNE" customClass="TripViewController" customModule="DooRiBon" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NAz-DL-ieH" customClass="CustomTabBar" customModule="DooRiBon" customModuleProvider="target">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NAz-DL-ieH">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -21,52 +21,41 @@
                         <segue destination="Kdz-Ih-ixc" kind="relationship" relationship="viewControllers" id="M8x-vM-Vfa"/>
                         <segue destination="vbX-Sf-isF" kind="relationship" relationship="viewControllers" id="Kfy-l0-tsO"/>
                         <segue destination="njv-6N-C8E" kind="relationship" relationship="viewControllers" id="KuJ-1B-fOZ"/>
-                        <segue destination="ReP-nd-1EK" kind="relationship" relationship="viewControllers" id="IHB-7I-A7G"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tv-gM-6Yo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-410" y="119"/>
         </scene>
-        <!--MemberViewController-->
+        <!--MemberNaigationViewController-->
         <scene sceneID="jH8-oS-boT">
             <objects>
-                <viewControllerPlaceholder storyboardName="MemberStoryboard" referencedIdentifier="MemberViewController" id="Kdz-Ih-ixc" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MemberStoryboard" referencedIdentifier="MemberNaigationViewController" id="Kdz-Ih-ixc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="wnY-NA-IVm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Xy-KI-yzc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="504" y="-80"/>
         </scene>
-        <!--PlanViewController-->
+        <!--PlanNavigationViewController-->
         <scene sceneID="RAy-TE-1W6">
             <objects>
-                <viewControllerPlaceholder storyboardName="PlanStoryboard" referencedIdentifier="PlanViewController" id="vbX-Sf-isF" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="PlanStoryboard" referencedIdentifier="PlanNavigationViewController" id="vbX-Sf-isF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Tu8-v5-akO"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcH-AF-Byp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487" y="15"/>
         </scene>
-        <!--BoardViewController-->
+        <!--BoardNavigationViewController-->
         <scene sceneID="doN-KS-Otl">
             <objects>
-                <viewControllerPlaceholder storyboardName="BoardStoryboard" referencedIdentifier="BoardViewController" id="njv-6N-C8E" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="BoardStoryboard" referencedIdentifier="BoardNavigationViewController" id="njv-6N-C8E" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="f0h-CO-aQH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eM-0X-Yt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487" y="119"/>
-        </scene>
-        <!--StoreViewController-->
-        <scene sceneID="yAA-RM-0FB">
-            <objects>
-                <viewControllerPlaceholder storyboardName="StoreStoryboard" referencedIdentifier="StoreViewController" id="ReP-nd-1EK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8eB-Do-qwu"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3cv-As-LTk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="492" y="222"/>
         </scene>
     </scenes>
 </document>

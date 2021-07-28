@@ -7,12 +7,17 @@
 
 import UIKit
 
+import Kingfisher
+
 class LastTripTableViewCell: UITableViewCell {
 
     static let identifier : String = "LastTripTableViewCell"
     
     @IBOutlet weak var tripImageView: UIImageView!
     @IBOutlet weak var tripTitleLabel: UILabel!
+    @IBOutlet weak var lastLocationLabel: UILabel!
+    @IBOutlet weak var lastMemberLabel: UILabel!
+    @IBOutlet weak var tripMonthLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,10 +30,20 @@ class LastTripTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setdata(imageName: String, title: String)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
+    func setdata(imageName: String, title: String, location: String, member: String, tripMonth: String)
     {
-        tripImageView.image = UIImage(named: imageName)
+        tripImageView.layer.cornerRadius = tripImageView.frame.height / 2
+        if let url = URL(string: imageName) {
+            tripImageView.kf.setImage(with: url)
+        }
         tripTitleLabel.text = title
+        lastLocationLabel.text = location
+        lastMemberLabel.text = member
+        tripMonthLabel.text = tripMonth
     }
 
 }

@@ -27,6 +27,9 @@ class JoinTripViewController: UIViewController {
         }
     }
     
+    var joinData: [JoinTripData]?
+    
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var codeStackView: UIStackView!
@@ -59,13 +62,13 @@ class JoinTripViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func joinTripButtonClicked(_ sender: Any) {
-        
+        let inviteCode = checkInviteCode()
+        getTripData(inviteCode: inviteCode)
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
 }
 
 // MARK: - Set up
@@ -186,6 +189,69 @@ extension JoinTripViewController {
             activateTotalArea()
         }
     }
+    
+    // MARK: - Service
+    private func getTripData(inviteCode: String) {
+        startLoading()
+        JoinTripDataService.shared.getTripInfoWithInviteCode(inviteCode: inviteCode) { [weak self] (response) in
+            switch(response)
+            {
+            case .success(let data):
+                self?.rightCodeCheck(data as! JoinTripData)
+            case .requestErr(let message):
+                print(message)
+                self?.endLoading()
+            case .pathErr:
+                self?.endLoading()
+                PopupView.loadFromXib()
+                    .setTitle("잘못된 참여코드입니다.")
+                    .setDescription("다시 입력 해주세요.")
+                    .setConfirmButton()
+                    .present { event in
+                        if event == .confirm {
+
+                        }
+                    }
+            case .serverErr:
+                self?.endLoading()
+                PopupView.loadFromXib()
+                    .setTitle("잘못된 참여코드입니다.")
+                    .setDescription("다시 입력 해주세요.")
+                    .setConfirmButton()
+                    .present { event in
+                        if event == .confirm {
+
+                        }
+                    }
+            case .networkFail:
+                self?.endLoading()
+                PopupView.loadFromXib()
+                    .setTitle("네트워크 에러입니다.")
+                    .setConfirmButton()
+                    .present { event in
+                        if event == .confirm {
+
+                        }
+                    }
+            }
+        }
+    }
+    
+    private func checkInviteCode() -> String {
+        var inviteCode = ""
+        codeTextField.forEach {
+            if let code = $0.text {
+                inviteCode += code
+            }
+        }
+        return inviteCode
+    }
+    
+    func rightCodeCheck(_ data: JoinTripData) {
+        guard let vc = UIStoryboard(name: "CheckTripStoryboard", bundle: nil).instantiateViewController(identifier: "CheckTripViewController") as? CheckTripViewController else { return }
+        vc.checkTripData = data
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - TextField Delegate
@@ -194,14 +260,10 @@ extension JoinTripViewController: UITextFieldDelegate {
     // MARK: - 숫자 1개만 입력 가능하도록 제한
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        /// 숫자만 입력 가능하도록 - 사실 이 코드는 없어도 될 거라고 생각은 하지만 최대한 안전하게
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        
         /// textField 델리게이트에서 현재 input창에 입력된 값을 구하고 싶은 경우 - 글자 수 구하는 데 사용
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
         
-        return allowedCharacters.isSuperset(of: characterSet) && newString.length <= 1
+        return newString.length <= 1
     }
 }

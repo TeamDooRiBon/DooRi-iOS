@@ -7,15 +7,21 @@
 
 import UIKit
 
+protocol BoardPopupProtocol {
+    func sendContentsData(contents: String)
+}
+
 class BoardPopupView: UIView {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet weak var illustImage: UIImageView!
     @IBOutlet private weak var contentsTextView: UITextView!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var confirmButton: UIButton!
 
     private var eventHandler: ((_ type: EventType) -> Void)?
+    var delegate: BoardPopupProtocol?
 
     enum EventType {
         case confirm
@@ -51,10 +57,29 @@ class BoardPopupView: UIView {
         return self
     }
     
+    func setIllust(_ text: String) -> Self {
+        if let illust = UIImage(named: text) {
+            illustImage.image = illust
+        }
+        return self
+    }
+    
+    func setTextView(_ text: String) -> Self {
+        contentsTextView.text = text
+        contentsTextView.textColor = Colors.black2.color
+        return self
+    }
+    
+    func getTextField() -> String {
+        contentsTextView.text
+    }
+
+    
     func placeholderSetting() {
         contentsTextView.delegate = self
         contentsTextView.text = "Ex. 인생사진 찍어오기!"
         contentsTextView.textColor = Colors.gray5.color
+        contentsTextView.textContainerInset = UIEdgeInsets(top: 12, left: 15, bottom: 19, right: 30);
         let tapDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.addGestureRecognizer(tapDismiss)
     }
@@ -73,6 +98,7 @@ class BoardPopupView: UIView {
     }
     
     @IBAction func confirmButtonClicked(_ sender: Any) {
+        delegate?.sendContentsData(contents: self.contentsTextView.text)
         closeView(.confirm)
     }
     
