@@ -24,7 +24,7 @@ struct APIConstants {
 
     // MARK: - Keys
     
-    static let jwtToken = UserDefaults.standard.string(forKey: "jwtToken")
+    static let jwtToken = KeyChain.load(key: "token")
     
     // MARK: - URLs
     

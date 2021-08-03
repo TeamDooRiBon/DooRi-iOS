@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackgroundImg" translatesAutoresizingMaskIntoConstraints="NO" id="s7d-ko-47o">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="-10" width="414" height="906"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a50-CU-ykj">
                                 <rect key="frame" x="0.0" y="670" width="414" height="226"/>
@@ -120,7 +120,7 @@
                             <constraint firstItem="s7d-ko-47o" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="e08-BG-fyy"/>
                             <constraint firstItem="4LD-9T-N59" firstAttribute="top" secondItem="zLL-lM-cBm" secondAttribute="bottom" priority="250" constant="179" id="eZP-Kn-dBB"/>
                             <constraint firstItem="a50-CU-ykj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="fIO-O2-qhz"/>
-                            <constraint firstItem="s7d-ko-47o" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="gQN-Nn-r5q"/>
+                            <constraint firstItem="s7d-ko-47o" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="-10" id="gQN-Nn-r5q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4LD-9T-N59" secondAttribute="trailing" constant="84" id="l4t-x7-l4v"/>
                             <constraint firstItem="zLL-lM-cBm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="142" id="niM-bY-Iqu"/>
                             <constraint firstAttribute="bottom" secondItem="a50-CU-ykj" secondAttribute="bottom" id="p5j-VB-NUE"/>

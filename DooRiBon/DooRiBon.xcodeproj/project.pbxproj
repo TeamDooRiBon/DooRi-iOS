@@ -85,6 +85,7 @@
 		4073BC6E26986FEC00C5C7B0 /* MemberOurTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073BC6D26986FEC00C5C7B0 /* MemberOurTableViewCell.swift */; };
 		407E640A269A139E007C8081 /* MemberStart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407E6409269A139E007C8081 /* MemberStart.xib */; };
 		407E640E269A1769007C8081 /* MemberCodeCopy.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407E640D269A1769007C8081 /* MemberCodeCopy.xib */; };
+		4088426326B97B3F0014124B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088426226B97B3F0014124B /* KeyChain.swift */; };
 		408D1ADF26957D8F00BBC454 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D1ADE26957D8F00BBC454 /* CalendarCell.swift */; };
 		4091C6392692265E009EDB60 /* AddTripPlanStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */; };
 		4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */; };
@@ -261,6 +262,7 @@
 		4073BC6D26986FEC00C5C7B0 /* MemberOurTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOurTableViewCell.swift; sourceTree = "<group>"; };
 		407E6409269A139E007C8081 /* MemberStart.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberStart.xib; sourceTree = "<group>"; };
 		407E640D269A1769007C8081 /* MemberCodeCopy.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCodeCopy.xib; sourceTree = "<group>"; };
+		4088426226B97B3F0014124B /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		408D1ADE26957D8F00BBC454 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		4091C6382692265E009EDB60 /* AddTripPlanStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTripPlanStoryboard.storyboard; sourceTree = "<group>"; };
 		4091C63A2692266A009EDB60 /* AddTripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripPlanViewController.swift; sourceTree = "<group>"; };
@@ -887,6 +889,7 @@
 				BD75C2F9268B58E000C4F233 /* APIConstants.swift */,
 				BD1725CA269CB39F000FB89B /* NetworkInfo.swift */,
 				BD1725C8269CA04F000FB89B /* NetworkResult.swift */,
+				4088426226B97B3F0014124B /* KeyChain.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1472,6 +1475,7 @@
 				40076923269EF4C1003C15ED /* MemberNaigationViewController.swift in Sources */,
 				BD55F44126919C2B004E7114 /* JoinTripViewController.swift in Sources */,
 				40708BE926B127B500259527 /* LoginDataModel.swift in Sources */,
+				4088426326B97B3F0014124B /* KeyChain.swift in Sources */,
 				3976DFB6269D5AEC00062059 /* MainDataModel.swift in Sources */,
 				409E26D42699D91E001C5CED /* MemberHeaderView.swift in Sources */,
 				4091C63B2692266A009EDB60 /* AddTripPlanViewController.swift in Sources */,

@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
     }
     
     func checkAutoLogin() {
-        if UserDefaults.standard.string(forKey: "jwtToken") != nil {
+        if KeyChain.load(key: "token") != nil {
             goToMain()
         }
     }
@@ -54,7 +54,6 @@ class LoginViewController: UIViewController {
     }
     
     func login() {
-        print("Login!!")
         UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
             if let error = error {
                 print(error)
@@ -66,7 +65,9 @@ class LoginViewController: UIViewController {
                         case .success(let loginData):
                             print("success")
                             if let userData = loginData as? LoginResponse {
-                                UserDefaults.standard.set(userData.data.token, forKey: "jwtToken")
+                                if let tokenData = userData.data.token.data(using: String.Encoding.utf8) {
+                                    KeyChain.save(key: "token", data: tokenData)
+                                }
                             }
                             print("액세스 토큰 : \(kakaoData.accessToken)")
                             print("리프레시 토큰 : \(kakaoData.refreshToken)")
