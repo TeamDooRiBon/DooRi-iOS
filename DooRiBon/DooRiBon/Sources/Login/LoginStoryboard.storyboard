@@ -151,7 +151,7 @@
         <image name="loginLogoImg" width="132" height="119.5"/>
         <image name="loginTextImg" width="185" height="64.5"/>
         <namedColor name="kakao">
-            <color red="1" green="0.85882352941176465" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.85900002717971802" blue="0.15299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pointBlue">
             <color red="0.41999998688697815" green="0.56099998950958252" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

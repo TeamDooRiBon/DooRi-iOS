@@ -29,7 +29,7 @@ struct APIConstants {
     // MARK: - URLs
     
     // Base URL
-    static let baseURL = "http://13.209.82.176:5000"
+    static let baseURL = "http://13.124.221.142:5000"
 
     // MARK: - /travel URLs
     static let tripURL = baseURL + "/travel"
