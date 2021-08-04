@@ -23,8 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            let rootViewController = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+            var rootViewController = UIStoryboard(name: "LoginStoryboard", bundle: nil)
             .instantiateViewController(identifier: "LoginViewController")
+            if KeyChain.load(key: "token") != nil {
+                rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
+            }
             let mainViewController = UINavigationController(rootViewController: rootViewController)
             self.window?.rootViewController = mainViewController
             self.window?.makeKeyAndVisible()

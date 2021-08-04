@@ -23,7 +23,7 @@ struct NetworkInfo {
     static var headerWithToken: HTTPHeaders {
         [
             NetworkHeaderKey.contentType.rawValue: APIConstants.applicationJSON,
-            NetworkHeaderKey.auth.rawValue: String(decoding: token!, as: UTF8.self)
+            NetworkHeaderKey.auth.rawValue: String(decoding: token ?? Data(), as: UTF8.self)
         ]
     }
 }
