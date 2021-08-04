@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,19 +18,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 하나의 윈도우 객체 할당
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-    
         window?.rootViewController = SplashViewController()
         // 생성한 윈도우를 핵심 윈도우로 보여줌 (윈도우는 여러 개 생성 가능)
         window?.makeKeyAndVisible()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            let rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil)
-            .instantiateViewController(identifier: "MainViewController")
+            var rootViewController = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+            .instantiateViewController(identifier: "LoginViewController")
+            if KeyChain.load(key: "token") != nil {
+                rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
+            }
             let mainViewController = UINavigationController(rootViewController: rootViewController)
             self.window?.rootViewController = mainViewController
             self.window?.makeKeyAndVisible()
         }
 
+    }
+    
+    // 카카오톡 화면 전환을 위한 함수
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                _ = AuthController.handleOpenUrl(url: url)
+            }
+        }
     }
 
 }

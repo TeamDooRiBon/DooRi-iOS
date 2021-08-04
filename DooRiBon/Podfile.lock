@@ -1,14 +1,47 @@
 PODS:
-  - Alamofire (5.4.1)
+  - Alamofire (5.4.3)
   - FSCalendar (2.8.3)
-  - Kingfisher (6.1.0)
-  - lottie-ios (3.2.0)
+  - KakaoSDK (2.5.4):
+    - KakaoSDKAuth (= 2.5.4)
+    - KakaoSDKCommon (= 2.5.4)
+    - KakaoSDKLink (= 2.5.4)
+    - KakaoSDKNavi (= 2.5.4)
+    - KakaoSDKStory (= 2.5.4)
+    - KakaoSDKTalk (= 2.5.4)
+    - KakaoSDKTemplate (= 2.5.4)
+    - KakaoSDKUser (= 2.5.4)
+  - KakaoSDKAuth (2.5.4):
+    - KakaoSDKCommon (= 2.5.4)
+  - KakaoSDKCommon (2.5.4):
+    - KakaoSDKCommon/Common (= 2.5.4)
+    - KakaoSDKCommon/Network (= 2.5.4)
+  - KakaoSDKCommon/Common (2.5.4)
+  - KakaoSDKCommon/Network (2.5.4):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.5.4)
+  - KakaoSDKLink (2.5.4):
+    - KakaoSDKCommon (= 2.5.4)
+    - KakaoSDKTemplate (= 2.5.4)
+  - KakaoSDKNavi (2.5.4):
+    - KakaoSDKCommon/Common (= 2.5.4)
+  - KakaoSDKStory (2.5.4):
+    - KakaoSDKUser (= 2.5.4)
+  - KakaoSDKTalk (2.5.4):
+    - KakaoSDKTemplate (= 2.5.4)
+    - KakaoSDKUser (= 2.5.4)
+  - KakaoSDKTemplate (2.5.4):
+    - KakaoSDKCommon/Common (= 2.5.4)
+  - KakaoSDKUser (2.5.4):
+    - KakaoSDKAuth (= 2.5.4)
+  - Kingfisher (6.3.0)
+  - lottie-ios (3.2.3)
   - SkeletonView (1.21.1)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - FSCalendar (from `https://github.com/hyejinL/FSCalendar.git`, branch `dooribun`)
+  - KakaoSDK
   - Kingfisher (~> 6.0)
   - lottie-ios
   - SkeletonView
@@ -17,6 +50,15 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - KakaoSDK
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKLink
+    - KakaoSDKNavi
+    - KakaoSDKStory
+    - KakaoSDKTalk
+    - KakaoSDKTemplate
+    - KakaoSDKUser
     - Kingfisher
     - lottie-ios
     - SkeletonView
@@ -33,13 +75,22 @@ CHECKOUT OPTIONS:
     :git: https://github.com/hyejinL/FSCalendar.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   FSCalendar: ed63fee7df375e34340c1236308fdbfc568d26ac
-  Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
-  lottie-ios: b6b911246246a90a1d25e7388afe6d9ef003d293
+  KakaoSDK: d6195a679d9964a243f816eb160397a41b40d89c
+  KakaoSDKAuth: 6fbd3579e80efffa05a24f17f696c59ca5ab331f
+  KakaoSDKCommon: caa186f5cf6f7426ab5135b43001ad997e018daa
+  KakaoSDKLink: f28c1cfd67e76e8a4dd11b6dc11d9516be98ba72
+  KakaoSDKNavi: 3da6692ef3c6c5260f0239edeef3f21c438022c0
+  KakaoSDKStory: 2f58e2f89a1b032dae4d98fc33faebebafa46189
+  KakaoSDKTalk: 41abfd99cf661b186935b95fa295c412dd2eb8a8
+  KakaoSDKTemplate: 37c2c19dad4538a0897fde26ac367e7c7f0c2f11
+  KakaoSDKUser: 285abc213101bd07a9b44735defd36994ea9ada8
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   SkeletonView: 5b79eb6e09d2a7f3d2e620d34ff97510a1c763e9
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 91b9fe361384338c0b3bc166b8cc09b9f88e5abf
+PODFILE CHECKSUM: dd7b291ee0b6c293c68697bb3c79e0feb71e980a
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

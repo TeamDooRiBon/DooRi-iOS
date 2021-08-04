@@ -6,15 +6,24 @@
 //
 
 import UIKit
+import KakaoSDKCommon
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
+    // 카카오 SDK 초기화
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        removeKeychainAtFirstLaunch()
+        KakaoSDKCommon.initSDK(appKey: "20b5a489718efe1008ff1dfbb41fa0f3")
         return true
+    }
+    
+    private func removeKeychainAtFirstLaunch() {
+        guard UserDefaults.isFirstLaunch() else {
+            return
+        }
+        KeyChain.delete(key: "token")
     }
 
     // MARK: UISceneSession Lifecycle
@@ -37,5 +46,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     static var currentKeyWindow: UIWindow? {
         UIApplication.shared.windows.first { $0.isKeyWindow }
+    }
+}
+
+extension UserDefaults {
+    public static func isFirstLaunch() -> Bool {
+        let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
+        let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
+        if isFirstLaunch {
+            UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
+            UserDefaults.standard.synchronize()
+        }
+        return isFirstLaunch
     }
 }

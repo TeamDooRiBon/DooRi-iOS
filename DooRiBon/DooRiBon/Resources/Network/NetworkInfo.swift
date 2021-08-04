@@ -16,7 +16,6 @@ enum NetworkHeaderKey: String {
 
 struct NetworkInfo {
     static let shared = NetworkInfo()
-    // 나중에는 카카오 로그인 처리 후에 UserDefault에 저장해놓은 token 값 사용
     static let token = APIConstants.jwtToken
     static var header: HTTPHeaders {
         [NetworkHeaderKey.contentType.rawValue: APIConstants.applicationJSON]
@@ -24,7 +23,7 @@ struct NetworkInfo {
     static var headerWithToken: HTTPHeaders {
         [
             NetworkHeaderKey.contentType.rawValue: APIConstants.applicationJSON,
-            NetworkHeaderKey.auth.rawValue: token
+            NetworkHeaderKey.auth.rawValue: String(decoding: token ?? Data(), as: UTF8.self)
         ]
     }
 }

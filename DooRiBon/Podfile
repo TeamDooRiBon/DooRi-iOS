@@ -6,6 +6,7 @@ target 'DooRiBon' do
   use_frameworks!
 
   # Pods for DooRiBon
+  pod 'KakaoSDK'
   pod 'Alamofire', '~> 5.4'
   pod 'SnapKit', '~> 5.0.0'
   pod 'FSCalendar', :git => 'https://github.com/hyejinL/FSCalendar.git', :branch => 'dooribun'

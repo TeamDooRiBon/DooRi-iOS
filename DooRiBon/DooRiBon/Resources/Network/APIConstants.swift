@@ -8,6 +8,7 @@
 // MARK: 해당 파일 안에는 API 관련 상수들을 추가해주세요!!
 // - 싱글턴으로 변수를 생성해주세요.
 // - ex. static let baseURL = "https://www.example.com"
+import UIKit
 struct APIConstants {
     // MARK: - Headers
     
@@ -23,12 +24,12 @@ struct APIConstants {
 
     // MARK: - Keys
     
-    static let jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjBmMWRkYTA0N2IzOTIyMDJjY2RjMDQ0In0sImlhdCI6MTYyNjg0NTY5NywiZXhwIjoxNjI3MjA1Njk3fQ.grPcs4IC2IsTkfrCsWUIykGbeohlj7GOtHcGhN4oP1I"
+    static let jwtToken = KeyChain.load(key: "token")
     
     // MARK: - URLs
     
     // Base URL
-    static let baseURL = "http://13.209.82.176:5000"
+    static let baseURL = "http://13.124.221.142:5000"
 
     // MARK: - /travel URLs
     static let tripURL = baseURL + "/travel"
@@ -40,6 +41,7 @@ struct APIConstants {
     static let addMemberURL = baseURL + "/travel/:groupId"
 
     // MARK: - /auth/user URLs
+    static let loginURL = baseURL + "/auth/user"
     
     // MARK: - /schedule
     static let getSpecificDateURL = baseURL + "/schedule/daily/:groupId/:date"
