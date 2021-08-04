@@ -236,9 +236,9 @@ extension PlanViewController {
             switch response {
             case .success(let data):
                 if let schedule = data as? [Schedule] {
-                    self?.endLoading()
                     self!.planData = schedule
                 }
+                self?.endLoading()
             case .requestErr(_):
                 print("requestErr")
                 self?.endLoading()
