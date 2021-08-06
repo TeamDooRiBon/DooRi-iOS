@@ -311,7 +311,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="StartTripButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Zc3-tL-dlR"/>
+                                                            <action selector="startTripButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MpH-H4-GMq"/>
                                                         </connections>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OhN-5e-I1y">
@@ -958,7 +958,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="white8"/>
+                                <color key="backgroundColor" name="gray7"/>
                                 <constraints>
                                     <constraint firstItem="JYu-94-62j" firstAttribute="top" secondItem="9b9-AS-Jj4" secondAttribute="top" id="Hot-xu-Edn"/>
                                     <constraint firstAttribute="bottom" secondItem="JYu-94-62j" secondAttribute="bottom" id="ZCU-AS-v2c"/>
@@ -994,7 +994,7 @@
                         <outlet property="lastTripMenuLabel" destination="e4P-fF-cjq" id="NOW-qr-VY9"/>
                         <outlet property="lastTripTableView" destination="8Qi-1i-xlm" id="dA2-B8-cer"/>
                         <outlet property="lastTripTableViewHeightConstraint" destination="IVg-dk-05z" id="vZI-Bq-f5j"/>
-                        <outlet property="mainContentView" destination="JYu-94-62j" id="MvE-qg-I88"/>
+                        <outlet property="mainScrollView" destination="9b9-AS-Jj4" id="2Nx-Mc-JUZ"/>
                         <outlet property="mainTitleLabel" destination="qO8-47-OZQ" id="hCw-48-5GJ"/>
                         <outlet property="nowTripDateLabel" destination="O1A-tm-fec" id="h3x-3H-xvL"/>
                         <outlet property="nowTripImageView" destination="HB0-bl-kBm" id="Bkr-xL-yeE"/>
@@ -1005,8 +1005,6 @@
                         <outlet property="nowTripStateLabel" destination="gSu-8C-4t4" id="hHk-mY-Hym"/>
                         <outlet property="nowTripStateView" destination="dfC-lr-piq" id="YVq-jj-YLI"/>
                         <outlet property="nowTripTitleLabel" destination="tZI-OE-Apb" id="vQS-P5-xo2"/>
-                        <outlet property="scrollView" destination="9b9-AS-Jj4" id="enT-KI-1h8"/>
-                        <outlet property="startNewTripButton" destination="jgb-GJ-dzU" id="4ms-6t-nlI"/>
                         <outlet property="styleTripMenuLabel" destination="DnP-lS-p1V" id="1hy-o7-qYA"/>
                         <outlet property="styleTripView" destination="C35-t1-y67" id="59z-XA-34S"/>
                     </connections>
