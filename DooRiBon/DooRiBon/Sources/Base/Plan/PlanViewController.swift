@@ -199,6 +199,7 @@ extension PlanViewController {
         guard let model = (self.tabBarController as! TripViewController).tripData else { return }
         getDate(startDate: model.startDate, endDate: model.endDate)
         tripData = model
+        setupTopView()
     }
     
     /// TopView Setup
