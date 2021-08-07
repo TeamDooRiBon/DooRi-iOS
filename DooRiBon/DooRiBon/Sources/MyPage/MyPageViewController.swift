@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import KakaoSDKUser
 
 class MyPageViewController: UIViewController {
 
@@ -117,13 +118,16 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
                     if event == .confirm {
                         KeyChain.delete(key: "token")
                         UserDefaults.standard.set(false, forKey: "hasBeenLaunchedBeforeFlag")
-                        let loginSB = UIStoryboard(name: "LoginStoryboard", bundle: nil)
-                        if let loginVC = loginSB.instantiateViewController(identifier: "LoginViewController") as? LoginViewController {
-                            loginVC.modalPresentationStyle = .overFullScreen
-                            self.present(loginVC, animated: true, completion: nil)
+                        UserApi.shared.logout {(error) in
+                            if let error = error {
+                                print(error)
+                            }
+                            else {
+                                print("logout() success.")
+                            }
                         }
-                    } else {
-                        self.dismiss(animated: true, completion: nil)
+                        guard let loginVC = UIStoryboard(name: "LoginStoryboard", bundle: nil).instantiateViewController(identifier: "LoginViewController") as? LoginViewController else {return}
+                        UIApplication.shared.keyWindow?.rootViewController = loginVC
                     }
                 }
         default:
