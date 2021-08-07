@@ -9,6 +9,7 @@ import UIKit
 
 import Kingfisher
 import SkeletonView
+import SnapKit
 
 class MainViewController: UIViewController {
     
@@ -273,7 +274,15 @@ class MainViewController: UIViewController {
         }
         
     }
-
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == comeTripCollectionView {
+            indicatorBar.snp.updateConstraints({ (make) in
+                make.left.equalTo(indicatorBar.frame.origin.x)
+            })
+        }
+    }
+    
 }
 
 // MARK: - Extension
