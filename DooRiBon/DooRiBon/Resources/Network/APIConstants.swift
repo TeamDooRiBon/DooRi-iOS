@@ -63,7 +63,7 @@ struct APIConstants {
     // MARK: - /image
     
     // MARK: - /user/myPage
-
+    static let myPageURL = baseURL + "/user/myPage"
 }
 
     // MARK: - URLs
