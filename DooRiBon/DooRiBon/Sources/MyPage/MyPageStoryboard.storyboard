@@ -58,12 +58,12 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
+                                                <real key="value" value="18"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k31-9c-wCW">
-                                        <rect key="frame" x="20" y="93" width="31.5" height="18"/>
+                                        <rect key="frame" x="20" y="93" width="29.5" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="vgW-UU-Od1"/>
                                         </constraints>
@@ -71,12 +71,18 @@
                                         <color key="textColor" name="white9"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0lG-cm-vag">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0lG-cm-vag">
                                         <rect key="frame" x="294" y="92" width="63" height="63"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="63" id="L0d-zx-XZL"/>
                                             <constraint firstAttribute="width" constant="63" id="WWv-gw-qS4"/>
                                             <constraint firstAttribute="width" secondItem="0lG-cm-vag" secondAttribute="height" id="owi-GK-zFg"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="owi-GK-zFg"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="pointBlue"/>
@@ -108,7 +114,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 여행" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUf-l7-JyA">
-                                                        <rect key="frame" x="18" y="69" width="48" height="26"/>
+                                                        <rect key="frame" x="18" y="69" width="46" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="ZQb-rI-6lS"/>
                                                         </constraints>
@@ -117,7 +123,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYz-ez-YcP">
-                                                        <rect key="frame" x="18" y="95" width="42" height="26"/>
+                                                        <rect key="frame" x="18" y="95" width="39.5" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="cIm-V1-nwe"/>
                                                         </constraints>
@@ -152,7 +158,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 여행성향 결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1F-77-G52">
-                                                        <rect key="frame" x="18" y="69" width="110.5" height="26"/>
+                                                        <rect key="frame" x="18" y="69" width="106" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="m8a-cG-7R4"/>
                                                         </constraints>
@@ -161,7 +167,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb3-sY-qPj">
-                                                        <rect key="frame" x="18" y="95" width="42" height="26"/>
+                                                        <rect key="frame" x="18" y="95" width="39.5" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="KFb-YR-5ft"/>
                                                         </constraints>
@@ -249,6 +255,8 @@
                         <outlet property="userEmailLabel" destination="k31-9c-wCW" id="Ynk-pR-2Nt"/>
                         <outlet property="userNameLabel" destination="6DY-uM-6T0" id="Ct8-Yg-oPa"/>
                         <outlet property="userProfileImage" destination="0lG-cm-vag" id="cQG-0A-kD8"/>
+                        <outlet property="userStyleTestCount" destination="Yb3-sY-qPj" id="MlI-hj-icJ"/>
+                        <outlet property="userTripCount" destination="VYz-ez-YcP" id="k03-7v-3tO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
