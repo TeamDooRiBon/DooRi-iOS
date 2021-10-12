@@ -37,7 +37,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
-                                        <state key="normal" title="카카오톡으로 로그인" image="iconKakaoTalk">
+                                        <state key="normal" title="카카오톡으로 로그인" image="iconKakaoTalK">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -146,7 +146,7 @@
     </scenes>
     <resources>
         <image name="iconApple" width="25" height="25.5"/>
-        <image name="iconKakaoTalk" width="28" height="27.5"/>
+        <image name="iconKakaoTalK" width="28" height="27.5"/>
         <image name="loginBackgroundImg" width="375" height="812.5"/>
         <image name="loginLogoImg" width="132" height="119.5"/>
         <image name="loginTextImg" width="185" height="64.5"/>
