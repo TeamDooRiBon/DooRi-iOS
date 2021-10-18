@@ -257,6 +257,7 @@
 		4038127226A15E6E0013B266 /* MainStyleTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStyleTestService.swift; sourceTree = "<group>"; };
 		403E0F0B26BEACBC00809D5B /* MyPageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDataModel.swift; sourceTree = "<group>"; };
 		403E0F0D26BEACD800809D5B /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
+		40560088271DCE4B001CF322 /* DooRiBon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DooRiBon.entitlements; sourceTree = "<group>"; };
 		4057E82D269F0DAA00DE024D /* StyleTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTestService.swift; sourceTree = "<group>"; };
 		40708BE826B127B500259527 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		40708BEA26B1298600259527 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -1043,6 +1044,7 @@
 		BD75C2C6268B4B3800C4F233 /* DooRiBon */ = {
 			isa = PBXGroup;
 			children = (
+				40560088271DCE4B001CF322 /* DooRiBon.entitlements */,
 				BD75C2E2268B518600C4F233 /* Application */,
 				BD75C2DB268B4DEE00C4F233 /* Resources */,
 				BD75C2DC268B4DFD00C4F233 /* Sources */,
@@ -1677,19 +1679,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QG3GC35LA;
+				CODE_SIGN_ENTITLEMENTS = DooRiBon/DooRiBon.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2021.10.19.0100;
+				DEVELOPMENT_TEAM = Y6J9HAPEME;
 				INFOPLIST_FILE = DooRiBon/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codershigh.dooribon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooriboncorp.dooribon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dooribon_Develop;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1699,19 +1703,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QG3GC35LA;
+				CODE_SIGN_ENTITLEMENTS = DooRiBon/DooRiBon.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2021.10.19.0100;
+				DEVELOPMENT_TEAM = Y6J9HAPEME;
 				INFOPLIST_FILE = DooRiBon/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codershigh.dooribon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooriboncorp.dooribon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dooribon_Develop;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
